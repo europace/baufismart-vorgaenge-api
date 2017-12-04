@@ -3,7 +3,7 @@ swagger: "2.0"
 info:
   description: "Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen\
     \ werden."
-  version: "2.0"
+  version: "2.1"
   title: "Vorgänge API"
   contact:
     name: "Europace AG"
@@ -1999,6 +1999,8 @@ definitions:
         $ref: "#/definitions/SchufaErgebnis"
       staatsangehoerigkeit:
         $ref: "#/definitions/Staat"
+      steuerId:
+        type: "string"
       telefonnummer:
         type: "string"
       telefonnummerVorwahl:
