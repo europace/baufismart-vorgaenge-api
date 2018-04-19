@@ -1,6 +1,6 @@
 # Vorgänge Auslesen API
 
-##### Aktuelle Version: 2.1
+##### Aktuelle Version: 2.2
 
 API Definition zum Auslesen von Vorgängen aus der Europace-Plattform aus Sicht eines Vertriebes.
 
