@@ -3,7 +3,7 @@ swagger: "2.0"
 info:
   description: "Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen\
     \ werden."
-  version: "2.2"
+  version: "2.3"
   title: "Vorgänge API"
   contact:
     name: "Europace AG"
@@ -2996,6 +2996,11 @@ definitions:
         type: "array"
         items:
           $ref: "#/definitions/Antrag"
+      aufbewahrungBis:
+        type: "string"
+        format: "date"
+        description: "Datum, bis wann dieser Vorgang nach DSGVO aufbewahrt werden\
+          \ muss. Nach diesem Datum wird der Vorgang automatisch gelöscht."
       bankverbindung:
         $ref: "#/definitions/Bankverbindung"
       datenKontext:
