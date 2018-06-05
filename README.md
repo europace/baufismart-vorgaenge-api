@@ -18,7 +18,7 @@ werden. Dazu empfehlen wir das Tool [Swagger Codegen](https://github.com/swagger
 ### Generierung des Clients
 ##### JAVA mit Retrofit
 
-1. Die aktuelle Swagger Version, mindestens 2.2.2, downloaden
+1. Die aktuelle Swagger Version (mindestens 2.2.2) downloaden
 2. Client mit folgendem Kommando generieren:
 
 Example:
