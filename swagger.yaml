@@ -685,6 +685,10 @@ definitions:
   Angebot:
     type: "object"
     properties:
+      bausparvertraege:
+        type: "array"
+        items:
+          $ref: "#/definitions/Bausparvertrag"
       beleihungsRechnung:
         $ref: "#/definitions/BeleihungsRechnung"
       bewertungDesAngebots:
@@ -692,6 +696,10 @@ definitions:
         enum:
         - "ANGEBOT_ENTSPRICHT_DER_EMPFEHLUNG_DES_KUNDENBETREUERS"
         - "ANGEBOT_ENTSPRICHT_DEM_WUNSCH_DES_KUNDEN"
+      darlehen:
+        type: "array"
+        items:
+          $ref: "#/definitions/Darlehen"
       erzeugtAm:
         type: "string"
         format: "date-time"
@@ -704,10 +712,16 @@ definitions:
         - "MACHBAR"
         - "UNTER_VORBEHALT_PRODUZENT"
         - "NICHT_MACHBAR"
+      meldungen:
+        type: "array"
+        items:
+          $ref: "#/definitions/Meldung"
       pruefungsErgebnisse:
         type: "array"
         items:
           $ref: "#/definitions/AngebotsPruefungsErgebnis"
+      _links:
+        $ref: "#/definitions/Links"
     title: "Angebot"
   AngebotsPruefungsErgebnis:
     type: "object"
@@ -751,6 +765,7 @@ definitions:
     type: "object"
     properties:
       angebot:
+        description: "Das angenommene Angebot, auf dem dieser Antrag basiert"
         $ref: "#/definitions/Angebot"
       ansprechpartner:
         $ref: "#/definitions/Partner"
@@ -1224,6 +1239,44 @@ definitions:
           \ sparBeitragMonatlichRelativ, tilgungsBeitragMonatlich und zuteilungsDatum\
           \ können maximal zwei befüllt werden."
     title: "BausparWunsch"
+  Bausparvertrag:
+    type: "object"
+    properties:
+      abschlussGebuehr:
+        type: "number"
+      angebotsHinweisFuerAntragsteller:
+        type: "string"
+        description: "nur bei neuen extern berechneten Bausparverträgen und bei Gegenangeboten"
+      bausparSumme:
+        type: "number"
+      einmalzahlung:
+        type: "number"
+      gesamtLaufzeitInJahren:
+        type: "integer"
+        format: "int32"
+      id:
+        type: "string"
+      produktAnbieter:
+        $ref: "#/definitions/ProduktAnbieter"
+      sparPhase:
+        $ref: "#/definitions/SparPhase"
+      tarif:
+        type: "string"
+      tilgungsPhase:
+        $ref: "#/definitions/TilgungsPhase"
+      typ:
+        type: "string"
+      vertragsBeginn:
+        type: "string"
+        format: "date"
+      vertragsNummer:
+        type: "string"
+      verwaltungsgebuehrenJaehrlich:
+        type: "number"
+      zuteilungsDatum:
+        type: "string"
+        format: "date"
+    title: "Bausparvertrag"
   BeleihungsRechnung:
     type: "object"
     properties:
@@ -1277,6 +1330,15 @@ definitions:
       betragVorFinanzierung:
         type: "number"
     title: "BerechnungsHilfeBetrag"
+  Bereitstellung:
+    type: "object"
+    properties:
+      bereitstellungsZins:
+        type: "number"
+      bereitstellungsZinsFreieZeitInMonaten:
+        type: "integer"
+        format: "int32"
+    title: "Bereitstellung"
   BereitstellungsZinsFreieZeitPraeferenz:
     type: "object"
     properties:
@@ -1665,6 +1727,116 @@ definitions:
   CharSequence:
     type: "object"
     title: "CharSequence"
+  Darlehen:
+    type: "object"
+    properties:
+      auszahlungsBetrag:
+        type: "number"
+      auszahlungsDatum:
+        type: "string"
+        format: "date"
+        description: "nur bei darlehensArt==FORWARD_DARLEHEN"
+      auszahlungsKurs:
+        type: "number"
+      bereitstellung:
+        description: "nicht bei darlehensArt==PRIVAT_DARLEHEN"
+        $ref: "#/definitions/Bereitstellung"
+      darlehensBetrag:
+        type: "number"
+      darlehensTyp:
+        type: "string"
+        enum:
+        - "ANNUITAETEN_DARLEHEN"
+        - "FORWARD_DARLEHEN"
+        - "KFW_DARLEHEN"
+        - "PRIVAT_DARLEHEN"
+        - "ZWISCHEN_FINANZIERUNG"
+        - "VARIABLES_DARLEHEN"
+      detailsZurVerwendung:
+        type: "string"
+        description: "nur bei darlehensArt==ZWISCHEN_FINANZIERUNG"
+      effektivZins:
+        type: "number"
+      effektivZinsRelevanteKosten:
+        $ref: "#/definitions/EffektivZinsKosten"
+      forwardPeriodeInMonaten:
+        type: "integer"
+        format: "int32"
+        description: "nur bei darlehensArt==FORWARD_DARLEHEN"
+      kfwEnergieEffizienzStandard:
+        type: "string"
+        description: "nur bei darlehensArt==KFW_DARLEHEN. Nur bei KfW-Programm 153\
+          \ relevant. Bei neuen Energieeffizienzstandards können auch weitere Werte\
+          \ zulässig werden."
+        enum:
+        - "STANDARD_40_PLUS"
+        - "STANDARD_40"
+        - "STANDARD_55"
+        - "STANDARD_70"
+      kfwProgramm:
+        type: "string"
+        description: "Bei neu aufgelegten KfW-Programmen können auch weitere Werte\
+          \ zulässig werden."
+        enum:
+        - "PROGRAMM_124"
+        - "PROGRAMM_141"
+        - "PROGRAMM_151"
+        - "PROGRAMM_152"
+        - "PROGRAMM_153"
+        - "PROGRAMM_155"
+        - "PROGRAMM_159"
+        - "PROGRAMM_167"
+      konditionWurdeManuellAngepasst:
+        type: "boolean"
+      konditionsAnpassungsBegruendung:
+        type: "string"
+        description: "Begründung, wenn die Kondition angepasst wurde"
+      laufZeitInJahren:
+        type: "integer"
+        format: "int32"
+        description: "nur bei darlehensArt==KFW_DARLEHEN"
+      laufzeitInMonaten:
+        type: "integer"
+        format: "int32"
+        description: "nur bei darlehensArt==PRIVAT_DARLEHEN"
+      maximaleLaufzeitInMonaten:
+        type: "integer"
+        format: "int32"
+        description: "nur bei darlehensArt==ZWISCHEN_FINANZIERUNG"
+      produktAnbieter:
+        $ref: "#/definitions/ProduktAnbieter"
+      rateMonatlich:
+        type: "number"
+        example: 123.34
+        description: "Die monatliche Rate in Euro"
+      rateMonatlichInDerTilgungsfreienAnlaufzeit:
+        type: "number"
+        description: "nur bei darlehensArt==KFW_DARLEHEN"
+      sollZins:
+        type: "number"
+        example: 2.05
+        description: "Der Sollzinssatz in Prozent"
+      tilgung:
+        description: "nicht bei darlehensArt==ZWISCHEN_FINANZIERUNG"
+        $ref: "#/definitions/Tilgung"
+      tilgungsFreieAnlaufJahre:
+        type: "integer"
+        format: "int32"
+        description: "nur bei darlehensArt==KFW_DARLEHEN"
+      verwendungszweck:
+        type: "string"
+        description: "nur bei darlehensArt==ZWISCHEN_FINANZIERUNG"
+        enum:
+        - "VORFINANZIERUNG_OEFFENTLICHER_MITTEL"
+        - "VERKAUF_EINES_ANDEREN_OBJEKTS"
+        - "SONSTIGE_VERWENDUNG"
+      zinsBindung:
+        description: "nicht bei darlehensArt IN [VARIABLES_DARLEHEN,ZWISCHEN_FINANZIERUNG]"
+        $ref: "#/definitions/ZinsBindung"
+      zinsZahlungsBeginnAm:
+        type: "string"
+        format: "date"
+    title: "Darlehen"
   DarlehensWunsch:
     type: "object"
     properties:
@@ -1719,6 +1891,24 @@ definitions:
       wohnGebaeudeVersicherungsKostenJaehrlich:
         type: "number"
     title: "EffektivZinsErhoehendeKosten"
+  EffektivZinsKosten:
+    type: "object"
+    properties:
+      beratungsHonorar:
+        type: "number"
+      grundbuchKosten:
+        type: "number"
+      sonstigeKosten:
+        type: "number"
+      tilgungsErsatzProduktKosten:
+        type: "number"
+      wohnGebaeudeVersicherungsKosten:
+        type: "number"
+      zinsabsicherungsKosten:
+        type: "number"
+      zusatzSicherheitsKosten:
+        type: "number"
+    title: "EffektivZinsKosten"
   EinkuenfteAusNebentaetigkeit:
     type: "object"
     properties:
@@ -2405,6 +2595,34 @@ definitions:
       self:
         $ref: "#/definitions/Link"
     title: "Links"
+  Meldung:
+    type: "object"
+    properties:
+      kategorie:
+        type: "string"
+        description: "Neue Ausprägungen können kurzfristig hinzukommen. Der Client\
+          \ muss daher mit unbekannten Werten umgehen können."
+        enum:
+        - "AUSZAHLUNGS_VORAUSSETZUNG"
+        - "MACHBAR"
+        - "MACHBARKEITS_HINWEIS"
+        - "ANPASSUNG_KUNDENWUNSCH"
+        - "ANPASSUNG_VERTRIEBSWUNSCH"
+        - "UNBERUECKSICHTIGTE_ANGABE"
+        - "KONDITIONEN_UNTER_VORBEHALT_VOLLSTAENDIGER_DATEN"
+        - "KONDITIONEN_UNTER_VORBEHALT_EXTERNER_SCHNITTSTELLEN"
+        - "MACHBARKEIT_UNTER_VORBEHALT_VOLLSTAENDIGER_DATEN"
+        - "MACHBARKEIT_UNTER_VORBEHALT_EXTERNER_SCHNITTSTELLEN"
+        - "MACHBAR_UNTER_VORBEHALT_PRODUZENT"
+        - "NICHT_MACHBAR"
+        - "NICHT_ANBIETBAR"
+      kreditEntscheider:
+        $ref: "#/definitions/ProduktAnbieter"
+      produktAnbieter:
+        $ref: "#/definitions/ProduktAnbieter"
+      text:
+        type: "string"
+    title: "Meldung"
   MietAusgaben:
     type: "object"
     properties:
@@ -2790,6 +3008,36 @@ definitions:
         - "ABGELEHNT"
         - "ZURUECKGESTELLT"
     title: "StatusDTO"
+  Tilgung:
+    type: "object"
+    properties:
+      anfaenglicheTilgung:
+        type: "number"
+        description: "wenn null oder 0: tilgungsausgesetzt"
+      sonderTilgungJaehrlich:
+        type: "number"
+        description: "nur wenn darlehensArt IN [ANNUITAETEN_DARLEHEN,FORWARD_DARLEHEN]\
+          \ und KEIN tilgungsErsatz"
+      tilgungsBeginnAm:
+        type: "string"
+        format: "date"
+        description: "nullable"
+      tilgungsErsatz:
+        description: "nicht bei PRIVAT_DARLEHEN"
+        $ref: "#/definitions/TilgungsErsatz"
+    title: "Tilgung"
+  TilgungsErsatz:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+        description: "Id des Tilgungsersatzproduktes, das in den Vermögenswerten des\
+          \ Haushalts oder in den Bausparangeboten des Angebotes zu finden ist."
+      typ:
+        type: "string"
+        description: "Menschenlesbarer Hinweis auf den Typ, z.B. BAUSPARVERTRAG oder\
+          \ KAPITALBILDENDE_LEBENSVERSICHERUNG"
+    title: "TilgungsErsatz"
   TilgungsPhase:
     type: "object"
     properties:
