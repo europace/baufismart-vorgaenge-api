@@ -1,8 +1,10 @@
 # Vorgänge Auslesen API
 
-##### Aktuelle Version: 2.3
-
 API Definition zum Auslesen von Vorgängen aus der Europace-Plattform aus Sicht eines Vertriebes.
+
+# Dokumentation
+
+*Aktuelle Version: 2.3*
 
 ### Swagger Spezifikationen
 Die API ist vollständig in Swagger definiert. Die Swagger Definitionen werden sowohl im JSON- ([swagger.json](swagger.json)) als auch im YAML-Format ([swagger.yaml](swagger.yaml)) zur Verfügung gestellt.
