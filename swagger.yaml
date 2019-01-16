@@ -184,7 +184,7 @@ paths:
         200:
           description: "OK"
           schema:
-            $ref: "#/definitions/CharSequence"
+            $ref: "#/definitions/Vorgang"
         204:
           description: "No Content"
         401:
