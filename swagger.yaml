@@ -160,8 +160,8 @@ paths:
     patch:
       tags:
       - "Vorgänge"
-      summary: "updateVorgangsStatus"
-      operationId: "updateVorgangsStatusUsingPATCH"
+      summary: "Änderung von Metadaten an einem bestehenden Vorgang"
+      operationId: "updateVorgang"
       consumes:
       - "application/json-patch+json"
       produces:
@@ -183,6 +183,8 @@ paths:
       responses:
         200:
           description: "OK"
+          schema:
+            $ref: "#/definitions/CharSequence"
         204:
           description: "No Content"
         401:
@@ -487,7 +489,7 @@ paths:
     put:
       tags:
       - "Vorgänge"
-      summary: "updateKundenBetreuer"
+      summary: "Den Kundenbetreuer ändern"
       operationId: "updateKundenBetreuerUsingPUT"
       produces:
       - "application/json;charset=UTF-8"
@@ -514,41 +516,6 @@ paths:
           description: "Forbidden"
         404:
           description: "Not Found"
-      security:
-      - oauth2:
-        - "API"
-    patch:
-      tags:
-      - "Vorgänge"
-      summary: "Den Kundenbetreuer ändern"
-      operationId: "updateKundenBetreuerUsingPATCH"
-      consumes:
-      - "application/json-patch+json"
-      produces:
-      - "application/json;charset=UTF-8"
-      parameters:
-      - name: "vorgangsNummer"
-        in: "path"
-        description: "vorgangsNummer"
-        required: true
-        type: "string"
-      - in: "body"
-        name: "patchOperations"
-        description: "patchOperations"
-        required: true
-        schema:
-          type: "array"
-          items:
-            $ref: "#/definitions/PatchOperation"
-      responses:
-        200:
-          description: "OK"
-        204:
-          description: "No Content"
-        401:
-          description: "Unauthorized"
-        403:
-          description: "Forbidden"
       security:
       - oauth2:
         - "API"
@@ -636,41 +603,6 @@ paths:
           description: "Forbidden"
         404:
           description: "Not Found"
-      security:
-      - oauth2:
-        - "API"
-    patch:
-      tags:
-      - "Vorgänge"
-      summary: "updateVorgangsBearbeiterId"
-      operationId: "updateVorgangsBearbeiterIdUsingPATCH"
-      consumes:
-      - "application/json-patch+json"
-      produces:
-      - "application/json;charset=UTF-8"
-      parameters:
-      - name: "vorgangsNummer"
-        in: "path"
-        description: "vorgangsNummer"
-        required: true
-        type: "string"
-      - in: "body"
-        name: "patchOperations"
-        description: "patchOperations"
-        required: true
-        schema:
-          type: "array"
-          items:
-            $ref: "#/definitions/PatchOperation"
-      responses:
-        200:
-          description: "OK"
-        204:
-          description: "No Content"
-        401:
-          description: "Unauthorized"
-        403:
-          description: "Forbidden"
       security:
       - oauth2:
         - "API"
@@ -1075,6 +1007,17 @@ definitions:
           - "FUCHS_IMMO_5"
           - "FUCHS_IMMO_6"
           - "FUCHS_IMMO_7"
+          - "LBS_NORD_N_FINANZIERER_F3"
+          - "LBS_NORD_N_FINANZIERER_F4"
+          - "LBS_NORD_N_FINANZIERER_F5"
+          - "LBS_NORD_N_FINANZIERER_F6"
+          - "LBS_NORD_N_FINANZIERER_F7"
+          - "LBS_NORD_N_MODERNISIERER_M8"
+          - "LBS_NORD_N_MODERNISIERER_MX"
+          - "LBS_NORD_N_MODERNISIERER_MINIZINS"
+          - "LBS_NORD_N_STARTER_S4"
+          - "LBS_NORD_N_STARTER_Q5"
+          - "LBS_NORD_N_STARTER_S6"
           - "LBS_HT_CLASSIC_S_2015"
           - "LBS_HT_CLASSIC_F_2015"
           - "LBS_HT_CLASSIC_L_2015"
@@ -1102,6 +1045,28 @@ definitions:
           - "LBS_WEST_ZUHAUSE_FLEX_5_L"
           - "LBS_WEST_ZUHAUSE_FLEX_6_L"
           - "LBS_WEST_ZUHAUSE_FLEX_8_L"
+          - "LBS_WEST_ZUHAUSE_PRIMA"
+          - "LBS_WEST_ZUHAUSE_PRIMA_10"
+          - "LBS_WEST_ZUHAUSE_FLEX_4"
+          - "LBS_WEST_ZUHAUSE_FLEX_5"
+          - "LBS_WEST_ZUHAUSE_FLEX_6"
+          - "LBS_WEST_ZUHAUSE_FLEX_8"
+          - "LBS_WEST_ZUHAUSE_YOUNG"
+          - "LBS_WEST_RIESTER_ZUHAUSE_DIREKT_10"
+          - "LBS_WEST_RIESTER_ZUHAUSE_DIREKT_15"
+          - "LBS_WEST_RIESTER_ZUHAUSE_DIREKT_PLUS"
+          - "LBS_WEST_RIESTER_ZUHAUSE_FLEX_4"
+          - "LBS_WEST_RIESTER_ZUHAUSE_FLEX_5"
+          - "LBS_WEST_RIESTER_ZUHAUSE_FLEX_6"
+          - "LBS_WEST_RIESTER_ZUHAUSE_FLEX_8"
+          - "LBS_WEST_RIESTER_ZUHAUSE_FLEX_4_S"
+          - "LBS_WEST_RIESTER_ZUHAUSE_FLEX_5_S"
+          - "LBS_WEST_RIESTER_ZUHAUSE_FLEX_6_S"
+          - "LBS_WEST_RIESTER_ZUHAUSE_FLEX_8_S"
+          - "LBS_WEST_RIESTER_ZUHAUSE_FLEX_4_L"
+          - "LBS_WEST_RIESTER_ZUHAUSE_FLEX_5_L"
+          - "LBS_WEST_RIESTER_ZUHAUSE_FLEX_6_L"
+          - "LBS_WEST_RIESTER_ZUHAUSE_FLEX_8_L"
           - "SIGNAL_IDUNA_FREIRAUM_F_30"
           - "SIGNAL_IDUNA_FREIRAUM_F_30_16"
           - "SIGNAL_IDUNA_FREIRAUM_F_35"
@@ -1137,8 +1102,9 @@ definitions:
           - "DT_RING_TARIF_FT_0"
           - "DT_RING_TARIF_FT_1"
           - "DT_RING_TARIF_FT_2"
-          - "DT_RING_TARIF_XT_0"
           - "DT_RING_TARIF_XT_1"
+          - "DT_RING_TARIF_XT_0"
+          - "DT_RING_TARIF_F_1"
           - "ALTE_LEIPZIGER_1502"
           - "ALTE_LEIPZIGER_1602"
           - "ALTE_LEIPZIGER_1702"
@@ -1204,6 +1170,28 @@ definitions:
           - "WUESTENROT_01064_12"
           - "WUESTENROT_01061_10"
           - "WUESTENROT_01062_4"
+          - "WUESTENROT_01061_10_0000"
+          - "WUESTENROT_01062_04_0000"
+          - "WUESTENROT_01063_05_3585"
+          - "WUESTENROT_01063_07_5110"
+          - "WUESTENROT_01063_09_0000"
+          - "WUESTENROT_01064_10_0000"
+          - "WUESTENROT_01064_04_0000"
+          - "WUESTENROT_01064_04_5000"
+          - "WUESTENROT_01064_05_4121"
+          - "WUESTENROT_01064_06_0000"
+          - "WUESTENROT_01064_07_5161"
+          - "WUESTENROT_01064_09_0000"
+          - "WUESTENROT_01073_04_5000"
+          - "WUESTENROT_01073_05_9000"
+          - "WUESTENROT_01073_08_0000"
+          - "DEUTSCHE_BANK_BAUSPAR_TARIF_FI1"
+          - "DEUTSCHE_BANK_BAUSPAR_TARIF_FI2"
+          - "DEUTSCHE_BANK_BAUSPAR_TARIF_FI3"
+          - "DEUTSCHE_BANK_BAUSPAR_TARIF_FI4"
+          - "DEUTSCHE_BANK_BAUSPAR_TARIF_FX1"
+          - "DEUTSCHE_BANK_BAUSPAR_TARIF_FX2"
+          - "UNBEKANNT"
       id:
         type: "string"
       sonderZahlungEinmalig:
@@ -2769,12 +2757,22 @@ definitions:
   PatchOperation:
     type: "object"
     properties:
+      from:
+        type: "string"
       op:
         type: "string"
+        enum:
+        - "add"
+        - "remove"
+        - "replace"
+        - "move"
+        - "copy"
+        - "test"
       path:
         type: "string"
       value:
-        type: "string"
+        type: "object"
+        properties: {}
     title: "PatchOperation"
   Postadresse:
     type: "object"
