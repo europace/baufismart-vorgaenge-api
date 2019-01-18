@@ -9,7 +9,7 @@ Patch-Operationen sind ein Array, es können also mehrere Patch Kommandos mit ei
 1. [Status des Vorgangs setzen](#Status-des-Vorgangs-setzen)
 2. [Den Kundenbetreuer ändern](#Den-Kundenbetreuer-ändern)
 3. [Den Vorgangsbearbeiter ändern](#Den-Vorgangsbearbeiter-ändern)
-4. [Die eigene (externe) Vorgangsnummer ändern](#Die-eigene-\/-Vorgangsnummer-ändern)
+4. [Die eigene (externe) Vorgangsnummer ändern](#Die-eigene-Vorgangsnummer-ändern)
 
 ### Status des Vorgangs setzen
 
