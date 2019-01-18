@@ -47,7 +47,7 @@ Um den Vorgangsbearbeiter zu Ändern muss nur die PartnerId des Vorgangsbearbeit
 
 Hierbei muss im Feld `partnerId` eine gültige PartnerID unserer Plattform übergeben werden. Des Weiteren muss der entsprechende Partner auch die Berechtigungen haben den Vorgang zu übernehmen.
 
-### Die eigene Vorgangsnummer ändern
+### Die eigene (externe) Vorgangsnummer ändern
 
 Im Feld _externeVorgangsNummer_ kann die eigene Vorgangsnummer gesetzt werden. Diese kann auch via Patch geändert werden:
 
