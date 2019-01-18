@@ -9,7 +9,7 @@ Patch-Operationen sind ein Array, es können also mehrere Patch Kommandos mit ei
 1. [Status des Vorgangs setzen](#Status-des-Vorgangs-setzen)
 2. [Den Kundenbetreuer ändern](#Den-Kundenbetreuer-ändern)
 3. [Den Vorgangsbearbeiter ändern](#Den-Vorgangsbearbeiter-ändern)
-4. [Die eigene Vorgangsnummer ändern](#Die-eigene-Vorgangsnummer-ändern)
+4. [Die eigene Vorgangsnummer ändern](#Die-eigene-\/-Vorgangsnummer-ändern)
 
 ### Status des Vorgangs setzen
 
@@ -47,7 +47,7 @@ Um den Vorgangsbearbeiter zu Ändern muss nur die PartnerId des Vorgangsbearbeit
 
 Hierbei muss im Feld `partnerId` eine gültige PartnerID unserer Plattform übergeben werden. Des Weiteren muss der entsprechende Partner auch die Berechtigungen haben den Vorgang zu übernehmen.
 
-### Die eigene (externe) Vorgangsnummer ändern
+### Die eigene / externe Vorgangsnummer ändern
 
 Im Feld _externeVorgangsNummer_ kann die eigene Vorgangsnummer gesetzt werden. Diese kann auch via Patch geändert werden:
 
