@@ -1,0 +1,38 @@
+@startuml
+title Angebot merken
+actor Client
+
+Client -> ELI: Angebote ermitteln (Vorgang)
+ELI --> Client: Angebote
+
+newpage Angebot(e) merken
+
+Client -> "Vorgaenge-API": Vorgang anlegen
+"Vorgaenge-API" -> Core: Vorgang anlegen
+Core --> "Vorgaenge-API": BTVId, vorgangsNummer
+"Vorgaenge-API" --> Client: vorgangsNummer
+
+Client -> ELI: Angebote ermitteln (vorgangsNummer)
+ELI -> "Vorgaenge-API": getVorgang (vorgangsNummer)
+"Vorgaenge-API" --> ELI: Vorgang
+ELI -> ELI: Angebote ermitteln (Vorgang)
+ELI --> Client: Angebote
+
+Client [#00AA00]-> "Vorgaenge-API": merke Angebot (angebotsId)
+note right: Evtl. eigener Merken Service
+"Vorgaenge-API" -> ELI: getAngebot (angebotsId)
+ELI --> "Vorgaenge-API": Angebot
+"Vorgaenge-API" [#00AA00]-> Core: speichere Angebot (BTVId,Angebot)
+Core --> "Vorgaenge-API": AngebotId
+"Vorgaenge-API" --> Client: Id gemerktes Angebot (mId)
+
+newpage Angebot(e) aktualisieren
+
+Client [#00AA00]-> "Vorgaenge-API": aktualisiere Angebot (mId)
+"Vorgaenge-API" [#00AA00]-> ELI: aktualisiere Angebot (angebotsId)
+ELI -[#00AA00]-> "Vorgaenge-API" : aktualisiertes Angebot
+"Vorgaenge-API" [#00AA00]-> Core: lösche Angebot (BTVId,angebotsId)
+"Vorgaenge-API" [#00AA00]-> Core: speichere Angebot (BTVId,Angebot)
+"Vorgaenge-API" -[#00AA00]-> Client : aktualisiertes Angebot
+
+@enduml
