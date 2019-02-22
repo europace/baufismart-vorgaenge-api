@@ -1,0 +1,30 @@
+@startuml
+hide footbox
+
+title Angebote ermitteln
+actor Client
+
+Client [#00AA00]-> ELI: ermittle Angebote (Mit 'ErfassteDaten' Anfrage)
+ELI [#00AA00]--> Client: Angebote
+|||
+newpage Angebot aktualisieren
+
+|||
+' Waere es möglich anstatt der Vorgangsnummer auch die erfassten Daten mit zu übergeben?
+Client -> ELI: aktualisiere Angebot (Vorgangsnummer, mId)
+ELI -> "Vorgaenge-API": lese gemerktes Angebot (mId)
+"Vorgaenge-API" -> Core: lese gemerktes Angebot(angebotsId)
+Core --> "Vorgaenge-API": Angebot
+"Vorgaenge-API" --> ELI: Angebot
+
+ELI -> "Vorgaenge-API": lese Vorgang (Vorgangsnummer)
+"Vorgaenge-API" --> ELI: Vorgang
+
+ELI -> ELI: aktualisiere Angebot (ErfassteDaten, Angebotsspepezifikation, Produktanbieter)
+ELI --> Client: aktualisiertes Angebot
+
+|||
+
+ref over Client, ELI, "Vorgaenge-API", Core: Angebote merken
+
+@enduml

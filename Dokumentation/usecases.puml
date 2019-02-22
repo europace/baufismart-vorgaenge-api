@@ -1,0 +1,15 @@
+@startuml
+title Usecases
+
+
+Client -> ( Angebote ermitteln )
+Client -> ( Angebot merken )
+Client -> ( Angebot entmerken )
+Client -> ( "Anträge prozessieren" )
+Client -> ( Angebot aktualisieren )
+Client -> ( gemerkte Angebote auslesen )
+
+Client -> ( Unterlagenliste des Gegenangebots ermitteln )
+
+
+@enduml

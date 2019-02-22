@@ -1,0 +1,15 @@
+{
+  "darlehen": [
+    {
+      "darlehensTyp": "ANNUITAETEN_DARLEHEN",
+      "sollZins": 1.59
+    }
+  ],
+  "kennung": "Gegenangebot",
+  "zugrundeliegendesAngebot": {
+    "url": "http://api.europace2.de/v2/vorgaenge/angebot/mid"
+    ?
+  },
+  "machbarkeitsStatus": "MACHBAR",
+  "erzeugtAm": "2019-02-19T11:01:01+01:00"
+}
