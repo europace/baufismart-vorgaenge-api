@@ -1,15 +1,26 @@
 @startuml
-title Usecases
+title Usecase Diagramme
 
+left to right direction
+skinparam packageStyle rectangle
+actor Client as client
 
-Client -> ( Angebote ermitteln )
-Client -> ( Angebot merken )
-Client -> ( Angebot entmerken )
-Client -> ( "Anträge prozessieren" )
-Client -> ( Angebot aktualisieren )
-Client -> ( gemerkte Angebote auslesen )
+rectangle  {
+  (Angebote ermitteln) as ermitteln
+  client -- ermitteln
+  (Angebot merken) as merken
+  client -- merken
+  'merken .> ermitteln: include
 
-Client -> ( Unterlagenliste des Gegenangebots ermitteln )
+  ( Angebot entmerken ) as entmerken
+  client -- entmerken
+  'entmerken .> ermitteln: include
+  ( Angebot aktualisieren ) as aktualsieren
+  client -- aktualsieren
+  'aktualsieren .> ermitteln: include
+  client -- ( gemerkte Angebote auslesen )
 
+  client -- ( Unterlagenliste des Gegenangebots ermitteln )
+}
 
 @enduml
