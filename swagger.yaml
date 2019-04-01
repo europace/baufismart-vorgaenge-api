@@ -3,7 +3,7 @@ swagger: "2.0"
 info:
   description: "Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen\
     \ werden."
-  version: "2.5"
+  version: "2.6"
   title: "Vorgänge API"
   contact:
     name: "Europace AG"
@@ -743,6 +743,17 @@ definitions:
   AntragsStatus:
     type: "object"
     properties:
+      ablehnungsgrund:
+        type: "string"
+        description: "Ablehnungsgrund des Produktanbieters"
+        enum:
+        - "FINANZIELLE_SITUATION"
+        - "NEGATIV_MERKMAL"
+        - "WERTERMITTLUNG"
+        - "KRITERIEN"
+        - "UNTERLAGEN_UNVOLLSTAENDIG"
+        - "GEGENANGEBOT"
+        - "KEINE_ANGABE"
       antragsteller:
         type: "string"
         description: "Willenserklärung des Antragstellers"
@@ -847,6 +858,13 @@ definitions:
         type: "string"
       telefonnummerVorwahl:
         type: "string"
+      titel:
+        type: "array"
+        items:
+          type: "string"
+          enum:
+          - "DOKTOR"
+          - "PROFESSOR"
       titelDoktor:
         type: "boolean"
       titelProfessor:
@@ -1360,6 +1378,25 @@ definitions:
         type: "number"
       bodenRichtwert:
         type: "number"
+      bundesland:
+        type: "string"
+        enum:
+        - "BADEN_WUERTTEMBERG"
+        - "BAYERN"
+        - "BERLIN"
+        - "BRANDENBURG"
+        - "BREMEN"
+        - "HAMBURG"
+        - "HESSEN"
+        - "MECKLENBURG_VORPOMMERN"
+        - "NIEDERSACHSEN"
+        - "NORDRHEIN_WESTFALEN"
+        - "RHEINLAND_PFALZ"
+        - "SAARLAND"
+        - "SACHSEN"
+        - "SACHSEN_ANHALT"
+        - "SCHLESWIG_HOLSTEIN"
+        - "THUERINGEN"
       effektivZinsErhoehendeKosten:
         $ref: "#/definitions/EffektivZinsErhoehendeKosten"
       erbbaurecht:
@@ -1384,6 +1421,10 @@ definitions:
         type: "boolean"
       marktueblicherKaufpreisProQm:
         type: "number"
+      marktwert:
+        type: "number"
+        description: "Nur relevant bei Finanzbedarf AnschlussFinanzierung, Modernisierung\
+          \ und Kapitalbeschaffung."
       maximalEinzusetzenderBetragWennVerkauf:
         type: "number"
       objektArt:
@@ -1398,8 +1439,8 @@ definitions:
         type: "number"
       verkehrswert:
         type: "number"
-        description: "Nur relevant bei Finanzbedarf AnschlussFinanzierung, Modernisierung\
-          \ und Kapitalbeschaffung"
+        description: "Hat den selben Inhalt wie das Feld marktwert. (Wird in v3 nicht\
+          \ mehr enthalten sein)"
       vorlaeufigerVerkehrswert:
         type: "number"
         description: "Diese Angabe ist produktanbieterspezifisch, sie wird nicht von\
@@ -1637,7 +1678,6 @@ definitions:
       laufZeitInJahren:
         type: "integer"
         format: "int32"
-        description: "nur bei darlehensArt==KFW_DARLEHEN"
       laufzeitInMonaten:
         type: "integer"
         format: "int32"
@@ -1812,6 +1852,10 @@ definitions:
   Finanzbedarf:
     type: "object"
     properties:
+      anzahlTeilzahlungen:
+        type: "integer"
+        format: "int32"
+        description: "Anzahl Teilzahlungen bei Neubau, Kauf vom Bauträger sowie Modernisierung"
       aussenAnlagen:
         type: "number"
       bauNebenkosten:
@@ -1876,6 +1920,25 @@ definitions:
         type: "number"
       bodenRichtwert:
         type: "number"
+      bundesland:
+        type: "string"
+        enum:
+        - "BADEN_WUERTTEMBERG"
+        - "BAYERN"
+        - "BERLIN"
+        - "BRANDENBURG"
+        - "BREMEN"
+        - "HAMBURG"
+        - "HESSEN"
+        - "MECKLENBURG_VORPOMMERN"
+        - "NIEDERSACHSEN"
+        - "NORDRHEIN_WESTFALEN"
+        - "RHEINLAND_PFALZ"
+        - "SAARLAND"
+        - "SACHSEN"
+        - "SACHSEN_ANHALT"
+        - "SCHLESWIG_HOLSTEIN"
+        - "THUERINGEN"
       effektivZinsErhoehendeKosten:
         $ref: "#/definitions/EffektivZinsErhoehendeKosten"
       erbbaurecht:
@@ -1892,6 +1955,10 @@ definitions:
         type: "number"
       marktueblicherKaufpreisProQm:
         type: "number"
+      marktwert:
+        type: "number"
+        description: "Nur relevant bei Finanzbedarf AnschlussFinanzierung, Modernisierung\
+          \ und Kapitalbeschaffung."
       objektArt:
         type: "string"
         enum:
@@ -1904,8 +1971,8 @@ definitions:
         type: "number"
       verkehrswert:
         type: "number"
-        description: "Nur relevant bei Finanzbedarf AnschlussFinanzierung, Modernisierung\
-          \ und Kapitalbeschaffung"
+        description: "Hat den selben Inhalt wie das Feld marktwert. (Wird in v3 nicht\
+          \ mehr enthalten sein)"
       vorlaeufigerVerkehrswert:
         type: "number"
         description: "Diese Angabe ist produktanbieterspezifisch, sie wird nicht von\
@@ -2750,6 +2817,14 @@ definitions:
       score:
         type: "string"
     title: "SchufaErgebnis"
+  SelfRelAndEreignisse:
+    type: "object"
+    properties:
+      ereignisse:
+        $ref: "#/definitions/Link"
+      self:
+        $ref: "#/definitions/Link"
+    title: "SelfRelAndEreignisse"
   SituationNachRenteneintritt:
     type: "object"
     properties:
@@ -3160,7 +3235,7 @@ definitions:
       vorhaben:
         $ref: "#/definitions/Vorhaben"
       _links:
-        $ref: "#/definitions/Links"
+        $ref: "#/definitions/SelfRelAndEreignisse"
     title: "Vorgang"
   Vorhaben:
     type: "object"

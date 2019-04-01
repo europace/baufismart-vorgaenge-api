@@ -627,6 +627,7 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#_produktanbieter">ProduktAnbieter</a></li>
 <li><a href="#_rechteabteilung2">RechteAbteilung2</a></li>
 <li><a href="#_schufaergebnis">SchufaErgebnis</a></li>
+    <li><a href="#_selfrelandereignisse">SelfRelAndEreignisse</a></li>
 <li><a href="#_situationnachrenteneintritt">SituationNachRenteneintritt</a></li>
 <li><a href="#_sondertilgungpraeferenz">SondertilgungPraeferenz</a></li>
 <li><a href="#_sparphase">SparPhase</a></li>
@@ -680,7 +681,7 @@ table.CodeRay td.code>pre{padding:0}
 <div class="sect2">
 <h3 id="_aktuelle_version">Aktuelle Version</h3>
 <div class="paragraph">
-<p><em>Version</em> : 2.5</p>
+    <p><em>Version</em> : 2.6</p>
 </div>
 </div>
 <div class="sect2">
@@ -3473,6 +3474,30 @@ table.CodeRay td.code>pre{padding:0}
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+    <p><strong>ablehnungsgrund</strong><br>
+        <em>optional</em></p>
+</div>
+</div>
+</td>
+    <td class="tableblock halign-left valign-middle">
+        <div>
+            <div class="paragraph">
+                <p>Ablehnungsgrund des Produktanbieters</p>
+            </div>
+        </div>
+    </td>
+    <td class="tableblock halign-left valign-middle">
+        <div>
+            <div class="paragraph">
+                <p>enum (FINANZIELLE_SITUATION, NEGATIV_MERKMAL, WERTERMITTLUNG, KRITERIEN, UNTERLAGEN_UNVOLLSTAENDIG, GEGENANGEBOT, KEINE_ANGABE)</p>
+            </div>
+        </div>
+    </td>
+</tr>
+<tr>
+    <td class="tableblock halign-left valign-middle">
+        <div>
+            <div class="paragraph">
 <p><strong>antragsteller</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -3772,6 +3797,26 @@ table.CodeRay td.code>pre{padding:0}
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>string</p>
 </div></div></td>
+</tr>
+<tr>
+    <td class="tableblock halign-left valign-middle">
+        <div>
+            <div class="paragraph">
+                <p><strong>titel</strong><br>
+                    <em>optional</em></p>
+            </div>
+        </div>
+    </td>
+    <td class="tableblock halign-left valign-middle">
+        <div></div>
+    </td>
+    <td class="tableblock halign-left valign-middle">
+        <div>
+            <div class="paragraph">
+                <p>&lt; enum (DOKTOR, PROFESSOR) &gt; array</p>
+            </div>
+        </div>
+    </td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
@@ -5270,6 +5315,26 @@ table.CodeRay td.code>pre{padding:0}
 <td class="tableblock halign-left valign-middle"><div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>number</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+    <td class="tableblock halign-left valign-middle">
+        <div>
+            <div class="paragraph">
+                <p><strong>bundesland</strong><br>
+                    <em>optional</em></p>
+            </div>
+        </div>
+    </td>
+    <td class="tableblock halign-left valign-middle">
+        <div></div>
+    </td>
+    <td class="tableblock halign-left valign-middle">
+        <div>
+            <div class="paragraph">
+                <p>enum (BADEN_WUERTTEMBERG, BAYERN, BERLIN, BRANDENBURG, BREMEN, HAMBURG, HESSEN, MECKLENBURG_VORPOMMERN, NIEDERSACHSEN, NORDRHEIN_WESTFALEN, RHEINLAND_PFALZ, SAARLAND, SACHSEN, SACHSEN_ANHALT, SCHLESWIG_HOLSTEIN, THUERINGEN)</p>
 </div></div></td>
 </tr>
 <tr>
@@ -5374,6 +5439,30 @@ table.CodeRay td.code>pre{padding:0}
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+    <p><strong>marktwert</strong><br>
+        <em>optional</em></p>
+</div>
+</div>
+</td>
+    <td class="tableblock halign-left valign-middle">
+        <div>
+            <div class="paragraph">
+                <p>Nur relevant bei Finanzbedarf AnschlussFinanzierung, Modernisierung und Kapitalbeschaffung.</p>
+            </div>
+        </div>
+    </td>
+    <td class="tableblock halign-left valign-middle">
+        <div>
+            <div class="paragraph">
+                <p>number</p>
+            </div>
+        </div>
+    </td>
+</tr>
+<tr>
+    <td class="tableblock halign-left valign-middle">
+        <div>
+            <div class="paragraph">
 <p><strong>maximalEinzusetzenderBetragWennVerkauf</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -5418,7 +5507,7 @@ table.CodeRay td.code>pre{padding:0}
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Nur relevant bei Finanzbedarf AnschlussFinanzierung, Modernisierung und Kapitalbeschaffung</p>
+    <p>Hat den selben Inhalt wie das Feld marktwert. (Wird in v3 nicht mehr enthalten sein)</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>number</p>
@@ -6181,9 +6270,9 @@ table.CodeRay td.code>pre{padding:0}
 <p><strong>laufZeitInJahren</strong><br>
 <em>optional</em></p>
 </div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>nur bei darlehensArt==KFW_DARLEHEN</p>
-</div></div></td>
+    <td class="tableblock halign-left valign-middle">
+        <div></div>
+    </td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>integer (int32)</p>
 </div></div></td>
@@ -6861,6 +6950,30 @@ table.CodeRay td.code>pre{padding:0}
 </thead>
 <tbody>
 <tr>
+    <td class="tableblock halign-left valign-middle">
+        <div>
+            <div class="paragraph">
+                <p><strong>anzahlTeilzahlungen</strong><br>
+                    <em>optional</em></p>
+            </div>
+        </div>
+    </td>
+    <td class="tableblock halign-left valign-middle">
+        <div>
+            <div class="paragraph">
+                <p>Anzahl Teilzahlungen bei Neubau, Kauf vom Bauträger sowie Modernisierung</p>
+            </div>
+        </div>
+    </td>
+    <td class="tableblock halign-left valign-middle">
+        <div>
+            <div class="paragraph">
+                <p>integer (int32)</p>
+            </div>
+        </div>
+    </td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><strong>aussenAnlagen</strong><br>
 <em>optional</em></p>
@@ -7143,6 +7256,26 @@ table.CodeRay td.code>pre{padding:0}
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+    <p><strong>bundesland</strong><br>
+        <em>optional</em></p>
+</div>
+</div>
+</td>
+    <td class="tableblock halign-left valign-middle">
+        <div></div>
+    </td>
+    <td class="tableblock halign-left valign-middle">
+        <div>
+            <div class="paragraph">
+                <p>enum (BADEN_WUERTTEMBERG, BAYERN, BERLIN, BRANDENBURG, BREMEN, HAMBURG, HESSEN, MECKLENBURG_VORPOMMERN, NIEDERSACHSEN, NORDRHEIN_WESTFALEN, RHEINLAND_PFALZ, SAARLAND, SACHSEN, SACHSEN_ANHALT, SCHLESWIG_HOLSTEIN, THUERINGEN)</p>
+            </div>
+        </div>
+    </td>
+</tr>
+<tr>
+    <td class="tableblock halign-left valign-middle">
+        <div>
+            <div class="paragraph">
 <p><strong>effektivZinsErhoehendeKosten</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -7218,6 +7351,30 @@ table.CodeRay td.code>pre{padding:0}
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+    <p>number</p>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+    <td class="tableblock halign-left valign-middle">
+        <div>
+            <div class="paragraph">
+                <p><strong>marktwert</strong><br>
+                    <em>optional</em></p>
+            </div>
+        </div>
+    </td>
+    <td class="tableblock halign-left valign-middle">
+        <div>
+            <div class="paragraph">
+                <p>Nur relevant bei Finanzbedarf AnschlussFinanzierung, Modernisierung und Kapitalbeschaffung.</p>
+            </div>
+        </div>
+    </td>
+    <td class="tableblock halign-left valign-middle">
+        <div>
+            <div class="paragraph">
 <p>number</p>
 </div></div></td>
 </tr>
@@ -7257,7 +7414,7 @@ table.CodeRay td.code>pre{padding:0}
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Nur relevant bei Finanzbedarf AnschlussFinanzierung, Modernisierung und Kapitalbeschaffung</p>
+    <p>Hat den selben Inhalt wie das Feld marktwert. (Wird in v3 nicht mehr enthalten sein)</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>number</p>
@@ -10029,6 +10186,57 @@ table.CodeRay td.code>pre{padding:0}
 </tbody>
 </table>
 </div>
+    <div class="sect2">
+        <h3 id="_selfrelandereignisse">SelfRelAndEreignisse</h3>
+        <table class="tableblock frame-all grid-all spread">
+            <colgroup>
+                <col style="width: 42.8571%;">
+                <col style="width: 57.1429%;">
+            </colgroup>
+            <thead>
+            <tr>
+                <th class="tableblock halign-left valign-middle">Name</th>
+                <th class="tableblock halign-left valign-middle">Typ</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="tableblock halign-left valign-middle">
+                    <div>
+                        <div class="paragraph">
+                            <p><strong>ereignisse</strong><br>
+                                <em>optional</em></p>
+                        </div>
+                    </div>
+                </td>
+                <td class="tableblock halign-left valign-middle">
+                    <div>
+                        <div class="paragraph">
+                            <p><a href="#_link">Link</a></p>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="tableblock halign-left valign-middle">
+                    <div>
+                        <div class="paragraph">
+                            <p><strong>self</strong><br>
+                                <em>optional</em></p>
+                        </div>
+                    </div>
+                </td>
+                <td class="tableblock halign-left valign-middle">
+                    <div>
+                        <div class="paragraph">
+                            <p><a href="#_link">Link</a></p>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+</tbody>
+</table>
+</div>
 <div class="sect2">
 <h3 id="_situationnachrenteneintritt">SituationNachRenteneintritt</h3>
 <table class="tableblock frame-all grid-all spread">
@@ -11445,7 +11653,7 @@ table.CodeRay td.code>pre{padding:0}
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><a href="#_links">Links</a></p>
+    <p><a href="#_selfrelandereignisse">SelfRelAndEreignisse</a></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -12241,7 +12449,7 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-02-15 09:02:58 MEZ
+    Last updated 2019-04-01 17:40:53 MESZ
 </div>
 </div>
 </body>
