@@ -3,7 +3,7 @@ swagger: "2.0"
 info:
   description: "Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen\
     \ werden."
-  version: "2.6"
+  version: "2.7"
   title: "Vorgänge API"
   contact:
     name: "Europace AG"
@@ -614,9 +614,53 @@ securityDefinitions:
     scopes:
       API: "Authorisation Scope für die gesamte API."
 definitions:
+  Absicherung:
+    type: "object"
+    properties:
+      abgesicherteRisiken:
+        type: "array"
+        items:
+          $ref: "#/definitions/RisikoAbsicherung"
+      gesamtPraemie:
+        type: "number"
+      praemienZahlungsweise:
+        type: "string"
+        enum:
+        - "EINMALIG"
+        - "MONATLICH"
+        - "VIERTELJAEHRLICH"
+        - "HALBJAEHRLICH"
+        - "JAEHRLICH"
+      tarifBezeichnung:
+        type: "string"
+      tarifKennung:
+        type: "string"
+      versichertePersonId:
+        type: "string"
+      versicherungsArt:
+        type: "string"
+      versicherungsNummer:
+        type: "string"
+      versicherungsZeitraum:
+        $ref: "#/definitions/VersicherungsZeitraum"
+    title: "Absicherung"
+  Absicherungswunsch:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+      versicherungsWuensche:
+        type: "array"
+        items:
+          $ref: "#/definitions/VersicherungsWunsch"
+    title: "Absicherungswunsch"
   Angebot:
     type: "object"
     properties:
+      absicherungen:
+        type: "array"
+        items:
+          $ref: "#/definitions/Absicherung"
       bausparvertraege:
         type: "array"
         items:
@@ -2802,6 +2846,45 @@ definitions:
       vorhanden:
         type: "boolean"
     title: "RechteAbteilung2"
+  RisikoAbsicherung:
+    type: "object"
+    properties:
+      abgesichertesRisiko:
+        type: "string"
+        enum:
+        - "TODESFALL"
+        - "ARBEITSLOSIGKEIT"
+        - "ARBEITSUNFAEHIGKEIT"
+        - "INVALIDITAET"
+      auszahlungsBetrag:
+        type: "number"
+      auszahlungsTurnus:
+        type: "string"
+        enum:
+        - "EINMALIG"
+        - "MONATLICH"
+        - "VIERTELJAEHRLICH"
+        - "HALBJAEHRLICH"
+        - "JAEHRLICH"
+      praemienAnteil:
+        type: "number"
+    title: "RisikoAbsicherung"
+  RisikoAbsicherungsWunsch:
+    type: "object"
+    properties:
+      abzusicherndesRisiko:
+        type: "string"
+        enum:
+        - "TODESFALL"
+        - "ARBEITSUNFAEHIGKEIT"
+        - "ARBEITSLOSIGKEIT"
+      versicherteRate:
+        type: "number"
+        description: "nur bei abzusicherndesRisiko==ARBEITSUNFAEHIGKEIT,ARBEITSLOSIGKEIT"
+      versicherungsSumme:
+        type: "number"
+        description: "nur bei abzusicherndesRisiko==TODESFALL"
+    title: "RisikoAbsicherungsWunsch"
   SchufaErgebnis:
     type: "object"
     properties:
@@ -3129,6 +3212,55 @@ definitions:
         items:
           $ref: "#/definitions/VermoegenVerbindlichkeit"
     title: "VermoegenVerbindlichkeiten"
+  VersicherungsWunsch:
+    type: "object"
+    properties:
+      finanzierungsWeise:
+        type: "string"
+        description: "nur bei praemienZahlungsweise==EINMALIG"
+        enum:
+        - "DURCH_HAUPTDARLEHEN"
+        - "INDIVIDUELL"
+      id:
+        type: "string"
+      praemienZahlungsweise:
+        type: "string"
+        enum:
+        - "EINMALIG"
+        - "MONATLICH"
+        - "VIERTELJAEHRLICH"
+        - "HALBJAEHRLICH"
+        - "JAEHRLICH"
+      risikoAbsicherungsWuensche:
+        type: "array"
+        items:
+          $ref: "#/definitions/RisikoAbsicherungsWunsch"
+      versichertePersonId:
+        type: "string"
+      versicherungsArt:
+        type: "string"
+        enum:
+        - "RATENSCHUTZVERSICHERUNG"
+      versicherungsBeginn:
+        type: "string"
+        format: "date"
+      versicherungsDauerInMonaten:
+        type: "integer"
+        format: "int32"
+    title: "VersicherungsWunsch"
+  VersicherungsZeitraum:
+    type: "object"
+    properties:
+      beginn:
+        type: "string"
+        format: "date"
+      dauerInMonaten:
+        type: "integer"
+        format: "int32"
+      ende:
+        type: "string"
+        format: "date"
+    title: "VersicherungsZeitraum"
   VertriebsOrganisation:
     type: "object"
     properties:
@@ -3240,6 +3372,8 @@ definitions:
   Vorhaben:
     type: "object"
     properties:
+      absicherungswunsch:
+        $ref: "#/definitions/Absicherungswunsch"
       eigenleistungWennNeubauOderModernisierungsmassnahmen:
         type: "number"
       externeBausparAngebote:
