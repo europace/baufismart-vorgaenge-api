@@ -51,6 +51,6 @@ https://tools.ietf.org/html/rfc6749#section-1.3.3
 Um die Credentials zu erhalten, erfagen Sie beim Helpdesk der Plattform die Zugangsdaten zur Auslesen API, bzw. bitten Ihren Auftraggeber dies zu tun.
 
 ##### Schritte
-1. Absenden eines POST Requests auf den [Login-Endpunkt](https://htmlpreview.github.io/?https://raw.githubusercontent.com/europace/baufismart-vorgaenge-api/master/dokumentation/index.html#_oauth2) mit Username und Password. Der Username entspricht der PartnerId und das Password ist der API-Key. Auf dem Testsystem können diese Werte frei gewählt werden. Alternativ kann ein Login auch über einen GET Aufruf mit HTTP Basic Auth auf den Login-Endpunkt erfolgen.
+1. Absenden eines POST Requests auf den [Login-Endpunkt](https://htmlpreview.github.io/?https://raw.githubusercontent.com/europace/baufismart-vorgaenge-api/master/dokumentation/index.html#_oauth2) mit Username und Password. Der Username entspricht der PartnerId und das Password ist der API-Key. 
 2. Aus der JSON-Antwort das JWToken (access_token) entnehmen
 3. Bei weiteren Requests muss dieses JWToken als Authorization Header mitgeschickt werden.
