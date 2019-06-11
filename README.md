@@ -1,6 +1,6 @@
 # Vorgänge API
 
-API Definition zum Auslesen von Vorgängen aus der Europace-Plattform aus Sicht eines Vertriebes.
+API Definition zum Auslesen von Vorgängen aus der Europace-Plattform aus Sicht eines Vertriebes. 2 Felder können auch geändert werden: Kundebetreuer und Vorgangsstatus.
 
 # Dokumentation
 
@@ -15,7 +15,7 @@ werden. Dazu empfehlen wir das Tool [Swagger Codegen](https://github.com/swagger
 ### Dokumentation
 
 - [RELEASE NOTES](https://github.com/europace/baufismart-vorgaenge-api/releases)
-- [statische HTML Seite](http://htmlpreview.github.io?https://raw.githubusercontent.com/europace/baufismart-vorgaenge-api/master/dokumentation/index.html)
+- [Vollständige Dokumentation als HTML Seite](http://htmlpreview.github.io?https://raw.githubusercontent.com/europace/baufismart-vorgaenge-api/master/dokumentation/index.html)
 - [Patch Beispiele](https://github.com/europace/baufismart-vorgaenge-api/blob/master/dokumentation/patch.md)
 
 ### Generierung des Clients
