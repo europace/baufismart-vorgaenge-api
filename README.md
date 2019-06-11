@@ -1,4 +1,4 @@
-# Vorgänge Auslesen API
+# Vorgänge API
 
 API Definition zum Auslesen von Vorgängen aus der Europace-Plattform aus Sicht eines Vertriebes.
 
