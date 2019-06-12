@@ -1,6 +1,6 @@
 # Vorgänge API
 
-API Definition zum Auslesen von Vorgängen aus der Europace-Plattform aus Sicht eines Vertriebes. 2 Felder können auch geändert werden: Kundebetreuer und Vorgangsstatus.
+API Definition zum Auslesen von Vorgängen aus der Europace-Plattform aus Sicht eines Vertriebes. 2 Felder können auch geschrieben werden: Kundebentreuer und Vorgangsstatus.
 
 # Dokumentation
 
