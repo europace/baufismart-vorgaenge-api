@@ -3,7 +3,7 @@ swagger: "2.0"
 info:
   description: "Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen\
     \ werden."
-  version: "2.7"
+  version: "2.8"
   title: "Vorgänge API"
   contact:
     name: "Europace AG"
@@ -1034,6 +1034,10 @@ definitions:
         type: "string"
       produktAnbieter:
         $ref: "#/definitions/ProduktAnbieter"
+      sonderZahlungen:
+        type: "array"
+        items:
+          $ref: "#/definitions/SonderZahlung"
       sparPhase:
         $ref: "#/definitions/SparPhase"
       tarif:
@@ -1107,6 +1111,10 @@ definitions:
         type: "string"
       sonderZahlungEinmalig:
         type: "number"
+      sonderZahlungen:
+        type: "array"
+        items:
+          $ref: "#/definitions/SonderZahlung"
       sparBeitragMonatlichAbsolut:
         type: "number"
         description: "Von den Feldern bausparSummeAbsolut, bausparSummeRelativ, sparBeitragMonatlichAbsolut,\
@@ -1157,6 +1165,10 @@ definitions:
         type: "string"
       produktAnbieter:
         $ref: "#/definitions/ProduktAnbieter"
+      sonderZahlungen:
+        type: "array"
+        items:
+          $ref: "#/definitions/SonderZahlung"
       sparPhase:
         $ref: "#/definitions/SparPhase"
       tarif:
@@ -1515,6 +1527,10 @@ definitions:
         type: "number"
       produktAnbieter:
         $ref: "#/definitions/ProduktAnbieter"
+      sonderZahlungen:
+        type: "array"
+        items:
+          $ref: "#/definitions/SonderZahlung"
       sparBeitragMonatlich:
         type: "number"
       tarif:
@@ -2921,6 +2937,31 @@ definitions:
       sonstigesEinkommenMonatlich:
         type: "number"
     title: "SituationNachRenteneintritt"
+  SonderZahlung:
+    type: "object"
+    properties:
+      anzahl:
+        type: "integer"
+        format: "int32"
+        description: "Gesamtanzahl der Zahlungen"
+      betrag:
+        type: "number"
+        description: "Betrag in EUR über die Höhe der einzelnen Zahlung"
+      termin:
+        type: "string"
+        format: "date"
+        description: "Termin der Einmalzahlung (optional) oder Beginn der regelmäß\
+          igen Zahlungen"
+      zahlweise:
+        type: "string"
+        description: "Festlegung von einmaligen oder regelmäßigen Zahlungen"
+        enum:
+        - "EINMALIG"
+        - "MONATLICH"
+        - "VIERTELJAEHRLICH"
+        - "HALBJAEHRLICH"
+        - "JAEHRLICH"
+    title: "SonderZahlung"
   SondertilgungPraeferenz:
     type: "object"
     properties:

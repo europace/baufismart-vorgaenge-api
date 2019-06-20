@@ -553,6 +553,8 @@ table.CodeRay td.code>pre{padding:0}
 </li>
 <li><a href="#_definitions">Definitionen</a>
 <ul class="sectlevel2">
+<li><a href="#_absicherung">Absicherung</a></li>
+<li><a href="#_absicherungswunsch">Absicherungswunsch</a></li>
 <li><a href="#_angebot">Angebot</a></li>
 <li><a href="#_angebotspruefungsergebnis">AngebotsPruefungsErgebnis</a></li>
 <li><a href="#_annuitaetendarlehenswunsch">AnnuitaetenDarlehensWunsch</a></li>
@@ -626,9 +628,12 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#_privatdarlehenswunsch">PrivatDarlehensWunsch</a></li>
 <li><a href="#_produktanbieter">ProduktAnbieter</a></li>
 <li><a href="#_rechteabteilung2">RechteAbteilung2</a></li>
+<li><a href="#_risikoabsicherung">RisikoAbsicherung</a></li>
+<li><a href="#_risikoabsicherungswunsch">RisikoAbsicherungsWunsch</a></li>
 <li><a href="#_schufaergebnis">SchufaErgebnis</a></li>
-    <li><a href="#_selfrelandereignisse">SelfRelAndEreignisse</a></li>
+<li><a href="#_selfrelandereignisse">SelfRelAndEreignisse</a></li>
 <li><a href="#_situationnachrenteneintritt">SituationNachRenteneintritt</a></li>
+<li><a href="#_sonderzahlung">SonderZahlung</a></li>
 <li><a href="#_sondertilgungpraeferenz">SondertilgungPraeferenz</a></li>
 <li><a href="#_sparphase">SparPhase</a></li>
 <li><a href="#_sparplaene">Sparplaene</a></li>
@@ -645,6 +650,8 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#_vermoegen">Vermoegen</a></li>
 <li><a href="#_vermoegenverbindlichkeit">VermoegenVerbindlichkeit</a></li>
 <li><a href="#_vermoegenverbindlichkeiten">VermoegenVerbindlichkeiten</a></li>
+<li><a href="#_versicherungswunsch">VersicherungsWunsch</a></li>
+<li><a href="#_versicherungszeitraum">VersicherungsZeitraum</a></li>
 <li><a href="#_vertriebsorganisation">VertriebsOrganisation</a></li>
 <li><a href="#_vorgaenge">Vorgaenge</a></li>
 <li><a href="#_vorgaengeresourcelistitem">VorgaengeResourceListItem</a></li>
@@ -681,7 +688,7 @@ table.CodeRay td.code>pre{padding:0}
 <div class="sect2">
 <h3 id="_aktuelle_version">Aktuelle Version</h3>
 <div class="paragraph">
-    <p><em>Version</em> : 2.6</p>
+<p><em>Version</em> : 2.8</p>
 </div>
 </div>
 <div class="sect2">
@@ -3023,6 +3030,139 @@ table.CodeRay td.code>pre{padding:0}
 <h2 id="_definitions">Definitionen</h2>
 <div class="sectionbody">
 <div class="sect2">
+<h3 id="_absicherung">Absicherung</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 42.8571%;">
+<col style="width: 57.1429%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Typ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>abgesicherteRisiken</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>&lt; <a href="#_risikoabsicherung">RisikoAbsicherung</a> &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>gesamtPraemie</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>number</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>praemienZahlungsweise</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>enum (EINMALIG, MONATLICH, VIERTELJAEHRLICH, HALBJAEHRLICH, JAEHRLICH)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>tarifBezeichnung</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>tarifKennung</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>versichertePersonId</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>versicherungsArt</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>versicherungsNummer</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>versicherungsZeitraum</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="#_versicherungszeitraum">VersicherungsZeitraum</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_absicherungswunsch">Absicherungswunsch</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 42.8571%;">
+<col style="width: 57.1429%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Typ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>id</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>versicherungsWuensche</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>&lt; <a href="#_versicherungswunsch">VersicherungsWunsch</a> &gt; array</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_angebot">Angebot</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -3038,6 +3178,16 @@ table.CodeRay td.code>pre{padding:0}
 </tr>
 </thead>
 <tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>absicherungen</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>&lt; <a href="#_absicherung">Absicherung</a> &gt; array</p>
+</div></div></td>
+</tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><strong>bausparvertraege</strong><br>
@@ -3474,30 +3624,18 @@ table.CodeRay td.code>pre{padding:0}
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-    <p><strong>ablehnungsgrund</strong><br>
-        <em>optional</em></p>
-</div>
-</div>
-</td>
-    <td class="tableblock halign-left valign-middle">
-        <div>
-            <div class="paragraph">
-                <p>Ablehnungsgrund des Produktanbieters</p>
-            </div>
-        </div>
-    </td>
-    <td class="tableblock halign-left valign-middle">
-        <div>
-            <div class="paragraph">
-                <p>enum (FINANZIELLE_SITUATION, NEGATIV_MERKMAL, WERTERMITTLUNG, KRITERIEN, UNTERLAGEN_UNVOLLSTAENDIG, GEGENANGEBOT, KEINE_ANGABE)</p>
-            </div>
-        </div>
-    </td>
+<p><strong>ablehnungsgrund</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Ablehnungsgrund des Produktanbieters</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>enum (FINANZIELLE_SITUATION, NEGATIV_MERKMAL, WERTERMITTLUNG, KRITERIEN, UNTERLAGEN_UNVOLLSTAENDIG, GEGENANGEBOT, KEINE_ANGABE)</p>
+</div></div></td>
 </tr>
 <tr>
-    <td class="tableblock halign-left valign-middle">
-        <div>
-            <div class="paragraph">
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><strong>antragsteller</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -3799,24 +3937,14 @@ table.CodeRay td.code>pre{padding:0}
 </div></div></td>
 </tr>
 <tr>
-    <td class="tableblock halign-left valign-middle">
-        <div>
-            <div class="paragraph">
-                <p><strong>titel</strong><br>
-                    <em>optional</em></p>
-            </div>
-        </div>
-    </td>
-    <td class="tableblock halign-left valign-middle">
-        <div></div>
-    </td>
-    <td class="tableblock halign-left valign-middle">
-        <div>
-            <div class="paragraph">
-                <p>&lt; enum (DOKTOR, PROFESSOR) &gt; array</p>
-            </div>
-        </div>
-    </td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>titel</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>&lt; enum (DOKTOR, PROFESSOR) &gt; array</p>
+</div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
@@ -4256,6 +4384,16 @@ table.CodeRay td.code>pre{padding:0}
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>sonderZahlungen</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>&lt; <a href="#_sonderzahlung">SonderZahlung</a> &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><strong>sparPhase</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -4504,6 +4642,16 @@ table.CodeRay td.code>pre{padding:0}
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>sonderZahlungen</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>&lt; <a href="#_sonderzahlung">SonderZahlung</a> &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><strong>sparBeitragMonatlichAbsolut</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -4659,6 +4807,16 @@ table.CodeRay td.code>pre{padding:0}
 <td class="tableblock halign-left valign-middle"><div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><a href="#_produktanbieter">ProduktAnbieter</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>sonderZahlungen</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>&lt; <a href="#_sonderzahlung">SonderZahlung</a> &gt; array</p>
 </div></div></td>
 </tr>
 <tr>
@@ -5315,26 +5473,16 @@ table.CodeRay td.code>pre{padding:0}
 <td class="tableblock halign-left valign-middle"><div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>number</p>
-</div>
-</div>
-</td>
+</div></div></td>
 </tr>
 <tr>
-    <td class="tableblock halign-left valign-middle">
-        <div>
-            <div class="paragraph">
-                <p><strong>bundesland</strong><br>
-                    <em>optional</em></p>
-            </div>
-        </div>
-    </td>
-    <td class="tableblock halign-left valign-middle">
-        <div></div>
-    </td>
-    <td class="tableblock halign-left valign-middle">
-        <div>
-            <div class="paragraph">
-                <p>enum (BADEN_WUERTTEMBERG, BAYERN, BERLIN, BRANDENBURG, BREMEN, HAMBURG, HESSEN, MECKLENBURG_VORPOMMERN, NIEDERSACHSEN, NORDRHEIN_WESTFALEN, RHEINLAND_PFALZ, SAARLAND, SACHSEN, SACHSEN_ANHALT, SCHLESWIG_HOLSTEIN, THUERINGEN)</p>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>bundesland</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>enum (BADEN_WUERTTEMBERG, BAYERN, BERLIN, BRANDENBURG, BREMEN, HAMBURG, HESSEN, MECKLENBURG_VORPOMMERN, NIEDERSACHSEN, NORDRHEIN_WESTFALEN, RHEINLAND_PFALZ, SAARLAND, SACHSEN, SACHSEN_ANHALT, SCHLESWIG_HOLSTEIN, THUERINGEN)</p>
 </div></div></td>
 </tr>
 <tr>
@@ -5439,30 +5587,18 @@ table.CodeRay td.code>pre{padding:0}
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-    <p><strong>marktwert</strong><br>
-        <em>optional</em></p>
-</div>
-</div>
-</td>
-    <td class="tableblock halign-left valign-middle">
-        <div>
-            <div class="paragraph">
-                <p>Nur relevant bei Finanzbedarf AnschlussFinanzierung, Modernisierung und Kapitalbeschaffung.</p>
-            </div>
-        </div>
-    </td>
-    <td class="tableblock halign-left valign-middle">
-        <div>
-            <div class="paragraph">
-                <p>number</p>
-            </div>
-        </div>
-    </td>
+<p><strong>marktwert</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Nur relevant bei Finanzbedarf AnschlussFinanzierung, Modernisierung und Kapitalbeschaffung.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>number</p>
+</div></div></td>
 </tr>
 <tr>
-    <td class="tableblock halign-left valign-middle">
-        <div>
-            <div class="paragraph">
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><strong>maximalEinzusetzenderBetragWennVerkauf</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -5507,7 +5643,7 @@ table.CodeRay td.code>pre{padding:0}
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-    <p>Hat den selben Inhalt wie das Feld marktwert. (Wird in v3 nicht mehr enthalten sein)</p>
+<p>Hat den selben Inhalt wie das Feld marktwert. (Wird in v3 nicht mehr enthalten sein)</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>number</p>
@@ -5632,6 +5768,16 @@ table.CodeRay td.code>pre{padding:0}
 <td class="tableblock halign-left valign-middle"><div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><a href="#_produktanbieter">ProduktAnbieter</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>sonderZahlungen</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>&lt; <a href="#_sonderzahlung">SonderZahlung</a> &gt; array</p>
 </div></div></td>
 </tr>
 <tr>
@@ -6270,9 +6416,7 @@ table.CodeRay td.code>pre{padding:0}
 <p><strong>laufZeitInJahren</strong><br>
 <em>optional</em></p>
 </div></div></td>
-    <td class="tableblock halign-left valign-middle">
-        <div></div>
-    </td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>integer (int32)</p>
 </div></div></td>
@@ -6950,28 +7094,16 @@ table.CodeRay td.code>pre{padding:0}
 </thead>
 <tbody>
 <tr>
-    <td class="tableblock halign-left valign-middle">
-        <div>
-            <div class="paragraph">
-                <p><strong>anzahlTeilzahlungen</strong><br>
-                    <em>optional</em></p>
-            </div>
-        </div>
-    </td>
-    <td class="tableblock halign-left valign-middle">
-        <div>
-            <div class="paragraph">
-                <p>Anzahl Teilzahlungen bei Neubau, Kauf vom Bauträger sowie Modernisierung</p>
-            </div>
-        </div>
-    </td>
-    <td class="tableblock halign-left valign-middle">
-        <div>
-            <div class="paragraph">
-                <p>integer (int32)</p>
-            </div>
-        </div>
-    </td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>anzahlTeilzahlungen</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Anzahl Teilzahlungen bei Neubau, Kauf vom Bauträger sowie Modernisierung</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>integer (int32)</p>
+</div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
@@ -7256,26 +7388,16 @@ table.CodeRay td.code>pre{padding:0}
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-    <p><strong>bundesland</strong><br>
-        <em>optional</em></p>
-</div>
-</div>
-</td>
-    <td class="tableblock halign-left valign-middle">
-        <div></div>
-    </td>
-    <td class="tableblock halign-left valign-middle">
-        <div>
-            <div class="paragraph">
-                <p>enum (BADEN_WUERTTEMBERG, BAYERN, BERLIN, BRANDENBURG, BREMEN, HAMBURG, HESSEN, MECKLENBURG_VORPOMMERN, NIEDERSACHSEN, NORDRHEIN_WESTFALEN, RHEINLAND_PFALZ, SAARLAND, SACHSEN, SACHSEN_ANHALT, SCHLESWIG_HOLSTEIN, THUERINGEN)</p>
-            </div>
-        </div>
-    </td>
+<p><strong>bundesland</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>enum (BADEN_WUERTTEMBERG, BAYERN, BERLIN, BRANDENBURG, BREMEN, HAMBURG, HESSEN, MECKLENBURG_VORPOMMERN, NIEDERSACHSEN, NORDRHEIN_WESTFALEN, RHEINLAND_PFALZ, SAARLAND, SACHSEN, SACHSEN_ANHALT, SCHLESWIG_HOLSTEIN, THUERINGEN)</p>
+</div></div></td>
 </tr>
 <tr>
-    <td class="tableblock halign-left valign-middle">
-        <div>
-            <div class="paragraph">
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><strong>effektivZinsErhoehendeKosten</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -7351,30 +7473,18 @@ table.CodeRay td.code>pre{padding:0}
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-    <p>number</p>
-</div>
-</div>
-</td>
+<p>number</p>
+</div></div></td>
 </tr>
 <tr>
-    <td class="tableblock halign-left valign-middle">
-        <div>
-            <div class="paragraph">
-                <p><strong>marktwert</strong><br>
-                    <em>optional</em></p>
-            </div>
-        </div>
-    </td>
-    <td class="tableblock halign-left valign-middle">
-        <div>
-            <div class="paragraph">
-                <p>Nur relevant bei Finanzbedarf AnschlussFinanzierung, Modernisierung und Kapitalbeschaffung.</p>
-            </div>
-        </div>
-    </td>
-    <td class="tableblock halign-left valign-middle">
-        <div>
-            <div class="paragraph">
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>marktwert</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Nur relevant bei Finanzbedarf AnschlussFinanzierung, Modernisierung und Kapitalbeschaffung.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>number</p>
 </div></div></td>
 </tr>
@@ -7414,7 +7524,7 @@ table.CodeRay td.code>pre{padding:0}
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-    <p>Hat den selben Inhalt wie das Feld marktwert. (Wird in v3 nicht mehr enthalten sein)</p>
+<p>Hat den selben Inhalt wie das Feld marktwert. (Wird in v3 nicht mehr enthalten sein)</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>number</p>
@@ -10132,6 +10242,112 @@ table.CodeRay td.code>pre{padding:0}
 </table>
 </div>
 <div class="sect2">
+<h3 id="_risikoabsicherung">RisikoAbsicherung</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 42.8571%;">
+<col style="width: 57.1429%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Typ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>abgesichertesRisiko</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>enum (TODESFALL, ARBEITSLOSIGKEIT, ARBEITSUNFAEHIGKEIT, INVALIDITAET)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>auszahlungsBetrag</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>number</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>auszahlungsTurnus</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>enum (EINMALIG, MONATLICH, VIERTELJAEHRLICH, HALBJAEHRLICH, JAEHRLICH)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>praemienAnteil</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>number</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_risikoabsicherungswunsch">RisikoAbsicherungsWunsch</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Beschreibung</th>
+<th class="tableblock halign-left valign-middle">Typ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>abzusicherndesRisiko</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>enum (TODESFALL, ARBEITSUNFAEHIGKEIT, ARBEITSLOSIGKEIT)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>versicherteRate</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>nur bei abzusicherndesRisiko==ARBEITSUNFAEHIGKEIT,ARBEITSLOSIGKEIT</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>number</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>versicherungsSumme</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>nur bei abzusicherndesRisiko==TODESFALL</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>number</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_schufaergebnis">SchufaErgebnis</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -10186,54 +10402,38 @@ table.CodeRay td.code>pre{padding:0}
 </tbody>
 </table>
 </div>
-    <div class="sect2">
-        <h3 id="_selfrelandereignisse">SelfRelAndEreignisse</h3>
-        <table class="tableblock frame-all grid-all spread">
-            <colgroup>
-                <col style="width: 42.8571%;">
-                <col style="width: 57.1429%;">
-            </colgroup>
-            <thead>
-            <tr>
-                <th class="tableblock halign-left valign-middle">Name</th>
-                <th class="tableblock halign-left valign-middle">Typ</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td class="tableblock halign-left valign-middle">
-                    <div>
-                        <div class="paragraph">
-                            <p><strong>ereignisse</strong><br>
-                                <em>optional</em></p>
-                        </div>
-                    </div>
-                </td>
-                <td class="tableblock halign-left valign-middle">
-                    <div>
-                        <div class="paragraph">
-                            <p><a href="#_link">Link</a></p>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td class="tableblock halign-left valign-middle">
-                    <div>
-                        <div class="paragraph">
-                            <p><strong>self</strong><br>
-                                <em>optional</em></p>
-                        </div>
-                    </div>
-                </td>
-                <td class="tableblock halign-left valign-middle">
-                    <div>
-                        <div class="paragraph">
-                            <p><a href="#_link">Link</a></p>
-                        </div>
-                    </div>
-                </td>
-            </tr>
+<div class="sect2">
+<h3 id="_selfrelandereignisse">SelfRelAndEreignisse</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 42.8571%;">
+<col style="width: 57.1429%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Typ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>ereignisse</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="#_link">Link</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>self</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="#_link">Link</a></p>
+</div></div></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -10285,6 +10485,73 @@ table.CodeRay td.code>pre{padding:0}
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>number</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_sonderzahlung">SonderZahlung</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Beschreibung</th>
+<th class="tableblock halign-left valign-middle">Typ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>anzahl</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Gesamtanzahl der Zahlungen</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>integer (int32)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>betrag</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Betrag in EUR über die Höhe der einzelnen Zahlung</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>number</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>termin</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Termin der Einmalzahlung (optional) oder Beginn der regelmäßigen Zahlungen</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string (date)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>zahlweise</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Festlegung von einmaligen oder regelmäßigen Zahlungen</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>enum (EINMALIG, MONATLICH, VIERTELJAEHRLICH, HALBJAEHRLICH, JAEHRLICH)</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -11265,6 +11532,151 @@ table.CodeRay td.code>pre{padding:0}
 </table>
 </div>
 <div class="sect2">
+<h3 id="_versicherungswunsch">VersicherungsWunsch</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Beschreibung</th>
+<th class="tableblock halign-left valign-middle">Typ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>finanzierungsWeise</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>nur bei praemienZahlungsweise==EINMALIG</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>enum (DURCH_HAUPTDARLEHEN, INDIVIDUELL)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>id</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>praemienZahlungsweise</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>enum (EINMALIG, MONATLICH, VIERTELJAEHRLICH, HALBJAEHRLICH, JAEHRLICH)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>risikoAbsicherungsWuensche</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>&lt; <a href="#_risikoabsicherungswunsch">RisikoAbsicherungsWunsch</a> &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>versichertePersonId</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>versicherungsArt</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>enum (RATENSCHUTZVERSICHERUNG)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>versicherungsBeginn</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string (date)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>versicherungsDauerInMonaten</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>integer (int32)</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_versicherungszeitraum">VersicherungsZeitraum</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 42.8571%;">
+<col style="width: 57.1429%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Typ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>beginn</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string (date)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>dauerInMonaten</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>integer (int32)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>ende</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string (date)</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_vertriebsorganisation">VertriebsOrganisation</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -11653,7 +12065,7 @@ table.CodeRay td.code>pre{padding:0}
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-    <p><a href="#_selfrelandereignisse">SelfRelAndEreignisse</a></p>
+<p><a href="#_selfrelandereignisse">SelfRelAndEreignisse</a></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -11673,6 +12085,15 @@ table.CodeRay td.code>pre{padding:0}
 </tr>
 </thead>
 <tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>absicherungswunsch</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="#_absicherungswunsch">Absicherungswunsch</a></p>
+</div></div></td>
+</tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><strong>eigenleistungWennNeubauOderModernisierungsmassnahmen</strong><br>
@@ -12449,7 +12870,7 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 <div id="footer">
 <div id="footer-text">
-    Last updated 2019-04-01 17:40:53 MESZ
+Last updated 2019-06-20 15:11:38 MESZ
 </div>
 </div>
 </body>
