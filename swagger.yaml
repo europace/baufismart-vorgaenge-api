@@ -3,7 +3,7 @@ swagger: "2.0"
 info:
   description: "Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen\
     \ werden."
-  version: "2.8"
+  version: "2.9"
   title: "Vorgänge API"
   contact:
     name: "Europace AG"
@@ -2384,6 +2384,14 @@ definitions:
     properties:
       darlehensBetrag:
         type: "number"
+      kfwEndfaellig:
+        type: "string"
+        description: "Für endfällige KfW-Darlehen wird die Quelle des Tilgungswunsches\
+          \ erfasst"
+        enum:
+        - "NEIN"
+        - "ENDFAELLIG_BERECHNET"
+        - "ENDFAELLIG_EIGENES_ANGEBOT"
       kfwEnergieEffizienzStandard:
         type: "string"
         description: "Nur bei Programm 153. Wenn die KfW-Bank neue Standards anerkennt,\
@@ -2413,10 +2421,14 @@ definitions:
         format: "int32"
       provision:
         type: "number"
+      tilgungsWunsch:
+        description: "Für endfällige KfW-Darlehen wird ein Tilgungswunsch erfasst"
+        $ref: "#/definitions/TilgungsWunsch"
       tilgungsfreieAnlaufjahre:
         type: "integer"
         format: "int32"
-        description: "Erlaubt ist 1,2,3,4,5. Maximalwert abhängig von der Laufzeit"
+        description: "Erlaubt ist 1, 2, 3, 4, 5. Maximalwert abhängig von der Laufzeit.\
+          \ Wenn der Tilgungswunsch ausgesetzt ist, dann ist auch 10 erlaubt."
       zinsBindungInJahren:
         type: "integer"
         format: "int32"
