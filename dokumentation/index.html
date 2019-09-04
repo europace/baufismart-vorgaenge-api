@@ -688,7 +688,7 @@ table.CodeRay td.code>pre{padding:0}
 <div class="sect2">
 <h3 id="_aktuelle_version">Aktuelle Version</h3>
 <div class="paragraph">
-<p><em>Version</em> : 2.8</p>
+<p><em>Version</em> : 2.9</p>
 </div>
 </div>
 <div class="sect2">
@@ -8569,6 +8569,18 @@ table.CodeRay td.code>pre{padding:0}
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>kfwEndfaellig</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Für endfällige KfW-Darlehen wird die Quelle des Tilgungswunsches erfasst</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>enum (NEIN, ENDFAELLIG_BERECHNET, ENDFAELLIG_EIGENES_ANGEBOT)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><strong>kfwEnergieEffizienzStandard</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -8613,11 +8625,23 @@ table.CodeRay td.code>pre{padding:0}
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>tilgungsWunsch</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Für endfällige KfW-Darlehen wird ein Tilgungswunsch erfasst</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="#_tilgungswunsch">TilgungsWunsch</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><strong>tilgungsfreieAnlaufjahre</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Erlaubt ist 1,2,3,4,5. Maximalwert abhängig von der Laufzeit</p>
+<p>Erlaubt ist 1, 2, 3, 4, 5. Maximalwert abhängig von der Laufzeit. Wenn der Tilgungswunsch ausgesetzt ist, dann ist auch 10 erlaubt.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>integer (int32)</p>
@@ -12870,7 +12894,7 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-06-20 15:11:38 MESZ
+Last updated 2019-09-03 15:03:45 MESZ
 </div>
 </div>
 </body>
