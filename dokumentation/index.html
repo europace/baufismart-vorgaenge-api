@@ -3350,6 +3350,15 @@ table.CodeRay td.code>pre{padding:0}
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>auszahlungsDatum</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string (date)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><strong>bereitstellungsZinsFreieZeitInMonaten</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -6273,7 +6282,7 @@ table.CodeRay td.code>pre{padding:0}
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>nur bei darlehensArt==FORWARD_DARLEHEN</p>
+<p>nur bei darlehensTyp IN [FORWARD_DARLEHEN, ANNUITAETEN_DARLEHEN]</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>string (date)</p>
@@ -6295,7 +6304,7 @@ table.CodeRay td.code>pre{padding:0}
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>nicht bei darlehensArt==PRIVAT_DARLEHEN</p>
+<p>nicht bei darlehensTyp==PRIVAT_DARLEHEN</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><a href="#_bereitstellung">Bereitstellung</a></p>
@@ -6327,7 +6336,7 @@ table.CodeRay td.code>pre{padding:0}
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>nur bei darlehensArt==ZWISCHEN_FINANZIERUNG</p>
+<p>nur bei darlehensTyp==ZWISCHEN_FINANZIERUNG</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>string</p>
@@ -6359,7 +6368,7 @@ table.CodeRay td.code>pre{padding:0}
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>nur bei darlehensArt==FORWARD_DARLEHEN</p>
+<p>nur bei darlehensTyp==FORWARD_DARLEHEN</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>integer (int32)</p>
@@ -6371,7 +6380,7 @@ table.CodeRay td.code>pre{padding:0}
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>nur bei darlehensArt==KFW_DARLEHEN. Nur bei KfW-Programm 153 relevant. Bei neuen Energieeffizienzstandards können auch weitere Werte zulässig werden.</p>
+<p>nur bei darlehensTyp==KFW_DARLEHEN. Nur bei KfW-Programm 153 relevant. Bei neuen Energieeffizienzstandards können auch weitere Werte zulässig werden.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>enum (STANDARD_40_PLUS, STANDARD_40, STANDARD_55, STANDARD_70)</p>
@@ -6427,7 +6436,7 @@ table.CodeRay td.code>pre{padding:0}
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>nur bei darlehensArt==PRIVAT_DARLEHEN</p>
+<p>nur bei darlehensTyp==PRIVAT_DARLEHEN</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>integer (int32)</p>
@@ -6439,7 +6448,7 @@ table.CodeRay td.code>pre{padding:0}
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>nur bei darlehensArt==ZWISCHEN_FINANZIERUNG</p>
+<p>nur bei darlehensTyp==ZWISCHEN_FINANZIERUNG</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>integer (int32)</p>
@@ -6474,7 +6483,7 @@ table.CodeRay td.code>pre{padding:0}
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>nur bei darlehensArt==KFW_DARLEHEN</p>
+<p>nur bei darlehensTyp==KFW_DARLEHEN</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>number</p>
@@ -6499,7 +6508,7 @@ table.CodeRay td.code>pre{padding:0}
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>nicht bei darlehensArt==ZWISCHEN_FINANZIERUNG</p>
+<p>nicht bei darlehensTyp==ZWISCHEN_FINANZIERUNG</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><a href="#_tilgung">Tilgung</a></p>
@@ -6511,7 +6520,7 @@ table.CodeRay td.code>pre{padding:0}
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>nur bei darlehensArt==KFW_DARLEHEN</p>
+<p>nur bei darlehensTyp==KFW_DARLEHEN</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>integer (int32)</p>
@@ -6523,7 +6532,7 @@ table.CodeRay td.code>pre{padding:0}
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>nur bei darlehensArt==ZWISCHEN_FINANZIERUNG</p>
+<p>nur bei darlehensTyp==ZWISCHEN_FINANZIERUNG</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>enum (VORFINANZIERUNG_OEFFENTLICHER_MITTEL, VERKAUF_EINES_ANDEREN_OBJEKTS, SONSTIGE_VERWENDUNG)</p>
@@ -6535,7 +6544,7 @@ table.CodeRay td.code>pre{padding:0}
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>nicht bei darlehensArt IN [VARIABLES_DARLEHEN,ZWISCHEN_FINANZIERUNG]</p>
+<p>nicht bei darlehensTyp IN [VARIABLES_DARLEHEN,ZWISCHEN_FINANZIERUNG]</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><a href="#_zinsbindung">ZinsBindung</a></p>
@@ -12903,7 +12912,7 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-01-20 16:35:23 MEZ
+Last updated 2020-01-20 16:41:25 MEZ
 </div>
 </div>
 </body>

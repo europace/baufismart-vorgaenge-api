@@ -712,6 +712,9 @@ definitions:
   AnnuitaetenDarlehensWunsch:
     type: "object"
     properties:
+      auszahlungsDatum:
+        type: "string"
+        format: "date"
       bereitstellungsZinsFreieZeitInMonaten:
         type: "integer"
         format: "int32"
@@ -1679,11 +1682,11 @@ definitions:
       auszahlungsDatum:
         type: "string"
         format: "date"
-        description: "nur bei darlehensArt==FORWARD_DARLEHEN"
+        description: "nur bei darlehensTyp IN [FORWARD_DARLEHEN, ANNUITAETEN_DARLEHEN]"
       auszahlungsKurs:
         type: "number"
       bereitstellung:
-        description: "nicht bei darlehensArt==PRIVAT_DARLEHEN"
+        description: "nicht bei darlehensTyp==PRIVAT_DARLEHEN"
         $ref: "#/definitions/Bereitstellung"
       darlehensBetrag:
         type: "number"
@@ -1698,7 +1701,7 @@ definitions:
         - "VARIABLES_DARLEHEN"
       detailsZurVerwendung:
         type: "string"
-        description: "nur bei darlehensArt==ZWISCHEN_FINANZIERUNG"
+        description: "nur bei darlehensTyp==ZWISCHEN_FINANZIERUNG"
       effektivZins:
         type: "number"
       effektivZinsRelevanteKosten:
@@ -1706,10 +1709,10 @@ definitions:
       forwardPeriodeInMonaten:
         type: "integer"
         format: "int32"
-        description: "nur bei darlehensArt==FORWARD_DARLEHEN"
+        description: "nur bei darlehensTyp==FORWARD_DARLEHEN"
       kfwEnergieEffizienzStandard:
         type: "string"
-        description: "nur bei darlehensArt==KFW_DARLEHEN. Nur bei KfW-Programm 153\
+        description: "nur bei darlehensTyp==KFW_DARLEHEN. Nur bei KfW-Programm 153\
           \ relevant. Bei neuen Energieeffizienzstandards können auch weitere Werte\
           \ zulässig werden."
         enum:
@@ -1741,11 +1744,11 @@ definitions:
       laufzeitInMonaten:
         type: "integer"
         format: "int32"
-        description: "nur bei darlehensArt==PRIVAT_DARLEHEN"
+        description: "nur bei darlehensTyp==PRIVAT_DARLEHEN"
       maximaleLaufzeitInMonaten:
         type: "integer"
         format: "int32"
-        description: "nur bei darlehensArt==ZWISCHEN_FINANZIERUNG"
+        description: "nur bei darlehensTyp==ZWISCHEN_FINANZIERUNG"
       produktAnbieter:
         $ref: "#/definitions/ProduktAnbieter"
       rateMonatlich:
@@ -1754,27 +1757,27 @@ definitions:
         description: "Die monatliche Rate in Euro"
       rateMonatlichInDerTilgungsfreienAnlaufzeit:
         type: "number"
-        description: "nur bei darlehensArt==KFW_DARLEHEN"
+        description: "nur bei darlehensTyp==KFW_DARLEHEN"
       sollZins:
         type: "number"
         example: 2.05
         description: "Der Sollzinssatz in Prozent"
       tilgung:
-        description: "nicht bei darlehensArt==ZWISCHEN_FINANZIERUNG"
+        description: "nicht bei darlehensTyp==ZWISCHEN_FINANZIERUNG"
         $ref: "#/definitions/Tilgung"
       tilgungsFreieAnlaufJahre:
         type: "integer"
         format: "int32"
-        description: "nur bei darlehensArt==KFW_DARLEHEN"
+        description: "nur bei darlehensTyp==KFW_DARLEHEN"
       verwendungszweck:
         type: "string"
-        description: "nur bei darlehensArt==ZWISCHEN_FINANZIERUNG"
+        description: "nur bei darlehensTyp==ZWISCHEN_FINANZIERUNG"
         enum:
         - "VORFINANZIERUNG_OEFFENTLICHER_MITTEL"
         - "VERKAUF_EINES_ANDEREN_OBJEKTS"
         - "SONSTIGE_VERWENDUNG"
       zinsBindung:
-        description: "nicht bei darlehensArt IN [VARIABLES_DARLEHEN,ZWISCHEN_FINANZIERUNG]"
+        description: "nicht bei darlehensTyp IN [VARIABLES_DARLEHEN,ZWISCHEN_FINANZIERUNG]"
         $ref: "#/definitions/ZinsBindung"
       zinsZahlungsBeginnAm:
         type: "string"
