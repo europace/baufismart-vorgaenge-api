@@ -3,7 +3,7 @@ swagger: "2.0"
 info:
   description: "Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen\
     \ werden."
-  version: "2.9"
+  version: "2.10"
   title: "Vorgänge API"
   contact:
     name: "Europace AG"
@@ -2931,6 +2931,8 @@ definitions:
   SelfRelAndEreignisse:
     type: "object"
     properties:
+      antraege:
+        $ref: "#/definitions/Link"
       ereignisse:
         $ref: "#/definitions/Link"
       self:
