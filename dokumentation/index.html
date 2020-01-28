@@ -688,7 +688,7 @@ table.CodeRay td.code>pre{padding:0}
 <div class="sect2">
 <h3 id="_aktuelle_version">Aktuelle Version</h3>
 <div class="paragraph">
-<p><em>Version</em> : 2.10</p>
+<p><em>Version</em> : 2.12</p>
 </div>
 </div>
 <div class="sect2">
@@ -4557,6 +4557,9 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 <div class="sect2">
 <h3 id="_bausparwunsch">BausparWunsch</h3>
+<div class="paragraph">
+<p>Von den Feldern bausparSummeAbsolut, bausparSummeRelativ, sparBeitragMonatlichAbsolut, sparBeitragMonatlichRelativ, tilgungsBeitragMonatlich, zuteilungsDatum und sparBeginn können maximal drei befüllt sein.</p>
+</div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 16.6666%;">
@@ -4586,9 +4589,7 @@ table.CodeRay td.code>pre{padding:0}
 <p><strong>bausparSummeAbsolut</strong><br>
 <em>optional</em></p>
 </div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Von den Feldern bausparSummeAbsolut, bausparSummeRelativ, sparBeitragMonatlichAbsolut, sparBeitragMonatlichRelativ, tilgungsBeitragMonatlich und zuteilungsDatum können maximal zwei befüllt werden.</p>
-</div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>number</p>
 </div></div></td>
@@ -4598,9 +4599,7 @@ table.CodeRay td.code>pre{padding:0}
 <p><strong>bausparSummeRelativ</strong><br>
 <em>optional</em></p>
 </div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Von den Feldern bausparSummeAbsolut, bausparSummeRelativ, sparBeitragMonatlichAbsolut, sparBeitragMonatlichRelativ, tilgungsBeitragMonatlich und zuteilungsDatum können maximal zwei befüllt werden.</p>
-</div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>number</p>
 </div></div></td>
@@ -4661,12 +4660,22 @@ table.CodeRay td.code>pre{padding:0}
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>sparBeitragMonatlichAbsolut</strong><br>
+<p><strong>sparBeginn</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Von den Feldern bausparSummeAbsolut, bausparSummeRelativ, sparBeitragMonatlichAbsolut, sparBeitragMonatlichRelativ, tilgungsBeitragMonatlich und zuteilungsDatum können maximal zwei befüllt werden.</p>
+<p>Der Beginn des Besparens des Bausparvertrags ist frei festlegbar.</p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string (date)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>sparBeitragMonatlichAbsolut</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>number</p>
 </div></div></td>
@@ -4676,9 +4685,7 @@ table.CodeRay td.code>pre{padding:0}
 <p><strong>sparBeitragMonatlichRelativ</strong><br>
 <em>optional</em></p>
 </div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Von den Feldern bausparSummeAbsolut, bausparSummeRelativ, sparBeitragMonatlichAbsolut, sparBeitragMonatlichRelativ, tilgungsBeitragMonatlich und zuteilungsDatum können maximal zwei befüllt werden.</p>
-</div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>number</p>
 </div></div></td>
@@ -4688,9 +4695,7 @@ table.CodeRay td.code>pre{padding:0}
 <p><strong>tilgungsBeitragMonatlich</strong><br>
 <em>optional</em></p>
 </div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Von den Feldern bausparSummeAbsolut, bausparSummeRelativ, sparBeitragMonatlichAbsolut, sparBeitragMonatlichRelativ, tilgungsBeitragMonatlich und zuteilungsDatum können maximal zwei befüllt werden.</p>
-</div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>number</p>
 </div></div></td>
@@ -4720,9 +4725,7 @@ table.CodeRay td.code>pre{padding:0}
 <p><strong>zuteilungsDatum</strong><br>
 <em>optional</em></p>
 </div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Von den Feldern bausparSummeAbsolut, bausparSummeRelativ, sparBeitragMonatlichAbsolut, sparBeitragMonatlichRelativ, tilgungsBeitragMonatlich und zuteilungsDatum können maximal zwei befüllt werden.</p>
-</div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>string (date)</p>
 </div></div></td>
@@ -12912,7 +12915,7 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-01-20 16:41:25 MEZ
+Last updated 2020-01-28 11:25:03 MEZ
 </div>
 </div>
 </body>

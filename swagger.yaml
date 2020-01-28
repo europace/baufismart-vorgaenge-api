@@ -3,7 +3,7 @@ swagger: "2.0"
 info:
   description: "Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen\
     \ werden."
-  version: "2.10"
+  version: "2.12"
   title: "Vorgänge API"
   contact:
     name: "Europace AG"
@@ -1090,14 +1090,8 @@ definitions:
         - "VERRECHNUNG"
       bausparSummeAbsolut:
         type: "number"
-        description: "Von den Feldern bausparSummeAbsolut, bausparSummeRelativ, sparBeitragMonatlichAbsolut,\
-          \ sparBeitragMonatlichRelativ, tilgungsBeitragMonatlich und zuteilungsDatum\
-          \ können maximal zwei befüllt werden."
       bausparSummeRelativ:
         type: "number"
-        description: "Von den Feldern bausparSummeAbsolut, bausparSummeRelativ, sparBeitragMonatlichAbsolut,\
-          \ sparBeitragMonatlichRelativ, tilgungsBeitragMonatlich und zuteilungsDatum\
-          \ können maximal zwei befüllt werden."
       bausparTarif:
         type: "array"
         description: "siehe weitere Beschreibung unter Weitere Informationen -> Bezeichnung\
@@ -1118,21 +1112,16 @@ definitions:
         type: "array"
         items:
           $ref: "#/definitions/SonderZahlung"
+      sparBeginn:
+        type: "string"
+        format: "date"
+        description: "Der Beginn des Besparens des Bausparvertrags ist frei festlegbar."
       sparBeitragMonatlichAbsolut:
         type: "number"
-        description: "Von den Feldern bausparSummeAbsolut, bausparSummeRelativ, sparBeitragMonatlichAbsolut,\
-          \ sparBeitragMonatlichRelativ, tilgungsBeitragMonatlich und zuteilungsDatum\
-          \ können maximal zwei befüllt werden."
       sparBeitragMonatlichRelativ:
         type: "number"
-        description: "Von den Feldern bausparSummeAbsolut, bausparSummeRelativ, sparBeitragMonatlichAbsolut,\
-          \ sparBeitragMonatlichRelativ, tilgungsBeitragMonatlich und zuteilungsDatum\
-          \ können maximal zwei befüllt werden."
       tilgungsBeitragMonatlich:
         type: "number"
-        description: "Von den Feldern bausparSummeAbsolut, bausparSummeRelativ, sparBeitragMonatlichAbsolut,\
-          \ sparBeitragMonatlichRelativ, tilgungsBeitragMonatlich und zuteilungsDatum\
-          \ können maximal zwei befüllt werden."
       vertragsPartnerIds:
         type: "array"
         items:
@@ -1145,10 +1134,10 @@ definitions:
       zuteilungsDatum:
         type: "string"
         format: "date"
-        description: "Von den Feldern bausparSummeAbsolut, bausparSummeRelativ, sparBeitragMonatlichAbsolut,\
-          \ sparBeitragMonatlichRelativ, tilgungsBeitragMonatlich und zuteilungsDatum\
-          \ können maximal zwei befüllt werden."
     title: "BausparWunsch"
+    description: "Von den Feldern bausparSummeAbsolut, bausparSummeRelativ, sparBeitragMonatlichAbsolut,\
+      \ sparBeitragMonatlichRelativ, tilgungsBeitragMonatlich, zuteilungsDatum und\
+      \ sparBeginn können maximal drei befüllt sein."
   Bausparvertrag:
     type: "object"
     properties:
