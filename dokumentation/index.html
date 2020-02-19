@@ -688,7 +688,7 @@ table.CodeRay td.code>pre{padding:0}
 <div class="sect2">
 <h3 id="_aktuelle_version">Aktuelle Version</h3>
 <div class="paragraph">
-<p><em>Version</em> : 2.12</p>
+<p><em>Version</em> : 2.14</p>
 </div>
 </div>
 <div class="sect2">
@@ -3386,6 +3386,24 @@ table.CodeRay td.code>pre{padding:0}
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>riesterFoerderung</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>riesterGefoerdertePerson</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><strong>sondertilgungOptionalJaehrlich</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -3779,6 +3797,16 @@ table.CodeRay td.code>pre{padding:0}
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>bruttoJahresEinkommenErwartet</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>number</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><strong>bruttoVorjahresEinkommen</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -3903,6 +3931,16 @@ table.CodeRay td.code>pre{padding:0}
 <td class="tableblock halign-left valign-middle"><div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><a href="#_schufaergebnis">SchufaErgebnis</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>sozialversicherungsnummer</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
 </div></div></td>
 </tr>
 <tr>
@@ -4403,6 +4441,18 @@ table.CodeRay td.code>pre{padding:0}
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>sparBeginn</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Der berechnete Beginn des Besparens des Bausparvertrags.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string (date)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><strong>sparPhase</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -4640,6 +4690,16 @@ table.CodeRay td.code>pre{padding:0}
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>riesterFoerderung</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><strong>sonderZahlungEinmalig</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -4718,6 +4778,16 @@ table.CodeRay td.code>pre{padding:0}
 <td class="tableblock halign-left valign-middle"><div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>enum (ZINS_ABSICHERUNG, TILGUNGS_AUSGESETZT)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>verwendungZulagen</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>enum (SONDERZAHLUNG, VERRECHNUNG)</p>
 </div></div></td>
 </tr>
 <tr>
@@ -4829,6 +4899,18 @@ table.CodeRay td.code>pre{padding:0}
 <td class="tableblock halign-left valign-middle"><div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>&lt; <a href="#_sonderzahlung">SonderZahlung</a> &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>sparBeginn</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Der berechnete Beginn des Besparens des Bausparvertrags.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string (date)</p>
 </div></div></td>
 </tr>
 <tr>
@@ -6490,6 +6572,16 @@ table.CodeRay td.code>pre{padding:0}
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>number</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>riesterGefoerdert</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>boolean</p>
 </div></div></td>
 </tr>
 <tr>
@@ -12915,7 +13007,7 @@ table.CodeRay td.code>pre{padding:0}
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-01-28 11:25:03 MEZ
+Last updated 2020-02-19 17:01:23 MEZ
 </div>
 </div>
 </body>
