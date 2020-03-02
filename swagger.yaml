@@ -3,7 +3,7 @@ swagger: "2.0"
 info:
   description: "Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen\
     \ werden."
-  version: "2.12"
+  version: "2.13"
   title: "Vorgänge API"
   contact:
     name: "Europace AG"
@@ -722,6 +722,10 @@ definitions:
         type: "number"
       provision:
         type: "number"
+      riesterFoerderung:
+        type: "boolean"
+      riesterGefoerdertePerson:
+        type: "string"
       sondertilgungOptionalJaehrlich:
         type: "number"
       tilgungsWunsch:
@@ -859,6 +863,8 @@ definitions:
         description: "wenn Aufenthaltstitel befristet"
       beschaeftigung:
         $ref: "#/definitions/Beschaeftigung"
+      bruttoJahresEinkommenErwartet:
+        type: "number"
       bruttoVorjahresEinkommen:
         type: "number"
       email:
@@ -897,6 +903,8 @@ definitions:
         type: "string"
       schufaErgebnis:
         $ref: "#/definitions/SchufaErgebnis"
+      sozialversicherungsnummer:
+        type: "string"
       staatsangehoerigkeit:
         $ref: "#/definitions/Staat"
       steuerId:
@@ -1041,6 +1049,10 @@ definitions:
         type: "array"
         items:
           $ref: "#/definitions/SonderZahlung"
+      sparBeginn:
+        type: "string"
+        format: "date"
+        description: "Der berechnete Beginn des Besparens des Bausparvertrags."
       sparPhase:
         $ref: "#/definitions/SparPhase"
       tarif:
@@ -1106,6 +1118,8 @@ definitions:
           type: "string"
       id:
         type: "string"
+      riesterFoerderung:
+        type: "boolean"
       sonderZahlungEinmalig:
         type: "number"
       sonderZahlungen:
@@ -1131,6 +1145,11 @@ definitions:
         enum:
         - "ZINS_ABSICHERUNG"
         - "TILGUNGS_AUSGESETZT"
+      verwendungZulagen:
+        type: "string"
+        enum:
+        - "SONDERZAHLUNG"
+        - "VERRECHNUNG"
       zuteilungsDatum:
         type: "string"
         format: "date"
@@ -1161,6 +1180,10 @@ definitions:
         type: "array"
         items:
           $ref: "#/definitions/SonderZahlung"
+      sparBeginn:
+        type: "string"
+        format: "date"
+        description: "Der berechnete Beginn des Besparens des Bausparvertrags."
       sparPhase:
         $ref: "#/definitions/SparPhase"
       tarif:
@@ -1747,6 +1770,8 @@ definitions:
       rateMonatlichInDerTilgungsfreienAnlaufzeit:
         type: "number"
         description: "nur bei darlehensTyp==KFW_DARLEHEN"
+      riesterGefoerdert:
+        type: "boolean"
       sollZins:
         type: "number"
         example: 2.05
