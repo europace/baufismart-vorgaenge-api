@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "description": "Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen werden.",
-    "version": "2.12",
+    "version": "2.13",
     "title": "Vorgänge API",
     "contact": {
       "name": "Europace AG",
@@ -1088,6 +1088,12 @@
         "provision": {
           "type": "number"
         },
+        "riesterFoerderung": {
+          "type": "boolean"
+        },
+        "riesterGefoerdertePerson": {
+          "type": "string"
+        },
         "sondertilgungOptionalJaehrlich": {
           "type": "number"
         },
@@ -1285,6 +1291,9 @@
         "beschaeftigung": {
           "$ref": "#/definitions/Beschaeftigung"
         },
+        "bruttoJahresEinkommenErwartet": {
+          "type": "number"
+        },
         "bruttoVorjahresEinkommen": {
           "type": "number"
         },
@@ -1338,6 +1347,9 @@
         },
         "schufaErgebnis": {
           "$ref": "#/definitions/SchufaErgebnis"
+        },
+        "sozialversicherungsnummer": {
+          "type": "string"
         },
         "staatsangehoerigkeit": {
           "$ref": "#/definitions/Staat"
@@ -1548,6 +1560,12 @@
             "$ref": "#/definitions/SonderZahlung"
           }
         },
+        "sparBeginn": {
+          "type": "string",
+          "format": "date",
+          "description": "Der berechnete Beginn des Besparens des Bausparvertrags.",
+          "allowEmptyValue": false
+        },
         "sparPhase": {
           "$ref": "#/definitions/SparPhase"
         },
@@ -1641,6 +1659,9 @@
         "id": {
           "type": "string"
         },
+        "riesterFoerderung": {
+          "type": "boolean"
+        },
         "sonderZahlungEinmalig": {
           "type": "number"
         },
@@ -1676,6 +1697,13 @@
           "enum": [
             "ZINS_ABSICHERUNG",
             "TILGUNGS_AUSGESETZT"
+          ]
+        },
+        "verwendungZulagen": {
+          "type": "string",
+          "enum": [
+            "SONDERZAHLUNG",
+            "VERRECHNUNG"
           ]
         },
         "zuteilungsDatum": {
@@ -1718,6 +1746,12 @@
           "items": {
             "$ref": "#/definitions/SonderZahlung"
           }
+        },
+        "sparBeginn": {
+          "type": "string",
+          "format": "date",
+          "description": "Der berechnete Beginn des Besparens des Bausparvertrags.",
+          "allowEmptyValue": false
         },
         "sparPhase": {
           "$ref": "#/definitions/SparPhase"
@@ -2519,6 +2553,9 @@
           "type": "number",
           "description": "nur bei darlehensTyp==KFW_DARLEHEN",
           "allowEmptyValue": false
+        },
+        "riesterGefoerdert": {
+          "type": "boolean"
         },
         "sollZins": {
           "type": "number",
