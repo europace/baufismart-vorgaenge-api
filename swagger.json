@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "description": "Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen werden.",
-    "version": "2.13",
+    "version": "2.14",
     "title": "Vorgänge API",
     "contact": {
       "name": "Europace AG",
@@ -601,6 +601,85 @@
             "description": "Bad Request",
             "schema": {
               "$ref": "#/definitions/Error"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "405": {
+            "description": "Method Not Allowed",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "502": {
+            "description": "Bad Gateway",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "504": {
+            "description": "Gateway Timeout",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "API"
+            ]
+          }
+        ]
+      }
+    },
+    "/v2/vorgaenge/{vorgangsNummer}/gemerkteAngebote": {
+      "get": {
+        "tags": [
+          "Vorgänge"
+        ],
+        "summary": "Die Liste der gemerkten Angebote des Vorgangs abrufen",
+        "description": "Als Parameter wird die in BaufiSmart erzeugte Vorgangsnummer erwartet. Gemerkte Angebote sind: explizit gemerkte Angebote in BaufiSmart, ausgehändigte Finanzierungsvorschläge, Empfehlungen des Bearbeiters, Wünsche des Antragstellers, angefragte- und angenommene Angebote.",
+        "operationId": "retrieveGemerkteAngebote",
+        "produces": [
+          "application/json;charset=UTF-8"
+        ],
+        "parameters": [
+          {
+            "name": "vorgangsNummer",
+            "in": "path",
+            "description": "vorgangsNummer",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GemerkteAngeboteResource"
             }
           },
           "401": {
@@ -3204,6 +3283,22 @@
       },
       "title": "GebaeudeFlaeche"
     },
+    "GemerkteAngeboteResource": {
+      "type": "object",
+      "properties": {
+        "gemerkteAngeboteExperimentell": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Angebot"
+          }
+        },
+        "_links": {
+          "allowEmptyValue": false,
+          "$ref": "#/definitions/Links"
+        }
+      },
+      "title": "GemerkteAngeboteResource"
+    },
     "GrundbuchAngabe": {
       "type": "object",
       "properties": {
@@ -4245,6 +4340,9 @@
           "$ref": "#/definitions/Link"
         },
         "ereignisse": {
+          "$ref": "#/definitions/Link"
+        },
+        "gemerkteAngebote": {
           "$ref": "#/definitions/Link"
         },
         "self": {
