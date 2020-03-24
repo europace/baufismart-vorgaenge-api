@@ -12,6 +12,7 @@ Die API ist vollständig in Swagger definiert. Die Swagger Definitionen werden s
 Diese Spezifikationen können auch zur Generierung von Clients für diese API verwendet
 werden. Dazu empfehlen wir das Tool [Swagger Codegen](https://github.com/swagger-api/swagger-codegen)
 
+
 ### Dokumentation
 
 - [RELEASE NOTES](https://github.com/europace/baufismart-vorgaenge-api/releases)
