@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "description": "Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen werden.",
-    "version": "2.14",
+    "version": "2.15",
     "title": "Vorgänge API",
     "contact": {
       "name": "Europace AG",
@@ -601,6 +601,171 @@
             "description": "Bad Request",
             "schema": {
               "$ref": "#/definitions/Error"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "405": {
+            "description": "Method Not Allowed",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "502": {
+            "description": "Bad Gateway",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "504": {
+            "description": "Gateway Timeout",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "API"
+            ]
+          }
+        ]
+      }
+    },
+    "/v2/vorgaenge/{vorgangsNummer}/finanzierungsvorschlaege": {
+      "get": {
+        "tags": [
+          "Finanzierungsvorschlag",
+          "Vorgänge"
+        ],
+        "summary": "Als Parameter wird die in BaufiSmart erzeugte Vorgangsnummer erwartet. Bei Finanzierungsvorschlägen handelt es sich um ausgehändigte Finanzierungsvorschläge in Baufsmart. Achtung: Bei den ausgegebenen Finanzierungsvorschlägen handelt es sich um Mockdaten.",
+        "operationId": "getFinanzierungsvorschlaege",
+        "produces": [
+          "application/json;charset=UTF-8"
+        ],
+        "parameters": [
+          {
+            "name": "vorgangsNummer",
+            "in": "path",
+            "description": "Die Nummer des Vorgangs zu dem die Finanzierungsvorschläge erzeugt wurden.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/FinanzierungsvorschlaegeResource"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "405": {
+            "description": "Method Not Allowed",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "502": {
+            "description": "Bad Gateway",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "504": {
+            "description": "Gateway Timeout",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "API"
+            ]
+          }
+        ]
+      }
+    },
+    "/v2/vorgaenge/{vorgangsNummer}/finanzierungsvorschlaege/{finanzierungsvorschlagId}": {
+      "get": {
+        "tags": [
+          "Finanzierungsvorschlag",
+          "Vorgänge"
+        ],
+        "summary": "Als Parameter wird die in BaufiSmart erzeugte Vorgangsnummer und die Id des Finanzierungsvorschlags erwartet. Achtung: Bei dem ausgegebenen Finanzierungsvorschlag handelt es sich um Mockdaten.",
+        "operationId": "getFinanzierungsvorschlag",
+        "produces": [
+          "application/json;charset=UTF-8"
+        ],
+        "parameters": [
+          {
+            "name": "vorgangsNummer",
+            "in": "path",
+            "description": "Die Nummer des Vorgangs zu dem die Finanzierungsvorschläge erzeugt wurden.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "finanzierungsvorschlagId",
+            "in": "path",
+            "description": "Die Id des Finanzierungsvorschlags.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Finanzierungsvorschlag"
             }
           },
           "401": {
@@ -1891,6 +2056,9 @@
     "BeleihungsWert": {
       "type": "object",
       "properties": {
+        "adresse": {
+          "$ref": "#/definitions/Postadresse"
+        },
         "beleihungsWert": {
           "type": "number"
         },
@@ -2871,6 +3039,74 @@
       },
       "title": "Error"
     },
+    "EuropaceBausparAngebot": {
+      "type": "object",
+      "properties": {
+        "abschlussGebuehr": {
+          "type": "number"
+        },
+        "angebotsHinweisFuerAntragsteller": {
+          "type": "string",
+          "description": "nur bei neuen extern berechneten Bausparverträgen und bei Gegenangeboten",
+          "allowEmptyValue": false
+        },
+        "bausparSumme": {
+          "type": "number"
+        },
+        "einmalzahlung": {
+          "type": "number"
+        },
+        "gesamtLaufzeitInJahren": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "id": {
+          "type": "string"
+        },
+        "produktAnbieter": {
+          "$ref": "#/definitions/ProduktAnbieter"
+        },
+        "sonderZahlungen": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SonderZahlung"
+          }
+        },
+        "sparBeginn": {
+          "type": "string",
+          "format": "date",
+          "description": "Der berechnete Beginn des Besparens des Bausparvertrags.",
+          "allowEmptyValue": false
+        },
+        "sparPhase": {
+          "$ref": "#/definitions/SparPhase"
+        },
+        "tarif": {
+          "type": "string"
+        },
+        "tilgungsPhase": {
+          "$ref": "#/definitions/TilgungsPhase"
+        },
+        "typ": {
+          "type": "string"
+        },
+        "vertragsBeginn": {
+          "type": "string",
+          "format": "date"
+        },
+        "vertragsNummer": {
+          "type": "string"
+        },
+        "verwaltungsgebuehrenJaehrlich": {
+          "type": "number"
+        },
+        "zuteilungsDatum": {
+          "type": "string",
+          "format": "date"
+        }
+      },
+      "title": "EuropaceBausparAngebot"
+    },
     "Finanzbedarf": {
       "type": "object",
       "properties": {
@@ -3063,6 +3299,112 @@
         }
       },
       "title": "FinanzierungsObjekt"
+    },
+    "FinanzierungsvorschlaegeResource": {
+      "type": "object",
+      "properties": {
+        "finanzierungsvorschlaege": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Finanzierungsvorschlag"
+          }
+        },
+        "_links": {
+          "allowEmptyValue": false,
+          "$ref": "#/definitions/Links"
+        }
+      },
+      "title": "FinanzierungsvorschlaegeResource"
+    },
+    "Finanzierungsvorschlag": {
+      "type": "object",
+      "properties": {
+        "annahmeFrist": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Die Annahmefrist des Angebots.",
+          "allowEmptyValue": false
+        },
+        "bausparvertraege": {
+          "type": "array",
+          "description": "Liste von allen Bausparverträgen, die Bestandteil dieses Finanzierungsvorschlags sind.",
+          "allowEmptyValue": false,
+          "items": {
+            "$ref": "#/definitions/EuropaceBausparAngebot"
+          }
+        },
+        "beleihung": {
+          "example": "Die Beleihungsrechnung aller Immobilien, die Bestandteil dieses Finanzierungsvorschlags sind.",
+          "allowEmptyValue": false,
+          "$ref": "#/definitions/BeleihungsRechnung"
+        },
+        "darlehen": {
+          "type": "array",
+          "description": "Liste von allen Darlehen, die Bestandteil dieses Finanzierungsvorschlags sind.",
+          "allowEmptyValue": false,
+          "items": {
+            "$ref": "#/definitions/Darlehen"
+          }
+        },
+        "darlehensSumme": {
+          "type": "number",
+          "example": 123.34,
+          "description": "Die gesamte Darlehenssumme in Euro für alle im Finanzierungsvorschlag enthaltenen Darlehen.",
+          "allowEmptyValue": false
+        },
+        "effektivZins": {
+          "type": "number",
+          "example": 2.04,
+          "description": "Aus allen Darlehens Effektivzinssätzen wird ein aggregierter Mischzins in Prozent ausgegeben.",
+          "allowEmptyValue": false
+        },
+        "erzeugtAm": {
+          "type": "string",
+          "format": "date-time",
+          "example": "2021-03-29T15:32:21.698Z",
+          "description": "Datum, an welchem der Finanzierungsvorschlag erzeugt wurde.",
+          "allowEmptyValue": false
+        },
+        "id": {
+          "type": "string",
+          "description": "Id des Finanzierungsvorschlags",
+          "allowEmptyValue": false
+        },
+        "machbarkeitsStatus": {
+          "type": "string",
+          "example": "MACHBAR",
+          "allowEmptyValue": false,
+          "enum": [
+            "MACHBAR",
+            "UNTER_VORBEHALT_PRODUZENT",
+            "NICHT_MACHBAR"
+          ]
+        },
+        "rateMonatlich": {
+          "type": "number",
+          "example": 123.34,
+          "description": "Die gesamte monatliche Rate in Euro.",
+          "allowEmptyValue": false
+        },
+        "sollZins": {
+          "type": "number",
+          "example": 2.05,
+          "description": "Aus allen Darlehens Sollzinssätzen wird ein aggregierter Sollzins in Prozent ausgegeben.",
+          "allowEmptyValue": false
+        },
+        "zinsBindung": {
+          "type": "string",
+          "example": "5 - 10 Jahre",
+          "description": "Die Zinsbindung wird über alle Darlehen als Intervall in Jahren angegeben.",
+          "allowEmptyValue": false
+        },
+        "_links": {
+          "allowEmptyValue": false,
+          "$ref": "#/definitions/Links"
+        }
+      },
+      "title": "Finanzierungsvorschlag",
+      "description": "Ein in BaufiSmart ausgehändigter Finanzierungsvorschlag."
     },
     "Finanzierungswunsch": {
       "type": "object",
@@ -4340,6 +4682,9 @@
           "$ref": "#/definitions/Link"
         },
         "ereignisse": {
+          "$ref": "#/definitions/Link"
+        },
+        "finanzierungsvorschlaege": {
           "$ref": "#/definitions/Link"
         },
         "gemerkteAngebote": {
