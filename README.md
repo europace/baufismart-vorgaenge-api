@@ -55,6 +55,7 @@ Um die Credentials zu erhalten, erfagen Sie beim Helpdesk der Plattform die Zuga
 2. Aus der JSON-Antwort das JWToken (access_token) entnehmen
 3. Bei weiteren Requests muss dieses JWToken als Authorization Header mitgeschickt werden.
 
-# Nutzungsbedingungen
-Mit der Verwendung dieser API [stimme ich den Nutzungsbedingungen](https://developer.europace.de/terms/) zu.
+## Nutzungsbedingungen
+Die APIs werden unter folgenden [Nutzungsbedingungen](https://developer.europace.de/terms/) zur Verfügung gestellt
+
 
