@@ -17,6 +17,8 @@ werden. Dazu empfehlen wir das Tool [Swagger Codegen](https://github.com/swagger
 - [RELEASE NOTES](https://github.com/europace/baufismart-vorgaenge-api/releases)
 - [Vollständige Dokumentation als HTML Seite](http://htmlpreview.github.io?https://raw.githubusercontent.com/europace/baufismart-vorgaenge-api/master/dokumentation/index.html)
 - [Patch Beispiele](https://github.com/europace/baufismart-vorgaenge-api/blob/master/dokumentation/patch.md)
+- [Zip Report ablösen - FAQs](https://github.com/europace/baufismart-vorgaenge-api/blob/master/zip%20Report%20mit%20der%20Vorgaenge%20API%20abl%C3%B6sen
+)
 
 ### Generierung des Clients
 ##### JAVA mit Retrofit
