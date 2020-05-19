@@ -1,0 +1,13 @@
+Im Folgenden werden Fragen beantwortet, um den zip.report durch die Vorgänge API abzulösen.
+
+Q: In der Vorgänge API finde ich "bereitstellungsZinsFreieZeitInMonaten". Welchem Feld im Report entspricht das Feld?
+A: Im Bausteine Report entspricht as feld "bzFreieZeit" dem Feld "breitstellungsZinsFreieZeitInMonaten" aus der Vorgänge API.
+
+
+Q: Im Report gibt es die Felder "AngebotAngenommenAmDatum" und "AntragBeantragtAntragstellerAmDatum".
+   In der Vorgänge API gibt es das Feld "zeitpunktDerAnnahme". Welches Feld steckt hinter "zeitpunktDerAnnahme"?
+A: "zeitpunktDerAnnahme" spiegelt den Zeitpunkt der Angebotsanahme durch den Kundenberater wieder. Es entspricht dem Feld "AngebotAngenommenAmDatum".
+   Im Reporting wird das Feld "antragBeantragtAntragstellerAmDatum" bei der Angebotsannahme gesetzt. Es wird neu gesetzt, wenn ein Gegenangebot erstellt wird oder wenn der Antragstellerstatus auf 'Beantragt' und Produktanbieter Status auf 'nicht bearbeitet' gesetzt wird.
+   
+Q: Im Bausteine Report wird von "KfwTilgungsfreieJahre" gesprochen. In der Vorgänge API finde ich bei KfW Bausteinen "tilgungsfreieAnlaufjahre". Beschreiben die Felder den gleichen Wert?
+A: Das Feld "KfwTilgungsfreieJahre" im Reporting entspricht dem Feld "tilgungsfreieAnlaufjahre" in der Vorgänge API.
