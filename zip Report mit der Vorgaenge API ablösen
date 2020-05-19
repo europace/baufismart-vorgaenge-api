@@ -1,7 +1,7 @@
 Im Folgenden werden Fragen beantwortet, um den zip.report durch die Vorgänge API abzulösen.
 
 Q: In der Vorgänge API finde ich "bereitstellungsZinsFreieZeitInMonaten". Welchem Feld im Report entspricht das Feld?
-A: Im Bausteine Report entspricht as feld "bzFreieZeit" dem Feld "breitstellungsZinsFreieZeitInMonaten" aus der Vorgänge API.
+A: Im Bausteine Report entspricht das Feld "bzFreieZeit" dem Feld "breitstellungsZinsFreieZeitInMonaten" aus der Vorgänge API.
 
 
 Q: Im Report gibt es die Felder "AngebotAngenommenAmDatum" und "AntragBeantragtAntragstellerAmDatum".
