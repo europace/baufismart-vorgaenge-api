@@ -3,7 +3,7 @@ swagger: "2.0"
 info:
   description: "Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen\
     \ werden."
-  version: "2.15"
+  version: "2.16"
   title: "Vorgänge API"
   contact:
     name: "Europace AG"
@@ -1209,6 +1209,7 @@ definitions:
         type: "number"
       einmalzahlung:
         type: "number"
+        description: "Deprecated. Einmalzahlungen sind Teil der Sonderzahlungen."
       id:
         type: "string"
       produktAnbieter:
@@ -1290,6 +1291,7 @@ definitions:
         type: "boolean"
       sonderZahlungEinmalig:
         type: "number"
+        description: "Deprecated. Einmalzahlungen sind Teil der Sonderzahlungen."
       sonderZahlungen:
         type: "array"
         items:
@@ -1337,6 +1339,7 @@ definitions:
         type: "number"
       einmalzahlung:
         type: "number"
+        description: "Deprecated. Einmalzahlungen sind Teil der Sonderzahlungen."
       gesamtLaufzeitInJahren:
         type: "integer"
         format: "int32"
@@ -1400,6 +1403,8 @@ definitions:
         type: "number"
       immobilie:
         $ref: "#/definitions/ImmobilieVerknuepfung"
+      produktAnbieter:
+        $ref: "#/definitions/ProduktAnbieter"
     title: "BeleihungsWert"
   Beratung:
     type: "object"
@@ -1704,6 +1709,7 @@ definitions:
         type: "number"
       einmalzahlung:
         type: "number"
+        description: "Deprecated. Einmalzahlungen sind Teil der Sonderzahlungen."
       ertrag:
         type: "number"
       id:
@@ -2108,6 +2114,7 @@ definitions:
         type: "number"
       einmalzahlung:
         type: "number"
+        description: "Deprecated. Einmalzahlungen sind Teil der Sonderzahlungen."
       gesamtLaufzeitInJahren:
         type: "integer"
         format: "int32"
@@ -2318,11 +2325,12 @@ definitions:
         example: 2.04
         description: "Aus allen Darlehens Effektivzinssätzen wird ein aggregierter\
           \ Mischzins in Prozent ausgegeben."
-      erzeugtAm:
-        type: "string"
-        format: "date-time"
-        example: "2021-03-29T15:32:21.698Z"
-        description: "Datum, an welchem der Finanzierungsvorschlag erzeugt wurde."
+      historie:
+        type: "array"
+        description: "Historie, in der für jedes Aushändigen, ein Eintrag mit Datum\
+          \ und Akteur ausgegeben wird."
+        items:
+          $ref: "#/definitions/FinanzierungsvorschlagHistorienEintrag"
       id:
         type: "string"
         description: "Id des Finanzierungsvorschlags"
@@ -2351,6 +2359,17 @@ definitions:
         $ref: "#/definitions/Links"
     title: "Finanzierungsvorschlag"
     description: "Ein in BaufiSmart ausgehändigter Finanzierungsvorschlag."
+  FinanzierungsvorschlagHistorienEintrag:
+    type: "object"
+    properties:
+      akteur:
+        type: "string"
+      erzeugtAm:
+        type: "string"
+        format: "date-time"
+    title: "FinanzierungsvorschlagHistorienEintrag"
+    description: "Wird ein Angebot als Finanzierungsvorschlag ausgehändigt, wird ein\
+      \ Eintrag in die Historie geschrieben."
   Finanzierungswunsch:
     type: "object"
     properties:
