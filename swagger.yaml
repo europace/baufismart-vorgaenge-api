@@ -3,7 +3,7 @@ swagger: "2.0"
 info:
   description: "Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen\
     \ werden."
-  version: "2.16"
+  version: "2.17"
   title: "Vorgänge API"
   contact:
     name: "Europace AG"
@@ -1884,8 +1884,8 @@ definitions:
           - "ANNUITAETEN_DARLEHEN"
           - "FORWARD_DARLEHEN"
           - "KFW_DARLEHEN"
-          - "PRIVAT_DARLEHEN"
           - "REGIONAL_FOERDER_DARLEHEN"
+          - "PRIVAT_DARLEHEN"
           - "ZWISCHEN_FINANZIERUNG"
           - "VARIABLES_DARLEHEN"
       detailsZurVerwendung:
@@ -1911,8 +1911,8 @@ definitions:
           - "STANDARD_70"
       kfwProgramm:
         type: "string"
-        description: "nur bei darlehensTyp==KFW_DARLEHEN. Bei neu aufgelegten\
-          \ KfW-Programmen können auch weitere Werte zulässig werden."
+        description: "nur bei darlehensTyp==KFW_DARLEHEN. Bei neu aufgelegten KfW-Programmen\
+          \ können auch weitere Werte zulässig werden."
         enum:
           - "PROGRAMM_124"
           - "PROGRAMM_141"
@@ -1949,10 +1949,9 @@ definitions:
         description: "nur bei darlehensTyp IN [KFW_DARLEHEN, REGIONAL_FOERDER_DARLEHEN]"
       regionalFoerderbankProgramm:
         type: "string"
-        description: "nur bei darlehensTyp==REGIONAL_FOERDER_DARLEHEN. Bei neu\
-          \ aufgelegten Regional-Förderbank-Programmen können auch weitere Werte\
-          \ zulässig werden. Der Client muss daher mit unbekannten Werten umgehen\
-          \ können."
+        description: "nur bei darlehensTyp==REGIONAL_FOERDER_DARLEHEN. Bei neu aufgelegten\
+          \ Regional-Förderbank-Programmen können auch weitere Werte zulässig werden.\
+          \ Der Client muss daher mit unbekannten Werten umgehen können."
         enum:
           - "L_BANK_KOMBI_DARLEHEN_WOHNEN"
           - "L_BANK_WOHNEN_MIT_KIND"
@@ -3229,20 +3228,20 @@ definitions:
     properties:
       darlehensBetrag:
         type: "number"
-      regionalFoerderbankProgramm:
-        type: "string"
-        description: "Bei neu aufgelegten Regional-Förderbank-Programmen können auch weitere Werte\
-          \ zulässig werden. Der Client muss daher mit unbekannten Werten umgehen\
-          \ können."
-        enum:
-          - "L_BANK_KOMBI_DARLEHEN_WOHNEN"
-          - "L_BANK_WOHNEN_MIT_KIND"
-          - "L_BANK_WOHNEN_MIT_ZUKUNFT"
       laufzeitInJahren:
         type: "integer"
         format: "int32"
       provision:
         type: "number"
+      regionalFoerderbankProgramm:
+        type: "string"
+        description: "Bei neu aufgelegten Regional-Förderbank-Programmen können auch\
+          \ weitere Werte zulässig werden. Der Client muss daher mit unbekannten Werten\
+          \ umgehen können."
+        enum:
+          - "L_BANK_KOMBI_DARLEHEN_WOHNEN"
+          - "L_BANK_WOHNEN_MIT_KIND"
+          - "L_BANK_WOHNEN_MIT_ZUKUNFT"
       tilgungsfreieAnlaufjahre:
         type: "integer"
         format: "int32"
@@ -3250,8 +3249,8 @@ definitions:
       zinsBindungInJahren:
         type: "integer"
         format: "int32"
-        description: "Erlaubt ist aktuell nur 10 Jahre für alle Programme der L-Bank. Bei weiteren\
-          \ Förderbankprogrammen können auch andere Werte zulässig sein."
+        description: "Erlaubt ist aktuell nur 10 Jahre für alle Programme der L-Bank.\
+          \ Bei weiteren Förderbankprogrammen können auch andere Werte zulässig sein."
     title: "RegionalFoerderDarlehensWunsch"
   RisikoAbsicherung:
     type: "object"
