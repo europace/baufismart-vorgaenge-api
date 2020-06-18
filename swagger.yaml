@@ -3229,9 +3229,9 @@ definitions:
     properties:
       darlehensBetrag:
         type: "number"
-      kfwEndfaellig: # TODO ACM/BEV soll das auch hier weiter so heissen?
+      endfaellig:
         type: "string"
-        description: "Für endfällige Regional Förder-Darlehen wird die Quelle des Tilgungswunsches\
+        description: "Für endfällige Regional-Förder-Darlehen wird die Quelle des Tilgungswunsches\
           \ erfasst"
         enum:
           - "NEIN"
