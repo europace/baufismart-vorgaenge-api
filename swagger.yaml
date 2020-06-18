@@ -3229,14 +3229,6 @@ definitions:
     properties:
       darlehensBetrag:
         type: "number"
-      endfaellig:
-        type: "string"
-        description: "Für endfällige Regional-Förder-Darlehen wird die Quelle des Tilgungswunsches\
-          \ erfasst"
-        enum:
-          - "NEIN"
-          - "ENDFAELLIG_BERECHNET"
-          - "ENDFAELLIG_EIGENES_ANGEBOT"
       regionalFoerderbankProgramm:
         type: "string"
         description: "Bei neu aufgelegten Regional-Förderbank-Programmen können auch weitere Werte\
@@ -3251,9 +3243,6 @@ definitions:
         format: "int32"
       provision:
         type: "number"
-      tilgungsWunsch:
-        description: "Für endfällige Regional-Förder-Darlehen wird ein Tilgungswunsch erfasst"
-        $ref: "#/definitions/TilgungsWunsch"
       tilgungsfreieAnlaufjahre:
         type: "integer"
         format: "int32"
