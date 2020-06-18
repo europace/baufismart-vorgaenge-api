@@ -1885,6 +1885,7 @@ definitions:
           - "FORWARD_DARLEHEN"
           - "KFW_DARLEHEN"
           - "PRIVAT_DARLEHEN"
+          - "REGIONAL_FOERDER_DARLEHEN"
           - "ZWISCHEN_FINANZIERUNG"
           - "VARIABLES_DARLEHEN"
       detailsZurVerwendung:
@@ -1910,8 +1911,8 @@ definitions:
           - "STANDARD_70"
       kfwProgramm:
         type: "string"
-        description: "Bei neu aufgelegten KfW-Programmen können auch weitere Werte\
-          \ zulässig werden."
+        description: "nur bei darlehensTyp==KFW_DARLEHEN. Bei neu aufgelegten\
+          \ KfW-Programmen können auch weitere Werte zulässig werden."
         enum:
           - "PROGRAMM_124"
           - "PROGRAMM_141"
@@ -1945,7 +1946,17 @@ definitions:
         description: "Die monatliche Rate in Euro"
       rateMonatlichInDerTilgungsfreienAnlaufzeit:
         type: "number"
-        description: "nur bei darlehensTyp==KFW_DARLEHEN"
+        description: "nur bei darlehensTyp IN [KFW_DARLEHEN, REGIONAL_FOERDER_DARLEHEN]"
+      regionalFoerderbankProgramm:
+        type: "string"
+        description: "nur bei darlehensTyp==REGIONAL_FOERDER_DARLEHEN. Bei neu\
+          \ aufgelegten Regional-Förderbank-Programmen können auch weitere Werte\
+          \ zulässig werden. Der Client muss daher mit unbekannten Werten umgehen\
+          \ können."
+        enum:
+          - "L_BANK_KOMBI_DARLEHEN_WOHNEN"
+          - "L_BANK_WOHNEN_MIT_KIND"
+          - "L_BANK_WOHNEN_MIT_ZUKUNFT"
       riesterGefoerdert:
         type: "boolean"
       sollZins:
@@ -1958,7 +1969,7 @@ definitions:
       tilgungsFreieAnlaufJahre:
         type: "integer"
         format: "int32"
-        description: "nur bei darlehensTyp==KFW_DARLEHEN"
+        description: "nur bei darlehensTyp IN [KFW_DARLEHEN, REGIONAL_FOERDER_DARLEHEN]"
       verwendungszweck:
         type: "string"
         description: "nur bei darlehensTyp==ZWISCHEN_FINANZIERUNG"
