@@ -1990,6 +1990,9 @@ definitions:
       privatDarlehen:
         description: "muss leer sein, wenn eines der anderen Attribute gefüllt ist"
         $ref: "#/definitions/PrivatDarlehensWunsch"
+      regionalFoerderDarlehen:
+        description: "muss leer sein, wenn eines der anderen Attribute gefüllt ist"
+        $ref: "#/definitions/RegionalFoerderDarlehensWunsch"
       variablesDarlehen:
         description: "muss leer sein, wenn eines der anderen Attribute gefüllt ist"
         $ref: "#/definitions/VariablesDarlehensWunsch"
@@ -3210,6 +3213,46 @@ definitions:
       vorhanden:
         type: "boolean"
     title: "RechteAbteilung2"
+  RegionalFoerderDarlehensWunsch:
+    type: "object"
+    properties:
+      darlehensBetrag:
+        type: "number"
+      kfwEndfaellig: # TODO ACM/BEV soll das auch hier weiter so heissen?
+        type: "string"
+        description: "Für endfällige Regional Förder-Darlehen wird die Quelle des Tilgungswunsches\
+          \ erfasst"
+        enum:
+          - "NEIN"
+          - "ENDFAELLIG_BERECHNET"
+          - "ENDFAELLIG_EIGENES_ANGEBOT"
+      regionalFoerderbankProgramm:
+        type: "string"
+        description: "Bei neu aufgelegten Regional-Förderbank-Programmen können auch weitere Werte\
+          \ zulässig werden. Der Client muss daher mit unbekannten Werten umgehen\
+          \ können."
+        enum:
+          - "L_BANK_KOMBI_DARLEHEN_WOHNEN"
+          - "L_BANK_WOHNEN_MIT_KIND"
+          - "L_BANK_WOHNEN_MIT_ZUKUNFT"
+      laufzeitInJahren:
+        type: "integer"
+        format: "int32"
+      provision:
+        type: "number"
+      tilgungsWunsch:
+        description: "Für endfällige Regional-Förder-Darlehen wird ein Tilgungswunsch erfasst"
+        $ref: "#/definitions/TilgungsWunsch"
+      tilgungsfreieAnlaufjahre:
+        type: "integer"
+        format: "int32"
+        description: "Erlaubt ist 1, 2, 3, 4, 5. Maximalwert abhängig von der Laufzeit."
+      zinsBindungInJahren:
+        type: "integer"
+        format: "int32"
+        description: "Erlaubt ist aktuell nur 10 Jahre für alle Programme der L-Bank. Bei weiteren\
+          \ Förderbankprogrammen können auch andere Werte zulässig sein."
+    title: "RegionalFoerderDarlehensWunsch"
   RisikoAbsicherung:
     type: "object"
     properties:
