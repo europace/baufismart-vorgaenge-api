@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "description": "Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen werden.",
-    "version": "2.16",
+    "version": "2.17",
     "title": "Vorgänge API",
     "contact": {
       "name": "Europace AG",
@@ -2725,6 +2725,7 @@
             "ANNUITAETEN_DARLEHEN",
             "FORWARD_DARLEHEN",
             "KFW_DARLEHEN",
+            "REGIONAL_FOERDER_DARLEHEN",
             "PRIVAT_DARLEHEN",
             "ZWISCHEN_FINANZIERUNG",
             "VARIABLES_DARLEHEN"
@@ -2760,7 +2761,7 @@
         },
         "kfwProgramm": {
           "type": "string",
-          "description": "Bei neu aufgelegten KfW-Programmen können auch weitere Werte zulässig werden.",
+          "description": "nur bei darlehensTyp==KFW_DARLEHEN. Bei neu aufgelegten KfW-Programmen können auch weitere Werte zulässig werden.",
           "allowEmptyValue": false,
           "enum": [
             "PROGRAMM_124",
@@ -2809,8 +2810,18 @@
         },
         "rateMonatlichInDerTilgungsfreienAnlaufzeit": {
           "type": "number",
-          "description": "nur bei darlehensTyp==KFW_DARLEHEN",
+          "description": "nur bei darlehensTyp IN [KFW_DARLEHEN, REGIONAL_FOERDER_DARLEHEN]",
           "allowEmptyValue": false
+        },
+        "regionalFoerderbankProgramm": {
+          "type": "string",
+          "description": "nur bei darlehensTyp==REGIONAL_FOERDER_DARLEHEN. Bei neu aufgelegten Regional-Förderbank-Programmen können auch weitere Werte zulässig werden. Der Client muss daher mit unbekannten Werten umgehen können.",
+          "allowEmptyValue": false,
+          "enum": [
+            "L_BANK_KOMBI_DARLEHEN_WOHNEN",
+            "L_BANK_WOHNEN_MIT_KIND",
+            "L_BANK_WOHNEN_MIT_ZUKUNFT"
+          ]
         },
         "riesterGefoerdert": {
           "type": "boolean"
@@ -2829,7 +2840,7 @@
         "tilgungsFreieAnlaufJahre": {
           "type": "integer",
           "format": "int32",
-          "description": "nur bei darlehensTyp==KFW_DARLEHEN",
+          "description": "nur bei darlehensTyp IN [KFW_DARLEHEN, REGIONAL_FOERDER_DARLEHEN]",
           "allowEmptyValue": false
         },
         "verwendungszweck": {
@@ -2879,6 +2890,11 @@
           "description": "muss leer sein, wenn eines der anderen Attribute gefüllt ist",
           "allowEmptyValue": false,
           "$ref": "#/definitions/PrivatDarlehensWunsch"
+        },
+        "regionalFoerderDarlehen": {
+          "description": "muss leer sein, wenn eines der anderen Attribute gefüllt ist",
+          "allowEmptyValue": false,
+          "$ref": "#/definitions/RegionalFoerderDarlehensWunsch"
         },
         "variablesDarlehen": {
           "description": "muss leer sein, wenn eines der anderen Attribute gefüllt ist",
@@ -4626,6 +4642,44 @@
         }
       },
       "title": "RechteAbteilung2"
+    },
+    "RegionalFoerderDarlehensWunsch": {
+      "type": "object",
+      "properties": {
+        "darlehensBetrag": {
+          "type": "number"
+        },
+        "laufzeitInJahren": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "provision": {
+          "type": "number"
+        },
+        "regionalFoerderbankProgramm": {
+          "type": "string",
+          "description": "Bei neu aufgelegten Regional-Förderbank-Programmen können auch weitere Werte zulässig werden. Der Client muss daher mit unbekannten Werten umgehen können.",
+          "allowEmptyValue": false,
+          "enum": [
+            "L_BANK_KOMBI_DARLEHEN_WOHNEN",
+            "L_BANK_WOHNEN_MIT_KIND",
+            "L_BANK_WOHNEN_MIT_ZUKUNFT"
+          ]
+        },
+        "tilgungsfreieAnlaufjahre": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Erlaubt ist 1, 2, 3, 4, 5. Maximalwert abhängig von der Laufzeit.",
+          "allowEmptyValue": false
+        },
+        "zinsBindungInJahren": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Erlaubt ist aktuell nur 10 Jahre für alle Programme der L-Bank. Bei weiteren Förderbankprogrammen können auch andere Werte zulässig sein.",
+          "allowEmptyValue": false
+        }
+      },
+      "title": "RegionalFoerderDarlehensWunsch"
     },
     "RisikoAbsicherung": {
       "type": "object",

@@ -3,7 +3,7 @@ swagger: "2.0"
 info:
   description: "Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen\
     \ werden."
-  version: "2.16"
+  version: "2.17"
   title: "Vorgänge API"
   contact:
     name: "Europace AG"
@@ -1884,6 +1884,7 @@ definitions:
           - "ANNUITAETEN_DARLEHEN"
           - "FORWARD_DARLEHEN"
           - "KFW_DARLEHEN"
+          - "REGIONAL_FOERDER_DARLEHEN"
           - "PRIVAT_DARLEHEN"
           - "ZWISCHEN_FINANZIERUNG"
           - "VARIABLES_DARLEHEN"
@@ -1910,8 +1911,8 @@ definitions:
           - "STANDARD_70"
       kfwProgramm:
         type: "string"
-        description: "Bei neu aufgelegten KfW-Programmen können auch weitere Werte\
-          \ zulässig werden."
+        description: "nur bei darlehensTyp==KFW_DARLEHEN. Bei neu aufgelegten KfW-Programmen\
+          \ können auch weitere Werte zulässig werden."
         enum:
           - "PROGRAMM_124"
           - "PROGRAMM_141"
@@ -1945,7 +1946,16 @@ definitions:
         description: "Die monatliche Rate in Euro"
       rateMonatlichInDerTilgungsfreienAnlaufzeit:
         type: "number"
-        description: "nur bei darlehensTyp==KFW_DARLEHEN"
+        description: "nur bei darlehensTyp IN [KFW_DARLEHEN, REGIONAL_FOERDER_DARLEHEN]"
+      regionalFoerderbankProgramm:
+        type: "string"
+        description: "nur bei darlehensTyp==REGIONAL_FOERDER_DARLEHEN. Bei neu aufgelegten\
+          \ Regional-Förderbank-Programmen können auch weitere Werte zulässig werden.\
+          \ Der Client muss daher mit unbekannten Werten umgehen können."
+        enum:
+          - "L_BANK_KOMBI_DARLEHEN_WOHNEN"
+          - "L_BANK_WOHNEN_MIT_KIND"
+          - "L_BANK_WOHNEN_MIT_ZUKUNFT"
       riesterGefoerdert:
         type: "boolean"
       sollZins:
@@ -1958,7 +1968,7 @@ definitions:
       tilgungsFreieAnlaufJahre:
         type: "integer"
         format: "int32"
-        description: "nur bei darlehensTyp==KFW_DARLEHEN"
+        description: "nur bei darlehensTyp IN [KFW_DARLEHEN, REGIONAL_FOERDER_DARLEHEN]"
       verwendungszweck:
         type: "string"
         description: "nur bei darlehensTyp==ZWISCHEN_FINANZIERUNG"
@@ -1990,6 +2000,9 @@ definitions:
       privatDarlehen:
         description: "muss leer sein, wenn eines der anderen Attribute gefüllt ist"
         $ref: "#/definitions/PrivatDarlehensWunsch"
+      regionalFoerderDarlehen:
+        description: "muss leer sein, wenn eines der anderen Attribute gefüllt ist"
+        $ref: "#/definitions/RegionalFoerderDarlehensWunsch"
       variablesDarlehen:
         description: "muss leer sein, wenn eines der anderen Attribute gefüllt ist"
         $ref: "#/definitions/VariablesDarlehensWunsch"
@@ -3210,6 +3223,35 @@ definitions:
       vorhanden:
         type: "boolean"
     title: "RechteAbteilung2"
+  RegionalFoerderDarlehensWunsch:
+    type: "object"
+    properties:
+      darlehensBetrag:
+        type: "number"
+      laufzeitInJahren:
+        type: "integer"
+        format: "int32"
+      provision:
+        type: "number"
+      regionalFoerderbankProgramm:
+        type: "string"
+        description: "Bei neu aufgelegten Regional-Förderbank-Programmen können auch\
+          \ weitere Werte zulässig werden. Der Client muss daher mit unbekannten Werten\
+          \ umgehen können."
+        enum:
+          - "L_BANK_KOMBI_DARLEHEN_WOHNEN"
+          - "L_BANK_WOHNEN_MIT_KIND"
+          - "L_BANK_WOHNEN_MIT_ZUKUNFT"
+      tilgungsfreieAnlaufjahre:
+        type: "integer"
+        format: "int32"
+        description: "Erlaubt ist 1, 2, 3, 4, 5. Maximalwert abhängig von der Laufzeit."
+      zinsBindungInJahren:
+        type: "integer"
+        format: "int32"
+        description: "Erlaubt ist aktuell nur 10 Jahre für alle Programme der L-Bank.\
+          \ Bei weiteren Förderbankprogrammen können auch andere Werte zulässig sein."
+    title: "RegionalFoerderDarlehensWunsch"
   RisikoAbsicherung:
     type: "object"
     properties:
