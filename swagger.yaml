@@ -12,8 +12,8 @@ info:
 host: "baufismart.api.europace.de"
 basePath: "/"
 tags:
-  - name: "Vorgänge"
-    description: "Dieser Endpunkt repräsentiert die Vertriebssicht."
+- name: "Vorgänge"
+  description: "Dieser Endpunkt repräsentiert die Vertriebssicht."
 schemes:
   - "https"
 consumes:
@@ -41,12 +41,14 @@ paths:
             - "TEST_MODUS"
         - name: "aenderungSeit"
           in: "query"
-          description: "aenderungSeit"
+          description: "Der 'aenderungSeit' Parameter hat das 'ISO 8601' Format. Beispiele:\
+          \ '2020-07-10', '2020-07-10T13:00Z'"
           required: false
           type: "string"
         - name: "aenderungBis"
           in: "query"
-          description: "aenderungBis"
+          description: "Der 'aenderungBis' Parameter hat das 'ISO 8601' Format. Beispiele:\
+          \ '2020-07-10', '2020-07-10T14:00Z'"
           required: false
           type: "string"
         - name: "sort"
