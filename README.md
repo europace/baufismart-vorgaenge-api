@@ -6,20 +6,29 @@ API Definition zum Auslesen von Vorgängen aus der Europace-Plattform aus Sicht 
 
 *Aktuelle Version: 2.16*
 
-
 ### Swagger Spezifikationen
 Die API ist vollständig in Swagger definiert. Die Swagger Definitionen werden sowohl im JSON- ([swagger.json](https://raw.githubusercontent.com/europace/baufismart-vorgaenge-api/master/swagger.json)) als auch im YAML-Format ([swagger.yaml](https://raw.githubusercontent.com/europace/baufismart-vorgaenge-api/master/swagger.yaml)) zur Verfügung gestellt.
 
 Diese Spezifikationen können auch zur Generierung von Clients für diese API verwendet
 werden. Dazu empfehlen wir das Tool [Swagger Codegen](https://github.com/swagger-api/swagger-codegen)
 
-### Dokumentation
+### RELEASE NOTES
 
-- [RELEASE NOTES](https://github.com/europace/baufismart-vorgaenge-api/releases)
+Zu Finden unter: https://github.com/europace/baufismart-vorgaenge-api/releases
+
+### API Referenz
+
 - [Vollständige Dokumentation als HTML Seite](http://htmlpreview.github.io?https://raw.githubusercontent.com/europace/baufismart-vorgaenge-api/master/dokumentation/index.html)
-- [Patch Beispiele](https://github.com/europace/baufismart-vorgaenge-api/blob/master/dokumentation/patch.md)
-- [Zip Report ablösen - FAQs](https://github.com/europace/baufismart-vorgaenge-api/blob/master/zip%20Report%20mit%20der%20Vorgaenge%20API%20abl%C3%B6sen
-)
+- [Swagger Spezifikationen](https://raw.githubusercontent.com/europace/baufismart-vorgaenge-api/master/swagger.yaml)
+
+#### Änderung von Daten eines Vorgangs
+
+- [Erläuterung & Patch Beispiele](https://github.com/europace/baufismart-vorgaenge-api/blob/master/dokumentation/patch.md)
+
+#### Ablösen des zip-Reports
+
+- [FAQ](https://github.com/europace/baufismart-vorgaenge-api/blob/master/zip%20Report%20mit%20der%20Vorgaenge%20API%20abl%C3%B6sen)
+
 
 ### Generierung des Clients
 ##### JAVA mit Retrofit
