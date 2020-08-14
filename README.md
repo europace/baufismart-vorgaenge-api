@@ -21,11 +21,11 @@ Zu Finden unter: https://github.com/europace/baufismart-vorgaenge-api/releases
 - [Vollständige Dokumentation als HTML Seite](http://htmlpreview.github.io?https://raw.githubusercontent.com/europace/baufismart-vorgaenge-api/master/dokumentation/index.html)
 - [Swagger Spezifikationen](https://raw.githubusercontent.com/europace/baufismart-vorgaenge-api/master/swagger.yaml)
 
-#### Änderung von Daten eines Vorgangs
+### Änderung von Daten eines Vorgangs
 
 - [Erläuterung & Patch Beispiele](https://github.com/europace/baufismart-vorgaenge-api/blob/master/dokumentation/patch.md)
 
-#### Ablösen des zip-Reports
+### Ablösen des zip-Reports
 
 - [FAQ](https://github.com/europace/baufismart-vorgaenge-api/blob/master/zip%20Report%20mit%20der%20Vorgaenge%20API%20abl%C3%B6sen)
 
