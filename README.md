@@ -4,7 +4,7 @@ API Definition zum Auslesen von Vorgängen aus der Europace-Plattform aus Sicht 
 
 # Dokumentation
 
-*Aktuelle Version: 2.16*
+*Aktuelle Version: 2.18*
 
 ### Swagger Spezifikationen
 Die API ist vollständig in Swagger definiert. Die Swagger Definitionen werden sowohl im JSON- ([swagger.json](https://raw.githubusercontent.com/europace/baufismart-vorgaenge-api/master/swagger.json)) als auch im YAML-Format ([swagger.yaml](https://raw.githubusercontent.com/europace/baufismart-vorgaenge-api/master/swagger.yaml)) zur Verfügung gestellt.

@@ -3,7 +3,7 @@ swagger: "2.0"
 info:
   description: "Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen\
     \ werden."
-  version: "2.17"
+  version: "2.18"
   title: "Vorgänge API"
   contact:
     name: "Europace AG"
@@ -12,8 +12,8 @@ info:
 host: "baufismart.api.europace.de"
 basePath: "/"
 tags:
-- name: "Vorgänge"
-  description: "Dieser Endpunkt repräsentiert die Vertriebssicht."
+  - name: "Vorgänge"
+    description: "Dieser Endpunkt repräsentiert die Vertriebssicht."
 schemes:
   - "https"
 consumes:
@@ -814,6 +814,16 @@ definitions:
       versicherungsZeitraum:
         $ref: "#/definitions/VersicherungsZeitraum"
     title: "Absicherung"
+  AbsicherungsAngaben:
+    type: "object"
+    properties:
+      betraegtWoechentlicheArbeitsZeitMindestens15Stunden:
+        type: "boolean"
+      pruefungVorhandenerAbsicherungen:
+        type: "array"
+        items:
+          $ref: "#/definitions/PruefungVorhandenerAbsicherung"
+    title: "AbsicherungsAngaben"
   Absicherungswunsch:
     type: "object"
     properties:
@@ -1004,6 +1014,8 @@ definitions:
   Antragsteller:
     type: "object"
     properties:
+      absicherungsAngaben:
+        $ref: "#/definitions/AbsicherungsAngaben"
       anrede:
         type: "string"
         enum:
@@ -3215,6 +3227,20 @@ definitions:
       webseite:
         type: "string"
     title: "ProduktAnbieter"
+  PruefungVorhandenerAbsicherung:
+    type: "object"
+    properties:
+      finanzierungsRisiko:
+        type: "string"
+        enum:
+          - "TODESFALL"
+          - "ARBEITSUNFAEHIGKEIT"
+          - "ARBEITSLOSIGKEIT"
+      istAusreichendeAbsicherungVorhanden:
+        type: "boolean"
+      zusaetzlicheKommentare:
+        type: "string"
+    title: "PruefungVorhandenerAbsicherung"
   RechteAbteilung2:
     type: "object"
     properties:
