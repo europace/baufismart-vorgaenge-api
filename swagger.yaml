@@ -370,6 +370,10 @@ paths:
         - "Vorgänge"
       summary: "Zum Senden eines Signals an den Produktanbieter, dass er mit der Kreditentscheidung\
         \ beginnen kann"
+      description: "Um das Entscheidungsreifesignal senden zu können bedarf es folgender\
+        \ Kriterien. 1. Der Aufrufer muss Vorgangsbearbeiter sein. 2. Der Antrag ist\
+        \ im Status: Antragsteller.BEANTRAGT, ProduktAnbieter.NICHT_BEARBEITET. 3.\
+        \ Das Signal kann nur einmal geschickt werden. "
       operationId: "setEntscheidungsreife"
       produces:
         - "application/json;charset=UTF-8"
@@ -392,11 +396,11 @@ paths:
           type: "integer"
           format: "int32"
         - in: "body"
-          name: "entscheidungsreifeDTO"
-          description: "entscheidungsreifeDTO"
+          name: "entscheidungsreife"
+          description: "entscheidungsreife"
           required: true
           schema:
-            $ref: "#/definitions/EntscheidungsreifeDTO"
+            $ref: "#/definitions/Entscheidungsreife"
       responses:
         200:
           description: "OK"
@@ -2172,7 +2176,7 @@ definitions:
           - "EINNAHME"
           - "AUSGABE"
     title: "EinnahmenMonatlich"
-  EntscheidungsreifeDTO:
+  Entscheidungsreife:
     type: "object"
     required:
       - "entscheidungsreifeVomVertriebSignalisiert"
@@ -2180,9 +2184,9 @@ definitions:
       entscheidungsreifeVomVertriebSignalisiert:
         type: "boolean"
         example: true
-        description: "Muss true sein, ein Zurücksetzen des Entscheidungsreifesignals\
-          \ wird nicht unterstützt"
-    title: "EntscheidungsreifeDTO"
+        description: "Es wird nur 'true' zugelassen. Die API berücksichtigt Weiterentwicklungen\
+          \ ohne einen BreakingChange zu forcieren."
+    title: "Entscheidungsreife"
   Erbbaurecht:
     type: "object"
     properties:

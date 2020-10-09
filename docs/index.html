@@ -2541,7 +2541,7 @@
                     <li><a href="#_effektivzinskosten">EffektivZinsKosten</a></li>
                     <li><a href="#_einkuenfteausnebentaetigkeit">EinkuenfteAusNebentaetigkeit</a></li>
                     <li><a href="#_einnahmenmonatlich">EinnahmenMonatlich</a></li>
-                    <li><a href="#_entscheidungsreifedto">EntscheidungsreifeDTO</a></li>
+                    <li><a href="#_entscheidungsreife">Entscheidungsreife</a></li>
                     <li><a href="#_erbbaurecht">Erbbaurecht</a></li>
                     <li><a href="#_error">Error</a></li>
                     <li><a href="#_europacebausparangebot">EuropaceBausparAngebot</a></li>
@@ -4845,6 +4845,15 @@
                         </div>
                     </div>
                     <div class="sect4">
+                        <h5 id="_beschreibung_2">Beschreibung</h5>
+                        <div class="paragraph">
+                            <p>Um das Entscheidungsreifesignal senden zu können bedarf es folgender Kriterien. 1. Der
+                                Aufrufer muss Vorgangsbearbeiter sein. 2. Der Antrag ist im Status:
+                                Antragsteller.BEANTRAGT, ProduktAnbieter.NICHT_BEARBEITET. 3. Das Signal kann nur einmal
+                                geschickt werden.</p>
+                        </div>
+                    </div>
+                    <div class="sect4">
                         <h5 id="_parameter_7">Parameter</h5>
                         <table class="tableblock frame-all grid-all spread">
                             <colgroup>
@@ -4966,7 +4975,7 @@
                                 <td class="tableblock halign-left valign-middle">
                                     <div>
                                         <div class="paragraph">
-                                            <p><strong>entscheidungsreifeDTO</strong><br>
+                                            <p><strong>entscheidungsreife</strong><br>
                                                 <em>verpflichtend</em></p>
                                         </div>
                                     </div>
@@ -4974,14 +4983,14 @@
                                 <td class="tableblock halign-left valign-middle">
                                     <div>
                                         <div class="paragraph">
-                                            <p>entscheidungsreifeDTO</p>
+                                            <p>entscheidungsreife</p>
                                         </div>
                                     </div>
                                 </td>
                                 <td class="tableblock halign-left valign-middle">
                                     <div>
                                         <div class="paragraph">
-                                            <p><a href="#_entscheidungsreifedto">EntscheidungsreifeDTO</a></p>
+                                            <p><a href="#_entscheidungsreife">Entscheidungsreife</a></p>
                                         </div>
                                     </div>
                                 </td>
@@ -6422,7 +6431,7 @@
                         </div>
                     </div>
                     <div class="sect4">
-                        <h5 id="_beschreibung_2">Beschreibung</h5>
+                        <h5 id="_beschreibung_3">Beschreibung</h5>
                         <div class="paragraph">
                             <p>Als Parameter wird die in BaufiSmart erzeugte Vorgangsnummer erwartet. Gemerkte Angebote
                                 sind: explizit gemerkte Angebote in BaufiSmart, ausgehändigte Finanzierungsvorschläge,
@@ -6746,7 +6755,7 @@
                         </div>
                     </div>
                     <div class="sect4">
-                        <h5 id="_beschreibung_3">Beschreibung</h5>
+                        <h5 id="_beschreibung_4">Beschreibung</h5>
                         <div class="paragraph">
                             <p>Als Parameter wird die Vorgangsnummer verwendet, die aus BaufiSmart erzeugt wurde.</p>
                         </div>
@@ -7344,7 +7353,7 @@
                         </div>
                     </div>
                     <div class="sect4">
-                        <h5 id="_beschreibung_4">Beschreibung</h5>
+                        <h5 id="_beschreibung_5">Beschreibung</h5>
                         <div class="paragraph">
                             <p>Als Parameter wird die Vorgangsnummer verwendet, die aus BaufiSmart erzeugt wurde.</p>
                         </div>
@@ -15510,7 +15519,7 @@
                 </table>
             </div>
             <div class="sect2">
-                <h3 id="_entscheidungsreifedto">EntscheidungsreifeDTO</h3>
+                <h3 id="_entscheidungsreife">Entscheidungsreife</h3>
                 <table class="tableblock frame-all grid-all spread">
                     <colgroup>
                         <col style="width: 16.6666%;">
@@ -15537,8 +15546,8 @@
                         <td class="tableblock halign-left valign-middle">
                             <div>
                                 <div class="paragraph">
-                                    <p>Muss true sein, ein Zurücksetzen des Entscheidungsreifesignals wird nicht
-                                        unterstützt<br>
+                                    <p>Es wird nur 'true' zugelassen. Die API berücksichtigt Weiterentwicklungen ohne
+                                        einen BreakingChange zu forcieren.<br>
                                         <strong>Beispiel</strong> : <code>true</code></p>
                                 </div>
                             </div>
@@ -26845,7 +26854,7 @@
 </div>
 <div id="footer">
     <div id="footer-text">
-        Last updated 2020-10-08 16:27:38 MESZ
+        Last updated 2020-10-09 13:28:13 MESZ
     </div>
 </div>
 </body>
