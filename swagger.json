@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "description": "Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen werden.",
-    "version": "2.18",
+    "version": "2.19",
     "title": "Vorgänge API",
     "contact": {
       "name": "Europace AG",
@@ -492,6 +492,116 @@
             "description": "OK",
             "schema": {
               "$ref": "#/definitions/Antrag"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "405": {
+            "description": "Method Not Allowed",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "502": {
+            "description": "Bad Gateway",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "504": {
+            "description": "Gateway Timeout",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "API"
+            ]
+          }
+        ]
+      }
+    },
+    "/v2/vorgaenge/{vorgangsNummer}/antraege/{antragsNummer}/{teilantragsNummer}/entscheidungsreife": {
+      "post": {
+        "tags": [
+          "Vorgänge"
+        ],
+        "summary": "Zum Senden eines Signals an den Produktanbieter, dass er mit der Kreditentscheidung beginnen kann",
+        "description": "Um das Entscheidungsreifesignal senden zu können bedarf es folgender Kriterien. 1. Der Aufrufer muss Vorgangsbearbeiter sein. 2. Der Antrag ist im Status: Antragsteller.BEANTRAGT, ProduktAnbieter.NICHT_BEARBEITET. 3. Das Signal kann nur einmal geschickt werden. ",
+        "operationId": "setEntscheidungsreife",
+        "produces": [
+          "application/json;charset=UTF-8"
+        ],
+        "parameters": [
+          {
+            "name": "vorgangsNummer",
+            "in": "path",
+            "description": "vorgangsNummer",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "antragsNummer",
+            "in": "path",
+            "description": "antragsNummer",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "teilantragsNummer",
+            "in": "path",
+            "description": "teilantragsNummer",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "entscheidungsreife",
+            "description": "entscheidungsreife",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Entscheidungsreife"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "202": {
+            "description": "Accepted"
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Error"
             }
           },
           "401": {
@@ -3039,6 +3149,21 @@
         }
       },
       "title": "EinnahmenMonatlich"
+    },
+    "Entscheidungsreife": {
+      "type": "object",
+      "required": [
+        "entscheidungsreifeVomVertriebSignalisiert"
+      ],
+      "properties": {
+        "entscheidungsreifeVomVertriebSignalisiert": {
+          "type": "boolean",
+          "example": true,
+          "description": "Es wird nur 'true' zugelassen. Die API berücksichtigt Weiterentwicklungen ohne einen BreakingChange zu forcieren.",
+          "allowEmptyValue": false
+        }
+      },
+      "title": "Entscheidungsreife"
     },
     "Erbbaurecht": {
       "type": "object",
