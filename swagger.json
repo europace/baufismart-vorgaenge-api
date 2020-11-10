@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "description": "Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen werden.",
-    "version": "2.19",
+    "version": "2.20",
     "title": "Vorgänge API",
     "contact": {
       "name": "Europace AG",
@@ -2948,7 +2948,8 @@
           "enum": [
             "L_BANK_KOMBI_DARLEHEN_WOHNEN",
             "L_BANK_WOHNEN_MIT_KIND",
-            "L_BANK_WOHNEN_MIT_ZUKUNFT"
+            "L_BANK_WOHNEN_MIT_ZUKUNFT",
+            "NRW_BANK_WOHNEIGENTUM"
           ]
         },
         "riesterGefoerdert": {
@@ -4814,7 +4815,9 @@
         },
         "laufzeitInJahren": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "description": "Erlaubt sind 10, 20, 25 oder 30 Jahre je nach Regional-Förderbank-Programm. Bei weiteren Förderbankprogrammen können auch andere Werte zulässig sein.",
+          "allowEmptyValue": false
         },
         "provision": {
           "type": "number"
@@ -4826,19 +4829,20 @@
           "enum": [
             "L_BANK_KOMBI_DARLEHEN_WOHNEN",
             "L_BANK_WOHNEN_MIT_KIND",
-            "L_BANK_WOHNEN_MIT_ZUKUNFT"
+            "L_BANK_WOHNEN_MIT_ZUKUNFT",
+            "NRW_BANK_WOHNEIGENTUM"
           ]
         },
         "tilgungsfreieAnlaufjahre": {
           "type": "integer",
           "format": "int32",
-          "description": "Erlaubt ist 1, 2, 3, 4, 5. Maximalwert abhängig von der Laufzeit.",
+          "description": "Erlaubt sind 1, 2, 3, 4 oder 5 Jahre. Der Maximalwert ist abhängig von der Laufzeit.",
           "allowEmptyValue": false
         },
         "zinsBindungInJahren": {
           "type": "integer",
           "format": "int32",
-          "description": "Erlaubt ist aktuell nur 10 Jahre für alle Programme der L-Bank. Bei weiteren Förderbankprogrammen können auch andere Werte zulässig sein.",
+          "description": "Erlaubt sind 10, 20, 25 oder 30 Jahre je nach Regional-Förderbank-Programm. Bei weiteren Förderbankprogrammen können auch andere Werte zulässig sein.",
           "allowEmptyValue": false
         }
       },

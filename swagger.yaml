@@ -3,7 +3,7 @@ swagger: "2.0"
 info:
   description: "Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen\
     \ werden."
-  version: "2.19"
+  version: "2.20"
   title: "Vorgänge API"
   contact:
     name: "Europace AG"
@@ -2047,6 +2047,7 @@ definitions:
           - "L_BANK_KOMBI_DARLEHEN_WOHNEN"
           - "L_BANK_WOHNEN_MIT_KIND"
           - "L_BANK_WOHNEN_MIT_ZUKUNFT"
+          - "NRW_BANK_WOHNEIGENTUM"
       riesterGefoerdert:
         type: "boolean"
       sollZins:
@@ -3222,7 +3223,7 @@ definitions:
         type: "string"
       value:
         type: "object"
-        properties: {}
+        properties: { }
     title: "PatchOperation"
   Postadresse:
     type: "object"
@@ -3347,6 +3348,8 @@ definitions:
       laufzeitInJahren:
         type: "integer"
         format: "int32"
+        description: "Erlaubt sind 10, 20, 25 oder 30 Jahre je nach Regional-Förderbank-Programm.\
+          \ Bei weiteren Förderbankprogrammen können auch andere Werte zulässig sein."
       provision:
         type: "number"
       regionalFoerderbankProgramm:
@@ -3358,14 +3361,16 @@ definitions:
           - "L_BANK_KOMBI_DARLEHEN_WOHNEN"
           - "L_BANK_WOHNEN_MIT_KIND"
           - "L_BANK_WOHNEN_MIT_ZUKUNFT"
+          - "NRW_BANK_WOHNEIGENTUM"
       tilgungsfreieAnlaufjahre:
         type: "integer"
         format: "int32"
-        description: "Erlaubt ist 1, 2, 3, 4, 5. Maximalwert abhängig von der Laufzeit."
+        description: "Erlaubt sind 1, 2, 3, 4 oder 5 Jahre. Der Maximalwert ist abhä\
+          ngig von der Laufzeit."
       zinsBindungInJahren:
         type: "integer"
         format: "int32"
-        description: "Erlaubt ist aktuell nur 10 Jahre für alle Programme der L-Bank.\
+        description: "Erlaubt sind 10, 20, 25 oder 30 Jahre je nach Regional-Förderbank-Programm.\
           \ Bei weiteren Förderbankprogrammen können auch andere Werte zulässig sein."
     title: "RegionalFoerderDarlehensWunsch"
   RisikoAbsicherung:
