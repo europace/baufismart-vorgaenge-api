@@ -25,7 +25,7 @@ Als Vermittler kann ich mit dieser API alle Daten aus meinen Vorgängen auslesen
 Damit du unsere APIs und deinen Anwendungsfall schnellstmöglich testen kannst, haben wir eine [Postman-Collection](https://docs.api.europace.de/baufinanzierung/schnellstart/) für dich zusammengestellt.
 
 ### Authentifizierung
-Bitte benutze [![Authentication](https://img.shields.io/badge/Auth-OAuth2-green)](https://github.com/europace/authorization-api), um Zugang zur API bekommen. Um die API verwenden zu können, benötigt der OAuth2-Client folgende Scopes:
+Bitte benutze [![Authentication](https://img.shields.io/badge/Auth-OAuth2-green)](https://docs.api.europace.de/baufinanzierung/authentifizierung/), um Zugang zur API bekommen. Um die API verwenden zu können, benötigt der OAuth2-Client folgende Scopes:
 
 | Scope                             | API Use case |
 |-----------------------------------|---------------------------------|
@@ -86,9 +86,7 @@ Response:
         {
             "datenKontext": "ECHT_GESCHAEFT",
             "vorgangsNummer": "JA624A"
-            .
-            .
-            .
+            ...
         }
     ]
 }
