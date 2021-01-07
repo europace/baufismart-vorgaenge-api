@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "description": "Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen werden.",
-    "version": "2.20",
+    "version": "2.21",
     "title": "Vorgänge API",
     "contact": {
       "name": "Europace AG",
@@ -2253,30 +2253,6 @@
       },
       "title": "Bereitstellung"
     },
-    "BereitstellungsZinsFreieZeitPraeferenz": {
-      "type": "object",
-      "properties": {
-        "darlehenBenoetigtInMonaten": {
-          "type": "integer",
-          "format": "int32",
-          "description": "wenn praeferenzAuswahl == IN_MONATEN",
-          "allowEmptyValue": false
-        },
-        "praeferenzAuswahl": {
-          "type": "string",
-          "enum": [
-            "MIT_DER_ERSTEN_AUSZAHLUNG",
-            "IN_MONATEN",
-            "NOCH_NICHT_FESTGELEGT",
-            "EGAL"
-          ]
-        },
-        "zusatzlicheKommentare": {
-          "type": "string"
-        }
-      },
-      "title": "BereitstellungsZinsFreieZeitPraeferenz"
-    },
     "Beschaeftigung": {
       "type": "object",
       "properties": {
@@ -2448,24 +2424,6 @@
         }
       },
       "title": "Beschaeftigung"
-    },
-    "BestandteileDerFinanzierungPraeferenz": {
-      "type": "object",
-      "properties": {
-        "praeferenzAuswahl": {
-          "type": "string",
-          "enum": [
-            "UNKOMPLIZIERTE_FINANZIERUNG",
-            "WEITERE_PRODUKTE",
-            "KONKRETE_VORSTELLUNGEN",
-            "EGAL"
-          ]
-        },
-        "zusatzlicheKommentare": {
-          "type": "string"
-        }
-      },
-      "title": "BestandteileDerFinanzierungPraeferenz"
     },
     "BestehendeImmobilie": {
       "type": "object",
@@ -4056,28 +4014,6 @@
       },
       "title": "HaushaltsPositionen"
     },
-    "HoeheDerRatePraeferenz": {
-      "type": "object",
-      "properties": {
-        "betrag": {
-          "type": "number"
-        },
-        "praeferenzAuswahl": {
-          "type": "string",
-          "enum": [
-            "MEINE_MIETAUSGABEN_VON_HEUTE",
-            "BETRAG",
-            "MOEGLICHST_KLEIN",
-            "VERFUEGBARES_EINKOMMEN_AUSSCHOEPFEN",
-            "EGAL"
-          ]
-        },
-        "zusatzlicheKommentare": {
-          "type": "string"
-        }
-      },
-      "title": "HoeheDerRatePraeferenz"
-    },
     "ImmobilieVerknuepfung": {
       "type": "object",
       "properties": {
@@ -4177,43 +4113,6 @@
         }
       },
       "title": "Kind"
-    },
-    "LaufzeitPraeferenz": {
-      "type": "object",
-      "properties": {
-        "bisZumJahr": {
-          "type": "string",
-          "example": 2016,
-          "description": "Nur relevant, wenn praeferenzAuswahl == BIS_ZUM_JAHR. Vierstellige Jahresangabe",
-          "allowEmptyValue": false
-        },
-        "bisZurRenteImJahr": {
-          "type": "string",
-          "example": 2016,
-          "description": "Nur relevant, wenn praeferenzAuswahl == BIS_ZUR_RENTE_IM_JAHR. Vierstellige Jahresangabe",
-          "allowEmptyValue": false
-        },
-        "inJahren": {
-          "type": "integer",
-          "format": "int32",
-          "description": "Nur relevant, wenn praeferenzAuswahl == IN_JAHREN.",
-          "allowEmptyValue": false
-        },
-        "praeferenzAuswahl": {
-          "type": "string",
-          "enum": [
-            "MOEGLICHST_SCHNELL",
-            "IN_JAHREN",
-            "BIS_ZUM_JAHR",
-            "BIS_ZUR_RENTE_IM_JAHR",
-            "EGAL"
-          ]
-        },
-        "zusatzlicheKommentare": {
-          "type": "string"
-        }
-      },
-      "title": "LaufzeitPraeferenz"
     },
     "LeadTracking": {
       "type": "object",
@@ -4654,39 +4553,6 @@
       },
       "title": "Postadresse"
     },
-    "Praeferenzen": {
-      "type": "object",
-      "properties": {
-        "bereitstellungsZinsFreieZeit": {
-          "$ref": "#/definitions/BereitstellungsZinsFreieZeitPraeferenz"
-        },
-        "bestandteileDerFinanzierung": {
-          "$ref": "#/definitions/BestandteileDerFinanzierungPraeferenz"
-        },
-        "hoeheDerRate": {
-          "$ref": "#/definitions/HoeheDerRatePraeferenz"
-        },
-        "laufzeit": {
-          "$ref": "#/definitions/LaufzeitPraeferenz"
-        },
-        "sondertilgung": {
-          "$ref": "#/definitions/SondertilgungPraeferenz"
-        },
-        "tilgungsSatzWechsel": {
-          "$ref": "#/definitions/TilgungsSatzWechselPraeferenz"
-        },
-        "weiterePraeferenz": {
-          "type": "string"
-        },
-        "zeitlicherRahmen": {
-          "$ref": "#/definitions/ZeitlicherRahmenPraeferenz"
-        },
-        "zinsBindung": {
-          "$ref": "#/definitions/ZinsBindungPraeferenz"
-        }
-      },
-      "title": "Praeferenzen"
-    },
     "PrivatDarlehensWunsch": {
       "type": "object",
       "properties": {
@@ -4857,7 +4723,10 @@
             "TODESFALL",
             "ARBEITSLOSIGKEIT",
             "ARBEITSUNFAEHIGKEIT",
-            "INVALIDITAET"
+            "INVALIDITAET",
+            "SCHWERE_KRANKHEIT",
+            "ASSISTANCE_ARBEITSUNFAEHIGKEIT",
+            "ASSISTANCE_ARBEITSLOSIGKEIT"
           ]
         },
         "auszahlungsBetrag": {
@@ -4998,34 +4867,6 @@
         }
       },
       "title": "SonderZahlung"
-    },
-    "SondertilgungPraeferenz": {
-      "type": "object",
-      "properties": {
-        "betragEinmalig": {
-          "type": "number",
-          "description": "wenn praeferenzAuswahl == EINMALIG",
-          "allowEmptyValue": false
-        },
-        "betragJaehrlich": {
-          "type": "number",
-          "description": "wenn praeferenzAuswahl == JAEHRLICH",
-          "allowEmptyValue": false
-        },
-        "praeferenzAuswahl": {
-          "type": "string",
-          "enum": [
-            "JAEHRLICH",
-            "EINMALIG",
-            "DERZEIT_NICHT_GEPLANT",
-            "EGAL"
-          ]
-        },
-        "zusatzlicheKommentare": {
-          "type": "string"
-        }
-      },
-      "title": "SondertilgungPraeferenz"
     },
     "SparPhase": {
       "type": "object",
@@ -5208,29 +5049,6 @@
         }
       },
       "title": "TilgungsPhase"
-    },
-    "TilgungsSatzWechselPraeferenz": {
-      "type": "object",
-      "properties": {
-        "mindestensBenoetigt": {
-          "type": "integer",
-          "format": "int32",
-          "description": "wenn praeferenzAuswahl == MINDESTENS_BENOETIGT",
-          "allowEmptyValue": false
-        },
-        "praeferenzAuswahl": {
-          "type": "string",
-          "enum": [
-            "MINDESTENS_BENOETIGT",
-            "NICHT_EINGEPLANT_ODER_ABSEHBAR",
-            "EGAL"
-          ]
-        },
-        "zusatzlicheKommentare": {
-          "type": "string"
-        }
-      },
-      "title": "TilgungsSatzWechselPraeferenz"
     },
     "TilgungsWunsch": {
       "type": "object",
@@ -5687,9 +5505,6 @@
             "$ref": "#/definitions/NachrangigesExternesDarlehen"
           }
         },
-        "praeferenzen": {
-          "$ref": "#/definitions/Praeferenzen"
-        },
         "verwendungszweck": {
           "type": "string",
           "enum": [
@@ -5751,30 +5566,6 @@
       },
       "title": "Wertpapiere"
     },
-    "ZeitlicherRahmenPraeferenz": {
-      "type": "object",
-      "properties": {
-        "finanzierungszusageBis": {
-          "type": "string",
-          "format": "date",
-          "description": "wenn praeferenzAuswahl == ZUSAGE_BIS",
-          "allowEmptyValue": false
-        },
-        "praeferenzAuswahl": {
-          "type": "string",
-          "enum": [
-            "NUR_INFORMATION_UEBER_FINANZIERUNGSRAHMEN",
-            "ZUSAGE_BIS",
-            "SO_SCHNELL_WIE_MOEGLICH",
-            "EGAL"
-          ]
-        },
-        "zusatzlicheKommentare": {
-          "type": "string"
-        }
-      },
-      "title": "ZeitlicherRahmenPraeferenz"
-    },
     "ZinsBindung": {
       "type": "object",
       "properties": {
@@ -5795,43 +5586,6 @@
         }
       },
       "title": "ZinsBindung"
-    },
-    "ZinsBindungPraeferenz": {
-      "type": "object",
-      "properties": {
-        "praeferenzAuswahl": {
-          "type": "string",
-          "enum": [
-            "ZINSBINDUNG_VON_JAHREN",
-            "ZWISCHEN_BIS_JAHREN",
-            "FLEXIBEL_KURZFRISTIG_HANDLUNGSFAEHIG",
-            "LANGE_ZINSSICHERHEIT",
-            "EGAL"
-          ]
-        },
-        "zinsBindungBisJahren": {
-          "type": "integer",
-          "format": "int32",
-          "description": "wenn praeferenzAuswahl == ZWISCHEN_BIS_JAHREN",
-          "allowEmptyValue": false
-        },
-        "zinsBindungVonJahren": {
-          "type": "integer",
-          "format": "int32",
-          "description": "wenn praeferenzAuswahl == ZINSBINDUNG_VON_JAHREN",
-          "allowEmptyValue": false
-        },
-        "zinsBindungZwischenJahren": {
-          "type": "integer",
-          "format": "int32",
-          "description": "wenn praeferenzAuswahl == ZWISCHEN_BIS_JAHREN",
-          "allowEmptyValue": false
-        },
-        "zusatzlicheKommentare": {
-          "type": "string"
-        }
-      },
-      "title": "ZinsBindungPraeferenz"
     },
     "ZugrundeliegendeDaten": {
       "type": "object",
