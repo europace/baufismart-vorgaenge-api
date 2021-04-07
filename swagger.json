@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "description": "Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen werden.",
-    "version": "2.21",
+    "version": "2.22",
     "title": "Vorgänge API",
     "contact": {
       "name": "Europace AG",
@@ -2137,6 +2137,11 @@
         "tarif": {
           "type": "string"
         },
+        "tarifId": {
+          "type": "string",
+          "description": "Produktanbieter-spezifische Tarif-ID des Bauspartarifs",
+          "allowEmptyValue": false
+        },
         "tilgungsPhase": {
           "$ref": "#/definitions/TilgungsPhase"
         },
@@ -3214,6 +3219,11 @@
         },
         "tarif": {
           "type": "string"
+        },
+        "tarifId": {
+          "type": "string",
+          "description": "Produktanbieter-spezifische Tarif-ID des Bauspartarifs",
+          "allowEmptyValue": false
         },
         "tilgungsPhase": {
           "$ref": "#/definitions/TilgungsPhase"
