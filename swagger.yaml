@@ -3,7 +3,7 @@ swagger: "2.0"
 info:
   description: "Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen\
     \ werden."
-  version: "2.21"
+  version: "2.22"
   title: "Vorgänge API"
   contact:
     name: "Europace AG"
@@ -1450,6 +1450,9 @@ definitions:
         $ref: "#/definitions/SparPhase"
       tarif:
         type: "string"
+      tarifId:
+        type: "string"
+        description: "Produktanbieter-spezifische Tarif-ID des Bauspartarifs"
       tilgungsPhase:
         $ref: "#/definitions/TilgungsPhase"
       typ:
@@ -2220,6 +2223,9 @@ definitions:
         $ref: "#/definitions/SparPhase"
       tarif:
         type: "string"
+      tarifId:
+        type: "string"
+        description: "Produktanbieter-spezifische Tarif-ID des Bauspartarifs"
       tilgungsPhase:
         $ref: "#/definitions/TilgungsPhase"
       typ:
