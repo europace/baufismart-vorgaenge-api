@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "description": "Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen werden.",
-    "version": "2.22",
+    "version": "2.23",
     "title": "Vorgänge API",
     "contact": {
       "name": "Europace AG",
@@ -2839,15 +2839,34 @@
           "description": "nur bei darlehensTyp==FORWARD_DARLEHEN",
           "allowEmptyValue": false
         },
+        "kfwEnergieEffizienzGruppe": {
+          "type": "string",
+          "description": "nur bei darlehensTyp==KFW_DARLEHEN. Nur bei KfW-Programm 153, 261, 262.Es können auch weitere Werte zulässig werden.",
+          "allowEmptyValue": false,
+          "enum": [
+            "STANDARD",
+            "NEUBAU",
+            "SANIERUNG"
+          ]
+        },
         "kfwEnergieEffizienzStandard": {
           "type": "string",
-          "description": "nur bei darlehensTyp==KFW_DARLEHEN. Nur bei KfW-Programm 153 relevant. Bei neuen Energieeffizienzstandards können auch weitere Werte zulässig werden.",
+          "description": "nur bei darlehensTyp==KFW_DARLEHEN. Nur bei KfW-Programm 153, 261, 262 relevant. Bei neuen Energieeffizienzstandards können auch weitere Werte zulässig werden.",
           "allowEmptyValue": false,
           "enum": [
             "STANDARD_40_PLUS",
             "STANDARD_40",
+            "STANDARD_40_EEK",
             "STANDARD_55",
-            "STANDARD_70"
+            "STANDARD_55_EEK",
+            "STANDARD_70",
+            "STANDARD_70_EEK",
+            "STANDARD_85",
+            "STANDARD_85_EEK",
+            "STANDARD_100",
+            "STANDARD_100_EEK",
+            "STANDARD_DENKMAL",
+            "STANDARD_DENKMAL_EEK"
           ]
         },
         "kfwProgramm": {
@@ -2862,8 +2881,16 @@
             "PROGRAMM_153",
             "PROGRAMM_155",
             "PROGRAMM_159",
-            "PROGRAMM_167"
+            "PROGRAMM_167",
+            "PROGRAMM_261",
+            "PROGRAMM_262"
           ]
+        },
+        "kfwSanierungsFahrplanLiegtVor": {
+          "type": "boolean",
+          "example": false,
+          "description": "nur bei darlehensTyp==KFW_DARLEHEN. Nur bei KfW-Programm 261, 262 relevant.",
+          "allowEmptyValue": false
         },
         "konditionWurdeManuellAngepasst": {
           "type": "boolean"
@@ -4049,15 +4076,34 @@
             "ENDFAELLIG_EIGENES_ANGEBOT"
           ]
         },
+        "kfwEnergieEffizienzGruppe": {
+          "type": "string",
+          "description": "Nur bei Programm 153, 261, 262. Der Client muss mit unbekannten Werten umgehen können.",
+          "allowEmptyValue": false,
+          "enum": [
+            "STANDARD",
+            "NEUBAU",
+            "SANIERUNG"
+          ]
+        },
         "kfwEnergieEffizienzStandard": {
           "type": "string",
-          "description": "Nur bei Programm 153. Wenn die KfW-Bank neue Standards anerkennt, sind die entsprechenden neuen Ausprägungen zulässig. Der Client muss daher mit unbekannten Werten umgehen können.",
+          "description": "Nur bei Programm 153, 261, 262. Wenn die KfW-Bank neue Standards anerkennt, sind die entsprechenden neuen Ausprägungen zulässig. Der Client muss daher mit unbekannten Werten umgehen können.",
           "allowEmptyValue": false,
           "enum": [
             "STANDARD_40_PLUS",
             "STANDARD_40",
+            "STANDARD_40_EEK",
             "STANDARD_55",
-            "STANDARD_70"
+            "STANDARD_55_EEK",
+            "STANDARD_70",
+            "STANDARD_70_EEK",
+            "STANDARD_85",
+            "STANDARD_85_EEK",
+            "STANDARD_100",
+            "STANDARD_100_EEK",
+            "STANDARD_DENKMAL",
+            "STANDARD_DENKMAL_EEK"
           ]
         },
         "kfwProgramm": {
@@ -4072,8 +4118,16 @@
             "PROGRAMM_153",
             "PROGRAMM_155",
             "PROGRAMM_159",
-            "PROGRAMM_167"
+            "PROGRAMM_167",
+            "PROGRAMM_261",
+            "PROGRAMM_262"
           ]
+        },
+        "kfwSanierungsFahrplanLiegtVor": {
+          "type": "boolean",
+          "example": false,
+          "description": "Nur bei Programm 261, 262.",
+          "allowEmptyValue": false
         },
         "laufzeitInJahren": {
           "type": "integer",
