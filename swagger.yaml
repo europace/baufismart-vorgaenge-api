@@ -3,7 +3,7 @@ swagger: "2.0"
 info:
   description: "Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen\
     \ werden."
-  version: "2.23"
+  version: "2.24"
   title: "Vorgänge API"
   contact:
     name: "Europace AG"
@@ -2668,7 +2668,10 @@ definitions:
           $ref: "#/definitions/Flurstueck"
       ort:
         type: "string"
-        description: "Ort des als Grundbuchamt zuständigen Amtsgerichtes"
+        description: "Ort des als Grundbuchamt zuständigen Amtsgerichts"
+      amtsgericht:
+        type: "string"
+        description: "Bezirk/Bezeichnung des zuständigen Amtsgerichts"
       rechteInAbteilung2:
         description: "Belastungen und Beschränkungen in der Nutzbarkeit des Grundstü\
           cks. Leitungsrechte, Verzichte auf Abstandsflächen, Wegerechte, Insolvenzvermerke."
