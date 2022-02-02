@@ -76,7 +76,7 @@ paths:
           schema:
             $ref: '#/definitions/Vorgaenge'
         "400":
-          description: Client Error
+          description: Bad Request
           schema:
             $ref: '#/definitions/Error'
         "401":
@@ -132,7 +132,7 @@ paths:
           schema:
             $ref: '#/definitions/Vorgang'
         "400":
-          description: Client Error
+          description: Bad Request
           schema:
             $ref: '#/definitions/Error'
         "401":
@@ -224,7 +224,7 @@ paths:
           schema:
             $ref: '#/definitions/Antraege'
         "400":
-          description: Client Error
+          description: Bad Request
           schema:
             $ref: '#/definitions/Error'
         "401":
@@ -284,7 +284,7 @@ paths:
           schema:
             $ref: '#/definitions/Antraege'
         "400":
-          description: Client Error
+          description: Bad Request
           schema:
             $ref: '#/definitions/Error'
         "401":
@@ -350,7 +350,7 @@ paths:
           schema:
             $ref: '#/definitions/Antrag'
         "400":
-          description: Client Error
+          description: Bad Request
           schema:
             $ref: '#/definitions/Error'
         "401":
@@ -421,7 +421,7 @@ paths:
         "202":
           description: Accepted
         "400":
-          description: Client Error
+          description: Bad Request
           schema:
             $ref: '#/definitions/Error'
         "401":
@@ -491,7 +491,7 @@ paths:
         "202":
           description: Accepted
         "400":
-          description: Client Error
+          description: Bad Request
           schema:
             $ref: '#/definitions/Error'
         "401":
@@ -546,7 +546,7 @@ paths:
           schema:
             $ref: '#/definitions/FinanzierungsvorschlaegeResource'
         "400":
-          description: Client Error
+          description: Bad Request
           schema:
             $ref: '#/definitions/Error'
         "401":
@@ -606,7 +606,7 @@ paths:
           schema:
             $ref: '#/definitions/Finanzierungsvorschlag'
         "400":
-          description: Client Error
+          description: Bad Request
           schema:
             $ref: '#/definitions/Error'
         "401":
@@ -661,7 +661,7 @@ paths:
           schema:
             $ref: '#/definitions/GemerkteAngeboteResource'
         "400":
-          description: Client Error
+          description: Bad Request
           schema:
             $ref: '#/definitions/Error'
         "401":
@@ -716,7 +716,7 @@ paths:
           schema:
             $ref: '#/definitions/Partner'
         "400":
-          description: Client Error
+          description: Bad Request
           schema:
             $ref: '#/definitions/Error'
         "401":
@@ -807,7 +807,7 @@ paths:
         "201":
           description: Created
         "400":
-          description: Client Error
+          description: Bad Request
           schema:
             $ref: '#/definitions/Error'
         "401":
@@ -862,7 +862,7 @@ paths:
           schema:
             $ref: '#/definitions/Partner'
         "400":
-          description: Client Error
+          description: Bad Request
           schema:
             $ref: '#/definitions/Error'
         "401":

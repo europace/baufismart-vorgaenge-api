@@ -102,7 +102,7 @@
             }
           },
           "400": {
-            "description": "Client Error",
+            "description": "Bad Request",
             "schema": {
               "$ref": "#/definitions/Error"
             }
@@ -188,7 +188,7 @@
             }
           },
           "400": {
-            "description": "Client Error",
+            "description": "Bad Request",
             "schema": {
               "$ref": "#/definitions/Error"
             }
@@ -331,7 +331,7 @@
             }
           },
           "400": {
-            "description": "Client Error",
+            "description": "Bad Request",
             "schema": {
               "$ref": "#/definitions/Error"
             }
@@ -423,7 +423,7 @@
             }
           },
           "400": {
-            "description": "Client Error",
+            "description": "Bad Request",
             "schema": {
               "$ref": "#/definitions/Error"
             }
@@ -523,7 +523,7 @@
             }
           },
           "400": {
-            "description": "Client Error",
+            "description": "Bad Request",
             "schema": {
               "$ref": "#/definitions/Error"
             }
@@ -630,7 +630,7 @@
             "description": "Accepted"
           },
           "400": {
-            "description": "Client Error",
+            "description": "Bad Request",
             "schema": {
               "$ref": "#/definitions/Error"
             }
@@ -736,7 +736,7 @@
             "description": "Accepted"
           },
           "400": {
-            "description": "Client Error",
+            "description": "Bad Request",
             "schema": {
               "$ref": "#/definitions/Error"
             }
@@ -821,7 +821,7 @@
             }
           },
           "400": {
-            "description": "Client Error",
+            "description": "Bad Request",
             "schema": {
               "$ref": "#/definitions/Error"
             }
@@ -913,7 +913,7 @@
             }
           },
           "400": {
-            "description": "Client Error",
+            "description": "Bad Request",
             "schema": {
               "$ref": "#/definitions/Error"
             }
@@ -998,7 +998,7 @@
             }
           },
           "400": {
-            "description": "Client Error",
+            "description": "Bad Request",
             "schema": {
               "$ref": "#/definitions/Error"
             }
@@ -1083,7 +1083,7 @@
             }
           },
           "400": {
-            "description": "Client Error",
+            "description": "Bad Request",
             "schema": {
               "$ref": "#/definitions/Error"
             }
@@ -1225,7 +1225,7 @@
             "description": "Created"
           },
           "400": {
-            "description": "Client Error",
+            "description": "Bad Request",
             "schema": {
               "$ref": "#/definitions/Error"
             }
@@ -1310,7 +1310,7 @@
             }
           },
           "400": {
-            "description": "Client Error",
+            "description": "Bad Request",
             "schema": {
               "$ref": "#/definitions/Error"
             }
