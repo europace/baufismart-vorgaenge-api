@@ -74,13 +74,39 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/CharSequence'
+            $ref: '#/definitions/Vorgaenge'
+        "400":
+          description: Client Error
+          schema:
+            $ref: '#/definitions/Error'
         "401":
           description: Unauthorized
+          schema:
+            $ref: '#/definitions/Error'
         "403":
           description: Forbidden
+          schema:
+            $ref: '#/definitions/Error'
         "404":
           description: Not Found
+          schema:
+            $ref: '#/definitions/Error'
+        "405":
+          description: Method Not Allowed
+          schema:
+            $ref: '#/definitions/Error'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/Error'
+        "502":
+          description: Bad Gateway
+          schema:
+            $ref: '#/definitions/Error'
+        "504":
+          description: Gateway Timeout
+          schema:
+            $ref: '#/definitions/Error'
       security:
         - oauth2:
             - API
@@ -104,13 +130,39 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/CharSequence'
+            $ref: '#/definitions/Vorgang'
+        "400":
+          description: Client Error
+          schema:
+            $ref: '#/definitions/Error'
         "401":
           description: Unauthorized
+          schema:
+            $ref: '#/definitions/Error'
         "403":
           description: Forbidden
+          schema:
+            $ref: '#/definitions/Error'
         "404":
           description: Not Found
+          schema:
+            $ref: '#/definitions/Error'
+        "405":
+          description: Method Not Allowed
+          schema:
+            $ref: '#/definitions/Error'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/Error'
+        "502":
+          description: Bad Gateway
+          schema:
+            $ref: '#/definitions/Error'
+        "504":
+          description: Gateway Timeout
+          schema:
+            $ref: '#/definitions/Error'
       security:
         - oauth2:
             - API
@@ -170,13 +222,39 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/CharSequence'
+            $ref: '#/definitions/Antraege'
+        "400":
+          description: Client Error
+          schema:
+            $ref: '#/definitions/Error'
         "401":
           description: Unauthorized
+          schema:
+            $ref: '#/definitions/Error'
         "403":
           description: Forbidden
+          schema:
+            $ref: '#/definitions/Error'
         "404":
           description: Not Found
+          schema:
+            $ref: '#/definitions/Error'
+        "405":
+          description: Method Not Allowed
+          schema:
+            $ref: '#/definitions/Error'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/Error'
+        "502":
+          description: Bad Gateway
+          schema:
+            $ref: '#/definitions/Error'
+        "504":
+          description: Gateway Timeout
+          schema:
+            $ref: '#/definitions/Error'
       security:
         - oauth2:
             - API
@@ -204,13 +282,39 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/CharSequence'
+            $ref: '#/definitions/Antraege'
+        "400":
+          description: Client Error
+          schema:
+            $ref: '#/definitions/Error'
         "401":
           description: Unauthorized
+          schema:
+            $ref: '#/definitions/Error'
         "403":
           description: Forbidden
+          schema:
+            $ref: '#/definitions/Error'
         "404":
           description: Not Found
+          schema:
+            $ref: '#/definitions/Error'
+        "405":
+          description: Method Not Allowed
+          schema:
+            $ref: '#/definitions/Error'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/Error'
+        "502":
+          description: Bad Gateway
+          schema:
+            $ref: '#/definitions/Error'
+        "504":
+          description: Gateway Timeout
+          schema:
+            $ref: '#/definitions/Error'
       security:
         - oauth2:
             - API
@@ -244,13 +348,39 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/CharSequence'
+            $ref: '#/definitions/Antrag'
+        "400":
+          description: Client Error
+          schema:
+            $ref: '#/definitions/Error'
         "401":
           description: Unauthorized
+          schema:
+            $ref: '#/definitions/Error'
         "403":
           description: Forbidden
+          schema:
+            $ref: '#/definitions/Error'
         "404":
           description: Not Found
+          schema:
+            $ref: '#/definitions/Error'
+        "405":
+          description: Method Not Allowed
+          schema:
+            $ref: '#/definitions/Error'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/Error'
+        "502":
+          description: Bad Gateway
+          schema:
+            $ref: '#/definitions/Error'
+        "504":
+          description: Gateway Timeout
+          schema:
+            $ref: '#/definitions/Error'
       security:
         - oauth2:
             - API
@@ -288,16 +418,40 @@ paths:
           required: true
           type: string
       responses:
-        "201":
-          description: Created
         "202":
           description: Accepted
+        "400":
+          description: Client Error
+          schema:
+            $ref: '#/definitions/Error'
         "401":
           description: Unauthorized
+          schema:
+            $ref: '#/definitions/Error'
         "403":
           description: Forbidden
+          schema:
+            $ref: '#/definitions/Error'
         "404":
           description: Not Found
+          schema:
+            $ref: '#/definitions/Error'
+        "405":
+          description: Method Not Allowed
+          schema:
+            $ref: '#/definitions/Error'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/Error'
+        "502":
+          description: Bad Gateway
+          schema:
+            $ref: '#/definitions/Error'
+        "504":
+          description: Gateway Timeout
+          schema:
+            $ref: '#/definitions/Error'
       security:
         - oauth2:
             - API
@@ -334,16 +488,40 @@ paths:
           required: true
           type: string
       responses:
-        "201":
-          description: Created
         "202":
           description: Accepted
+        "400":
+          description: Client Error
+          schema:
+            $ref: '#/definitions/Error'
         "401":
           description: Unauthorized
+          schema:
+            $ref: '#/definitions/Error'
         "403":
           description: Forbidden
+          schema:
+            $ref: '#/definitions/Error'
         "404":
           description: Not Found
+          schema:
+            $ref: '#/definitions/Error'
+        "405":
+          description: Method Not Allowed
+          schema:
+            $ref: '#/definitions/Error'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/Error'
+        "502":
+          description: Bad Gateway
+          schema:
+            $ref: '#/definitions/Error'
+        "504":
+          description: Gateway Timeout
+          schema:
+            $ref: '#/definitions/Error'
       security:
         - oauth2:
             - API
@@ -366,13 +544,39 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/CharSequence'
+            $ref: '#/definitions/FinanzierungsvorschlaegeResource'
+        "400":
+          description: Client Error
+          schema:
+            $ref: '#/definitions/Error'
         "401":
           description: Unauthorized
+          schema:
+            $ref: '#/definitions/Error'
         "403":
           description: Forbidden
+          schema:
+            $ref: '#/definitions/Error'
         "404":
           description: Not Found
+          schema:
+            $ref: '#/definitions/Error'
+        "405":
+          description: Method Not Allowed
+          schema:
+            $ref: '#/definitions/Error'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/Error'
+        "502":
+          description: Bad Gateway
+          schema:
+            $ref: '#/definitions/Error'
+        "504":
+          description: Gateway Timeout
+          schema:
+            $ref: '#/definitions/Error'
       security:
         - oauth2:
             - API
@@ -400,13 +604,39 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/CharSequence'
+            $ref: '#/definitions/Finanzierungsvorschlag'
+        "400":
+          description: Client Error
+          schema:
+            $ref: '#/definitions/Error'
         "401":
           description: Unauthorized
+          schema:
+            $ref: '#/definitions/Error'
         "403":
           description: Forbidden
+          schema:
+            $ref: '#/definitions/Error'
         "404":
           description: Not Found
+          schema:
+            $ref: '#/definitions/Error'
+        "405":
+          description: Method Not Allowed
+          schema:
+            $ref: '#/definitions/Error'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/Error'
+        "502":
+          description: Bad Gateway
+          schema:
+            $ref: '#/definitions/Error'
+        "504":
+          description: Gateway Timeout
+          schema:
+            $ref: '#/definitions/Error'
       security:
         - oauth2:
             - API
@@ -429,13 +659,39 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/CharSequence'
+            $ref: '#/definitions/GemerkteAngeboteResource'
+        "400":
+          description: Client Error
+          schema:
+            $ref: '#/definitions/Error'
         "401":
           description: Unauthorized
+          schema:
+            $ref: '#/definitions/Error'
         "403":
           description: Forbidden
+          schema:
+            $ref: '#/definitions/Error'
         "404":
           description: Not Found
+          schema:
+            $ref: '#/definitions/Error'
+        "405":
+          description: Method Not Allowed
+          schema:
+            $ref: '#/definitions/Error'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/Error'
+        "502":
+          description: Bad Gateway
+          schema:
+            $ref: '#/definitions/Error'
+        "504":
+          description: Gateway Timeout
+          schema:
+            $ref: '#/definitions/Error'
       security:
         - oauth2:
             - API
@@ -458,13 +714,39 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/CharSequence'
+            $ref: '#/definitions/Partner'
+        "400":
+          description: Client Error
+          schema:
+            $ref: '#/definitions/Error'
         "401":
           description: Unauthorized
+          schema:
+            $ref: '#/definitions/Error'
         "403":
           description: Forbidden
+          schema:
+            $ref: '#/definitions/Error'
         "404":
           description: Not Found
+          schema:
+            $ref: '#/definitions/Error'
+        "405":
+          description: Method Not Allowed
+          schema:
+            $ref: '#/definitions/Error'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/Error'
+        "502":
+          description: Bad Gateway
+          schema:
+            $ref: '#/definitions/Error'
+        "504":
+          description: Gateway Timeout
+          schema:
+            $ref: '#/definitions/Error'
       security:
         - oauth2:
             - API
@@ -524,12 +806,38 @@ paths:
       responses:
         "201":
           description: Created
+        "400":
+          description: Client Error
+          schema:
+            $ref: '#/definitions/Error'
         "401":
           description: Unauthorized
+          schema:
+            $ref: '#/definitions/Error'
         "403":
           description: Forbidden
+          schema:
+            $ref: '#/definitions/Error'
         "404":
           description: Not Found
+          schema:
+            $ref: '#/definitions/Error'
+        "405":
+          description: Method Not Allowed
+          schema:
+            $ref: '#/definitions/Error'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/Error'
+        "502":
+          description: Bad Gateway
+          schema:
+            $ref: '#/definitions/Error'
+        "504":
+          description: Gateway Timeout
+          schema:
+            $ref: '#/definitions/Error'
       security:
         - oauth2:
             - API
@@ -552,13 +860,39 @@ paths:
         "200":
           description: OK
           schema:
-            type: object
+            $ref: '#/definitions/Partner'
+        "400":
+          description: Client Error
+          schema:
+            $ref: '#/definitions/Error'
         "401":
           description: Unauthorized
+          schema:
+            $ref: '#/definitions/Error'
         "403":
           description: Forbidden
+          schema:
+            $ref: '#/definitions/Error'
         "404":
           description: Not Found
+          schema:
+            $ref: '#/definitions/Error'
+        "405":
+          description: Method Not Allowed
+          schema:
+            $ref: '#/definitions/Error'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/Error'
+        "502":
+          description: Bad Gateway
+          schema:
+            $ref: '#/definitions/Error'
+        "504":
+          description: Gateway Timeout
+          schema:
+            $ref: '#/definitions/Error'
       security:
         - oauth2:
             - API
@@ -1648,9 +1982,6 @@ definitions:
         type: string
         format: date
     title: BestehendesDarlehenDesFinanzierungsObjekts
-  CharSequence:
-    type: object
-    title: CharSequence
   Darlehen:
     type: object
     properties:
