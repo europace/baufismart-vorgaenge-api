@@ -1,63 +1,93 @@
 # Vorgaenge-API
-Als Vermittler kann ich mit dieser API alle Daten aus meinen Vorgängen auslesen.
+As an advisor, I can use Vorgaenge API to read all the data from my cases and get furthermore links to applications, loans, documents and events.
 
-![Vertrieb](https://img.shields.io/badge/-Vertrieb-lightblue)
-![Baufinanzierung](https://img.shields.io/badge/-Baufinanzierung-lightblue)
+![advisor](https://img.shields.io/badge/-advisor-lightblue)
+![mortgageLoan](https://img.shields.io/badge/-mortgageLoan-lightblue)
 
-[![Authentication](https://img.shields.io/badge/Auth-OAuth2-green)](https://github.com/europace/authorization-api)
+[![Authentication](https://img.shields.io/badge/Auth-OAuth2-green)](https://docs.api.europace.de/common/authentifizierung/authorization-api/)
 [![GitHub release](https://img.shields.io/github/v/release/europace/baufismart-vorgaenge-api)](https://github.com/europace/baufismart-vorgaenge-api/releases)
 
 [![Pattern](https://img.shields.io/badge/Pattern-Tolerant%20Reader-yellowgreen)](https://martinfowler.com/bliki/TolerantReader.html)
 
-## Dokumentation
+## Documentation
 [![YAML](https://img.shields.io/badge/OAS-HTML_Doc-lightblue)](https://europace.github.io/baufismart-vorgaenge-api/docs/index.html)
 [![YAML](https://img.shields.io/badge/OAS-YAML-lightgrey)](https://raw.githubusercontent.com/europace/baufismart-vorgaenge-api/master/swagger.yaml)
 [![YAML](https://img.shields.io/badge/OAS-JSON-lightgrey)](https://raw.githubusercontent.com/europace/baufismart-vorgaenge-api/master/swagger.json)
 
-## Anwendungsfälle der API
-- eigene Finanzierungsvorschläge mit individuellem Aufbau und Design erstellen
-- eigenes CRM-System mit den BaufiSmart Daten aktualisieren
-- Kundenbetreuer und Sachbearbeiter ändern und so die Auslastung der Mitarbeiter automatisch steuern
-- individuelle Benachrichtigungen erzeugen
-- Anträge als vollständig kennzeichnen
+## Usecases
+- get data to:
+  - create own financing proposals with individual structure and design
+  - keep own CRM system up to date 
+  - create individual notifications
+- set data to:
+  - change advisor and editor to control the workload of employees
+  - mark applications as ready-to-check
+  - set your own case reference
 
-# Schnellstart
-Damit du unsere APIs und deinen Anwendungsfall schnellstmöglich testen kannst, haben wir eine [Postman-Collection](https://docs.api.europace.de/baufinanzierung/schnellstart/) für dich zusammengestellt.
+## Quick Start
+To test our APIs and your use cases as quickly as possible, we have created a [Postman Collection](https://docs.api.europace.de/common/quickstart/) for you.
 
-### Authentifizierung
-Bitte benutze [![Authentication](https://img.shields.io/badge/Auth-OAuth2-green)](https://docs.api.europace.de/baufinanzierung/authentifizierung/), um Zugang zur API bekommen. Um die API verwenden zu können, benötigt der OAuth2-Client folgende Scopes:
+### Authentication
+Please use [![Authentication](https://img.shields.io/badge/Auth-OAuth2-green)](https://docs.api.europace.de/common/authentifizierung/authorization-api/) to get access to the APIs. The OAuth2 client requires the following scopes:
 
-| Scope                             | API Use case |
-|-----------------------------------|---------------------------------|
-| `baufinanzierung:vorgang:lesen`   | Daten des Vorgangs auslesen |
-| `baufinanzierung:echtgeschaeft`   | nicht nur Testvorgänge abrufen, sondern produktive Vorgänge |
+| Scope                               | API Use case                  |
+|-------------------------------------|-------------------------------|
+| `baufinanzierung:vorgang:lesen`     | to get case data              | 
+| `baufinanzierung:echtgeschaeft`     | to use api in production mode |
+| `baufinanzierung:vorgang:schreiben` | to update case data (eg role) |
 
+## Get data
+### Get case data
+As advisor I can read out the data of the case, to create an individual financial proposal for a convincing sales story.
 
-## Beispiel: Vorgang Auslesen
+Requirements:
+- authenticated as advisor, editor or sales organisation with access to the case
 
-Für das Auslesen eines Vorgangs wird die sechs-stellige alpha-nummerische Vorgangsnummer (z.B. CH6407) als Referenz und ein gültiger Access-Token gebraucht. Der Access-Token muss Zugriffsrechte auf den Vorgang haben.
-
-Request:
-``` cURL
-curl --location --request GET 'https://api.europace2.de/v2/vorgaenge/{{vorgangsnummer}}' \
---header 'Authorization: Bearer {{access_token}}'
+example-request:
+``` http
+GET /v2/vorgaenge/CH6407 HTTP/1.1
+Host: api.europace2.de
+Content-Type: application/json
+Authorization: Bearer {{access-token}} 
 ```
 
-Response:
+example-response:
+``` json
+{
+  "_links": { ... },
+  "vorgangsNummer": "CH6407",
+  "erstelltAm": "2022-02-16",
+  "letztesEreignis": "2022-02-22T08:31:01.37Z",
+  "status": "AKTIV",
+  "bankverbindung": { ... },
+  "haushalte": [ ... ],
+  "finanzierungsObjekt": { ... },
+  "vorhaben": { ... },
+  "datenKontext": "TEST_MODUS",
+  "aufbewahrungBis": "2025-02-27",
+  "kundenBetreuer": { ... },
+  "antraege": [ ... ],
+  "vorgangsBearbeiter": { ... }
+}
+```
+For the full model [see API-Specification](https://europace.github.io/baufismart-vorgaenge-api/docs/index.html#get-/v2/vorgaenge/-vorgangsNummer-)
 
-[siehe API-Spezifikation](https://europace.github.io/baufismart-vorgaenge-api/docs/index.html#get-/v2/vorgaenge/-vorgangsNummer-)
+### Get last changed cases
 
-## Beispiel: zuletzt geänderten Vorgänge ermitteln
+As advisor I will get a list of the last changed cases, to keep your CRM system up to date for a seamless, efficent and high quality sales process. The list of cases contains all cases where accessible for the caller and is descent ordered by lastchanged date and paged. 
 
-Die API stellt eine Liste mit Vorgängen zur Verfügung, auf die der Access-Token Zugriff hat. Diese Liste ist absteigend sortiert nach der letzten Änderung. Damit wird ermöglicht, dass man zwischen zwei Zeitpunkten alle sich veränderten Vorgänge ermitteln und in einem weiteren Schritt auslesen kann.
+Requirements:
+- authenticated as advisor, editor or sales organisation with access to the cases
 
-Request:
-``` cURL
-curl --location --request GET 'https://api.europace2.de/v2/vorgaenge' \
---header 'Authorization: Bearer {{access_token}}'
+example-request:
+``` http 
+GET /v2/vorgaenge HTTP/1.1
+Host: api.europace2.de
+Content-Type: application/json
+Authorization: Bearer {{access-token}}
 ```
 
-Response:
+example-response:
 ``` JSON
 {
     "vorgaenge": [
@@ -92,12 +122,112 @@ Response:
 }
 
 ```
+> Pls note:
+> the list is paged.
 
-## Vorgang verändern
-[Erläuterungen & Patch-Beispiele](https://github.com/europace/baufismart-vorgaenge-api/blob/master/docs/patch.md)
+You can filter the results by using the following parameters:
+- datenkontext (using test- or production-mode)
+- aenderungSeit (lastChangeUntil for getting all changes after the last call)
+- and many more - see documentation
 
-## Nutzungsbedingungen
-Die APIs werden unter folgenden [Nutzungsbedingungen](https://docs.api.europace.de/nutzungsbedingungen/) zur Verfügung gestellt.
+## Set data
+
+Changes to some metadata on a case are possible using [JSON Patch](http://jsonpatch.com/).
+The path represents the path in the JSON model separated with /. The default operation supported is _replace_.
+Patch operations are an array, so multiple patch commands can be sent with a _PATCH_ request.
+
+### Set own reference
+
+example-request:
+```json
+PATCH /v2/vorgaenge/CH6407 HTTP/1.1
+Host: api.europace2.de
+Content-Type: application/json-patch+json
+Authorization: Bearer {{access-token}}
+Content-Length: 75
+
+[
+	{"op":"replace","path":"/externeVorgangsNummer","value":"ext_VN_4711"}
+]
+```
+
+example-response:
+``` http
+200 Okay
+```
+[see example-response of get case data](#get-case-data)
+
+### Set state of case
+As advisor you can set the state, to archive outdated cases and hide them for the advisors.
+example-request:
+``` json
+PATCH /v2/vorgaenge/CH6407 HTTP/1.1
+Host: api.europace2.de
+Content-Type: application/json-patch+json
+Authorization: Bearer {{access-token}}
+Content-Length: 59
+
+[
+    {"op":"replace","path":"/status","value":"ARCHIVIERT"}
+]
+```
+
+example-response:
+``` http
+200 Okay
+```
+[see example-response of get case data](#get-case-data)
+
+Allowed values are `AKTIV` and `ARCHIVIERT`.
+
+### Set advisor
+As sales organsisation you can set the advisor to control the workload of the colleagues.
+
+example-request:
+```json
+PUT /v2/vorgaenge/CH6407/kundenBetreuer HTTP/1.1
+Host: api.europace2.de
+Authorization: Bearer {{access-token}}
+Content-Type: application/json
+Content-Length: 26
+
+{
+"partnerId": "AAV43"
+}
+```
+
+A valid partnerId of our platform must be transferred in the `partnerId` field. Furthermore, the corresponding partner need also the authorization to access the case.
+
+example-response:
+``` http
+201 Created
+```
+
+### Set editor
+As advisor you can set the editor eg to a clerk, to check the case and application or to a teammate to enrich the data of the case.
+
+example-request:
+```json
+PUT /v2/vorgaenge/CH6407/vorgangsBearbeiter HTTP/1.1
+Host: api.europace2.de
+Authorization: Bearer {{access-token}}
+Content-Type: application/json
+Content-Length: 26
+
+{
+    "partnerId": "MNC81"
+}
+```
+A valid partnerId of our platform must be transferred in the `partnerId` field. Furthermore, the corresponding partner need also the authorization to access the case.
+
+example-response:
+``` http
+201 Created
+```
+
+
+## Terms of use
+The APIs are provided under the following [Terms of Use](https://docs.api.europace.de/nutzungsbedingungen).
 
 ## Support
-Bei Fragen oder Problemen kannst du dich an devsupport@europace2.de wenden.
+If you have any questions or problems, you can contact devsupport@europace2.de.
