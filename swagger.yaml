@@ -2,7 +2,7 @@
 swagger: "2.0"
 info:
   description: Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen werden.
-  version: "2.24"
+  version: "2.26"
   title: Vorgänge API
   contact:
     name: Europace AG
@@ -2034,6 +2034,7 @@ definitions:
           - STANDARD_100_EEK
           - STANDARD_40
           - STANDARD_40_EEK
+          - STANDARD_40_NH
           - STANDARD_40_PLUS
           - STANDARD_55
           - STANDARD_55_EEK
@@ -2172,6 +2173,7 @@ definitions:
           - STANDARD_100_EEK
           - STANDARD_40
           - STANDARD_40_EEK
+          - STANDARD_40_NH
           - STANDARD_40_PLUS
           - STANDARD_55
           - STANDARD_55_EEK
@@ -3016,6 +3018,7 @@ definitions:
           - STANDARD_100_EEK
           - STANDARD_40
           - STANDARD_40_EEK
+          - STANDARD_40_NH
           - STANDARD_40_PLUS
           - STANDARD_55
           - STANDARD_55_EEK
@@ -3420,7 +3423,7 @@ definitions:
         type: string
       value:
         type: object
-        properties: {}
+        properties: { }
     title: PatchOperation
   Postadresse:
     type: object
