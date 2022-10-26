@@ -2,7 +2,7 @@
 swagger: "2.0"
 info:
   description: Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen werden.
-  version: "2.26"
+  version: "2.25"
   title: Vorgänge API
   contact:
     name: Europace AG
@@ -695,6 +695,128 @@ paths:
       security:
         - oauth2:
             - API
+  /v2/vorgaenge/{vorgangsNummer}/gemerkteAngebote/{nummerAmVorgang}:
+    get:
+      tags:
+        - Vorgänge
+      summary: Ein gemerktes Angebot eines Vorgangs abrufen
+      description: "Als Parameter wird die in BaufiSmart erzeugte Vorgangsnummer und die Nummer des gemerkten Angebots erwartet. Gemerkte Angebote sind: explizit gemerkte Angebote in BaufiSmart, ausgehändigte Finanzierungsvorschläge, Empfehlungen des Bearbeiters, Wünsche des Antragstellers, angefragte- und angenommene Angebote."
+      operationId: retrieveGemerktesAngebot
+      produces:
+        - application/json;charset=UTF-8
+      parameters:
+        - name: nummerAmVorgang
+          in: path
+          description: nummerAmVorgang
+          required: true
+          type: integer
+          format: int32
+        - name: vorgangsNummer
+          in: path
+          description: vorgangsNummer
+          required: true
+          type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/GemerkteAngeboteResource'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/Error'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/Error'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/Error'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/Error'
+        "405":
+          description: Method Not Allowed
+          schema:
+            $ref: '#/definitions/Error'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/Error'
+        "502":
+          description: Bad Gateway
+          schema:
+            $ref: '#/definitions/Error'
+        "504":
+          description: Gateway Timeout
+          schema:
+            $ref: '#/definitions/Error'
+      security:
+        - oauth2:
+            - API
+  /v2/vorgaenge/{vorgangsNummer}/gemerkteAngebote/{nummerAmVorgang}/zahlungsPlaene:
+    get:
+      tags:
+        - Vorgänge
+      summary: Die Zahlungsplaene des gemerkten Angebots abrufen
+      description: Als Parameter wird die in BaufiSmart erzeugte Vorgangsnummer und die Nummer des gemerkten Angebots erwartet.
+      operationId: getZahlungsplaene
+      produces:
+        - application/json;charset=UTF-8
+      parameters:
+        - name: nummerAmVorgang
+          in: path
+          description: nummerAmVorgang
+          required: true
+          type: integer
+          format: int32
+        - name: vorgangsNummer
+          in: path
+          description: vorgangsNummer
+          required: true
+          type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/Zahlungsplaene'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/Error'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/Error'
+        "403":
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/Error'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/Error'
+        "405":
+          description: Method Not Allowed
+          schema:
+            $ref: '#/definitions/Error'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/Error'
+        "502":
+          description: Bad Gateway
+          schema:
+            $ref: '#/definitions/Error'
+        "504":
+          description: Gateway Timeout
+          schema:
+            $ref: '#/definitions/Error'
+      security:
+        - oauth2:
+            - API
   /v2/vorgaenge/{vorgangsNummer}/kundenBetreuer:
     get:
       tags:
@@ -1029,10 +1151,18 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/Meldung'
+      nummerAmVorgang:
+        type: integer
+        format: int32
+        example: 1
+        description: Nummer des gemerkten Angebotes eines Vorgangs.
       pruefungsErgebnisse:
         type: array
         items:
           $ref: '#/definitions/AngebotsPruefungsErgebnis'
+      zahlungsplaene:
+        type: string
+        description: Link zu den Zahlungsplänen des Angebots.
     title: Angebot
   AngebotsPruefungsErgebnis:
     type: object
@@ -2362,6 +2492,26 @@ definitions:
           - AUSGABE
           - EINNAHME
     title: EinnahmenMonatlich
+  Eintrag:
+    type: object
+    properties:
+      datum:
+        type: string
+        format: date
+      kontofuehrungsGebuehr:
+        type: number
+      laufendeGebuehr:
+        type: number
+      saldo:
+        type: number
+      tilgung:
+        type: number
+      zahlung:
+        type: number
+      zinsen:
+        type: number
+    title: Eintrag
+    description: Ein Eintrag im Zahlungsplan
   Entscheidungsreife:
     type: object
     required:
@@ -4122,6 +4272,30 @@ definitions:
       zukuenftigeEinnahmen:
         type: number
     title: Wertpapiere
+  Zahlungsplaene:
+    type: object
+    properties:
+      _links:
+        $ref: '#/definitions/Links'
+      zahlungsplaene:
+        type: array
+        items:
+          $ref: '#/definitions/Zahlungsplan'
+    title: Zahlungsplaene
+    description: Diese Resource repräsentiert die Zahlungsplaene eines Angebots.
+  Zahlungsplan:
+    type: object
+    properties:
+      gesamtSumme:
+        $ref: '#/definitions/Eintrag'
+      identifier:
+        type: string
+      zahlungen:
+        type: array
+        items:
+          $ref: '#/definitions/Eintrag'
+    title: Zahlungsplan
+    description: "Ein Zahlungsplan, welcher die Monatlichen Zahlungen zu einem Darlehen oder Bausparvertrag enthält."
   ZinsBindung:
     type: object
     properties:
