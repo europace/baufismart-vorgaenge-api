@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "description": "Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen werden.",
-    "version": "2.27",
+    "version": "2.28",
     "title": "Vorgänge API",
     "contact": {
       "name": "Europace AG",
@@ -1850,6 +1850,13 @@
           "type": "string",
           "description": "Nummer des Antrags auf der Europace Plattform"
         },
+        "antragsReferenzen": {
+          "type": "object",
+          "description": "Referenzen am Antrag, die durch den Produktanbieter gesetzt wurden",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
         "beratung": {
           "description": "Informationen zum Geschäftsabschluss",
           "$ref": "#/definitions/Beratung"
@@ -3108,6 +3115,9 @@
           "format": "int32",
           "description": "nur bei darlehensTyp==FORWARD_DARLEHEN"
         },
+        "id": {
+          "type": "string"
+        },
         "kfwEnergieEffizienzGruppe": {
           "type": "string",
           "description": "nur bei darlehensTyp==KFW_DARLEHEN. Nur bei KfW-Programm 153, 261, 262.Es können auch weitere Werte zulässig werden.",
@@ -3284,6 +3294,9 @@
           "type": "integer",
           "format": "int32",
           "description": "nur bei darlehensTyp==FORWARD_DARLEHEN"
+        },
+        "id": {
+          "type": "string"
         },
         "kfwEnergieEffizienzGruppe": {
           "type": "string",
@@ -3587,7 +3600,7 @@
         }
       },
       "title": "Eintrag",
-      "description": "Ein Eintrag im Zahlungsplan"
+      "description": "Eine Einzahlung oder Auszahlung im Zahlungsplan"
     },
     "Entscheidungsreife": {
       "type": "object",

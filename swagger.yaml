@@ -2,7 +2,7 @@
 swagger: "2.0"
 info:
   description: Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen werden.
-  version: "2.27"
+  version: "2.28"
   title: Vorgänge API
   contact:
     name: Europace AG
@@ -11,65 +11,65 @@ info:
 host: baufismart.api.europace.de
 basePath: /
 tags:
-  - name: Vorgänge
-    description: Dieser Endpunkt repräsentiert die Vertriebssicht.
+- name: Vorgänge
+  description: Dieser Endpunkt repräsentiert die Vertriebssicht.
 schemes:
-  - https
+- https
 consumes:
-  - application/json
+- application/json
 produces:
-  - application/json;charset=UTF-8
+- application/json;charset=UTF-8
 paths:
   /v2/vorgaenge:
     get:
       tags:
-        - Vorgänge
+      - Vorgänge
       summary: alle sichtbaren Vorgänge
       operationId: getVorgaenge
       produces:
-        - application/json;charset=UTF-8
+      - application/json;charset=UTF-8
       parameters:
-        - name: aenderungBis
-          in: query
-          description: "Der 'aenderungBis' Parameter hat das 'ISO 8601' Format. Beispiele: '2020-07-10', '2020-07-10T14:00Z'"
-          required: false
-          type: string
-          pattern: "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$"
-        - name: aenderungSeit
-          in: query
-          description: "Der 'aenderungSeit' Parameter hat das 'ISO 8601' Format. Beispiele: '2020-07-10', '2020-07-10T13:00Z'"
-          required: false
-          type: string
-          pattern: "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$"
-        - name: datenKontext
-          in: query
-          description: Datenkontext
-          required: false
-          type: string
-          default: ECHT_GESCHAEFT
-          enum:
-            - ECHT_GESCHAEFT
-            - TEST_MODUS
-        - name: limit
-          in: query
-          description: limit
-          required: false
-          type: integer
-          default: 10
-          format: int32
-        - name: page
-          in: query
-          description: page
-          required: false
-          type: integer
-          default: 0
-          format: int32
-        - name: sort
-          in: query
-          description: "Sortierung der Vorgänge, aufsteigend oder absteigend"
-          required: false
-          type: string
-          default: absteigend
+      - name: aenderungBis
+        in: query
+        description: "Der 'aenderungBis' Parameter hat das 'ISO 8601' Format. Beispiele: '2020-07-10', '2020-07-10T14:00Z'"
+        required: false
+        type: string
+        pattern: "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$"
+      - name: aenderungSeit
+        in: query
+        description: "Der 'aenderungSeit' Parameter hat das 'ISO 8601' Format. Beispiele: '2020-07-10', '2020-07-10T13:00Z'"
+        required: false
+        type: string
+        pattern: "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\:?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\d|2[0-3]):?([0-5]\\d)?)?)?)?$"
+      - name: datenKontext
+        in: query
+        description: Datenkontext
+        required: false
+        type: string
+        default: ECHT_GESCHAEFT
+        enum:
+        - ECHT_GESCHAEFT
+        - TEST_MODUS
+      - name: limit
+        in: query
+        description: limit
+        required: false
+        type: integer
+        default: 10
+        format: int32
+      - name: page
+        in: query
+        description: page
+        required: false
+        type: integer
+        default: 0
+        format: int32
+      - name: sort
+        in: query
+        description: "Sortierung der Vorgänge, aufsteigend oder absteigend"
+        required: false
+        type: string
+        default: absteigend
       responses:
         "200":
           description: OK
@@ -108,24 +108,24 @@ paths:
           schema:
             $ref: '#/definitions/Error'
       security:
-        - oauth2:
-            - API
+      - oauth2:
+        - API
   /v2/vorgaenge/{vorgangsNummer}:
     get:
       tags:
-        - Vorgänge
+      - Vorgänge
       summary: einen Vorgang abrufen
       description: "Als Parameter wird die Vorgangsnummer verwendet, die aus BaufiSmart erzeugt wurde."
       operationId: getVorgang
       produces:
-        - application/json;charset=UTF-8
+      - application/json;charset=UTF-8
       parameters:
-        - name: vorgangsNummer
-          in: path
-          description: Nummer des Vorgangs
-          required: true
-          type: string
-          x-example: AB1234
+      - name: vorgangsNummer
+        in: path
+        description: Nummer des Vorgangs
+        required: true
+        type: string
+        x-example: AB1234
       responses:
         "200":
           description: OK
@@ -164,32 +164,32 @@ paths:
           schema:
             $ref: '#/definitions/Error'
       security:
-        - oauth2:
-            - API
+      - oauth2:
+        - API
     patch:
       tags:
-        - Vorgänge
+      - Vorgänge
       summary: Änderung von Metadaten an einem bestehenden Vorgang
       operationId: updateVorgang
       consumes:
-        - application/json-patch+json
+      - application/json-patch+json
       produces:
-        - application/json;charset=UTF-8
+      - application/json;charset=UTF-8
       parameters:
-        - in: body
-          name: patchOperations
-          description: patchOperations
-          required: true
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/PatchOperation'
-            example: "[{\"op\": \"replace\", \"path\": \"/kundenBetreuer/partnerId\",\"value\": \"OEJ16\"}]"
-        - name: vorgangsNummer
-          in: path
-          description: vorgangsNummer
-          required: true
-          type: string
+      - in: body
+        name: patchOperations
+        description: patchOperations
+        required: true
+        schema:
+          type: array
+          items:
+            $ref: '#/definitions/PatchOperation'
+          example: "[{\"op\": \"replace\", \"path\": \"/kundenBetreuer/partnerId\",\"value\": \"OEJ16\"}]"
+      - name: vorgangsNummer
+        in: path
+        description: vorgangsNummer
+        required: true
+        type: string
       responses:
         "200":
           description: OK
@@ -202,22 +202,22 @@ paths:
         "403":
           description: Forbidden
       security:
-        - oauth2:
-            - API
+      - oauth2:
+        - API
   /v2/vorgaenge/{vorgangsNummer}/antraege:
     get:
       tags:
-        - Vorgänge
+      - Vorgänge
       summary: Alle Anträge zum Vorgang
       operationId: getAllVorgangsAntraege
       produces:
-        - application/json;charset=UTF-8
+      - application/json;charset=UTF-8
       parameters:
-        - name: vorgangsNummer
-          in: path
-          description: vorgangsNummer
-          required: true
-          type: string
+      - name: vorgangsNummer
+        in: path
+        description: vorgangsNummer
+        required: true
+        type: string
       responses:
         "200":
           description: OK
@@ -256,28 +256,28 @@ paths:
           schema:
             $ref: '#/definitions/Error'
       security:
-        - oauth2:
-            - API
+      - oauth2:
+        - API
   /v2/vorgaenge/{vorgangsNummer}/antraege/{antragsNummer}:
     get:
       tags:
-        - Vorgänge
+      - Vorgänge
       summary: Anträge zum Vorgang
       operationId: getVorgangsAntraege
       produces:
-        - application/json;charset=UTF-8
+      - application/json;charset=UTF-8
       parameters:
-        - name: antragsNummer
-          in: path
-          description: antragsNummer
-          required: true
-          type: integer
-          format: int32
-        - name: vorgangsNummer
-          in: path
-          description: vorgangsNummer
-          required: true
-          type: string
+      - name: antragsNummer
+        in: path
+        description: antragsNummer
+        required: true
+        type: integer
+        format: int32
+      - name: vorgangsNummer
+        in: path
+        description: vorgangsNummer
+        required: true
+        type: string
       responses:
         "200":
           description: OK
@@ -316,34 +316,34 @@ paths:
           schema:
             $ref: '#/definitions/Error'
       security:
-        - oauth2:
-            - API
+      - oauth2:
+        - API
   /v2/vorgaenge/{vorgangsNummer}/antraege/{antragsNummer}/{teilantragsNummer}:
     get:
       tags:
-        - Vorgänge
+      - Vorgänge
       summary: Ein spezifischer Antrag des Vorgangs
       operationId: getAntrag
       produces:
-        - application/json;charset=UTF-8
+      - application/json;charset=UTF-8
       parameters:
-        - name: antragsNummer
-          in: path
-          description: antragsNummer
-          required: true
-          type: integer
-          format: int32
-        - name: teilantragsNummer
-          in: path
-          description: teilantragsNummer
-          required: true
-          type: integer
-          format: int32
-        - name: vorgangsNummer
-          in: path
-          description: vorgangsNummer
-          required: true
-          type: string
+      - name: antragsNummer
+        in: path
+        description: antragsNummer
+        required: true
+        type: integer
+        format: int32
+      - name: teilantragsNummer
+        in: path
+        description: teilantragsNummer
+        required: true
+        type: integer
+        format: int32
+      - name: vorgangsNummer
+        in: path
+        description: vorgangsNummer
+        required: true
+        type: string
       responses:
         "200":
           description: OK
@@ -382,41 +382,41 @@ paths:
           schema:
             $ref: '#/definitions/Error'
       security:
-        - oauth2:
-            - API
+      - oauth2:
+        - API
   /v2/vorgaenge/{vorgangsNummer}/antraege/{antragsNummer}/{teilantragsNummer}/entscheidungsreife:
     post:
       tags:
-        - Vorgänge
+      - Vorgänge
       summary: "Zum Senden eines Signals an den Produktanbieter, dass er mit der Kreditentscheidung beginnen kann"
       description: "Um das Entscheidungsreifesignal senden zu können bedarf es folgender Kriterien. 1. Der Aufrufer muss Vorgangsbearbeiter sein. 2. Der Antrag ist im Status: Antragsteller.BEANTRAGT, ProduktAnbieter.NICHT_BEARBEITET. 3. Das Signal kann nur einmal geschickt werden. "
       operationId: setEntscheidungsreife
       produces:
-        - application/json;charset=UTF-8
+      - application/json;charset=UTF-8
       parameters:
-        - name: antragsNummer
-          in: path
-          description: antragsNummer
-          required: true
-          type: integer
-          format: int32
-        - in: body
-          name: entscheidungsreife
-          description: entscheidungsreife
-          required: true
-          schema:
-            $ref: '#/definitions/Entscheidungsreife'
-        - name: teilantragsNummer
-          in: path
-          description: teilantragsNummer
-          required: true
-          type: integer
-          format: int32
-        - name: vorgangsNummer
-          in: path
-          description: vorgangsNummer
-          required: true
-          type: string
+      - name: antragsNummer
+        in: path
+        description: antragsNummer
+        required: true
+        type: integer
+        format: int32
+      - in: body
+        name: entscheidungsreife
+        description: entscheidungsreife
+        required: true
+        schema:
+          $ref: '#/definitions/Entscheidungsreife'
+      - name: teilantragsNummer
+        in: path
+        description: teilantragsNummer
+        required: true
+        type: integer
+        format: int32
+      - name: vorgangsNummer
+        in: path
+        description: vorgangsNummer
+        required: true
+        type: string
       responses:
         "202":
           description: Accepted
@@ -453,40 +453,40 @@ paths:
           schema:
             $ref: '#/definitions/Error'
       security:
-        - oauth2:
-            - API
+      - oauth2:
+        - API
   /v2/vorgaenge/{vorgangsNummer}/antraege/{antragsNummer}/{teilantragsNummer}/status:
     post:
       tags:
-        - Vorgänge
+      - Vorgänge
       summary: Zum Setzen des Antragsstatus
       operationId: setAntragsStatus
       produces:
-        - application/json;charset=UTF-8
+      - application/json;charset=UTF-8
       parameters:
-        - name: antragsNummer
-          in: path
-          description: antragsNummer
-          required: true
-          type: integer
-          format: int32
-        - in: body
-          name: statusDTO
-          description: statusDTO
-          required: true
-          schema:
-            $ref: '#/definitions/StatusDTO'
-        - name: teilantragsNummer
-          in: path
-          description: teilantragsNummer
-          required: true
-          type: integer
-          format: int32
-        - name: vorgangsNummer
-          in: path
-          description: vorgangsNummer
-          required: true
-          type: string
+      - name: antragsNummer
+        in: path
+        description: antragsNummer
+        required: true
+        type: integer
+        format: int32
+      - in: body
+        name: statusDTO
+        description: statusDTO
+        required: true
+        schema:
+          $ref: '#/definitions/StatusDTO'
+      - name: teilantragsNummer
+        in: path
+        description: teilantragsNummer
+        required: true
+        type: integer
+        format: int32
+      - name: vorgangsNummer
+        in: path
+        description: vorgangsNummer
+        required: true
+        type: string
       responses:
         "202":
           description: Accepted
@@ -523,23 +523,23 @@ paths:
           schema:
             $ref: '#/definitions/Error'
       security:
-        - oauth2:
-            - API
+      - oauth2:
+        - API
   /v2/vorgaenge/{vorgangsNummer}/finanzierungsvorschlaege:
     get:
       tags:
-        - Finanzierungsvorschlag
-        - Vorgänge
+      - Finanzierungsvorschlag
+      - Vorgänge
       summary: "Als Parameter wird die in BaufiSmart erzeugte Vorgangsnummer erwartet. Bei Finanzierungsvorschlägen handelt es sich um ausgehändigte Finanzierungsvorschläge in Baufsmart. Achtung: Bei den ausgegebenen Finanzierungsvorschlägen handelt es sich um Mockdaten."
       operationId: getFinanzierungsvorschlaege
       produces:
-        - application/json;charset=UTF-8
+      - application/json;charset=UTF-8
       parameters:
-        - name: vorgangsNummer
-          in: path
-          description: Die Nummer des Vorgangs zu dem die Finanzierungsvorschläge erzeugt wurden.
-          required: true
-          type: string
+      - name: vorgangsNummer
+        in: path
+        description: Die Nummer des Vorgangs zu dem die Finanzierungsvorschläge erzeugt wurden.
+        required: true
+        type: string
       responses:
         "200":
           description: OK
@@ -578,28 +578,28 @@ paths:
           schema:
             $ref: '#/definitions/Error'
       security:
-        - oauth2:
-            - API
+      - oauth2:
+        - API
   /v2/vorgaenge/{vorgangsNummer}/finanzierungsvorschlaege/{finanzierungsvorschlagId}:
     get:
       tags:
-        - Finanzierungsvorschlag
-        - Vorgänge
+      - Finanzierungsvorschlag
+      - Vorgänge
       summary: "Als Parameter wird die in BaufiSmart erzeugte Vorgangsnummer und die Id des Finanzierungsvorschlags erwartet. Achtung: Bei dem ausgegebenen Finanzierungsvorschlag handelt es sich um Mockdaten."
       operationId: getFinanzierungsvorschlag
       produces:
-        - application/json;charset=UTF-8
+      - application/json;charset=UTF-8
       parameters:
-        - name: finanzierungsvorschlagId
-          in: path
-          description: Die Id des Finanzierungsvorschlags.
-          required: true
-          type: string
-        - name: vorgangsNummer
-          in: path
-          description: Die Nummer des Vorgangs zu dem die Finanzierungsvorschläge erzeugt wurden.
-          required: true
-          type: string
+      - name: finanzierungsvorschlagId
+        in: path
+        description: Die Id des Finanzierungsvorschlags.
+        required: true
+        type: string
+      - name: vorgangsNummer
+        in: path
+        description: Die Nummer des Vorgangs zu dem die Finanzierungsvorschläge erzeugt wurden.
+        required: true
+        type: string
       responses:
         "200":
           description: OK
@@ -638,23 +638,23 @@ paths:
           schema:
             $ref: '#/definitions/Error'
       security:
-        - oauth2:
-            - API
+      - oauth2:
+        - API
   /v2/vorgaenge/{vorgangsNummer}/gemerkteAngebote:
     get:
       tags:
-        - Vorgänge
+      - Vorgänge
       summary: Die Liste der gemerkten Angebote des Vorgangs abrufen
       description: "Als Parameter wird die in BaufiSmart erzeugte Vorgangsnummer erwartet. Gemerkte Angebote sind: explizit gemerkte Angebote in BaufiSmart, ausgehändigte Finanzierungsvorschläge, Empfehlungen des Bearbeiters, Wünsche des Antragstellers, angefragte- und angenommene Angebote."
       operationId: retrieveGemerkteAngebote
       produces:
-        - application/json;charset=UTF-8
+      - application/json;charset=UTF-8
       parameters:
-        - name: vorgangsNummer
-          in: path
-          description: vorgangsNummer
-          required: true
-          type: string
+      - name: vorgangsNummer
+        in: path
+        description: vorgangsNummer
+        required: true
+        type: string
       responses:
         "200":
           description: OK
@@ -693,29 +693,29 @@ paths:
           schema:
             $ref: '#/definitions/Error'
       security:
-        - oauth2:
-            - API
+      - oauth2:
+        - API
   /v2/vorgaenge/{vorgangsNummer}/gemerkteAngebote/{nummerAmVorgang}:
     get:
       tags:
-        - Vorgänge
+      - Vorgänge
       summary: Ein gemerktes Angebot eines Vorgangs abrufen
       description: "Als Parameter wird die in BaufiSmart erzeugte Vorgangsnummer und die Nummer des gemerkten Angebots erwartet. Gemerkte Angebote sind: explizit gemerkte Angebote in BaufiSmart, ausgehändigte Finanzierungsvorschläge, Empfehlungen des Bearbeiters, Wünsche des Antragstellers, angefragte- und angenommene Angebote."
       operationId: retrieveGemerktesAngebot
       produces:
-        - application/json;charset=UTF-8
+      - application/json;charset=UTF-8
       parameters:
-        - name: nummerAmVorgang
-          in: path
-          description: nummerAmVorgang
-          required: true
-          type: integer
-          format: int32
-        - name: vorgangsNummer
-          in: path
-          description: vorgangsNummer
-          required: true
-          type: string
+      - name: nummerAmVorgang
+        in: path
+        description: nummerAmVorgang
+        required: true
+        type: integer
+        format: int32
+      - name: vorgangsNummer
+        in: path
+        description: vorgangsNummer
+        required: true
+        type: string
       responses:
         "200":
           description: OK
@@ -754,29 +754,29 @@ paths:
           schema:
             $ref: '#/definitions/Error'
       security:
-        - oauth2:
-            - API
+      - oauth2:
+        - API
   /v2/vorgaenge/{vorgangsNummer}/gemerkteAngebote/{nummerAmVorgang}/zahlungsPlaene:
     get:
       tags:
-        - Vorgänge
+      - Vorgänge
       summary: Die Zahlungsplaene des gemerkten Angebots abrufen
       description: Als Parameter wird die in BaufiSmart erzeugte Vorgangsnummer und die Nummer des gemerkten Angebots erwartet.
       operationId: getZahlungsplaene
       produces:
-        - application/json;charset=UTF-8
+      - application/json;charset=UTF-8
       parameters:
-        - name: nummerAmVorgang
-          in: path
-          description: nummerAmVorgang
-          required: true
-          type: integer
-          format: int32
-        - name: vorgangsNummer
-          in: path
-          description: vorgangsNummer
-          required: true
-          type: string
+      - name: nummerAmVorgang
+        in: path
+        description: nummerAmVorgang
+        required: true
+        type: integer
+        format: int32
+      - name: vorgangsNummer
+        in: path
+        description: vorgangsNummer
+        required: true
+        type: string
       responses:
         "200":
           description: OK
@@ -815,23 +815,23 @@ paths:
           schema:
             $ref: '#/definitions/Error'
       security:
-        - oauth2:
-            - API
+      - oauth2:
+        - API
   /v2/vorgaenge/{vorgangsNummer}/kundenBetreuer:
     get:
       tags:
-        - Vorgänge
+      - Vorgänge
       summary: Den Kundenbetreuer des Vorgangs abrufen
       description: "Als Parameter wird die Vorgangsnummer verwendet, die aus BaufiSmart erzeugt wurde."
       operationId: getKundenbetreuer
       produces:
-        - application/json;charset=UTF-8
+      - application/json;charset=UTF-8
       parameters:
-        - name: vorgangsNummer
-          in: path
-          description: vorgangsNummer
-          required: true
-          type: string
+      - name: vorgangsNummer
+        in: path
+        description: vorgangsNummer
+        required: true
+        type: string
       responses:
         "200":
           description: OK
@@ -870,27 +870,27 @@ paths:
           schema:
             $ref: '#/definitions/Error'
       security:
-        - oauth2:
-            - API
+      - oauth2:
+        - API
     put:
       tags:
-        - Vorgänge
+      - Vorgänge
       summary: Den Kundenbetreuer ändern
       operationId: updateKundenBetreuerUsingPUT
       produces:
-        - application/json;charset=UTF-8
+      - application/json;charset=UTF-8
       parameters:
-        - in: body
-          name: partnerDTO
-          description: partnerDTO
-          required: true
-          schema:
-            $ref: '#/definitions/PartnerDTO'
-        - name: vorgangsNummer
-          in: path
-          description: vorgangsNummer
-          required: true
-          type: string
+      - in: body
+        name: partnerDTO
+        description: partnerDTO
+        required: true
+        schema:
+          $ref: '#/definitions/PartnerDTO'
+      - name: vorgangsNummer
+        in: path
+        description: vorgangsNummer
+        required: true
+        type: string
       responses:
         "201":
           description: Created
@@ -903,28 +903,28 @@ paths:
         "404":
           description: Not Found
       security:
-        - oauth2:
-            - API
+      - oauth2:
+        - API
   /v2/vorgaenge/{vorgangsNummer}/nachricht:
     post:
       tags:
-        - Vorgänge
+      - Vorgänge
       summary: Schreibt eine Nachricht an den Vorgang in BaufiSmart
       operationId: addNachricht
       produces:
-        - application/json;charset=UTF-8
+      - application/json;charset=UTF-8
       parameters:
-        - in: body
-          name: nachricht
-          description: nachricht
-          required: true
-          schema:
-            $ref: '#/definitions/Nachricht'
-        - name: vorgangsNummer
-          in: path
-          description: vorgangsNummer
-          required: true
-          type: string
+      - in: body
+        name: nachricht
+        description: nachricht
+        required: true
+        schema:
+          $ref: '#/definitions/Nachricht'
+      - name: vorgangsNummer
+        in: path
+        description: vorgangsNummer
+        required: true
+        type: string
       responses:
         "201":
           description: Created
@@ -961,23 +961,23 @@ paths:
           schema:
             $ref: '#/definitions/Error'
       security:
-        - oauth2:
-            - API
+      - oauth2:
+        - API
   /v2/vorgaenge/{vorgangsNummer}/vorgangsBearbeiter:
     get:
       tags:
-        - Vorgänge
+      - Vorgänge
       summary: Den Vorgangsbearbeiter des Vorgangs abrufen
       description: "Als Parameter wird die Vorgangsnummer verwendet, die aus BaufiSmart erzeugt wurde."
       operationId: getVorgangsBearbeiter
       produces:
-        - application/json;charset=UTF-8
+      - application/json;charset=UTF-8
       parameters:
-        - name: vorgangsNummer
-          in: path
-          description: vorgangsNummer
-          required: true
-          type: string
+      - name: vorgangsNummer
+        in: path
+        description: vorgangsNummer
+        required: true
+        type: string
       responses:
         "200":
           description: OK
@@ -1016,29 +1016,29 @@ paths:
           schema:
             $ref: '#/definitions/Error'
       security:
-        - oauth2:
-            - API
+      - oauth2:
+        - API
     put:
       tags:
-        - Vorgänge
+      - Vorgänge
       summary: putVorgangsBearbeiterId
       operationId: putVorgangsBearbeiterIdUsingPUT
       consumes:
-        - application/json
+      - application/json
       produces:
-        - application/json;charset=UTF-8
+      - application/json;charset=UTF-8
       parameters:
-        - in: body
-          name: partnerDTO
-          description: partnerDTO
-          required: true
-          schema:
-            $ref: '#/definitions/PartnerDTO'
-        - name: vorgangsNummer
-          in: path
-          description: vorgangsNummer
-          required: true
-          type: string
+      - in: body
+        name: partnerDTO
+        description: partnerDTO
+        required: true
+        schema:
+          $ref: '#/definitions/PartnerDTO'
+      - name: vorgangsNummer
+        in: path
+        description: vorgangsNummer
+        required: true
+        type: string
       responses:
         "200":
           description: OK
@@ -1051,8 +1051,8 @@ paths:
         "404":
           description: Not Found
       security:
-        - oauth2:
-            - API
+      - oauth2:
+        - API
 securityDefinitions:
   oauth2:
     type: oauth2
@@ -1073,11 +1073,11 @@ definitions:
       praemienZahlungsweise:
         type: string
         enum:
-          - EINMALIG
-          - HALBJAEHRLICH
-          - JAEHRLICH
-          - MONATLICH
-          - VIERTELJAEHRLICH
+        - EINMALIG
+        - HALBJAEHRLICH
+        - JAEHRLICH
+        - MONATLICH
+        - VIERTELJAEHRLICH
       tarifBezeichnung:
         type: string
       tarifKennung:
@@ -1129,8 +1129,8 @@ definitions:
       bewertungDesAngebots:
         type: string
         enum:
-          - ANGEBOT_ENTSPRICHT_DEM_WUNSCH_DES_KUNDEN
-          - ANGEBOT_ENTSPRICHT_DER_EMPFEHLUNG_DES_KUNDENBETREUERS
+        - ANGEBOT_ENTSPRICHT_DEM_WUNSCH_DES_KUNDEN
+        - ANGEBOT_ENTSPRICHT_DER_EMPFEHLUNG_DES_KUNDENBETREUERS
       darlehen:
         type: array
         items:
@@ -1144,9 +1144,9 @@ definitions:
       machbarkeitsStatus:
         type: string
         enum:
-          - MACHBAR
-          - NICHT_MACHBAR
-          - UNTER_VORBEHALT_PRODUZENT
+        - MACHBAR
+        - NICHT_MACHBAR
+        - UNTER_VORBEHALT_PRODUZENT
       meldungen:
         type: array
         items:
@@ -1222,6 +1222,11 @@ definitions:
       antragsNummer:
         type: string
         description: Nummer des Antrags auf der Europace Plattform
+      antragsReferenzen:
+        type: object
+        description: "Referenzen am Antrag, die durch den Produktanbieter gesetzt wurden"
+        additionalProperties:
+          type: string
       beratung:
         description: Informationen zum Geschäftsabschluss
         $ref: '#/definitions/Beratung'
@@ -1229,8 +1234,8 @@ definitions:
         type: string
         description: "Gibt an, ob es sich um einen Antrag aus dem Testmodus oder Echtgeschäft handelt"
         enum:
-          - ECHT_GESCHAEFT
-          - TEST_MODUS
+        - ECHT_GESCHAEFT
+        - TEST_MODUS
       dokumente:
         type: array
         description: "Enthält alle Plattformdokumente, freigegebene Dokumente des Vertriebs, sowie die hochgeladenen Dokumente des Produktanbieters. **Aktuell sind nur Selbstauskunft und Kreditentscheidungsinformation enthalten.**"
@@ -1263,38 +1268,38 @@ definitions:
         type: string
         description: Ablehnungsgrund des Produktanbieters
         enum:
-          - FINANZIELLE_SITUATION
-          - GEGENANGEBOT
-          - KEINE_ANGABE
-          - KRITERIEN
-          - NEGATIV_MERKMAL
-          - UNTERLAGEN_UNVOLLSTAENDIG
-          - WERTERMITTLUNG
+        - FINANZIELLE_SITUATION
+        - GEGENANGEBOT
+        - KEINE_ANGABE
+        - KRITERIEN
+        - NEGATIV_MERKMAL
+        - UNTERLAGEN_UNVOLLSTAENDIG
+        - WERTERMITTLUNG
       antragsteller:
         type: string
         description: Willenserklärung des Antragstellers
         enum:
-          - BEANTRAGT
-          - NICHT_ANGENOMMEN
-          - UNTERSCHRIEBEN
-          - WIDERRUFEN
+        - BEANTRAGT
+        - NICHT_ANGENOMMEN
+        - UNTERSCHRIEBEN
+        - WIDERRUFEN
       bearbeitungsFortschritt:
         type: string
         description: Bearbeitungsfortschritt des Antrags nach beidseitiger Unterzeichnung
         enum:
-          - FREIGEGEBEN_FUER_SAMMELFORDERUNG
-          - NICHT_VON_PRODUKTANBIETER_BESTAETIGT
-          - PROVISION_IN_BEARBEITUNG
-          - PROVISON_AN_KUNDENBETREUER_VOLLSTAENDIG_AUSGEZAHLT
-          - VON_PRODUKTANBIETER_BESTAETIGT
+        - FREIGEGEBEN_FUER_SAMMELFORDERUNG
+        - NICHT_VON_PRODUKTANBIETER_BESTAETIGT
+        - PROVISION_IN_BEARBEITUNG
+        - PROVISON_AN_KUNDENBETREUER_VOLLSTAENDIG_AUSGEZAHLT
+        - VON_PRODUKTANBIETER_BESTAETIGT
       produktAnbieter:
         type: string
         description: Willenserklärung des Produktanbieters
         enum:
-          - ABGELEHNT
-          - NICHT_BEARBEITET
-          - UNTERSCHRIEBEN
-          - ZURUECKGESTELLT
+        - ABGELEHNT
+        - NICHT_BEARBEITET
+        - UNTERSCHRIEBEN
+        - ZURUECKGESTELLT
     title: AntragsStatus
   Antragsteller:
     type: object
@@ -1304,8 +1309,8 @@ definitions:
       anrede:
         type: string
         enum:
-          - FRAU
-          - HERR
+        - FRAU
+        - HERR
       anschrift:
         $ref: '#/definitions/Postadresse'
       arbeitserlaubnis:
@@ -1319,10 +1324,10 @@ definitions:
         type: string
         description: wenn keine deutsche Staatsangehörigkeit
         enum:
-          - AUFENTHALTS_ERLAUBNIS
-          - DAUERAUFENTHALT_EU
-          - NIEDERLASSUNGS_ERLAUBNIS
-          - VISUM
+        - AUFENTHALTS_ERLAUBNIS
+        - DAUERAUFENTHALT_EU
+        - NIEDERLASSUNGS_ERLAUBNIS
+        - VISUM
       aufenthaltsTitelBefristetBis:
         type: string
         format: date
@@ -1342,12 +1347,12 @@ definitions:
       familienstand:
         type: string
         enum:
-          - GESCHIEDEN
-          - GETRENNT_LEBEND
-          - LEBENSPARTNERSCHAFT
-          - LEDIG
-          - VERHEIRATET
-          - VERWITWET
+        - GESCHIEDEN
+        - GETRENNT_LEBEND
+        - LEBENSPARTNERSCHAFT
+        - LEDIG
+        - VERHEIRATET
+        - VERWITWET
       geburtsdatum:
         type: string
         format: date
@@ -1383,8 +1388,8 @@ definitions:
         items:
           type: string
           enum:
-            - DOKTOR
-            - PROFESSOR
+          - DOKTOR
+          - PROFESSOR
       titelDoktor:
         type: boolean
       titelProfessor:
@@ -1405,13 +1410,13 @@ definitions:
       grund:
         type: string
         enum:
-          - DAS_OBJEKT_IST_WEG
-          - FINANZIERUNG_IST_NICHT_MACHBAR
-          - KUNDE_HAT_EIN_ANDERES_ANGEBOT
-          - KUNDE_IST_NICHT_MEHR_INTERESSIERT
-          - OBJEKT_IST_NICHT_MEHR_VERFUEGBAR
-          - SCHLECHTER_LEAD_NICHT_ZU_ERREICHEN
-          - VORGANG_ERFOLGREICH_ABGESCHLOSSEN
+        - DAS_OBJEKT_IST_WEG
+        - FINANZIERUNG_IST_NICHT_MACHBAR
+        - KUNDE_HAT_EIN_ANDERES_ANGEBOT
+        - KUNDE_IST_NICHT_MEHR_INTERESSIERT
+        - OBJEKT_IST_NICHT_MEHR_VERFUEGBAR
+        - SCHLECHTER_LEAD_NICHT_ZU_ERREICHEN
+        - VORGANG_ERFOLGREICH_ABGESCHLOSSEN
       kommentar:
         type: string
     title: Archivierung
@@ -1426,8 +1431,8 @@ definitions:
         type: string
         description: Redundante Angabe des Zahlungstyps dient als zusätzliches Filterkriterium
         enum:
-          - AUSGABE
-          - EINNAHME
+        - AUSGABE
+        - EINNAHME
     title: AusgabenMonatlich
   Autostellplatz:
     type: object
@@ -1437,12 +1442,12 @@ definitions:
       typ:
         type: string
         enum:
-          - CARPORT
-          - DOPPEL_GARAGE
-          - GARAGE
-          - KELLER_GARAGE
-          - STELLPLATZ
-          - TIEFGARAGEN_STELLPLATZ
+        - CARPORT
+        - DOPPEL_GARAGE
+        - GARAGE
+        - KELLER_GARAGE
+        - STELLPLATZ
+        - TIEFGARAGEN_STELLPLATZ
     title: Autostellplatz
   BankUndSparguthaben:
     type: object
@@ -1456,21 +1461,21 @@ definitions:
       vermoegensEinsatz:
         type: string
         enum:
-          - ABTRETEN
-          - AUFLOESEN
-          - KEIN_EINSATZ
+        - ABTRETEN
+        - AUFLOESEN
+        - KEIN_EINSATZ
       vermoegensTyp:
         type: string
         description: Redundante Angabe des Vermögenstyp dient als zusätzliches Filterkriterium
         enum:
-          - VERBINDLICHKEIT
-          - VERMOEGEN
+        - VERBINDLICHKEIT
+        - VERMOEGEN
       zahlungsTyp:
         type: string
         description: Redundante Angabe des Zahlungstyps dient als zusätzliches Filterkriterium
         enum:
-          - AUSGABE
-          - EINNAHME
+        - AUSGABE
+        - EINNAHME
       zinsertragJaehrlich:
         type: number
       zukuenftigeEinnahmen:
@@ -1554,9 +1559,9 @@ definitions:
       status:
         type: string
         enum:
-          - AKTIV
-          - DEAKTIVIERT
-          - IN_ENTWICKLUNG
+        - AKTIV
+        - DEAKTIVIERT
+        - IN_ENTWICKLUNG
     title: BausparTarif
   BausparWunsch:
     type: object
@@ -1564,8 +1569,8 @@ definitions:
       abschlussGebuehrenVerrechnung:
         type: string
         enum:
-          - SOFORTZAHLUNG
-          - VERRECHNUNG
+        - SOFORTZAHLUNG
+        - VERRECHNUNG
       bausparSummeAbsolut:
         type: number
       bausparSummeRelativ:
@@ -1608,13 +1613,13 @@ definitions:
       verwendung:
         type: string
         enum:
-          - TILGUNGS_AUSGESETZT
-          - ZINS_ABSICHERUNG
+        - TILGUNGS_AUSGESETZT
+        - ZINS_ABSICHERUNG
       verwendungZulagen:
         type: string
         enum:
-          - SONDERZAHLUNG
-          - VERRECHNUNG
+        - SONDERZAHLUNG
+        - VERRECHNUNG
       zuteilungsDatum:
         type: string
         format: date
@@ -1705,9 +1710,9 @@ definitions:
       art:
         type: string
         enum:
-          - AUSSER_GESCHAEFTSRAUM_VERTRAG
-          - FERN_ABSATZ_GESCHAEFT
-          - PRAESENZ_GESCHAEFT
+        - AUSSER_GESCHAEFTSRAUM_VERTRAG
+        - FERN_ABSATZ_GESCHAEFT
+        - PRAESENZ_GESCHAEFT
       hinweisFuerProduktAnbieter:
         type: string
       istKundenBetreuerVerkaeuferOderMaklerDerImmobilie:
@@ -1750,20 +1755,20 @@ definitions:
       art:
         type: string
         enum:
-          - ANGESTELLTER
-          - ARBEITER
-          - ARBEITSLOSER
-          - BEAMTER
-          - FREIBERUFLER
-          - HAUSFRAU
-          - RENTNER
-          - SELBSTAENDIGER
+        - ANGESTELLTER
+        - ARBEITER
+        - ARBEITSLOSER
+        - BEAMTER
+        - FREIBERUFLER
+        - HAUSFRAU
+        - RENTNER
+        - SELBSTAENDIGER
       befristungsStatus:
         type: string
         description: "nur bei art==ANGESTELLTER,ARBEITER"
         enum:
-          - BEFRISTET
-          - UNBEFRISTET
+        - BEFRISTET
+        - UNBEFRISTET
       beruf:
         type: string
         description: nur bei art!=RENTNER
@@ -1775,26 +1780,26 @@ definitions:
         type: string
         description: Berufsgruppe des Antragstellers.
         enum:
-          - BAUGEWERBE
-          - BERGBAU_GEWINNUNG_VON_STEINEN_UND_ERDEN
-          - ENERGIEVERSORGUNG
-          - ERZIEHUNG_UNTERRICHT
-          - FINANZ_UND_VERSICHERUNGSDIENSTLEISTUNGEN
-          - FREIBERUFLICHE_WISSENSCHAFTLICHE_UND_TECHNISCHE_DIENSTLEISTUNGEN
-          - GASTGEWERBE
-          - GESUNDHEIT_UND_SOZIALWESEN
-          - GRUNDSTÜCKS_UND_WOHNUNGSWESEN
-          - HANDEL_INSTANDHALTUNG_VON_KRAFTFAHRZEUGEN
-          - INFORMATION_KOMMUNIKATION
-          - KUNST_UNTERHALTUNG_ERHOLUNG
-          - LANDWIRTSCHAFT_FORSTWIRTSCHAFT_FISCHEREI
-          - OEFFENTLICHE_VERWALTUNG_VERTEIDIGUNG_SOZIALVERSICHERUNG
-          - PRIVATE_HAUSHALTE
-          - SONSTIGE_DIENSTLEISTUNGEN
-          - SONSTIGE_WIRTSCHAFTLICHE_DIENSTLEISTUNGEN
-          - VERARBEITENDES_GEWERBE
-          - VERKEHR_LOGISTIK
-          - WASSERVERSORGUNG
+        - BAUGEWERBE
+        - BERGBAU_GEWINNUNG_VON_STEINEN_UND_ERDEN
+        - ENERGIEVERSORGUNG
+        - ERZIEHUNG_UNTERRICHT
+        - FINANZ_UND_VERSICHERUNGSDIENSTLEISTUNGEN
+        - FREIBERUFLICHE_WISSENSCHAFTLICHE_UND_TECHNISCHE_DIENSTLEISTUNGEN
+        - GASTGEWERBE
+        - GESUNDHEIT_UND_SOZIALWESEN
+        - GRUNDSTÜCKS_UND_WOHNUNGSWESEN
+        - HANDEL_INSTANDHALTUNG_VON_KRAFTFAHRZEUGEN
+        - INFORMATION_KOMMUNIKATION
+        - KUNST_UNTERHALTUNG_ERHOLUNG
+        - LANDWIRTSCHAFT_FORSTWIRTSCHAFT_FISCHEREI
+        - OEFFENTLICHE_VERWALTUNG_VERTEIDIGUNG_SOZIALVERSICHERUNG
+        - PRIVATE_HAUSHALTE
+        - SONSTIGE_DIENSTLEISTUNGEN
+        - SONSTIGE_WIRTSCHAFTLICHE_DIENSTLEISTUNGEN
+        - VERARBEITENDES_GEWERBE
+        - VERKEHR_LOGISTIK
+        - WASSERVERSORGUNG
       einkommenNettoJaehrlich:
         type: number
         description: "nur bei art==FREIBERUFLER,SELBSTAENDIGER"
@@ -1814,57 +1819,57 @@ definitions:
         type: string
         description: "nur bei art==FREIBERUFLER,SELBSTAENDIGER"
         enum:
-          - ALTENPFLEGER
-          - AMBULANTER_KRANKENPFLEGER
-          - ANWALT
-          - APOTHEKER
-          - ARCHITEKT
-          - ARZT
-          - BESTATTER
-          - DATENSCHUTZBEAUFTRAGTER
-          - DEKORATEUR
-          - DIAETASSISTENT
-          - DOLMETSCHER
-          - EDV_BERATER
-          - ERGOTHERAPEUT
-          - ERNAEHRUNGSBERATER
-          - FOTOGRAF
-          - GEOGRAF
-          - GRAFIKDESIGNER
-          - GRAFIKER
-          - HEBAMME
-          - HEILMASSEUR
-          - HEILPRAKTIKER
-          - HISTORIKER
-          - INFORMATIKER
-          - INGENIEUR
-          - INSOLVENZVERWALTER
-          - JOURNALIST
-          - KLASSISCHER_KONZERTMUSIKER
-          - KONSTRUKTEUR
-          - KRANKENGYMNAST
-          - KRANKENPFLEGER
-          - KRANKENSCHWESTER
-          - LOGOPAEDE
-          - MEDIZINISCH_TECHN_ASSISTENT
-          - NOTAR
-          - OPERNSAENGER
-          - PERSONALBERATER
-          - PHYSIOTHERAPEUT
-          - PSYCHOLOGE
-          - RAUMAUSSTATTER
-          - RUNDFUNKSPRECHER
-          - SACHVERSTAENDIGER
-          - SONSTIGES
-          - STADTPLANER
-          - STATIKER
-          - STEUERBERATER
-          - TIERARZT
-          - UNTERNEHMENSBERATER
-          - VERMITTLER
-          - WIRTSCH_BUCHPRUEFER_REVISOR
-          - ZAHNARZT
-          - ZAHNTECHNIKER
+        - ALTENPFLEGER
+        - AMBULANTER_KRANKENPFLEGER
+        - ANWALT
+        - APOTHEKER
+        - ARCHITEKT
+        - ARZT
+        - BESTATTER
+        - DATENSCHUTZBEAUFTRAGTER
+        - DEKORATEUR
+        - DIAETASSISTENT
+        - DOLMETSCHER
+        - EDV_BERATER
+        - ERGOTHERAPEUT
+        - ERNAEHRUNGSBERATER
+        - FOTOGRAF
+        - GEOGRAF
+        - GRAFIKDESIGNER
+        - GRAFIKER
+        - HEBAMME
+        - HEILMASSEUR
+        - HEILPRAKTIKER
+        - HISTORIKER
+        - INFORMATIKER
+        - INGENIEUR
+        - INSOLVENZVERWALTER
+        - JOURNALIST
+        - KLASSISCHER_KONZERTMUSIKER
+        - KONSTRUKTEUR
+        - KRANKENGYMNAST
+        - KRANKENPFLEGER
+        - KRANKENSCHWESTER
+        - LOGOPAEDE
+        - MEDIZINISCH_TECHN_ASSISTENT
+        - NOTAR
+        - OPERNSAENGER
+        - PERSONALBERATER
+        - PHYSIOTHERAPEUT
+        - PSYCHOLOGE
+        - RAUMAUSSTATTER
+        - RUNDFUNKSPRECHER
+        - SACHVERSTAENDIGER
+        - SONSTIGES
+        - STADTPLANER
+        - STATIKER
+        - STEUERBERATER
+        - TIERARZT
+        - UNTERNEHMENSBERATER
+        - VERMITTLER
+        - WIRTSCH_BUCHPRUEFER_REVISOR
+        - ZAHNARZT
+        - ZAHNTECHNIKER
     title: Beschaeftigung
   BestehendeImmobilie:
     type: object
@@ -1886,22 +1891,22 @@ definitions:
       bundesland:
         type: string
         enum:
-          - BADEN_WUERTTEMBERG
-          - BAYERN
-          - BERLIN
-          - BRANDENBURG
-          - BREMEN
-          - HAMBURG
-          - HESSEN
-          - MECKLENBURG_VORPOMMERN
-          - NIEDERSACHSEN
-          - NORDRHEIN_WESTFALEN
-          - RHEINLAND_PFALZ
-          - SAARLAND
-          - SACHSEN
-          - SACHSEN_ANHALT
-          - SCHLESWIG_HOLSTEIN
-          - THUERINGEN
+        - BADEN_WUERTTEMBERG
+        - BAYERN
+        - BERLIN
+        - BRANDENBURG
+        - BREMEN
+        - HAMBURG
+        - HESSEN
+        - MECKLENBURG_VORPOMMERN
+        - NIEDERSACHSEN
+        - NORDRHEIN_WESTFALEN
+        - RHEINLAND_PFALZ
+        - SAARLAND
+        - SACHSEN
+        - SACHSEN_ANHALT
+        - SCHLESWIG_HOLSTEIN
+        - THUERINGEN
       effektivZinsErhoehendeKosten:
         $ref: '#/definitions/EffektivZinsErhoehendeKosten'
       erbbaurecht:
@@ -1917,9 +1922,9 @@ definitions:
       immobilienEinsatz:
         type: string
         enum:
-          - ALS_ZUSATZSICHERHEIT
-          - KEIN_EINSATZ
-          - VERKAUFEN
+        - ALS_ZUSATZSICHERHEIT
+        - KEIN_EINSATZ
+        - VERKAUFEN
       keinBaulandFlaecheInQm:
         type: number
       keineBestehendenDarlehenVorhanden:
@@ -1934,9 +1939,9 @@ definitions:
       objektArt:
         type: string
         enum:
-          - EIGENTUMSWOHNUNG
-          - GRUNDSTUECK
-          - HAUS
+        - EIGENTUMSWOHNUNG
+        - GRUNDSTUECK
+        - HAUS
       vergleichsmieteFuerGewerbeflaecheProQm:
         type: number
       vergleichsmieteFuerWohnflaecheProQm:
@@ -1950,9 +1955,9 @@ definitions:
       wohnlage:
         type: string
         enum:
-          - EINFACH
-          - GEHOBEN
-          - MITTEL
+        - EINFACH
+        - GEHOBEN
+        - MITTEL
     title: BestehendeImmobilie
   BestehenderBausparvertrag:
     type: object
@@ -1987,15 +1992,15 @@ definitions:
       vermoegensEinsatz:
         type: string
         enum:
-          - ABTRETEN
-          - AUFLOESEN
-          - KEIN_EINSATZ
+        - ABTRETEN
+        - AUFLOESEN
+        - KEIN_EINSATZ
       vermoegensTyp:
         type: string
         description: Redundante Angabe des Vermögenstyp dient als zusätzliches Filterkriterium
         enum:
-          - VERBINDLICHKEIT
-          - VERMOEGEN
+        - VERBINDLICHKEIT
+        - VERMOEGEN
       vertragsBeginn:
         type: string
         format: date
@@ -2007,8 +2012,8 @@ definitions:
         type: string
         description: Redundante Angabe des Zahlungstyps dient als zusätzliches Filterkriterium
         enum:
-          - AUSGABE
-          - EINNAHME
+        - AUSGABE
+        - EINNAHME
       zukuenftigeEinnahmen:
         type: number
       zuteilungsDatum:
@@ -2026,11 +2031,11 @@ definitions:
         type: string
         description: Neue Ausprägungen können kurzfristig hinzukommen. Der Client muss daher mit unbekannten Werten umgehen können.
         enum:
-          - BAUSPARDARLEHEN
-          - FOERDERDARLEHEN
-          - IMMOBILIENDARLEHEN
-          - PRIVATDARLEHEN
-          - SONSTIGES_DARLEHEN
+        - BAUSPARDARLEHEN
+        - FOERDERDARLEHEN
+        - IMMOBILIENDARLEHEN
+        - PRIVATDARLEHEN
+        - SONSTIGES_DARLEHEN
       darlehensBetrag:
         type: number
       darlehensGeber:
@@ -2042,8 +2047,8 @@ definitions:
       grundschuldArt:
         type: string
         enum:
-          - BRIEF_GRUNDSCHULD
-          - BUCH_GRUNDSCHULD
+        - BRIEF_GRUNDSCHULD
+        - BUCH_GRUNDSCHULD
       id:
         type: string
       laufzeitEnde:
@@ -2071,11 +2076,11 @@ definitions:
         type: string
         description: Neue Ausprägungen können kurzfristig hinzukommen. Der Client muss daher mit unbekannten Werten umgehen können.
         enum:
-          - BAUSPARDARLEHEN
-          - FOERDERDARLEHEN
-          - IMMOBILIENDARLEHEN
-          - PRIVATDARLEHEN
-          - SONSTIGES_DARLEHEN
+        - BAUSPARDARLEHEN
+        - FOERDERDARLEHEN
+        - IMMOBILIENDARLEHEN
+        - PRIVATDARLEHEN
+        - SONSTIGES_DARLEHEN
       darlehensBetrag:
         type: number
       darlehensGeber:
@@ -2087,8 +2092,8 @@ definitions:
       grundschuldArt:
         type: string
         enum:
-          - BRIEF_GRUNDSCHULD
-          - BUCH_GRUNDSCHULD
+        - BRIEF_GRUNDSCHULD
+        - BUCH_GRUNDSCHULD
       id:
         type: string
       laufzeitEnde:
@@ -2105,9 +2110,9 @@ definitions:
         type: string
         description: "Beschreibt wie das Darlehen im Zusammenhang mit dem Vorhaben, behandelt werden soll."
         enum:
-          - ABLOESEN
-          - TRITT_IM_RANG_ZURUECK
-          - TRITT_NICHT_IM_RANG_ZURUECK
+        - ABLOESEN
+        - TRITT_IM_RANG_ZURUECK
+        - TRITT_NICHT_IM_RANG_ZURUECK
       zinsBindungEndetAm:
         type: string
         format: date
@@ -2131,13 +2136,13 @@ definitions:
       darlehensTyp:
         type: string
         enum:
-          - ANNUITAETEN_DARLEHEN
-          - FORWARD_DARLEHEN
-          - KFW_DARLEHEN
-          - PRIVAT_DARLEHEN
-          - REGIONAL_FOERDER_DARLEHEN
-          - VARIABLES_DARLEHEN
-          - ZWISCHEN_FINANZIERUNG
+        - ANNUITAETEN_DARLEHEN
+        - FORWARD_DARLEHEN
+        - KFW_DARLEHEN
+        - PRIVAT_DARLEHEN
+        - REGIONAL_FOERDER_DARLEHEN
+        - VARIABLES_DARLEHEN
+        - ZWISCHEN_FINANZIERUNG
       detailsZurVerwendung:
         type: string
         description: nur bei darlehensTyp==ZWISCHEN_FINANZIERUNG
@@ -2149,45 +2154,47 @@ definitions:
         type: integer
         format: int32
         description: nur bei darlehensTyp==FORWARD_DARLEHEN
+      id:
+        type: string
       kfwEnergieEffizienzGruppe:
         type: string
         description: "nur bei darlehensTyp==KFW_DARLEHEN. Nur bei KfW-Programm 153, 261, 262.Es können auch weitere Werte zulässig werden."
         enum:
-          - NEUBAU
-          - SANIERUNG
-          - STANDARD
+        - NEUBAU
+        - SANIERUNG
+        - STANDARD
       kfwEnergieEffizienzStandard:
         type: string
         description: "nur bei darlehensTyp==KFW_DARLEHEN. Nur bei KfW-Programm 153, 261, 262 relevant. Bei neuen Energieeffizienzstandards können auch weitere Werte zulässig werden."
         enum:
-          - STANDARD_100
-          - STANDARD_100_EEK
-          - STANDARD_40
-          - STANDARD_40_EEK
-          - STANDARD_40_NH
-          - STANDARD_40_PLUS
-          - STANDARD_55
-          - STANDARD_55_EEK
-          - STANDARD_70
-          - STANDARD_70_EEK
-          - STANDARD_85
-          - STANDARD_85_EEK
-          - STANDARD_DENKMAL
-          - STANDARD_DENKMAL_EEK
+        - STANDARD_100
+        - STANDARD_100_EEK
+        - STANDARD_40
+        - STANDARD_40_EEK
+        - STANDARD_40_NH
+        - STANDARD_40_PLUS
+        - STANDARD_55
+        - STANDARD_55_EEK
+        - STANDARD_70
+        - STANDARD_70_EEK
+        - STANDARD_85
+        - STANDARD_85_EEK
+        - STANDARD_DENKMAL
+        - STANDARD_DENKMAL_EEK
       kfwProgramm:
         type: string
         description: nur bei darlehensTyp==KFW_DARLEHEN. Bei neu aufgelegten KfW-Programmen können auch weitere Werte zulässig werden.
         enum:
-          - PROGRAMM_124
-          - PROGRAMM_141
-          - PROGRAMM_151
-          - PROGRAMM_152
-          - PROGRAMM_153
-          - PROGRAMM_155
-          - PROGRAMM_159
-          - PROGRAMM_167
-          - PROGRAMM_261
-          - PROGRAMM_262
+        - PROGRAMM_124
+        - PROGRAMM_141
+        - PROGRAMM_151
+        - PROGRAMM_152
+        - PROGRAMM_153
+        - PROGRAMM_155
+        - PROGRAMM_159
+        - PROGRAMM_167
+        - PROGRAMM_261
+        - PROGRAMM_262
       kfwSanierungsFahrplanLiegtVor:
         type: boolean
         description: "nur bei darlehensTyp==KFW_DARLEHEN. Nur bei KfW-Programm 261, 262 relevant."
@@ -2220,10 +2227,10 @@ definitions:
         type: string
         description: nur bei darlehensTyp==REGIONAL_FOERDER_DARLEHEN. Bei neu aufgelegten Regional-Förderbank-Programmen können auch weitere Werte zulässig werden. Der Client muss daher mit unbekannten Werten umgehen können.
         enum:
-          - L_BANK_KOMBI_DARLEHEN_WOHNEN
-          - L_BANK_WOHNEN_MIT_KIND
-          - L_BANK_WOHNEN_MIT_ZUKUNFT
-          - NRW_BANK_WOHNEIGENTUM
+        - L_BANK_KOMBI_DARLEHEN_WOHNEN
+        - L_BANK_WOHNEN_MIT_KIND
+        - L_BANK_WOHNEN_MIT_ZUKUNFT
+        - NRW_BANK_WOHNEIGENTUM
       riesterGefoerdert:
         type: boolean
       sollZins:
@@ -2241,9 +2248,9 @@ definitions:
         type: string
         description: nur bei darlehensTyp==ZWISCHEN_FINANZIERUNG
         enum:
-          - SONSTIGE_VERWENDUNG
-          - VERKAUF_EINES_ANDEREN_OBJEKTS
-          - VORFINANZIERUNG_OEFFENTLICHER_MITTEL
+        - SONSTIGE_VERWENDUNG
+        - VERKAUF_EINES_ANDEREN_OBJEKTS
+        - VORFINANZIERUNG_OEFFENTLICHER_MITTEL
       zinsBindung:
         description: "nicht bei darlehensTyp IN [VARIABLES_DARLEHEN,ZWISCHEN_FINANZIERUNG]"
         $ref: '#/definitions/ZinsBindung'
@@ -2270,13 +2277,13 @@ definitions:
       darlehensTyp:
         type: string
         enum:
-          - ANNUITAETEN_DARLEHEN
-          - FORWARD_DARLEHEN
-          - KFW_DARLEHEN
-          - PRIVAT_DARLEHEN
-          - REGIONAL_FOERDER_DARLEHEN
-          - VARIABLES_DARLEHEN
-          - ZWISCHEN_FINANZIERUNG
+        - ANNUITAETEN_DARLEHEN
+        - FORWARD_DARLEHEN
+        - KFW_DARLEHEN
+        - PRIVAT_DARLEHEN
+        - REGIONAL_FOERDER_DARLEHEN
+        - VARIABLES_DARLEHEN
+        - ZWISCHEN_FINANZIERUNG
       detailsZurVerwendung:
         type: string
         description: nur bei darlehensTyp==ZWISCHEN_FINANZIERUNG
@@ -2288,45 +2295,47 @@ definitions:
         type: integer
         format: int32
         description: nur bei darlehensTyp==FORWARD_DARLEHEN
+      id:
+        type: string
       kfwEnergieEffizienzGruppe:
         type: string
         description: "nur bei darlehensTyp==KFW_DARLEHEN. Nur bei KfW-Programm 153, 261, 262.Es können auch weitere Werte zulässig werden."
         enum:
-          - NEUBAU
-          - SANIERUNG
-          - STANDARD
+        - NEUBAU
+        - SANIERUNG
+        - STANDARD
       kfwEnergieEffizienzStandard:
         type: string
         description: "nur bei darlehensTyp==KFW_DARLEHEN. Nur bei KfW-Programm 153, 261, 262 relevant. Bei neuen Energieeffizienzstandards können auch weitere Werte zulässig werden."
         enum:
-          - STANDARD_100
-          - STANDARD_100_EEK
-          - STANDARD_40
-          - STANDARD_40_EEK
-          - STANDARD_40_NH
-          - STANDARD_40_PLUS
-          - STANDARD_55
-          - STANDARD_55_EEK
-          - STANDARD_70
-          - STANDARD_70_EEK
-          - STANDARD_85
-          - STANDARD_85_EEK
-          - STANDARD_DENKMAL
-          - STANDARD_DENKMAL_EEK
+        - STANDARD_100
+        - STANDARD_100_EEK
+        - STANDARD_40
+        - STANDARD_40_EEK
+        - STANDARD_40_NH
+        - STANDARD_40_PLUS
+        - STANDARD_55
+        - STANDARD_55_EEK
+        - STANDARD_70
+        - STANDARD_70_EEK
+        - STANDARD_85
+        - STANDARD_85_EEK
+        - STANDARD_DENKMAL
+        - STANDARD_DENKMAL_EEK
       kfwProgramm:
         type: string
         description: nur bei darlehensTyp==KFW_DARLEHEN. Bei neu aufgelegten KfW-Programmen können auch weitere Werte zulässig werden.
         enum:
-          - PROGRAMM_124
-          - PROGRAMM_141
-          - PROGRAMM_151
-          - PROGRAMM_152
-          - PROGRAMM_153
-          - PROGRAMM_155
-          - PROGRAMM_159
-          - PROGRAMM_167
-          - PROGRAMM_261
-          - PROGRAMM_262
+        - PROGRAMM_124
+        - PROGRAMM_141
+        - PROGRAMM_151
+        - PROGRAMM_152
+        - PROGRAMM_153
+        - PROGRAMM_155
+        - PROGRAMM_159
+        - PROGRAMM_167
+        - PROGRAMM_261
+        - PROGRAMM_262
       kfwSanierungsFahrplanLiegtVor:
         type: boolean
         description: "nur bei darlehensTyp==KFW_DARLEHEN. Nur bei KfW-Programm 261, 262 relevant."
@@ -2359,10 +2368,10 @@ definitions:
         type: string
         description: nur bei darlehensTyp==REGIONAL_FOERDER_DARLEHEN. Bei neu aufgelegten Regional-Förderbank-Programmen können auch weitere Werte zulässig werden. Der Client muss daher mit unbekannten Werten umgehen können.
         enum:
-          - L_BANK_KOMBI_DARLEHEN_WOHNEN
-          - L_BANK_WOHNEN_MIT_KIND
-          - L_BANK_WOHNEN_MIT_ZUKUNFT
-          - NRW_BANK_WOHNEIGENTUM
+        - L_BANK_KOMBI_DARLEHEN_WOHNEN
+        - L_BANK_WOHNEN_MIT_KIND
+        - L_BANK_WOHNEN_MIT_ZUKUNFT
+        - NRW_BANK_WOHNEIGENTUM
       riesterGefoerdert:
         type: boolean
       sollZins:
@@ -2380,9 +2389,9 @@ definitions:
         type: string
         description: nur bei darlehensTyp==ZWISCHEN_FINANZIERUNG
         enum:
-          - SONSTIGE_VERWENDUNG
-          - VERKAUF_EINES_ANDEREN_OBJEKTS
-          - VORFINANZIERUNG_OEFFENTLICHER_MITTEL
+        - SONSTIGE_VERWENDUNG
+        - VERKAUF_EINES_ANDEREN_OBJEKTS
+        - VORFINANZIERUNG_OEFFENTLICHER_MITTEL
       zinsBindung:
         description: "nicht bei darlehensTyp IN [VARIABLES_DARLEHEN,ZWISCHEN_FINANZIERUNG]"
         $ref: '#/definitions/ZinsBindung'
@@ -2477,8 +2486,8 @@ definitions:
         type: string
         description: Redundante Angabe des Zahlungstyps dient als zusätzliches Filterkriterium
         enum:
-          - AUSGABE
-          - EINNAHME
+        - AUSGABE
+        - EINNAHME
     title: EinkuenfteAusNebentaetigkeit
   EinnahmenMonatlich:
     type: object
@@ -2489,8 +2498,8 @@ definitions:
         type: string
         description: Redundante Angabe des Zahlungstyps dient als zusätzliches Filterkriterium
         enum:
-          - AUSGABE
-          - EINNAHME
+        - AUSGABE
+        - EINNAHME
     title: EinnahmenMonatlich
   Eintrag:
     type: object
@@ -2511,11 +2520,11 @@ definitions:
       zinsen:
         type: number
     title: Eintrag
-    description: Ein Eintrag im Zahlungsplan
+    description: Eine Einzahlung oder Auszahlung im Zahlungsplan
   Entscheidungsreife:
     type: object
     required:
-      - entscheidungsreifeVomVertriebSignalisiert
+    - entscheidungsreifeVomVertriebSignalisiert
     properties:
       entscheidungsreifeVomVertriebSignalisiert:
         type: boolean
@@ -2532,8 +2541,8 @@ definitions:
       grundstuecksEigentuemer:
         type: string
         enum:
-          - ANDERE
-          - OEFFENTLICH_KIRCHLICH
+        - ANDERE
+        - OEFFENTLICH_KIRCHLICH
       laufzeitBisJahr:
         type: string
     title: Erbbaurecht
@@ -2676,22 +2685,22 @@ definitions:
       bundesland:
         type: string
         enum:
-          - BADEN_WUERTTEMBERG
-          - BAYERN
-          - BERLIN
-          - BRANDENBURG
-          - BREMEN
-          - HAMBURG
-          - HESSEN
-          - MECKLENBURG_VORPOMMERN
-          - NIEDERSACHSEN
-          - NORDRHEIN_WESTFALEN
-          - RHEINLAND_PFALZ
-          - SAARLAND
-          - SACHSEN
-          - SACHSEN_ANHALT
-          - SCHLESWIG_HOLSTEIN
-          - THUERINGEN
+        - BADEN_WUERTTEMBERG
+        - BAYERN
+        - BERLIN
+        - BRANDENBURG
+        - BREMEN
+        - HAMBURG
+        - HESSEN
+        - MECKLENBURG_VORPOMMERN
+        - NIEDERSACHSEN
+        - NORDRHEIN_WESTFALEN
+        - RHEINLAND_PFALZ
+        - SAARLAND
+        - SACHSEN
+        - SACHSEN_ANHALT
+        - SCHLESWIG_HOLSTEIN
+        - THUERINGEN
       effektivZinsErhoehendeKosten:
         $ref: '#/definitions/EffektivZinsErhoehendeKosten'
       erbbaurecht:
@@ -2714,9 +2723,9 @@ definitions:
       objektArt:
         type: string
         enum:
-          - EIGENTUMSWOHNUNG
-          - GRUNDSTUECK
-          - HAUS
+        - EIGENTUMSWOHNUNG
+        - GRUNDSTUECK
+        - HAUS
       vergleichsmieteFuerGewerbeflaecheProQm:
         type: number
       vergleichsmieteFuerWohnflaecheProQm:
@@ -2730,9 +2739,9 @@ definitions:
       wohnlage:
         type: string
         enum:
-          - EINFACH
-          - GEHOBEN
-          - MITTEL
+        - EINFACH
+        - GEHOBEN
+        - MITTEL
     title: FinanzierungsObjekt
   FinanzierungsvorschlaegeResource:
     type: object
@@ -2785,9 +2794,9 @@ definitions:
         type: string
         example: MACHBAR
         enum:
-          - MACHBAR
-          - NICHT_MACHBAR
-          - UNTER_VORBEHALT_PRODUZENT
+        - MACHBAR
+        - NICHT_MACHBAR
+        - UNTER_VORBEHALT_PRODUZENT
       rateMonatlich:
         type: number
         example: 123.34
@@ -2878,10 +2887,10 @@ definitions:
       ausstattung:
         type: string
         enum:
-          - EINFACH
-          - GEHOBEN
-          - MITTEL
-          - STARK_GEHOBEN
+        - EINFACH
+        - GEHOBEN
+        - MITTEL
+        - STARK_GEHOBEN
       baujahr:
         type: string
         example: "2016"
@@ -2889,56 +2898,56 @@ definitions:
       bauweise:
         type: string
         enum:
-          - FACHWERK_MIT_STROH_LEHM
-          - FACHWERK_MIT_ZIEGELN
-          - GLAS_STAHL
-          - HOLZ
-          - MASSIV
+        - FACHWERK_MIT_STROH_LEHM
+        - FACHWERK_MIT_ZIEGELN
+        - GLAS_STAHL
+        - HOLZ
+        - MASSIV
       bezeichnungWohneinheit:
         type: string
       dachgeschossAusbau:
         type: string
         enum:
-          - FLACHDACH
-          - NICHT_AUSGEBAUT
-          - TEILWEISE_AUSGEBAUT
-          - VOLL_AUSGEBAUT
+        - FLACHDACH
+        - NICHT_AUSGEBAUT
+        - TEILWEISE_AUSGEBAUT
+        - VOLL_AUSGEBAUT
       einliegerwohnungVorhanden:
         type: boolean
       geschossLage:
         type: string
         enum:
-          - AB_SECHSTES_OBERGESCHOSS
-          - DRITTES_BIS_FUENFTES_OBERGESCHOSS
-          - ERDGESCHOSS
-          - ERSTES_OBERGESCHOSS
-          - UNBEKANNT
-          - UNTERGESCHOSS
-          - ZWEITES_OBERGESCHOSS
+        - AB_SECHSTES_OBERGESCHOSS
+        - DRITTES_BIS_FUENFTES_OBERGESCHOSS
+        - ERDGESCHOSS
+        - ERSTES_OBERGESCHOSS
+        - UNBEKANNT
+        - UNTERGESCHOSS
+        - ZWEITES_OBERGESCHOSS
       gewerbeflaeche:
         $ref: '#/definitions/GebaeudeFlaeche'
       hausAnordnung:
         type: string
         enum:
-          - FREISTEHEND
-          - KOPFHAUS
-          - MITTELHAUS
+        - FREISTEHEND
+        - KOPFHAUS
+        - MITTELHAUS
       hausTyp:
         type: string
         enum:
-          - DOPPELHAUSHAELFTE
-          - EINFAMILIENHAUS
-          - MEHRFAMILIENHAUS
-          - REIHENHAUS
-          - ZWEIFAMILIENHAUS
+        - DOPPELHAUSHAELFTE
+        - EINFAMILIENHAUS
+        - MEHRFAMILIENHAUS
+        - REIHENHAUS
+        - ZWEIFAMILIENHAUS
       istFertighaus:
         type: boolean
       kellerausbau:
         type: string
         enum:
-          - AUSGEBAUT
-          - TEILWEISE_AUSGEBAUT
-          - VORHANDEN
+        - AUSGEBAUT
+        - TEILWEISE_AUSGEBAUT
+        - VORHANDEN
       kubatur:
         type: number
       miteigentumsAnteil:
@@ -2948,19 +2957,19 @@ definitions:
       unterkellerung:
         type: string
         enum:
-          - NICHT_UNTERKELLERT
-          - TEILWEISE_UNTERKELLERT
-          - UNTERKELLERT
+        - NICHT_UNTERKELLERT
+        - TEILWEISE_UNTERKELLERT
+        - UNTERKELLERT
       wohnflaeche:
         $ref: '#/definitions/GebaeudeFlaeche'
       zustand:
         type: string
         enum:
-          - GUT
-          - MAESSIG
-          - MITTEL
-          - SCHLECHT
-          - SEHR_GUT
+        - GUT
+        - MAESSIG
+        - MITTEL
+        - SCHLECHT
+        - SEHR_GUT
     title: Gebaeude
   GebaeudeFlaeche:
     type: object
@@ -3010,11 +3019,11 @@ definitions:
       grundstuecksArt:
         type: string
         enum:
-          - LANDWIRTSCHAFTLICHES_GRUNDSTUECK
-          - SONSTIGES_GRUNDSTUECK
-          - UNBEBAUTES_GEWERBEGRUNDSTUECK
-          - UNBEBAUTES_MISCHGRUNDSTUECK
-          - UNBEBAUTES_WOHNGRUNDSTUECK
+        - LANDWIRTSCHAFTLICHES_GRUNDSTUECK
+        - SONSTIGES_GRUNDSTUECK
+        - UNBEBAUTES_GEWERBEGRUNDSTUECK
+        - UNBEBAUTES_MISCHGRUNDSTUECK
+        - UNBEBAUTES_WOHNGRUNDSTUECK
     title: Grundstueck
   Haushalt:
     type: object
@@ -3150,48 +3159,48 @@ definitions:
         type: string
         description: Für endfällige KfW-Darlehen wird die Quelle des Tilgungswunsches erfasst
         enum:
-          - ENDFAELLIG_BERECHNET
-          - ENDFAELLIG_EIGENES_ANGEBOT
-          - NEIN
+        - ENDFAELLIG_BERECHNET
+        - ENDFAELLIG_EIGENES_ANGEBOT
+        - NEIN
       kfwEnergieEffizienzGruppe:
         type: string
         description: "Nur bei Programm 153, 261, 262. Der Client muss mit unbekannten Werten umgehen können."
         enum:
-          - NEUBAU
-          - SANIERUNG
-          - STANDARD
+        - NEUBAU
+        - SANIERUNG
+        - STANDARD
       kfwEnergieEffizienzStandard:
         type: string
         description: "Nur bei Programm 153, 261, 262. Wenn die KfW-Bank neue Standards anerkennt, sind die entsprechenden neuen Ausprägungen zulässig. Der Client muss daher mit unbekannten Werten umgehen können."
         enum:
-          - STANDARD_100
-          - STANDARD_100_EEK
-          - STANDARD_40
-          - STANDARD_40_EEK
-          - STANDARD_40_NH
-          - STANDARD_40_PLUS
-          - STANDARD_55
-          - STANDARD_55_EEK
-          - STANDARD_70
-          - STANDARD_70_EEK
-          - STANDARD_85
-          - STANDARD_85_EEK
-          - STANDARD_DENKMAL
-          - STANDARD_DENKMAL_EEK
+        - STANDARD_100
+        - STANDARD_100_EEK
+        - STANDARD_40
+        - STANDARD_40_EEK
+        - STANDARD_40_NH
+        - STANDARD_40_PLUS
+        - STANDARD_55
+        - STANDARD_55_EEK
+        - STANDARD_70
+        - STANDARD_70_EEK
+        - STANDARD_85
+        - STANDARD_85_EEK
+        - STANDARD_DENKMAL
+        - STANDARD_DENKMAL_EEK
       kfwProgramm:
         type: string
         description: Bei neu aufgelegten KfW-Programmen können auch weitere Werte zulässig werden. Der Client muss daher mit unbekannten Werten umgehen können.
         enum:
-          - PROGRAMM_124
-          - PROGRAMM_141
-          - PROGRAMM_151
-          - PROGRAMM_152
-          - PROGRAMM_153
-          - PROGRAMM_155
-          - PROGRAMM_159
-          - PROGRAMM_167
-          - PROGRAMM_261
-          - PROGRAMM_262
+        - PROGRAMM_124
+        - PROGRAMM_141
+        - PROGRAMM_151
+        - PROGRAMM_152
+        - PROGRAMM_153
+        - PROGRAMM_155
+        - PROGRAMM_159
+        - PROGRAMM_167
+        - PROGRAMM_261
+        - PROGRAMM_262
       kfwSanierungsFahrplanLiegtVor:
         type: boolean
         description: "Nur bei Programm 261, 262."
@@ -3255,23 +3264,23 @@ definitions:
       typ:
         type: string
         enum:
-          - FONDSGEBUNDENE_LEBENSVERSICHERUNG
-          - FONDSGEBUNDENE_RENTENVERSICHERUNG
-          - KAPITALBILDENDE_LEBENSVERSICHERUNG
-          - KAPITALBILDENDE_RENTENVERSICHERUNG
-          - RISIKO_LEBENSVERSICHERUNG
+        - FONDSGEBUNDENE_LEBENSVERSICHERUNG
+        - FONDSGEBUNDENE_RENTENVERSICHERUNG
+        - KAPITALBILDENDE_LEBENSVERSICHERUNG
+        - KAPITALBILDENDE_RENTENVERSICHERUNG
+        - RISIKO_LEBENSVERSICHERUNG
       vermoegensEinsatz:
         type: string
         enum:
-          - ABTRETEN
-          - AUFLOESEN
-          - KEIN_EINSATZ
+        - ABTRETEN
+        - AUFLOESEN
+        - KEIN_EINSATZ
       vermoegensTyp:
         type: string
         description: Redundante Angabe des Vermögenstyp dient als zusätzliches Filterkriterium
         enum:
-          - VERBINDLICHKEIT
-          - VERMOEGEN
+        - VERBINDLICHKEIT
+        - VERMOEGEN
       versicherungsGesellschaft:
         type: string
       versicherungsSumme:
@@ -3290,8 +3299,8 @@ definitions:
         type: string
         description: Redundante Angabe des Zahlungstyps dient als zusätzliches Filterkriterium
         enum:
-          - AUSGABE
-          - EINNAHME
+        - AUSGABE
+        - EINNAHME
     title: LebensOderRentenversicherungVermoegen
   LegitimationsDaten:
     type: object
@@ -3304,9 +3313,9 @@ definitions:
       ausweisArt:
         type: string
         enum:
-          - ANDERE
-          - PERSONALAUSWEIS
-          - REISEPASS
+        - ANDERE
+        - PERSONALAUSWEIS
+        - REISEPASS
       ausweisArtBeiAndererAusweis:
         type: string
         description: Nur wenn ausweisArt = ANDERE
@@ -3334,19 +3343,19 @@ definitions:
         type: string
         description: Neue Ausprägungen können kurzfristig hinzukommen. Der Client muss daher mit unbekannten Werten umgehen können.
         enum:
-          - ANPASSUNG_KUNDENWUNSCH
-          - ANPASSUNG_VERTRIEBSWUNSCH
-          - AUSZAHLUNGS_VORAUSSETZUNG
-          - KONDITIONEN_UNTER_VORBEHALT_EXTERNER_SCHNITTSTELLEN
-          - KONDITIONEN_UNTER_VORBEHALT_VOLLSTAENDIGER_DATEN
-          - MACHBAR
-          - MACHBARKEITS_HINWEIS
-          - MACHBARKEIT_UNTER_VORBEHALT_EXTERNER_SCHNITTSTELLEN
-          - MACHBARKEIT_UNTER_VORBEHALT_VOLLSTAENDIGER_DATEN
-          - MACHBAR_UNTER_VORBEHALT_PRODUZENT
-          - NICHT_ANBIETBAR
-          - NICHT_MACHBAR
-          - UNBERUECKSICHTIGTE_ANGABE
+        - ANPASSUNG_KUNDENWUNSCH
+        - ANPASSUNG_VERTRIEBSWUNSCH
+        - AUSZAHLUNGS_VORAUSSETZUNG
+        - KONDITIONEN_UNTER_VORBEHALT_EXTERNER_SCHNITTSTELLEN
+        - KONDITIONEN_UNTER_VORBEHALT_VOLLSTAENDIGER_DATEN
+        - MACHBAR
+        - MACHBARKEITS_HINWEIS
+        - MACHBARKEIT_UNTER_VORBEHALT_EXTERNER_SCHNITTSTELLEN
+        - MACHBARKEIT_UNTER_VORBEHALT_VOLLSTAENDIGER_DATEN
+        - MACHBAR_UNTER_VORBEHALT_PRODUZENT
+        - NICHT_ANBIETBAR
+        - NICHT_MACHBAR
+        - UNBERUECKSICHTIGTE_ANGABE
       kreditEntscheider:
         $ref: '#/definitions/ProduktAnbieter'
       produktAnbieter:
@@ -3367,8 +3376,8 @@ definitions:
         type: string
         description: Redundante Angabe des Zahlungstyps dient als zusätzliches Filterkriterium
         enum:
-          - AUSGABE
-          - EINNAHME
+        - AUSGABE
+        - EINNAHME
     title: MietAusgaben
   MiteigentumsAnteil:
     type: object
@@ -3396,9 +3405,9 @@ definitions:
       modernisierungsGrad:
         type: string
         enum:
-          - GERING
-          - HOCH
-          - MITTEL
+        - GERING
+        - HOCH
+        - MITTEL
       modernisierungsJahr:
         type: string
       raumaufteilung:
@@ -3430,17 +3439,17 @@ definitions:
         type: string
         description: Neue Ausprägungen können kurzfristig hinzukommen. Der Client muss daher mit unbekannten Werten umgehen können.
         enum:
-          - ARBEITGEBERDARLEHEN
-          - BAUSPARDARLEHEN
-          - OEFFENTLICHES_DARLEHEN
-          - RATENKREDIT
+        - ARBEITGEBERDARLEHEN
+        - BAUSPARDARLEHEN
+        - OEFFENTLICHES_DARLEHEN
+        - RATENKREDIT
       zinsBindung:
         $ref: '#/definitions/ZinsBindung'
     title: NachrangigesExternesDarlehen
   Nachricht:
     type: object
     required:
-      - text
+    - text
     properties:
       text:
         type: string
@@ -3466,8 +3475,8 @@ definitions:
       anrede:
         type: string
         enum:
-          - FRAU
-          - HERR
+        - FRAU
+        - HERR
       anschrift:
         $ref: '#/definitions/Postadresse'
       email:
@@ -3511,8 +3520,8 @@ definitions:
       anrede:
         type: string
         enum:
-          - FRAU
-          - HERR
+        - FRAU
+        - HERR
       anschrift:
         $ref: '#/definitions/Postadresse'
       email:
@@ -3563,17 +3572,17 @@ definitions:
       op:
         type: string
         enum:
-          - add
-          - copy
-          - move
-          - remove
-          - replace
-          - test
+        - add
+        - copy
+        - move
+        - remove
+        - replace
+        - test
       path:
         type: string
       value:
         type: object
-        properties: { }
+        properties: {}
     title: PatchOperation
   Postadresse:
     type: object
@@ -3604,8 +3613,8 @@ definitions:
       anrede:
         type: string
         enum:
-          - FRAU
-          - HERR
+        - FRAU
+        - HERR
       anschrift:
         $ref: '#/definitions/Postadresse'
       email:
@@ -3650,9 +3659,9 @@ definitions:
       finanzierungsRisiko:
         type: string
         enum:
-          - ARBEITSLOSIGKEIT
-          - ARBEITSUNFAEHIGKEIT
-          - TODESFALL
+        - ARBEITSLOSIGKEIT
+        - ARBEITSUNFAEHIGKEIT
+        - TODESFALL
       istAusreichendeAbsicherungVorhanden:
         type: boolean
       zusaetzlicheKommentare:
@@ -3683,10 +3692,10 @@ definitions:
         type: string
         description: Bei neu aufgelegten Regional-Förderbank-Programmen können auch weitere Werte zulässig werden. Der Client muss daher mit unbekannten Werten umgehen können.
         enum:
-          - L_BANK_KOMBI_DARLEHEN_WOHNEN
-          - L_BANK_WOHNEN_MIT_KIND
-          - L_BANK_WOHNEN_MIT_ZUKUNFT
-          - NRW_BANK_WOHNEIGENTUM
+        - L_BANK_KOMBI_DARLEHEN_WOHNEN
+        - L_BANK_WOHNEN_MIT_KIND
+        - L_BANK_WOHNEN_MIT_ZUKUNFT
+        - NRW_BANK_WOHNEIGENTUM
       tilgungsfreieAnlaufjahre:
         type: integer
         format: int32
@@ -3702,23 +3711,23 @@ definitions:
       abgesichertesRisiko:
         type: string
         enum:
-          - ARBEITSLOSIGKEIT
-          - ARBEITSUNFAEHIGKEIT
-          - ASSISTANCE_ARBEITSLOSIGKEIT
-          - ASSISTANCE_ARBEITSUNFAEHIGKEIT
-          - INVALIDITAET
-          - SCHWERE_KRANKHEIT
-          - TODESFALL
+        - ARBEITSLOSIGKEIT
+        - ARBEITSUNFAEHIGKEIT
+        - ASSISTANCE_ARBEITSLOSIGKEIT
+        - ASSISTANCE_ARBEITSUNFAEHIGKEIT
+        - INVALIDITAET
+        - SCHWERE_KRANKHEIT
+        - TODESFALL
       auszahlungsBetrag:
         type: number
       auszahlungsTurnus:
         type: string
         enum:
-          - EINMALIG
-          - HALBJAEHRLICH
-          - JAEHRLICH
-          - MONATLICH
-          - VIERTELJAEHRLICH
+        - EINMALIG
+        - HALBJAEHRLICH
+        - JAEHRLICH
+        - MONATLICH
+        - VIERTELJAEHRLICH
       praemienAnteil:
         type: number
     title: RisikoAbsicherung
@@ -3728,9 +3737,9 @@ definitions:
       abzusicherndesRisiko:
         type: string
         enum:
-          - ARBEITSLOSIGKEIT
-          - ARBEITSUNFAEHIGKEIT
-          - TODESFALL
+        - ARBEITSLOSIGKEIT
+        - ARBEITSUNFAEHIGKEIT
+        - TODESFALL
       versicherteRate:
         type: number
         description: "nur bei abzusicherndesRisiko==ARBEITSUNFAEHIGKEIT,ARBEITSLOSIGKEIT"
@@ -3795,11 +3804,11 @@ definitions:
         type: string
         description: Festlegung von einmaligen oder regelmäßigen Zahlungen
         enum:
-          - EINMALIG
-          - HALBJAEHRLICH
-          - JAEHRLICH
-          - MONATLICH
-          - VIERTELJAEHRLICH
+        - EINMALIG
+        - HALBJAEHRLICH
+        - JAEHRLICH
+        - MONATLICH
+        - VIERTELJAEHRLICH
     title: SonderZahlung
   SparPhase:
     type: object
@@ -3826,21 +3835,21 @@ definitions:
       vermoegensEinsatz:
         type: string
         enum:
-          - ABTRETEN
-          - AUFLOESEN
-          - KEIN_EINSATZ
+        - ABTRETEN
+        - AUFLOESEN
+        - KEIN_EINSATZ
       vermoegensTyp:
         type: string
         description: Redundante Angabe des Vermögenstyp dient als zusätzliches Filterkriterium
         enum:
-          - VERBINDLICHKEIT
-          - VERMOEGEN
+        - VERBINDLICHKEIT
+        - VERMOEGEN
       zahlungsTyp:
         type: string
         description: Redundante Angabe des Zahlungstyps dient als zusätzliches Filterkriterium
         enum:
-          - AUSGABE
-          - EINNAHME
+        - AUSGABE
+        - EINNAHME
       zukuenftigeEinnahmen:
         type: number
     title: Sparplaene
@@ -3855,35 +3864,35 @@ definitions:
   StatusDTO:
     type: object
     required:
-      - antragsteller
-      - produktAnbieter
+    - antragsteller
+    - produktAnbieter
     properties:
       ablehnungsgrund:
         type: string
         enum:
-          - FINANZIELLE_SITUATION
-          - GEGENANGEBOT
-          - KEINE_ANGABE
-          - KRITERIEN
-          - NEGATIV_MERKMAL
-          - UNTERLAGEN_UNVOLLSTAENDIG
-          - WERTERMITTLUNG
+        - FINANZIELLE_SITUATION
+        - GEGENANGEBOT
+        - KEINE_ANGABE
+        - KRITERIEN
+        - NEGATIV_MERKMAL
+        - UNTERLAGEN_UNVOLLSTAENDIG
+        - WERTERMITTLUNG
       antragsteller:
         type: string
         enum:
-          - BEANTRAGT
-          - NICHT_ANGENOMMEN
-          - UNTERSCHRIEBEN
-          - WIDERRUFEN
+        - BEANTRAGT
+        - NICHT_ANGENOMMEN
+        - UNTERSCHRIEBEN
+        - WIDERRUFEN
       kommentar:
         type: string
       produktAnbieter:
         type: string
         enum:
-          - ABGELEHNT
-          - NICHT_BEARBEITET
-          - UNTERSCHRIEBEN
-          - ZURUECKGESTELLT
+        - ABGELEHNT
+        - NICHT_BEARBEITET
+        - UNTERSCHRIEBEN
+        - ZURUECKGESTELLT
     title: StatusDTO
   Tilgung:
     type: object
@@ -3977,16 +3986,16 @@ definitions:
         type: string
         description: Redundante Angabe des Vermögenstyp dient als zusätzliches Filterkriterium
         enum:
-          - VERBINDLICHKEIT
-          - VERMOEGEN
+        - VERBINDLICHKEIT
+        - VERMOEGEN
       wirdAbgeloest:
         type: boolean
       zahlungsTyp:
         type: string
         description: Redundante Angabe des Zahlungstyps dient als zusätzliches Filterkriterium
         enum:
-          - AUSGABE
-          - EINNAHME
+        - AUSGABE
+        - EINNAHME
     title: Verbindlichkeit
   VermietungsInformationen:
     type: object
@@ -3996,9 +4005,9 @@ definitions:
       nutzungsArt:
         type: string
         enum:
-          - EIGENGENUTZT
-          - TEIL_VERMIETET
-          - VERMIETET
+        - EIGENGENUTZT
+        - TEIL_VERMIETET
+        - VERMIETET
       vermieteteFlaeche:
         type: number
     title: VermietungsInformationen
@@ -4014,15 +4023,15 @@ definitions:
       vermoegensEinsatz:
         type: string
         enum:
-          - ABTRETEN
-          - AUFLOESEN
-          - KEIN_EINSATZ
+        - ABTRETEN
+        - AUFLOESEN
+        - KEIN_EINSATZ
       vermoegensTyp:
         type: string
         description: Redundante Angabe des Vermögenstyp dient als zusätzliches Filterkriterium
         enum:
-          - VERBINDLICHKEIT
-          - VERMOEGEN
+        - VERBINDLICHKEIT
+        - VERMOEGEN
       zukuenftigeEinnahmen:
         type: number
     title: Vermoegen
@@ -4040,8 +4049,8 @@ definitions:
       vermoegensTyp:
         type: string
         enum:
-          - VERBINDLICHKEIT
-          - VERMOEGEN
+        - VERBINDLICHKEIT
+        - VERMOEGEN
     title: VermoegenVerbindlichkeit
   VermoegenVerbindlichkeiten:
     type: object
@@ -4058,18 +4067,18 @@ definitions:
         type: string
         description: nur bei praemienZahlungsweise==EINMALIG
         enum:
-          - DURCH_HAUPTDARLEHEN
-          - INDIVIDUELL
+        - DURCH_HAUPTDARLEHEN
+        - INDIVIDUELL
       id:
         type: string
       praemienZahlungsweise:
         type: string
         enum:
-          - EINMALIG
-          - HALBJAEHRLICH
-          - JAEHRLICH
-          - MONATLICH
-          - VIERTELJAEHRLICH
+        - EINMALIG
+        - HALBJAEHRLICH
+        - JAEHRLICH
+        - MONATLICH
+        - VIERTELJAEHRLICH
       risikoAbsicherungsWuensche:
         type: array
         items:
@@ -4079,7 +4088,7 @@ definitions:
       versicherungsArt:
         type: string
         enum:
-          - RATENSCHUTZVERSICHERUNG
+        - RATENSCHUTZVERSICHERUNG
       versicherungsBeginn:
         type: string
         format: date
@@ -4128,8 +4137,8 @@ definitions:
       datenKontext:
         type: string
         enum:
-          - ECHT_GESCHAEFT
-          - TEST_MODUS
+        - ECHT_GESCHAEFT
+        - TEST_MODUS
       externeVorgangsNummer:
         type: string
       letzteAenderung:
@@ -4161,8 +4170,8 @@ definitions:
       datenKontext:
         type: string
         enum:
-          - ECHT_GESCHAEFT
-          - TEST_MODUS
+        - ECHT_GESCHAEFT
+        - TEST_MODUS
       erstelltAm:
         type: string
         format: date
@@ -4192,9 +4201,9 @@ definitions:
         type: string
         description: "Priorität des Vorgangs, Werte: [NIEDRIG,NEUTRAL,HOCH]"
         enum:
-          - HOCH
-          - NEUTRAL
-          - NIEDRIG
+        - HOCH
+        - NEUTRAL
+        - NIEDRIG
       status:
         type: string
         description: "Status des Vorgangs, Werte: [AKTIV,ARCHIVIERT]"
@@ -4233,12 +4242,12 @@ definitions:
       verwendungszweck:
         type: string
         enum:
-          - ANSCHLUSSFINANZIERUNG
-          - KAPITALBESCHAFFUNG
-          - KAUF
-          - KAUF_NEUBAU_VOM_BAUTRAEGER
-          - MODERNISIERUNG_UMBAU_ANBAU
-          - NEUBAU
+        - ANSCHLUSSFINANZIERUNG
+        - KAPITALBESCHAFFUNG
+        - KAUF
+        - KAUF_NEUBAU_VOM_BAUTRAEGER
+        - MODERNISIERUNG_UMBAU_ANBAU
+        - NEUBAU
     title: Vorhaben
   Wertpapiere:
     type: object
@@ -4254,21 +4263,21 @@ definitions:
       vermoegensEinsatz:
         type: string
         enum:
-          - ABTRETEN
-          - AUFLOESEN
-          - KEIN_EINSATZ
+        - ABTRETEN
+        - AUFLOESEN
+        - KEIN_EINSATZ
       vermoegensTyp:
         type: string
         description: Redundante Angabe des Vermögenstyp dient als zusätzliches Filterkriterium
         enum:
-          - VERBINDLICHKEIT
-          - VERMOEGEN
+        - VERBINDLICHKEIT
+        - VERMOEGEN
       zahlungsTyp:
         type: string
         description: Redundante Angabe des Zahlungstyps dient als zusätzliches Filterkriterium
         enum:
-          - AUSGABE
-          - EINNAHME
+        - AUSGABE
+        - EINNAHME
       zukuenftigeEinnahmen:
         type: number
     title: Wertpapiere
@@ -4342,7 +4351,7 @@ definitions:
       verwendungszweck:
         type: string
         enum:
-          - SONSTIGE_VERWENDUNG
-          - VERKAUF_EINES_ANDEREN_OBJEKTS
-          - VORFINANZIERUNG_OEFFENTLICHER_MITTEL
+        - SONSTIGE_VERWENDUNG
+        - VERKAUF_EINES_ANDEREN_OBJEKTS
+        - VORFINANZIERUNG_OEFFENTLICHER_MITTEL
     title: ZwischenFinanzierungsWunsch
