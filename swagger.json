@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "description": "Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen werden.",
-    "version": "2.28",
+    "version": "2.29",
     "title": "Vorgänge API",
     "contact": {
       "name": "Europace AG",
@@ -3131,6 +3131,8 @@
           "type": "string",
           "description": "nur bei darlehensTyp==KFW_DARLEHEN. Nur bei KfW-Programm 153, 261, 262 relevant. Bei neuen Energieeffizienzstandards können auch weitere Werte zulässig werden.",
           "enum": [
+            "KLIMAFREUNDLICH_QNG",
+            "KLIMAFREUNDLICH_STANDARD",
             "STANDARD_100",
             "STANDARD_100_EEK",
             "STANDARD_40",
@@ -3160,7 +3162,9 @@
             "PROGRAMM_159",
             "PROGRAMM_167",
             "PROGRAMM_261",
-            "PROGRAMM_262"
+            "PROGRAMM_262",
+            "PROGRAMM_297",
+            "PROGRAMM_298"
           ]
         },
         "kfwSanierungsFahrplanLiegtVor": {
@@ -3311,6 +3315,8 @@
           "type": "string",
           "description": "nur bei darlehensTyp==KFW_DARLEHEN. Nur bei KfW-Programm 153, 261, 262 relevant. Bei neuen Energieeffizienzstandards können auch weitere Werte zulässig werden.",
           "enum": [
+            "KLIMAFREUNDLICH_QNG",
+            "KLIMAFREUNDLICH_STANDARD",
             "STANDARD_100",
             "STANDARD_100_EEK",
             "STANDARD_40",
@@ -3340,7 +3346,9 @@
             "PROGRAMM_159",
             "PROGRAMM_167",
             "PROGRAMM_261",
-            "PROGRAMM_262"
+            "PROGRAMM_262",
+            "PROGRAMM_297",
+            "PROGRAMM_298"
           ]
         },
         "kfwSanierungsFahrplanLiegtVor": {
@@ -4517,6 +4525,8 @@
           "type": "string",
           "description": "Nur bei Programm 153, 261, 262. Wenn die KfW-Bank neue Standards anerkennt, sind die entsprechenden neuen Ausprägungen zulässig. Der Client muss daher mit unbekannten Werten umgehen können.",
           "enum": [
+            "KLIMAFREUNDLICH_QNG",
+            "KLIMAFREUNDLICH_STANDARD",
             "STANDARD_100",
             "STANDARD_100_EEK",
             "STANDARD_40",
@@ -4546,7 +4556,9 @@
             "PROGRAMM_159",
             "PROGRAMM_167",
             "PROGRAMM_261",
-            "PROGRAMM_262"
+            "PROGRAMM_262",
+            "PROGRAMM_297",
+            "PROGRAMM_298"
           ]
         },
         "kfwSanierungsFahrplanLiegtVor": {
