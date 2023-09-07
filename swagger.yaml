@@ -2,7 +2,7 @@
 swagger: "2.0"
 info:
   description: Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen werden.
-  version: "2.31"
+  version: "2.32"
   title: Vorgänge API
   contact:
     name: Europace AG
@@ -2185,7 +2185,7 @@ definitions:
           - STANDARD_DENKMAL_EEK
       kfwProgramm:
         type: string
-        description: "nur bei darlehensTyp==KFW_DARLEHEN. Bei neu aufgelegten KfW-Programmen können auch weitere Werte zulässig werden. Folgende Programme sind aktiv: 124, 159, 262 (Sanierung), 297, 298 und 300"
+        description: "nur bei darlehensTyp==KFW_DARLEHEN. Bei neu aufgelegten KfW-Programmen können auch weitere Werte zulässig werden. Folgende Programme sind aktiv: 124, 159, 261 (Sanierung), 297, 298 und 300"
         enum:
           - PROGRAMM_124
           - PROGRAMM_141
@@ -2202,7 +2202,7 @@ definitions:
           - PROGRAMM_300
       kfwSanierungsFahrplanLiegtVor:
         type: boolean
-        description: nur bei darlehensTyp==KFW_DARLEHEN. Nur bei KfW-Programm 262 relevant.
+        description: nur bei darlehensTyp==KFW_DARLEHEN. Nur bei KfW-Programm 261 relevant.
       konditionWurdeManuellAngepasst:
         type: boolean
       konditionsAnpassungsBegruendung:
@@ -2331,7 +2331,7 @@ definitions:
           - STANDARD_DENKMAL_EEK
       kfwProgramm:
         type: string
-        description: "nur bei darlehensTyp==KFW_DARLEHEN. Bei neu aufgelegten KfW-Programmen können auch weitere Werte zulässig werden. Folgende Programme sind aktiv: 124, 159, 262 (Sanierung), 297, 298 und 300"
+        description: "nur bei darlehensTyp==KFW_DARLEHEN. Bei neu aufgelegten KfW-Programmen können auch weitere Werte zulässig werden. Folgende Programme sind aktiv: 124, 159, 261 (Sanierung), 297, 298 und 300"
         enum:
           - PROGRAMM_124
           - PROGRAMM_141
@@ -2348,7 +2348,7 @@ definitions:
           - PROGRAMM_300
       kfwSanierungsFahrplanLiegtVor:
         type: boolean
-        description: nur bei darlehensTyp==KFW_DARLEHEN. Nur bei KfW-Programm 262 relevant.
+        description: nur bei darlehensTyp==KFW_DARLEHEN. Nur bei KfW-Programm 261 relevant.
       konditionWurdeManuellAngepasst:
         type: boolean
       konditionsAnpassungsBegruendung:
@@ -3174,14 +3174,14 @@ definitions:
           - NEIN
       kfwEnergieEffizienzGruppe:
         type: string
-        description: "Nur bei Programm 153, 261, 262. Der Client muss mit unbekannten Werten umgehen können."
+        description: "Nur bei Programm 153, 261. Der Client muss mit unbekannten Werten umgehen können."
         enum:
           - NEUBAU
           - SANIERUNG
           - STANDARD
       kfwEnergieEffizienzStandard:
         type: string
-        description: "Nur bei Programm 153, 261, 262. Wenn die KfW-Bank neue Standards anerkennt, sind die entsprechenden neuen Ausprägungen zulässig. Der Client muss daher mit unbekannten Werten umgehen können."
+        description: "Nur bei Programm 153, 261. Wenn die KfW-Bank neue Standards anerkennt, sind die entsprechenden neuen Ausprägungen zulässig. Der Client muss daher mit unbekannten Werten umgehen können."
         enum:
           - KLIMAFREUNDLICH_QNG
           - KLIMAFREUNDLICH_STANDARD
@@ -3218,7 +3218,7 @@ definitions:
           - PROGRAMM_300
       kfwSanierungsFahrplanLiegtVor:
         type: boolean
-        description: "Nur bei Programm 261, 262."
+        description: Nur bei Programm 261.
       laufzeitInJahren:
         type: integer
         format: int32
@@ -3873,7 +3873,6 @@ definitions:
     properties:
       isoCountryCode:
         type: string
-        description: ISO 3166-1 alpha-2 code
       name:
         type: string
     title: Staat
