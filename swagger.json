@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "description": "Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen werden.",
-    "version": "2.33",
+    "version": "2.34",
     "title": "Vorgänge API",
     "contact": {
       "name": "Europace AG",
@@ -3612,6 +3612,38 @@
       "title": "Eintrag",
       "description": "Eine Einzahlung oder Auszahlung im Zahlungsplan"
     },
+    "EnergieEffizienzAusweis": {
+      "type": "object",
+      "properties": {
+        "ausweisTyp": {
+          "type": "string",
+          "enum": [
+            "ENDENERGIEBEDARF",
+            "ENDENERGIEVERBRAUCH"
+          ]
+        },
+        "endEnergie": {
+          "type": "number",
+          "format": "double"
+        },
+        "primaerEnergieTraeger": {
+          "type": "string",
+          "enum": [
+            "ABFAELLE",
+            "BRAUNKOHLE",
+            "HOLZ",
+            "NETZSTROM",
+            "OEL_GAS",
+            "PHOTOVOLTAIK_WINDKRAFT",
+            "SONSTIGES",
+            "STEINKOHLE",
+            "VERDRAENGUNGSSTROM",
+            "WAERME_KAELTE"
+          ]
+        }
+      },
+      "title": "EnergieEffizienzAusweis"
+    },
     "Entscheidungsreife": {
       "type": "object",
       "required": [
@@ -4159,6 +4191,9 @@
         },
         "einliegerwohnungVorhanden": {
           "type": "boolean"
+        },
+        "energieEffizienzAusweis": {
+          "$ref": "#/definitions/EnergieEffizienzAusweis"
         },
         "geschossLage": {
           "type": "string",
