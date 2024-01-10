@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "description": "Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen werden.",
-    "version": "2.34",
+    "version": "2.35",
     "title": "Vorgänge API",
     "contact": {
       "name": "Europace AG",
@@ -3212,6 +3212,8 @@
             "L_BANK_KOMBI_DARLEHEN_WOHNEN",
             "L_BANK_WOHNEN_MIT_KIND",
             "L_BANK_WOHNEN_MIT_ZUKUNFT",
+            "NRW_BANK_GEBAEUDESANIERUNG",
+            "NRW_BANK_NACHHALTIG_WOHNEN",
             "NRW_BANK_WOHNEIGENTUM"
           ]
         },
@@ -3397,6 +3399,8 @@
             "L_BANK_KOMBI_DARLEHEN_WOHNEN",
             "L_BANK_WOHNEN_MIT_KIND",
             "L_BANK_WOHNEN_MIT_ZUKUNFT",
+            "NRW_BANK_GEBAEUDESANIERUNG",
+            "NRW_BANK_NACHHALTIG_WOHNEN",
             "NRW_BANK_WOHNEIGENTUM"
           ]
         },
@@ -5300,6 +5304,8 @@
             "L_BANK_KOMBI_DARLEHEN_WOHNEN",
             "L_BANK_WOHNEN_MIT_KIND",
             "L_BANK_WOHNEN_MIT_ZUKUNFT",
+            "NRW_BANK_GEBAEUDESANIERUNG",
+            "NRW_BANK_NACHHALTIG_WOHNEN",
             "NRW_BANK_WOHNEIGENTUM"
           ]
         },
