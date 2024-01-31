@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "description": "Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen werden.",
-    "version": "2.35",
+    "version": "2.36",
     "title": "Vorgänge API",
     "contact": {
       "name": "Europace AG",
@@ -2293,6 +2293,47 @@
       },
       "title": "BausparAngebot"
     },
+    "BausparDarlehensWunsch": {
+      "type": "object",
+      "properties": {
+        "bausparGuthaben": {
+          "type": "number"
+        },
+        "bausparSumme": {
+          "type": "number"
+        },
+        "bausparTarif": {
+          "type": "array",
+          "description": "siehe weitere Beschreibung unter Weitere Informationen -> Bezeichnung Bauspartarife",
+          "items": {
+            "$ref": "#/definitions/BausparTarif"
+          }
+        },
+        "darlehensBetrag": {
+          "type": "number"
+        },
+        "provision": {
+          "type": "number"
+        },
+        "tilgungsBeitragMonatlich": {
+          "type": "number"
+        },
+        "vertragsNummer": {
+          "type": "string"
+        },
+        "vertragsPartnerIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "zuteilungsAnnahme": {
+          "type": "string",
+          "format": "date"
+        }
+      },
+      "title": "BausparDarlehensWunsch"
+    },
     "BausparTarif": {
       "type": "object",
       "properties": {
@@ -3081,6 +3122,10 @@
         "auszahlungsKurs": {
           "type": "number"
         },
+        "bausparTarif": {
+          "type": "string",
+          "description": "nur bei darlehensTyp==BAUSPAR_DARLEHEN"
+        },
         "bereitstellung": {
           "description": "nicht bei darlehensTyp==PRIVAT_DARLEHEN",
           "$ref": "#/definitions/Bereitstellung"
@@ -3092,6 +3137,7 @@
           "type": "string",
           "enum": [
             "ANNUITAETEN_DARLEHEN",
+            "BAUSPAR_DARLEHEN",
             "FORWARD_DARLEHEN",
             "KFW_DARLEHEN",
             "PRIVAT_DARLEHEN",
@@ -3233,6 +3279,13 @@
           "type": "integer",
           "format": "int32",
           "description": "nur bei darlehensTyp IN [KFW_DARLEHEN, REGIONAL_FOERDER_DARLEHEN]"
+        },
+        "vertragsPartnerIds": {
+          "type": "array",
+          "description": "nur bei darlehensTyp==BAUSPAR_DARLEHEN",
+          "items": {
+            "type": "string"
+          }
         },
         "verwendungszweck": {
           "type": "string",
@@ -3268,6 +3321,10 @@
         "auszahlungsKurs": {
           "type": "number"
         },
+        "bausparTarif": {
+          "type": "string",
+          "description": "nur bei darlehensTyp==BAUSPAR_DARLEHEN"
+        },
         "bereitstellung": {
           "description": "nicht bei darlehensTyp==PRIVAT_DARLEHEN",
           "$ref": "#/definitions/Bereitstellung"
@@ -3279,6 +3336,7 @@
           "type": "string",
           "enum": [
             "ANNUITAETEN_DARLEHEN",
+            "BAUSPAR_DARLEHEN",
             "FORWARD_DARLEHEN",
             "KFW_DARLEHEN",
             "PRIVAT_DARLEHEN",
@@ -3421,6 +3479,13 @@
           "format": "int32",
           "description": "nur bei darlehensTyp IN [KFW_DARLEHEN, REGIONAL_FOERDER_DARLEHEN]"
         },
+        "vertragsPartnerIds": {
+          "type": "array",
+          "description": "nur bei darlehensTyp==BAUSPAR_DARLEHEN",
+          "items": {
+            "type": "string"
+          }
+        },
         "verwendungszweck": {
           "type": "string",
           "description": "nur bei darlehensTyp==ZWISCHEN_FINANZIERUNG",
@@ -3447,6 +3512,10 @@
         "annuitaetenDarlehen": {
           "description": "muss leer sein, wenn eines der anderen Attribute gefüllt ist",
           "$ref": "#/definitions/AnnuitaetenDarlehensWunsch"
+        },
+        "bausparDarlehen": {
+          "description": "muss leer sein, wenn eines der anderen Attribute gefüllt ist",
+          "$ref": "#/definitions/BausparDarlehensWunsch"
         },
         "forwardDarlehen": {
           "description": "muss leer sein, wenn eines der anderen Attribute gefüllt ist",
