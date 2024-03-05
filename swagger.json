@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "description": "Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen werden.",
-    "version": "2.36",
+    "version": "2.37",
     "title": "Vorgänge API",
     "contact": {
       "name": "Europace AG",
@@ -36,7 +36,7 @@
         "summary": "alle sichtbaren Vorgänge",
         "operationId": "getVorgaenge",
         "produces": [
-          "application/json;charset=UTF-8"
+          "application/json"
         ],
         "parameters": [
           {
@@ -168,7 +168,7 @@
         "description": "Als Parameter wird die Vorgangsnummer verwendet, die aus BaufiSmart erzeugt wurde.",
         "operationId": "getVorgang",
         "produces": [
-          "application/json;charset=UTF-8"
+          "application/json"
         ],
         "parameters": [
           {
@@ -254,7 +254,7 @@
           "application/json-patch+json"
         ],
         "produces": [
-          "application/json;charset=UTF-8"
+          "application/json"
         ],
         "parameters": [
           {
@@ -312,7 +312,7 @@
         "summary": "Alle Anträge zum Vorgang",
         "operationId": "getAllVorgangsAntraege",
         "produces": [
-          "application/json;charset=UTF-8"
+          "application/json"
         ],
         "parameters": [
           {
@@ -396,7 +396,7 @@
         "summary": "Anträge zum Vorgang",
         "operationId": "getVorgangsAntraege",
         "produces": [
-          "application/json;charset=UTF-8"
+          "application/json"
         ],
         "parameters": [
           {
@@ -488,7 +488,7 @@
         "summary": "Ein spezifischer Antrag des Vorgangs",
         "operationId": "getAntrag",
         "produces": [
-          "application/json;charset=UTF-8"
+          "application/json"
         ],
         "parameters": [
           {
@@ -589,7 +589,7 @@
         "description": "Um das Entscheidungsreifesignal senden zu können bedarf es folgender Kriterien. 1. Der Aufrufer muss Vorgangsbearbeiter sein. 2. Der Antrag ist im Status: Antragsteller.BEANTRAGT, ProduktAnbieter.NICHT_BEARBEITET. 3. Das Signal kann nur einmal geschickt werden. ",
         "operationId": "setEntscheidungsreife",
         "produces": [
-          "application/json;charset=UTF-8"
+          "application/json"
         ],
         "parameters": [
           {
@@ -695,7 +695,7 @@
         "summary": "Zum Setzen des Antragsstatus",
         "operationId": "setAntragsStatus",
         "produces": [
-          "application/json;charset=UTF-8"
+          "application/json"
         ],
         "parameters": [
           {
@@ -802,9 +802,20 @@
         "summary": "Als Parameter wird die in BaufiSmart erzeugte Vorgangsnummer erwartet. Bei Finanzierungsvorschlägen handelt es sich um ausgehändigte Finanzierungsvorschläge in Baufsmart. Achtung: Bei den ausgegebenen Finanzierungsvorschlägen handelt es sich um Mockdaten.",
         "operationId": "getFinanzierungsvorschlaege",
         "produces": [
-          "application/json;charset=UTF-8"
+          "application/json"
         ],
         "parameters": [
+          {
+            "name": "apiVersion",
+            "in": "query",
+            "description": "apiVersion",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "V2",
+              "V3"
+            ]
+          },
           {
             "name": "vorgangsNummer",
             "in": "path",
@@ -887,7 +898,7 @@
         "summary": "Als Parameter wird die in BaufiSmart erzeugte Vorgangsnummer und die Id des Finanzierungsvorschlags erwartet. Achtung: Bei dem ausgegebenen Finanzierungsvorschlag handelt es sich um Mockdaten.",
         "operationId": "getFinanzierungsvorschlag",
         "produces": [
-          "application/json;charset=UTF-8"
+          "application/json"
         ],
         "parameters": [
           {
@@ -979,7 +990,7 @@
         "description": "Als Parameter wird die in BaufiSmart erzeugte Vorgangsnummer erwartet. Gemerkte Angebote sind: explizit gemerkte Angebote in BaufiSmart, ausgehändigte Finanzierungsvorschläge, Empfehlungen des Bearbeiters, Wünsche des Antragstellers, angefragte- und angenommene Angebote.",
         "operationId": "retrieveGemerkteAngebote",
         "produces": [
-          "application/json;charset=UTF-8"
+          "application/json"
         ],
         "parameters": [
           {
@@ -1064,9 +1075,20 @@
         "description": "Als Parameter wird die in BaufiSmart erzeugte Vorgangsnummer und die Nummer des gemerkten Angebots erwartet. Gemerkte Angebote sind: explizit gemerkte Angebote in BaufiSmart, ausgehändigte Finanzierungsvorschläge, Empfehlungen des Bearbeiters, Wünsche des Antragstellers, angefragte- und angenommene Angebote.",
         "operationId": "retrieveGemerktesAngebot",
         "produces": [
-          "application/json;charset=UTF-8"
+          "application/json"
         ],
         "parameters": [
+          {
+            "name": "apiVersion",
+            "in": "query",
+            "description": "apiVersion",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "V2",
+              "V3"
+            ]
+          },
           {
             "name": "nummerAmVorgang",
             "in": "path",
@@ -1157,7 +1179,7 @@
         "description": "Als Parameter wird die in BaufiSmart erzeugte Vorgangsnummer und die Nummer des gemerkten Angebots erwartet.",
         "operationId": "getZahlungsplaene",
         "produces": [
-          "application/json;charset=UTF-8"
+          "application/json"
         ],
         "parameters": [
           {
@@ -1250,7 +1272,7 @@
         "description": "Als Parameter wird die Vorgangsnummer verwendet, die aus BaufiSmart erzeugt wurde.",
         "operationId": "getKundenbetreuer",
         "produces": [
-          "application/json;charset=UTF-8"
+          "application/json"
         ],
         "parameters": [
           {
@@ -1332,7 +1354,7 @@
         "summary": "Den Kundenbetreuer ändern",
         "operationId": "updateKundenBetreuerUsingPUT",
         "produces": [
-          "application/json;charset=UTF-8"
+          "application/json"
         ],
         "parameters": [
           {
@@ -1386,7 +1408,7 @@
         "summary": "Schreibt eine Nachricht an den Vorgang in BaufiSmart",
         "operationId": "addNachricht",
         "produces": [
-          "application/json;charset=UTF-8"
+          "application/json"
         ],
         "parameters": [
           {
@@ -1477,7 +1499,7 @@
         "description": "Als Parameter wird die Vorgangsnummer verwendet, die aus BaufiSmart erzeugt wurde.",
         "operationId": "getVorgangsBearbeiter",
         "produces": [
-          "application/json;charset=UTF-8"
+          "application/json"
         ],
         "parameters": [
           {
@@ -1562,7 +1584,7 @@
           "application/json"
         ],
         "produces": [
-          "application/json;charset=UTF-8"
+          "application/json"
         ],
         "parameters": [
           {
@@ -1907,19 +1929,6 @@
     "AntragsStatus": {
       "type": "object",
       "properties": {
-        "ablehnungsgrund": {
-          "type": "string",
-          "description": "Ablehnungsgrund des Produktanbieters",
-          "enum": [
-            "FINANZIELLE_SITUATION",
-            "GEGENANGEBOT",
-            "KEINE_ANGABE",
-            "KRITERIEN",
-            "NEGATIV_MERKMAL",
-            "UNTERLAGEN_UNVOLLSTAENDIG",
-            "WERTERMITTLUNG"
-          ]
-        },
         "antragsteller": {
           "type": "string",
           "description": "Willenserklärung des Antragstellers",
@@ -1928,6 +1937,21 @@
             "NICHT_ANGENOMMEN",
             "UNTERSCHRIEBEN",
             "WIDERRUFEN"
+          ]
+        },
+        "antragstellerAblehnungsgrund": {
+          "type": "string",
+          "description": "Ablehnungsgrund des Antragstellers",
+          "enum": [
+            "ANDERER_GRUND",
+            "ANDERES_ANGEBOT_ANGENOMMEN",
+            "ANGEBOT_WETTBEWERBER",
+            "BEARBEITUNGSZEIT",
+            "FINANZIERUNG_WIRD_ANGEPASST",
+            "KONDITIONEN_UNPASSEND",
+            "KUNDE_NICHT_ERREICHBAR",
+            "OBJEKT_NICHT_INTERESSANT",
+            "OBJEKT_NICHT_VERFUEGBAR"
           ]
         },
         "bearbeitungsFortschritt": {
@@ -1949,6 +1973,19 @@
             "NICHT_BEARBEITET",
             "UNTERSCHRIEBEN",
             "ZURUECKGESTELLT"
+          ]
+        },
+        "produktanbieterAblehnungsgrund": {
+          "type": "string",
+          "description": "Ablehnungsgrund des Produktanbieters",
+          "enum": [
+            "FINANZIELLE_SITUATION",
+            "GEGENANGEBOT",
+            "KEINE_ANGABE",
+            "KRITERIEN",
+            "NEGATIV_MERKMAL",
+            "UNTERLAGEN_UNVOLLSTAENDIG",
+            "WERTERMITTLUNG"
           ]
         }
       },
@@ -5191,12 +5228,18 @@
     },
     "PatchOperation": {
       "type": "object",
+      "required": [
+        "op",
+        "path",
+        "value"
+      ],
       "properties": {
         "from": {
           "type": "string"
         },
         "op": {
           "type": "string",
+          "description": "executed operation",
           "enum": [
             "add",
             "copy",
@@ -5207,13 +5250,17 @@
           ]
         },
         "path": {
-          "type": "string"
+          "type": "string",
+          "description": "JSON-Path in Antrag. Valid Paths: /status, /antraege/{vorgangsnummer}/{antragnummer}/{teilantragnummer}/status, /externeVorgangsNummer,/kundenBetreuer/partnerId, /vorgangsBearbeiter/partnerId"
         },
         "value": {
-          "type": "object"
+          "type": "object",
+          "example": "\"ABC123\", 1234, {\"antragsteller\": \"BEANTRAGT\", \"produktAnbieter\":\"UNTERSCHRIEBEN\"}",
+          "description": "Value to be set or replaced. Allows: string, number or JSON object"
         }
       },
-      "title": "PatchOperation"
+      "title": "PatchOperation",
+      "description": "A JSONPatch document as defined by RFC 6902 (see http://jsonpatch.com/). Beispiel: { \"op\": \"replace\", \"path\": \"/antraege/ABC123/1/1/status\", \"value\": {\"antragsteller\": \"BEANTRAGT\", \"produktAnbieter\":\"UNTERSCHRIEBEN\"}}"
     },
     "Postadresse": {
       "type": "object",
@@ -5616,18 +5663,6 @@
         "produktAnbieter"
       ],
       "properties": {
-        "ablehnungsgrund": {
-          "type": "string",
-          "enum": [
-            "FINANZIELLE_SITUATION",
-            "GEGENANGEBOT",
-            "KEINE_ANGABE",
-            "KRITERIEN",
-            "NEGATIV_MERKMAL",
-            "UNTERLAGEN_UNVOLLSTAENDIG",
-            "WERTERMITTLUNG"
-          ]
-        },
         "antragsteller": {
           "type": "string",
           "enum": [
@@ -5635,6 +5670,20 @@
             "NICHT_ANGENOMMEN",
             "UNTERSCHRIEBEN",
             "WIDERRUFEN"
+          ]
+        },
+        "antragstellerAblehnungsgrund": {
+          "type": "string",
+          "enum": [
+            "ANDERER_GRUND",
+            "ANDERES_ANGEBOT_ANGENOMMEN",
+            "ANGEBOT_WETTBEWERBER",
+            "BEARBEITUNGSZEIT",
+            "FINANZIERUNG_WIRD_ANGEPASST",
+            "KONDITIONEN_UNPASSEND",
+            "KUNDE_NICHT_ERREICHBAR",
+            "OBJEKT_NICHT_INTERESSANT",
+            "OBJEKT_NICHT_VERFUEGBAR"
           ]
         },
         "kommentar": {
@@ -5647,6 +5696,18 @@
             "NICHT_BEARBEITET",
             "UNTERSCHRIEBEN",
             "ZURUECKGESTELLT"
+          ]
+        },
+        "produktanbieterAblehnungsgrund": {
+          "type": "string",
+          "enum": [
+            "FINANZIELLE_SITUATION",
+            "GEGENANGEBOT",
+            "KEINE_ANGABE",
+            "KRITERIEN",
+            "NEGATIV_MERKMAL",
+            "UNTERLAGEN_UNVOLLSTAENDIG",
+            "WERTERMITTLUNG"
           ]
         }
       },
