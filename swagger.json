@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "description": "Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen werden.",
-    "version": "2.37",
+    "version": "2.38",
     "title": "Vorgänge API",
     "contact": {
       "name": "Europace AG",
@@ -3730,6 +3730,20 @@
           "enum": [
             "ENDENERGIEBEDARF",
             "ENDENERGIEVERBRAUCH"
+          ]
+        },
+        "effizienzklasse": {
+          "type": "string",
+          "enum": [
+            "A",
+            "A_PLUS",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H"
           ]
         },
         "endEnergie": {
