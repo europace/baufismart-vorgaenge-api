@@ -2,7 +2,7 @@
 swagger: "2.0"
 info:
   description: Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen werden.
-  version: "2.38"
+  version: "2.39"
   title: Vorgänge API
   contact:
     name: Europace AG
@@ -2261,6 +2261,8 @@ definitions:
           - PROGRAMM_297
           - PROGRAMM_298
           - PROGRAMM_300
+          - PROGRAMM_358
+          - PROGRAMM_359
       kfwSanierungsFahrplanLiegtVor:
         type: boolean
         description: nur bei darlehensTyp==KFW_DARLEHEN. Nur bei KfW-Programm 261 relevant.
@@ -2418,6 +2420,8 @@ definitions:
           - PROGRAMM_297
           - PROGRAMM_298
           - PROGRAMM_300
+          - PROGRAMM_358
+          - PROGRAMM_359
       kfwSanierungsFahrplanLiegtVor:
         type: boolean
         description: nur bei darlehensTyp==KFW_DARLEHEN. Nur bei KfW-Programm 261 relevant.
@@ -3337,6 +3341,8 @@ definitions:
           - PROGRAMM_297
           - PROGRAMM_298
           - PROGRAMM_300
+          - PROGRAMM_358
+          - PROGRAMM_359
       kfwSanierungsFahrplanLiegtVor:
         type: boolean
         description: Nur bei Programm 261.

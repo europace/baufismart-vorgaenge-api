@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "description": "Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen werden.",
-    "version": "2.38",
+    "version": "2.39",
     "title": "Vorgänge API",
     "contact": {
       "name": "Europace AG",
@@ -3248,7 +3248,9 @@
             "PROGRAMM_262",
             "PROGRAMM_297",
             "PROGRAMM_298",
-            "PROGRAMM_300"
+            "PROGRAMM_300",
+            "PROGRAMM_358",
+            "PROGRAMM_359"
           ]
         },
         "kfwSanierungsFahrplanLiegtVor": {
@@ -3447,7 +3449,9 @@
             "PROGRAMM_262",
             "PROGRAMM_297",
             "PROGRAMM_298",
-            "PROGRAMM_300"
+            "PROGRAMM_300",
+            "PROGRAMM_358",
+            "PROGRAMM_359"
           ]
         },
         "kfwSanierungsFahrplanLiegtVor": {
@@ -4720,7 +4724,9 @@
             "PROGRAMM_262",
             "PROGRAMM_297",
             "PROGRAMM_298",
-            "PROGRAMM_300"
+            "PROGRAMM_300",
+            "PROGRAMM_358",
+            "PROGRAMM_359"
           ]
         },
         "kfwSanierungsFahrplanLiegtVor": {
