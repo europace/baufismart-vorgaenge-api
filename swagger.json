@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "description": "Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen werden.",
-    "version": "2.39",
+    "version": "2.41",
     "title": "Vorgänge API",
     "contact": {
       "name": "Europace AG",
@@ -1808,6 +1808,11 @@
       "properties": {
         "auszahlungsDatum": {
           "type": "string",
+          "format": "date",
+          "description": "Bitte 'auszahlungsZeitpunkt' verwenden"
+        },
+        "auszahlungsZeitpunkt": {
+          "type": "string",
           "format": "date"
         },
         "bereitstellungsZinsFreieZeitInMonaten": {
@@ -2040,6 +2045,9 @@
         "bruttoVorjahresEinkommen": {
           "type": "number"
         },
+        "dritteStaatsangehoerigkeit": {
+          "$ref": "#/definitions/Staat"
+        },
         "email": {
           "type": "string",
           "example": "max.mustermann@test.de",
@@ -2062,6 +2070,9 @@
         "geburtsdatum": {
           "type": "string",
           "format": "date"
+        },
+        "geburtsland": {
+          "$ref": "#/definitions/Staat"
         },
         "geburtsort": {
           "type": "string"
@@ -2130,6 +2141,9 @@
         "wohnhaftSeit": {
           "type": "string",
           "format": "date"
+        },
+        "zweiteStaatsangehoerigkeit": {
+          "$ref": "#/definitions/Staat"
         }
       },
       "title": "Antragsteller"
@@ -2283,6 +2297,9 @@
         "einmalzahlung": {
           "type": "number",
           "description": "Deprecated. Einmalzahlungen sind Teil der Sonderzahlungen."
+        },
+        "guthabenZins": {
+          "type": "number"
         },
         "id": {
           "type": "string"
@@ -2508,6 +2525,9 @@
         "gesamtLaufzeitInJahren": {
           "type": "integer",
           "format": "int32"
+        },
+        "guthabenZins": {
+          "type": "number"
         },
         "id": {
           "type": "string"
@@ -2824,6 +2844,9 @@
         "bewirtschaftungsKostenJaehrlich": {
           "type": "number"
         },
+        "bezeichnung": {
+          "type": "string"
+        },
         "bodenRichtwert": {
           "type": "number"
         },
@@ -2940,6 +2963,9 @@
           "description": "Deprecated. Einmalzahlungen sind Teil der Sonderzahlungen."
         },
         "ertrag": {
+          "type": "number"
+        },
+        "guthabenZins": {
           "type": "number"
         },
         "id": {
@@ -3198,6 +3224,10 @@
           "format": "int32",
           "description": "nur bei darlehensTyp==FORWARD_DARLEHEN"
         },
+        "gesamtlaufzeitInMonaten": {
+          "type": "integer",
+          "format": "int32"
+        },
         "id": {
           "type": "string"
         },
@@ -3271,12 +3301,12 @@
         "laufzeitInMonaten": {
           "type": "integer",
           "format": "int32",
-          "description": "nur bei darlehensTyp==PRIVAT_DARLEHEN"
+          "description": "nur bei darlehensTyp==PRIVAT_DARLEHEN. Deprecated. Aktuell ist die Information in gesamtlaufzeitInMonaten zu finden."
         },
         "maximaleLaufzeitInMonaten": {
           "type": "integer",
           "format": "int32",
-          "description": "nur bei darlehensTyp==ZWISCHEN_FINANZIERUNG"
+          "description": "nur bei darlehensTyp==ZWISCHEN_FINANZIERUNG. Deprecated. Aktuell ist die Information in gesamtlaufzeitInMonaten zu finden."
         },
         "produktAnbieter": {
           "$ref": "#/definitions/ProduktAnbieter"
@@ -3399,6 +3429,10 @@
           "format": "int32",
           "description": "nur bei darlehensTyp==FORWARD_DARLEHEN"
         },
+        "gesamtlaufzeitInMonaten": {
+          "type": "integer",
+          "format": "int32"
+        },
         "id": {
           "type": "string"
         },
@@ -3472,12 +3506,12 @@
         "laufzeitInMonaten": {
           "type": "integer",
           "format": "int32",
-          "description": "nur bei darlehensTyp==PRIVAT_DARLEHEN"
+          "description": "nur bei darlehensTyp==PRIVAT_DARLEHEN. Deprecated. Aktuell ist die Information in gesamtlaufzeitInMonaten zu finden."
         },
         "maximaleLaufzeitInMonaten": {
           "type": "integer",
           "format": "int32",
-          "description": "nur bei darlehensTyp==ZWISCHEN_FINANZIERUNG"
+          "description": "nur bei darlehensTyp==ZWISCHEN_FINANZIERUNG. Deprecated. Aktuell ist die Information in gesamtlaufzeitInMonaten zu finden."
         },
         "produktAnbieter": {
           "$ref": "#/definitions/ProduktAnbieter"
@@ -3850,6 +3884,9 @@
         "gesamtLaufzeitInJahren": {
           "type": "integer",
           "format": "int32"
+        },
+        "guthabenZins": {
+          "type": "number"
         },
         "id": {
           "type": "string"
@@ -4235,6 +4272,11 @@
       "properties": {
         "auszahlungsDatum": {
           "type": "string",
+          "format": "date",
+          "description": "Bitte 'auszahlungsZeitpunkt' verwenden"
+        },
+        "auszahlungsZeitpunkt": {
+          "type": "string",
           "format": "date"
         },
         "bereitstellungsZinsFreieZeitInMonaten": {
@@ -4499,6 +4541,9 @@
           "items": {
             "$ref": "#/definitions/BestehendeImmobilie"
           }
+        },
+        "erfahrungImmobilienFinanzierung": {
+          "type": "boolean"
         },
         "id": {
           "type": "string"
