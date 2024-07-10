@@ -2,7 +2,7 @@
 swagger: "2.0"
 info:
   description: Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen werden.
-  version: "2.39"
+  version: "2.41"
   title: Vorgänge API
   contact:
     name: Europace AG
@@ -1195,6 +1195,10 @@ definitions:
       auszahlungsDatum:
         type: string
         format: date
+        description: Bitte 'auszahlungsZeitpunkt' verwenden
+      auszahlungsZeitpunkt:
+        type: string
+        format: date
       bereitstellungsZinsFreieZeitInMonaten:
         type: integer
         format: int32
@@ -1367,6 +1371,8 @@ definitions:
         type: number
       bruttoVorjahresEinkommen:
         type: number
+      dritteStaatsangehoerigkeit:
+        $ref: '#/definitions/Staat'
       email:
         type: string
         example: max.mustermann@test.de
@@ -1385,6 +1391,8 @@ definitions:
       geburtsdatum:
         type: string
         format: date
+      geburtsland:
+        $ref: '#/definitions/Staat'
       geburtsort:
         type: string
       guetertrennungVereinbartWennVerheiratet:
@@ -1432,6 +1440,8 @@ definitions:
       wohnhaftSeit:
         type: string
         format: date
+      zweiteStaatsangehoerigkeit:
+        $ref: '#/definitions/Staat'
     title: Antragsteller
   Archivierung:
     type: object
@@ -1541,6 +1551,8 @@ definitions:
       einmalzahlung:
         type: number
         description: Deprecated. Einmalzahlungen sind Teil der Sonderzahlungen.
+      guthabenZins:
+        type: number
       id:
         type: string
       produktAnbieter:
@@ -1698,6 +1710,8 @@ definitions:
       gesamtLaufzeitInJahren:
         type: integer
         format: int32
+      guthabenZins:
+        type: number
       id:
         type: string
       produktAnbieter:
@@ -1943,6 +1957,8 @@ definitions:
           $ref: '#/definitions/BestehendesDarlehen'
       bewirtschaftungsKostenJaehrlich:
         type: number
+      bezeichnung:
+        type: string
       bodenRichtwert:
         type: number
       bundesland:
@@ -2029,6 +2045,8 @@ definitions:
         type: number
         description: Deprecated. Einmalzahlungen sind Teil der Sonderzahlungen.
       ertrag:
+        type: number
+      guthabenZins:
         type: number
       id:
         type: string
@@ -2215,6 +2233,9 @@ definitions:
         type: integer
         format: int32
         description: nur bei darlehensTyp==FORWARD_DARLEHEN
+      gesamtlaufzeitInMonaten:
+        type: integer
+        format: int32
       id:
         type: string
       kfwEnergieEffizienzGruppe:
@@ -2277,11 +2298,11 @@ definitions:
       laufzeitInMonaten:
         type: integer
         format: int32
-        description: nur bei darlehensTyp==PRIVAT_DARLEHEN
+        description: nur bei darlehensTyp==PRIVAT_DARLEHEN. Deprecated. Aktuell ist die Information in gesamtlaufzeitInMonaten zu finden.
       maximaleLaufzeitInMonaten:
         type: integer
         format: int32
-        description: nur bei darlehensTyp==ZWISCHEN_FINANZIERUNG
+        description: nur bei darlehensTyp==ZWISCHEN_FINANZIERUNG. Deprecated. Aktuell ist die Information in gesamtlaufzeitInMonaten zu finden.
       produktAnbieter:
         $ref: '#/definitions/ProduktAnbieter'
       rateMonatlich:
@@ -2374,6 +2395,9 @@ definitions:
         type: integer
         format: int32
         description: nur bei darlehensTyp==FORWARD_DARLEHEN
+      gesamtlaufzeitInMonaten:
+        type: integer
+        format: int32
       id:
         type: string
       kfwEnergieEffizienzGruppe:
@@ -2436,11 +2460,11 @@ definitions:
       laufzeitInMonaten:
         type: integer
         format: int32
-        description: nur bei darlehensTyp==PRIVAT_DARLEHEN
+        description: nur bei darlehensTyp==PRIVAT_DARLEHEN. Deprecated. Aktuell ist die Information in gesamtlaufzeitInMonaten zu finden.
       maximaleLaufzeitInMonaten:
         type: integer
         format: int32
-        description: nur bei darlehensTyp==ZWISCHEN_FINANZIERUNG
+        description: nur bei darlehensTyp==ZWISCHEN_FINANZIERUNG. Deprecated. Aktuell ist die Information in gesamtlaufzeitInMonaten zu finden.
       produktAnbieter:
         $ref: '#/definitions/ProduktAnbieter'
       rateMonatlich:
@@ -2710,6 +2734,8 @@ definitions:
       gesamtLaufzeitInJahren:
         type: integer
         format: int32
+      guthabenZins:
+        type: number
       id:
         type: string
       produktAnbieter:
@@ -2986,6 +3012,10 @@ definitions:
       auszahlungsDatum:
         type: string
         format: date
+        description: Bitte 'auszahlungsZeitpunkt' verwenden
+      auszahlungsZeitpunkt:
+        type: string
+        format: date
       bereitstellungsZinsFreieZeitInMonaten:
         type: integer
         format: int32
@@ -3177,6 +3207,8 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/BestehendeImmobilie'
+      erfahrungImmobilienFinanzierung:
+        type: boolean
       id:
         type: string
       kfzAnzahl:
