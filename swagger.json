@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "description": "Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen werden.",
-    "version": "2.41",
+    "version": "2.42",
     "title": "Vorgänge API",
     "contact": {
       "name": "Europace AG",
@@ -3279,6 +3279,7 @@
             "PROGRAMM_297",
             "PROGRAMM_298",
             "PROGRAMM_300",
+            "PROGRAMM_308",
             "PROGRAMM_358",
             "PROGRAMM_359"
           ]
@@ -3484,6 +3485,7 @@
             "PROGRAMM_297",
             "PROGRAMM_298",
             "PROGRAMM_300",
+            "PROGRAMM_308",
             "PROGRAMM_358",
             "PROGRAMM_359"
           ]
@@ -4770,6 +4772,7 @@
             "PROGRAMM_297",
             "PROGRAMM_298",
             "PROGRAMM_300",
+            "PROGRAMM_308",
             "PROGRAMM_358",
             "PROGRAMM_359"
           ]
