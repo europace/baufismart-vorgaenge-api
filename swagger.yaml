@@ -2,7 +2,7 @@
 swagger: "2.0"
 info:
   description: Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen werden.
-  version: "2.42"
+  version: "2.43"
   title: Vorgänge API
   contact:
     name: Europace AG
@@ -1358,6 +1358,7 @@ definitions:
         description: wenn keine deutsche Staatsangehörigkeit
         enum:
           - AUFENTHALTS_ERLAUBNIS
+          - BLAUE_KARTE_EU
           - DAUERAUFENTHALT_EU
           - NIEDERLASSUNGS_ERLAUBNIS
           - VISUM
