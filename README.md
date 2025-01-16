@@ -225,6 +225,8 @@ example-response:
 201 Created
 ```
 
+## Rate-limiting
+The API is rate limited to 2000 requests per minute per Client ID. If you exceed this limit you will get a http 429. 
 
 ## Terms of use
 The APIs are provided under the following [Terms of Use](https://docs.api.europace.de/nutzungsbedingungen).
