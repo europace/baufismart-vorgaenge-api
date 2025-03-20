@@ -2,7 +2,7 @@
 swagger: "2.0"
 info:
   description: Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen werden.
-  version: "2.43"
+  version: "2.44"
   title: Vorgänge API
   contact:
     name: Europace AG
@@ -70,6 +70,9 @@ paths:
           required: false
           type: string
           default: absteigend
+      security:
+        - oauth2:
+            - API
       responses:
         "200":
           description: OK
@@ -126,6 +129,9 @@ paths:
           required: true
           type: string
           x-example: AB1234
+      security:
+        - oauth2:
+            - API
       responses:
         "200":
           description: OK
@@ -190,6 +196,9 @@ paths:
           description: vorgangsNummer
           required: true
           type: string
+      security:
+        - oauth2:
+            - API
       responses:
         "200":
           description: OK
@@ -201,9 +210,6 @@ paths:
           description: Unauthorized
         "403":
           description: Forbidden
-      security:
-        - oauth2:
-            - API
   /v2/vorgaenge/{vorgangsNummer}/antraege:
     get:
       tags:
@@ -218,6 +224,9 @@ paths:
           description: vorgangsNummer
           required: true
           type: string
+      security:
+        - oauth2:
+            - API
       responses:
         "200":
           description: OK
@@ -278,6 +287,9 @@ paths:
           description: vorgangsNummer
           required: true
           type: string
+      security:
+        - oauth2:
+            - API
       responses:
         "200":
           description: OK
@@ -344,6 +356,9 @@ paths:
           description: vorgangsNummer
           required: true
           type: string
+      security:
+        - oauth2:
+            - API
       responses:
         "200":
           description: OK
@@ -417,6 +432,9 @@ paths:
           description: vorgangsNummer
           required: true
           type: string
+      security:
+        - oauth2:
+            - API
       responses:
         "202":
           description: Accepted
@@ -487,6 +505,9 @@ paths:
           description: vorgangsNummer
           required: true
           type: string
+      security:
+        - oauth2:
+            - API
       responses:
         "202":
           description: Accepted
@@ -548,6 +569,9 @@ paths:
           description: Die Nummer des Vorgangs zu dem die Finanzierungsvorschläge erzeugt wurden.
           required: true
           type: string
+      security:
+        - oauth2:
+            - API
       responses:
         "200":
           description: OK
@@ -608,6 +632,9 @@ paths:
           description: Die Nummer des Vorgangs zu dem die Finanzierungsvorschläge erzeugt wurden.
           required: true
           type: string
+      security:
+        - oauth2:
+            - API
       responses:
         "200":
           description: OK
@@ -663,6 +690,9 @@ paths:
           description: vorgangsNummer
           required: true
           type: string
+      security:
+        - oauth2:
+            - API
       responses:
         "200":
           description: OK
@@ -732,6 +762,9 @@ paths:
           description: vorgangsNummer
           required: true
           type: string
+      security:
+        - oauth2:
+            - API
       responses:
         "200":
           description: OK
@@ -793,6 +826,9 @@ paths:
           description: vorgangsNummer
           required: true
           type: string
+      security:
+        - oauth2:
+            - API
       responses:
         "200":
           description: OK
@@ -848,6 +884,9 @@ paths:
           description: vorgangsNummer
           required: true
           type: string
+      security:
+        - oauth2:
+            - API
       responses:
         "200":
           description: OK
@@ -907,6 +946,9 @@ paths:
           description: vorgangsNummer
           required: true
           type: string
+      security:
+        - oauth2:
+            - API
       responses:
         "201":
           description: Created
@@ -918,9 +960,6 @@ paths:
           description: Forbidden
         "404":
           description: Not Found
-      security:
-        - oauth2:
-            - API
   /v2/vorgaenge/{vorgangsNummer}/nachricht:
     post:
       tags:
@@ -941,6 +980,9 @@ paths:
           description: vorgangsNummer
           required: true
           type: string
+      security:
+        - oauth2:
+            - API
       responses:
         "201":
           description: Created
@@ -994,6 +1036,9 @@ paths:
           description: vorgangsNummer
           required: true
           type: string
+      security:
+        - oauth2:
+            - API
       responses:
         "200":
           description: OK
@@ -1055,6 +1100,9 @@ paths:
           description: vorgangsNummer
           required: true
           type: string
+      security:
+        - oauth2:
+            - API
       responses:
         "200":
           description: OK
@@ -1066,9 +1114,6 @@ paths:
           description: Forbidden
         "404":
           description: Not Found
-      security:
-        - oauth2:
-            - API
 securityDefinitions:
   oauth2:
     type: oauth2
@@ -2652,6 +2697,9 @@ definitions:
         enum:
           - ENDENERGIEBEDARF
           - ENDENERGIEVERBRAUCH
+      co2Emissionen:
+        type: number
+        format: double
       effizienzklasse:
         type: string
         enum:
@@ -4425,6 +4473,18 @@ definitions:
         $ref: '#/definitions/Absicherungswunsch'
       eigenleistungWennNeubauOderModernisierungsmassnahmen:
         type: number
+      energieEffizienzklasse:
+        type: string
+        enum:
+          - A
+          - A_PLUS
+          - B
+          - C
+          - D
+          - E
+          - F
+          - G
+          - H
       externeBausparAngebote:
         type: array
         items:
@@ -4433,6 +4493,12 @@ definitions:
         $ref: '#/definitions/Finanzbedarf'
       finanzierungswunsch:
         $ref: '#/definitions/Finanzierungswunsch'
+      geplanteEnergie:
+        type: number
+        format: double
+      geplanterCo2Wert:
+        type: number
+        format: double
       id:
         type: string
       nachfinanzierung:
