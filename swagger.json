@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "description": "Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen werden.",
-    "version": "2.44",
+    "version": "2.45",
     "title": "Vorgänge API",
     "contact": {
       "name": "Europace AG",
@@ -4365,6 +4365,9 @@
             "TEILWEISE_AUSGEBAUT",
             "VOLL_AUSGEBAUT"
           ]
+        },
+        "denkmalschutz": {
+          "type": "boolean"
         },
         "einliegerwohnungVorhanden": {
           "type": "boolean"

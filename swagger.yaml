@@ -2,7 +2,7 @@
 swagger: "2.0"
 info:
   description: Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen werden.
-  version: "2.44"
+  version: "2.45"
   title: Vorgänge API
   contact:
     name: Europace AG
@@ -77,42 +77,39 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/Vorgaenge'
+            $ref: "#/definitions/Vorgaenge"
         "400":
           description: Bad Request
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "401":
           description: Unauthorized
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "403":
           description: Forbidden
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "404":
           description: Not Found
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "405":
           description: Method Not Allowed
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "500":
           description: Internal Server Error
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "502":
           description: Bad Gateway
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "504":
           description: Gateway Timeout
           schema:
-            $ref: '#/definitions/Error'
-      security:
-        - oauth2:
-            - API
+            $ref: "#/definitions/Error"
   /v2/vorgaenge/{vorgangsNummer}:
     get:
       tags:
@@ -136,42 +133,39 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/Vorgang'
+            $ref: "#/definitions/Vorgang"
         "400":
           description: Bad Request
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "401":
           description: Unauthorized
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "403":
           description: Forbidden
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "404":
           description: Not Found
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "405":
           description: Method Not Allowed
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "500":
           description: Internal Server Error
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "502":
           description: Bad Gateway
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "504":
           description: Gateway Timeout
           schema:
-            $ref: '#/definitions/Error'
-      security:
-        - oauth2:
-            - API
+            $ref: "#/definitions/Error"
     patch:
       tags:
         - Vorgänge
@@ -189,7 +183,7 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/PatchOperation'
+              $ref: "#/definitions/PatchOperation"
             example: "[{\"op\": \"replace\", \"path\": \"/kundenBetreuer/partnerId\",\"value\": \"OEJ16\"}]"
         - name: vorgangsNummer
           in: path
@@ -203,7 +197,7 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/Vorgang'
+            $ref: "#/definitions/Vorgang"
         "204":
           description: No Content
         "401":
@@ -231,42 +225,39 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/Antraege'
+            $ref: "#/definitions/Antraege"
         "400":
           description: Bad Request
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "401":
           description: Unauthorized
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "403":
           description: Forbidden
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "404":
           description: Not Found
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "405":
           description: Method Not Allowed
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "500":
           description: Internal Server Error
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "502":
           description: Bad Gateway
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "504":
           description: Gateway Timeout
           schema:
-            $ref: '#/definitions/Error'
-      security:
-        - oauth2:
-            - API
+            $ref: "#/definitions/Error"
   /v2/vorgaenge/{vorgangsNummer}/antraege/{antragsNummer}:
     get:
       tags:
@@ -294,42 +285,39 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/Antraege'
+            $ref: "#/definitions/Antraege"
         "400":
           description: Bad Request
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "401":
           description: Unauthorized
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "403":
           description: Forbidden
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "404":
           description: Not Found
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "405":
           description: Method Not Allowed
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "500":
           description: Internal Server Error
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "502":
           description: Bad Gateway
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "504":
           description: Gateway Timeout
           schema:
-            $ref: '#/definitions/Error'
-      security:
-        - oauth2:
-            - API
+            $ref: "#/definitions/Error"
   /v2/vorgaenge/{vorgangsNummer}/antraege/{antragsNummer}/{teilantragsNummer}:
     get:
       tags:
@@ -363,42 +351,39 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/Antrag'
+            $ref: "#/definitions/Antrag"
         "400":
           description: Bad Request
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "401":
           description: Unauthorized
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "403":
           description: Forbidden
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "404":
           description: Not Found
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "405":
           description: Method Not Allowed
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "500":
           description: Internal Server Error
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "502":
           description: Bad Gateway
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "504":
           description: Gateway Timeout
           schema:
-            $ref: '#/definitions/Error'
-      security:
-        - oauth2:
-            - API
+            $ref: "#/definitions/Error"
   /v2/vorgaenge/{vorgangsNummer}/antraege/{antragsNummer}/{teilantragsNummer}/entscheidungsreife:
     post:
       tags:
@@ -420,7 +405,7 @@ paths:
           description: entscheidungsreife
           required: true
           schema:
-            $ref: '#/definitions/Entscheidungsreife'
+            $ref: "#/definitions/Entscheidungsreife"
         - name: teilantragsNummer
           in: path
           description: teilantragsNummer
@@ -441,38 +426,35 @@ paths:
         "400":
           description: Bad Request
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "401":
           description: Unauthorized
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "403":
           description: Forbidden
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "404":
           description: Not Found
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "405":
           description: Method Not Allowed
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "500":
           description: Internal Server Error
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "502":
           description: Bad Gateway
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "504":
           description: Gateway Timeout
           schema:
-            $ref: '#/definitions/Error'
-      security:
-        - oauth2:
-            - API
+            $ref: "#/definitions/Error"
   /v2/vorgaenge/{vorgangsNummer}/antraege/{antragsNummer}/{teilantragsNummer}/status:
     post:
       tags:
@@ -493,7 +475,7 @@ paths:
           description: statusDTO
           required: true
           schema:
-            $ref: '#/definitions/StatusDTO'
+            $ref: "#/definitions/StatusDTO"
         - name: teilantragsNummer
           in: path
           description: teilantragsNummer
@@ -514,38 +496,35 @@ paths:
         "400":
           description: Bad Request
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "401":
           description: Unauthorized
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "403":
           description: Forbidden
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "404":
           description: Not Found
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "405":
           description: Method Not Allowed
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "500":
           description: Internal Server Error
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "502":
           description: Bad Gateway
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "504":
           description: Gateway Timeout
           schema:
-            $ref: '#/definitions/Error'
-      security:
-        - oauth2:
-            - API
+            $ref: "#/definitions/Error"
   /v2/vorgaenge/{vorgangsNummer}/finanzierungsvorschlaege:
     get:
       tags:
@@ -576,42 +555,39 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/FinanzierungsvorschlaegeResource'
+            $ref: "#/definitions/FinanzierungsvorschlaegeResource"
         "400":
           description: Bad Request
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "401":
           description: Unauthorized
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "403":
           description: Forbidden
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "404":
           description: Not Found
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "405":
           description: Method Not Allowed
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "500":
           description: Internal Server Error
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "502":
           description: Bad Gateway
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "504":
           description: Gateway Timeout
           schema:
-            $ref: '#/definitions/Error'
-      security:
-        - oauth2:
-            - API
+            $ref: "#/definitions/Error"
   /v2/vorgaenge/{vorgangsNummer}/finanzierungsvorschlaege/{finanzierungsvorschlagId}:
     get:
       tags:
@@ -639,42 +615,39 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/Finanzierungsvorschlag'
+            $ref: "#/definitions/Finanzierungsvorschlag"
         "400":
           description: Bad Request
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "401":
           description: Unauthorized
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "403":
           description: Forbidden
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "404":
           description: Not Found
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "405":
           description: Method Not Allowed
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "500":
           description: Internal Server Error
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "502":
           description: Bad Gateway
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "504":
           description: Gateway Timeout
           schema:
-            $ref: '#/definitions/Error'
-      security:
-        - oauth2:
-            - API
+            $ref: "#/definitions/Error"
   /v2/vorgaenge/{vorgangsNummer}/gemerkteAngebote:
     get:
       tags:
@@ -697,42 +670,39 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/GemerkteAngeboteResource'
+            $ref: "#/definitions/GemerkteAngeboteResource"
         "400":
           description: Bad Request
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "401":
           description: Unauthorized
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "403":
           description: Forbidden
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "404":
           description: Not Found
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "405":
           description: Method Not Allowed
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "500":
           description: Internal Server Error
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "502":
           description: Bad Gateway
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "504":
           description: Gateway Timeout
           schema:
-            $ref: '#/definitions/Error'
-      security:
-        - oauth2:
-            - API
+            $ref: "#/definitions/Error"
   /v2/vorgaenge/{vorgangsNummer}/gemerkteAngebote/{nummerAmVorgang}:
     get:
       tags:
@@ -769,42 +739,39 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/GemerkteAngeboteResource'
+            $ref: "#/definitions/GemerkteAngeboteResource"
         "400":
           description: Bad Request
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "401":
           description: Unauthorized
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "403":
           description: Forbidden
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "404":
           description: Not Found
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "405":
           description: Method Not Allowed
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "500":
           description: Internal Server Error
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "502":
           description: Bad Gateway
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "504":
           description: Gateway Timeout
           schema:
-            $ref: '#/definitions/Error'
-      security:
-        - oauth2:
-            - API
+            $ref: "#/definitions/Error"
   /v2/vorgaenge/{vorgangsNummer}/gemerkteAngebote/{nummerAmVorgang}/zahlungsPlaene:
     get:
       tags:
@@ -833,42 +800,39 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/Zahlungsplaene'
+            $ref: "#/definitions/Zahlungsplaene"
         "400":
           description: Bad Request
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "401":
           description: Unauthorized
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "403":
           description: Forbidden
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "404":
           description: Not Found
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "405":
           description: Method Not Allowed
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "500":
           description: Internal Server Error
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "502":
           description: Bad Gateway
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "504":
           description: Gateway Timeout
           schema:
-            $ref: '#/definitions/Error'
-      security:
-        - oauth2:
-            - API
+            $ref: "#/definitions/Error"
   /v2/vorgaenge/{vorgangsNummer}/kundenBetreuer:
     get:
       tags:
@@ -891,42 +855,39 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/Partner'
+            $ref: "#/definitions/Partner"
         "400":
           description: Bad Request
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "401":
           description: Unauthorized
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "403":
           description: Forbidden
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "404":
           description: Not Found
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "405":
           description: Method Not Allowed
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "500":
           description: Internal Server Error
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "502":
           description: Bad Gateway
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "504":
           description: Gateway Timeout
           schema:
-            $ref: '#/definitions/Error'
-      security:
-        - oauth2:
-            - API
+            $ref: "#/definitions/Error"
     put:
       tags:
         - Vorgänge
@@ -940,7 +901,7 @@ paths:
           description: partnerDTO
           required: true
           schema:
-            $ref: '#/definitions/PartnerDTO'
+            $ref: "#/definitions/PartnerDTO"
         - name: vorgangsNummer
           in: path
           description: vorgangsNummer
@@ -974,7 +935,7 @@ paths:
           description: nachricht
           required: true
           schema:
-            $ref: '#/definitions/Nachricht'
+            $ref: "#/definitions/Nachricht"
         - name: vorgangsNummer
           in: path
           description: vorgangsNummer
@@ -989,38 +950,35 @@ paths:
         "400":
           description: Bad Request
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "401":
           description: Unauthorized
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "403":
           description: Forbidden
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "404":
           description: Not Found
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "405":
           description: Method Not Allowed
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "500":
           description: Internal Server Error
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "502":
           description: Bad Gateway
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "504":
           description: Gateway Timeout
           schema:
-            $ref: '#/definitions/Error'
-      security:
-        - oauth2:
-            - API
+            $ref: "#/definitions/Error"
   /v2/vorgaenge/{vorgangsNummer}/vorgangsBearbeiter:
     get:
       tags:
@@ -1043,42 +1001,39 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/Partner'
+            $ref: "#/definitions/Partner"
         "400":
           description: Bad Request
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "401":
           description: Unauthorized
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "403":
           description: Forbidden
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "404":
           description: Not Found
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "405":
           description: Method Not Allowed
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "500":
           description: Internal Server Error
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "502":
           description: Bad Gateway
           schema:
-            $ref: '#/definitions/Error'
+            $ref: "#/definitions/Error"
         "504":
           description: Gateway Timeout
           schema:
-            $ref: '#/definitions/Error'
-      security:
-        - oauth2:
-            - API
+            $ref: "#/definitions/Error"
     put:
       tags:
         - Vorgänge
@@ -1094,7 +1049,7 @@ paths:
           description: partnerDTO
           required: true
           schema:
-            $ref: '#/definitions/PartnerDTO'
+            $ref: "#/definitions/PartnerDTO"
         - name: vorgangsNummer
           in: path
           description: vorgangsNummer
@@ -1128,7 +1083,7 @@ definitions:
       abgesicherteRisiken:
         type: array
         items:
-          $ref: '#/definitions/RisikoAbsicherung'
+          $ref: "#/definitions/RisikoAbsicherung"
       gesamtPraemie:
         type: number
       praemienZahlungsweise:
@@ -1150,7 +1105,7 @@ definitions:
       versicherungsNummer:
         type: string
       versicherungsZeitraum:
-        $ref: '#/definitions/VersicherungsZeitraum'
+        $ref: "#/definitions/VersicherungsZeitraum"
     title: Absicherung
   AbsicherungsAngaben:
     type: object
@@ -1160,7 +1115,7 @@ definitions:
       pruefungVorhandenerAbsicherungen:
         type: array
         items:
-          $ref: '#/definitions/PruefungVorhandenerAbsicherung'
+          $ref: "#/definitions/PruefungVorhandenerAbsicherung"
     title: AbsicherungsAngaben
   Absicherungswunsch:
     type: object
@@ -1170,23 +1125,23 @@ definitions:
       versicherungsWuensche:
         type: array
         items:
-          $ref: '#/definitions/VersicherungsWunsch'
+          $ref: "#/definitions/VersicherungsWunsch"
     title: Absicherungswunsch
   Angebot:
     type: object
     properties:
       _links:
-        $ref: '#/definitions/Links'
+        $ref: "#/definitions/Links"
       absicherungen:
         type: array
         items:
-          $ref: '#/definitions/Absicherung'
+          $ref: "#/definitions/Absicherung"
       bausparvertraege:
         type: array
         items:
-          $ref: '#/definitions/Bausparvertrag'
+          $ref: "#/definitions/Bausparvertrag"
       beleihungsRechnung:
-        $ref: '#/definitions/BeleihungsRechnung'
+        $ref: "#/definitions/BeleihungsRechnung"
       bewertungDesAngebots:
         type: string
         enum:
@@ -1195,7 +1150,7 @@ definitions:
       darlehen:
         type: array
         items:
-          $ref: '#/definitions/Darlehen'
+          $ref: "#/definitions/Darlehen"
       erzeugtAm:
         type: string
         format: date-time
@@ -1211,7 +1166,7 @@ definitions:
       meldungen:
         type: array
         items:
-          $ref: '#/definitions/Meldung'
+          $ref: "#/definitions/Meldung"
       nummerAmVorgang:
         type: integer
         format: int32
@@ -1220,7 +1175,7 @@ definitions:
       pruefungsErgebnisse:
         type: array
         items:
-          $ref: '#/definitions/AngebotsPruefungsErgebnis'
+          $ref: "#/definitions/AngebotsPruefungsErgebnis"
       zahlungsplaene:
         type: string
         description: Link zu den Zahlungsplänen des Angebots.
@@ -1229,7 +1184,7 @@ definitions:
     type: object
     properties:
       produktAnbieter:
-        $ref: '#/definitions/ProduktAnbieter'
+        $ref: "#/definitions/ProduktAnbieter"
       weitereAngaben:
         type: string
         description: Vom Produktanbieter bei der Angebotsprüfung ergänzte Daten. Das Format entspricht der Definition des Produktanbieters.
@@ -1258,7 +1213,7 @@ definitions:
       sondertilgungOptionalJaehrlich:
         type: number
       tilgungsWunsch:
-        $ref: '#/definitions/TilgungsWunsch'
+        $ref: "#/definitions/TilgungsWunsch"
       zinsBindungInJahren:
         type: integer
         format: int32
@@ -1267,23 +1222,23 @@ definitions:
     type: object
     properties:
       _links:
-        $ref: '#/definitions/PaginationLinks'
+        $ref: "#/definitions/PaginationLinks"
       antraege:
         type: array
         items:
-          $ref: '#/definitions/Antrag'
+          $ref: "#/definitions/Antrag"
     title: Antraege
   Antrag:
     type: object
     properties:
       _links:
-        $ref: '#/definitions/Links'
+        $ref: "#/definitions/Links"
       angebot:
         description: "Das angenommene Angebot, auf dem dieser Antrag basiert"
-        $ref: '#/definitions/Angebot'
+        $ref: "#/definitions/Angebot"
       ansprechpartner:
         description: "Für Rückfragen auf Seite des Vertriebs, kann mit dem Vermittler identisch sein"
-        $ref: '#/definitions/Partner'
+        $ref: "#/definitions/Partner"
       antragsNummer:
         type: string
         description: Nummer des Antrags auf der Europace Plattform
@@ -1294,7 +1249,7 @@ definitions:
           type: string
       beratung:
         description: Informationen zum Geschäftsabschluss
-        $ref: '#/definitions/Beratung'
+        $ref: "#/definitions/Beratung"
       datenKontext:
         type: string
         description: "Gibt an, ob es sich um einen Antrag aus dem Testmodus oder Echtgeschäft handelt"
@@ -1305,25 +1260,25 @@ definitions:
         type: array
         description: "Enthält alle Plattformdokumente, freigegebene Dokumente des Vertriebs, sowie die hochgeladenen Dokumente des Produktanbieters. **Aktuell sind nur Selbstauskunft und Kreditentscheidungsinformation enthalten.**"
         items:
-          $ref: '#/definitions/Dokument'
+          $ref: "#/definitions/Dokument"
       kreditSachbearbeiter:
         description: Gewählter Sachbearbeiter aus Seite des Kreditvertriebs
-        $ref: '#/definitions/Partner'
+        $ref: "#/definitions/Partner"
       produktAnbieter:
-        $ref: '#/definitions/ProduktAnbieter'
+        $ref: "#/definitions/ProduktAnbieter"
       status:
         description: Bearbeitungsfortschritt des Antrags
-        $ref: '#/definitions/AntragsStatus'
+        $ref: "#/definitions/AntragsStatus"
       vermittler:
         description: Partner auf Seite des Vertriebs
-        $ref: '#/definitions/Partner'
+        $ref: "#/definitions/Partner"
       zeitpunktDerAnnahme:
         type: string
         format: date-time
         description: "Zeitpunkt, zu dem der Antrag im System erstellt wurde."
       zugrundeliegendeDaten:
         description: "Basisdaten des Kunden, die für die Berechnung des Angebots relevant waren"
-        $ref: '#/definitions/ZugrundeliegendeDatenZumAntrag'
+        $ref: "#/definitions/ZugrundeliegendeDatenZumAntrag"
     title: Antrag
     description: Diese Resource repräsentiert einen Antrag in Baufi Smart.
   AntragsStatus:
@@ -1383,14 +1338,14 @@ definitions:
     type: object
     properties:
       absicherungsAngaben:
-        $ref: '#/definitions/AbsicherungsAngaben'
+        $ref: "#/definitions/AbsicherungsAngaben"
       anrede:
         type: string
         enum:
           - FRAU
           - HERR
       anschrift:
-        $ref: '#/definitions/Postadresse'
+        $ref: "#/definitions/Postadresse"
       arbeitserlaubnis:
         type: boolean
         description: wenn keine deutsche Staatsangehörigkeit
@@ -1412,13 +1367,13 @@ definitions:
         format: date
         description: wenn Aufenthaltstitel befristet
       beschaeftigung:
-        $ref: '#/definitions/Beschaeftigung'
+        $ref: "#/definitions/Beschaeftigung"
       bruttoJahresEinkommenErwartet:
         type: number
       bruttoVorjahresEinkommen:
         type: number
       dritteStaatsangehoerigkeit:
-        $ref: '#/definitions/Staat'
+        $ref: "#/definitions/Staat"
       email:
         type: string
         example: max.mustermann@test.de
@@ -1438,7 +1393,7 @@ definitions:
         type: string
         format: date
       geburtsland:
-        $ref: '#/definitions/Staat'
+        $ref: "#/definitions/Staat"
       geburtsort:
         type: string
       guetertrennungVereinbartWennVerheiratet:
@@ -1451,15 +1406,15 @@ definitions:
         format: date
         description: wenn keine deutsche Staatsangehörigkeit
       legitimationsDaten:
-        $ref: '#/definitions/LegitimationsDaten'
+        $ref: "#/definitions/LegitimationsDaten"
       nachname:
         type: string
       schufaErgebnis:
-        $ref: '#/definitions/SchufaErgebnis'
+        $ref: "#/definitions/SchufaErgebnis"
       sozialversicherungsnummer:
         type: string
       staatsangehoerigkeit:
-        $ref: '#/definitions/Staat'
+        $ref: "#/definitions/Staat"
       steuerId:
         type: string
       telefonnummer:
@@ -1478,7 +1433,7 @@ definitions:
       titelProfessor:
         type: boolean
       vorAnschrift:
-        $ref: '#/definitions/Postadresse'
+        $ref: "#/definitions/Postadresse"
       vorname:
         type: string
       weitereKontaktMoeglichkeiten:
@@ -1487,7 +1442,7 @@ definitions:
         type: string
         format: date
       zweiteStaatsangehoerigkeit:
-        $ref: '#/definitions/Staat'
+        $ref: "#/definitions/Staat"
     title: Antragsteller
   Archivierung:
     type: object
@@ -1511,7 +1466,7 @@ definitions:
       ausgabenMonatlich:
         type: number
       berechnungsHilfeVermoegen:
-        $ref: '#/definitions/BerechnungsHilfeBetrag'
+        $ref: "#/definitions/BerechnungsHilfeBetrag"
       zahlungsTyp:
         type: string
         description: Redundante Angabe des Zahlungstyps dient als zusätzliches Filterkriterium
@@ -1602,21 +1557,21 @@ definitions:
       id:
         type: string
       produktAnbieter:
-        $ref: '#/definitions/ProduktAnbieter'
+        $ref: "#/definitions/ProduktAnbieter"
       sonderZahlungen:
         type: array
         items:
-          $ref: '#/definitions/SonderZahlung'
+          $ref: "#/definitions/SonderZahlung"
       sparBeginn:
         type: string
         format: date
         description: Der berechnete Beginn des Besparens des Bausparvertrags.
       sparPhase:
-        $ref: '#/definitions/SparPhase'
+        $ref: "#/definitions/SparPhase"
       tarif:
         type: string
       tilgungsPhase:
-        $ref: '#/definitions/TilgungsPhase'
+        $ref: "#/definitions/TilgungsPhase"
       typ:
         type: string
       vertragsBeginn:
@@ -1641,7 +1596,7 @@ definitions:
         type: array
         description: siehe weitere Beschreibung unter Weitere Informationen -> Bezeichnung Bauspartarife
         items:
-          $ref: '#/definitions/BausparTarif'
+          $ref: "#/definitions/BausparTarif"
       darlehensBetrag:
         type: number
       provision:
@@ -1694,7 +1649,7 @@ definitions:
         type: array
         description: siehe weitere Beschreibung unter Weitere Informationen -> Bezeichnung Bauspartarife
         items:
-          $ref: '#/definitions/BausparTarif'
+          $ref: "#/definitions/BausparTarif"
       bausparTarife:
         type: array
         description: "Deprecated, Zukünftig sind die Informationen zum gewünschen Tarif unter bausparTarif zu finden."
@@ -1710,7 +1665,7 @@ definitions:
       sonderZahlungen:
         type: array
         items:
-          $ref: '#/definitions/SonderZahlung'
+          $ref: "#/definitions/SonderZahlung"
       sparBeginn:
         type: string
         format: date
@@ -1761,24 +1716,24 @@ definitions:
       id:
         type: string
       produktAnbieter:
-        $ref: '#/definitions/ProduktAnbieter'
+        $ref: "#/definitions/ProduktAnbieter"
       sonderZahlungen:
         type: array
         items:
-          $ref: '#/definitions/SonderZahlung'
+          $ref: "#/definitions/SonderZahlung"
       sparBeginn:
         type: string
         format: date
         description: Der berechnete Beginn des Besparens des Bausparvertrags.
       sparPhase:
-        $ref: '#/definitions/SparPhase'
+        $ref: "#/definitions/SparPhase"
       tarif:
         type: string
       tarifId:
         type: string
         description: Produktanbieter-spezifische Tarif-ID des Bauspartarifs
       tilgungsPhase:
-        $ref: '#/definitions/TilgungsPhase'
+        $ref: "#/definitions/TilgungsPhase"
       typ:
         type: string
       vertragsBeginn:
@@ -1802,24 +1757,24 @@ definitions:
         type: array
         description: Enthält die vom Produktanbieter anerkannten Beleihungswerte
         items:
-          $ref: '#/definitions/BeleihungsWert'
+          $ref: "#/definitions/BeleihungsWert"
       beleihungsWerteSumme:
         type: number
         description: "Berechnungshilfe: Die Summe aller vom Produktanbieter anerkannten Beleihungswerte"
       produktAnbieter:
-        $ref: '#/definitions/ProduktAnbieter'
+        $ref: "#/definitions/ProduktAnbieter"
     title: BeleihungsRechnung
   BeleihungsWert:
     type: object
     properties:
       adresse:
-        $ref: '#/definitions/Postadresse'
+        $ref: "#/definitions/Postadresse"
       beleihungsWert:
         type: number
       immobilie:
-        $ref: '#/definitions/ImmobilieVerknuepfung'
+        $ref: "#/definitions/ImmobilieVerknuepfung"
       produktAnbieter:
-        $ref: '#/definitions/ProduktAnbieter'
+        $ref: "#/definitions/ProduktAnbieter"
     title: BeleihungsWert
   Beratung:
     type: object
@@ -1868,7 +1823,7 @@ definitions:
         description: "nur bei art==ANGESTELLTER,ARBEITER,BEAMTER"
       arbeitgeberLand:
         description: nur bei arbeitgeberInDeutschlandAnsaessig==false
-        $ref: '#/definitions/Staat'
+        $ref: "#/definitions/Staat"
       art:
         type: string
         enum:
@@ -1931,7 +1886,7 @@ definitions:
         description: "nur bei art==ANGESTELLTER,ARBEITER,BEAMTER"
       situationNachRenteneintritt:
         description: nur bei art!=RENTNER
-        $ref: '#/definitions/SituationNachRenteneintritt'
+        $ref: "#/definitions/SituationNachRenteneintritt"
       taetigkeit:
         type: string
         description: "nur bei art==FREIBERUFLER,SELBSTAENDIGER"
@@ -1992,15 +1947,15 @@ definitions:
     type: object
     properties:
       adresse:
-        $ref: '#/definitions/Postadresse'
+        $ref: "#/definitions/Postadresse"
       autostellplaetze:
         type: array
         items:
-          $ref: '#/definitions/Autostellplatz'
+          $ref: "#/definitions/Autostellplatz"
       bestehendeDarlehen:
         type: array
         items:
-          $ref: '#/definitions/BestehendesDarlehen'
+          $ref: "#/definitions/BestehendesDarlehen"
       bewirtschaftungsKostenJaehrlich:
         type: number
       bezeichnung:
@@ -2027,15 +1982,15 @@ definitions:
           - SCHLESWIG_HOLSTEIN
           - THUERINGEN
       effektivZinsErhoehendeKosten:
-        $ref: '#/definitions/EffektivZinsErhoehendeKosten'
+        $ref: "#/definitions/EffektivZinsErhoehendeKosten"
       erbbaurecht:
-        $ref: '#/definitions/Erbbaurecht'
+        $ref: "#/definitions/Erbbaurecht"
       gebaeude:
-        $ref: '#/definitions/Gebaeude'
+        $ref: "#/definitions/Gebaeude"
       grundbuchAngabe:
-        $ref: '#/definitions/GrundbuchAngabe'
+        $ref: "#/definitions/GrundbuchAngabe"
       grundstueck:
-        $ref: '#/definitions/Grundstueck'
+        $ref: "#/definitions/Grundstueck"
       id:
         type: string
       immobilienEinsatz:
@@ -2099,11 +2054,11 @@ definitions:
       maximalAufzuloesenderBetrag:
         type: number
       produktAnbieter:
-        $ref: '#/definitions/ProduktAnbieter'
+        $ref: "#/definitions/ProduktAnbieter"
       sonderZahlungen:
         type: array
         items:
-          $ref: '#/definitions/SonderZahlung'
+          $ref: "#/definitions/SonderZahlung"
       sparBeitragMonatlich:
         type: number
       tarif:
@@ -2160,7 +2115,7 @@ definitions:
       darlehensBetrag:
         type: number
       darlehensGeber:
-        $ref: '#/definitions/ProduktAnbieter'
+        $ref: "#/definitions/ProduktAnbieter"
       darlehensKontonummer:
         type: string
       eingetrageneGrundschuld:
@@ -2205,7 +2160,7 @@ definitions:
       darlehensBetrag:
         type: number
       darlehensGeber:
-        $ref: '#/definitions/ProduktAnbieter'
+        $ref: "#/definitions/ProduktAnbieter"
       darlehensKontonummer:
         type: string
       eingetrageneGrundschuld:
@@ -2254,7 +2209,7 @@ definitions:
         description: nur bei darlehensTyp==BAUSPAR_DARLEHEN
       bereitstellung:
         description: nicht bei darlehensTyp==PRIVAT_DARLEHEN
-        $ref: '#/definitions/Bereitstellung'
+        $ref: "#/definitions/Bereitstellung"
       darlehensBetrag:
         type: number
       darlehensTyp:
@@ -2274,7 +2229,7 @@ definitions:
       effektivZins:
         type: number
       effektivZinsRelevanteKosten:
-        $ref: '#/definitions/EffektivZinsKosten'
+        $ref: "#/definitions/EffektivZinsKosten"
       forwardPeriodeInMonaten:
         type: integer
         format: int32
@@ -2351,7 +2306,7 @@ definitions:
         format: int32
         description: nur bei darlehensTyp==ZWISCHEN_FINANZIERUNG. Deprecated. Aktuell ist die Information in gesamtlaufzeitInMonaten zu finden.
       produktAnbieter:
-        $ref: '#/definitions/ProduktAnbieter'
+        $ref: "#/definitions/ProduktAnbieter"
       rateMonatlich:
         type: number
         example: 123.34
@@ -2377,7 +2332,7 @@ definitions:
         description: Der Sollzinssatz in Prozent
       tilgung:
         description: nicht bei darlehensTyp==ZWISCHEN_FINANZIERUNG
-        $ref: '#/definitions/Tilgung'
+        $ref: "#/definitions/Tilgung"
       tilgungsFreieAnlaufJahre:
         type: integer
         format: int32
@@ -2396,7 +2351,7 @@ definitions:
           - VORFINANZIERUNG_OEFFENTLICHER_MITTEL
       zinsBindung:
         description: "nicht bei darlehensTyp IN [VARIABLES_DARLEHEN,ZWISCHEN_FINANZIERUNG]"
-        $ref: '#/definitions/ZinsBindung'
+        $ref: "#/definitions/ZinsBindung"
       zinsZahlungsBeginnAm:
         type: string
         format: date
@@ -2417,7 +2372,7 @@ definitions:
         description: nur bei darlehensTyp==BAUSPAR_DARLEHEN
       bereitstellung:
         description: nicht bei darlehensTyp==PRIVAT_DARLEHEN
-        $ref: '#/definitions/Bereitstellung'
+        $ref: "#/definitions/Bereitstellung"
       darlehensBetrag:
         type: number
       darlehensTyp:
@@ -2437,7 +2392,7 @@ definitions:
       effektivZins:
         type: number
       effektivZinsRelevanteKosten:
-        $ref: '#/definitions/EffektivZinsKosten'
+        $ref: "#/definitions/EffektivZinsKosten"
       forwardPeriodeInMonaten:
         type: integer
         format: int32
@@ -2514,7 +2469,7 @@ definitions:
         format: int32
         description: nur bei darlehensTyp==ZWISCHEN_FINANZIERUNG. Deprecated. Aktuell ist die Information in gesamtlaufzeitInMonaten zu finden.
       produktAnbieter:
-        $ref: '#/definitions/ProduktAnbieter'
+        $ref: "#/definitions/ProduktAnbieter"
       rateMonatlich:
         type: number
         example: 123.34
@@ -2540,7 +2495,7 @@ definitions:
         description: Der Sollzinssatz in Prozent
       tilgung:
         description: nicht bei darlehensTyp==ZWISCHEN_FINANZIERUNG
-        $ref: '#/definitions/Tilgung'
+        $ref: "#/definitions/Tilgung"
       tilgungsFreieAnlaufJahre:
         type: integer
         format: int32
@@ -2559,7 +2514,7 @@ definitions:
           - VORFINANZIERUNG_OEFFENTLICHER_MITTEL
       zinsBindung:
         description: "nicht bei darlehensTyp IN [VARIABLES_DARLEHEN,ZWISCHEN_FINANZIERUNG]"
-        $ref: '#/definitions/ZinsBindung'
+        $ref: "#/definitions/ZinsBindung"
       zinsZahlungsBeginnAm:
         type: string
         format: date
@@ -2569,30 +2524,30 @@ definitions:
     properties:
       annuitaetenDarlehen:
         description: "muss leer sein, wenn eines der anderen Attribute gefüllt ist"
-        $ref: '#/definitions/AnnuitaetenDarlehensWunsch'
+        $ref: "#/definitions/AnnuitaetenDarlehensWunsch"
       bausparDarlehen:
         description: "muss leer sein, wenn eines der anderen Attribute gefüllt ist"
-        $ref: '#/definitions/BausparDarlehensWunsch'
+        $ref: "#/definitions/BausparDarlehensWunsch"
       forwardDarlehen:
         description: "muss leer sein, wenn eines der anderen Attribute gefüllt ist"
-        $ref: '#/definitions/ForwardDarlehensWunsch'
+        $ref: "#/definitions/ForwardDarlehensWunsch"
       id:
         type: string
       kfwDarlehen:
         description: "muss leer sein, wenn eines der anderen Attribute gefüllt ist"
-        $ref: '#/definitions/KfwDarlehensWunsch'
+        $ref: "#/definitions/KfwDarlehensWunsch"
       privatDarlehen:
         description: "muss leer sein, wenn eines der anderen Attribute gefüllt ist"
-        $ref: '#/definitions/PrivatDarlehensWunsch'
+        $ref: "#/definitions/PrivatDarlehensWunsch"
       regionalFoerderDarlehen:
         description: "muss leer sein, wenn eines der anderen Attribute gefüllt ist"
-        $ref: '#/definitions/RegionalFoerderDarlehensWunsch'
+        $ref: "#/definitions/RegionalFoerderDarlehensWunsch"
       variablesDarlehen:
         description: "muss leer sein, wenn eines der anderen Attribute gefüllt ist"
-        $ref: '#/definitions/VariablesDarlehensWunsch'
+        $ref: "#/definitions/VariablesDarlehensWunsch"
       zwischenFinanzierung:
         description: "muss leer sein, wenn eines der anderen Attribute gefüllt ist"
-        $ref: '#/definitions/ZwischenFinanzierungsWunsch'
+        $ref: "#/definitions/ZwischenFinanzierungsWunsch"
     title: DarlehensWunsch
   Dokument:
     type: object
@@ -2790,24 +2745,24 @@ definitions:
       id:
         type: string
       produktAnbieter:
-        $ref: '#/definitions/ProduktAnbieter'
+        $ref: "#/definitions/ProduktAnbieter"
       sonderZahlungen:
         type: array
         items:
-          $ref: '#/definitions/SonderZahlung'
+          $ref: "#/definitions/SonderZahlung"
       sparBeginn:
         type: string
         format: date
         description: Der berechnete Beginn des Besparens des Bausparvertrags.
       sparPhase:
-        $ref: '#/definitions/SparPhase'
+        $ref: "#/definitions/SparPhase"
       tarif:
         type: string
       tarifId:
         type: string
         description: Produktanbieter-spezifische Tarif-ID des Bauspartarifs
       tilgungsPhase:
-        $ref: '#/definitions/TilgungsPhase'
+        $ref: "#/definitions/TilgungsPhase"
       typ:
         type: string
       vertragsBeginn:
@@ -2879,15 +2834,15 @@ definitions:
     type: object
     properties:
       adresse:
-        $ref: '#/definitions/Postadresse'
+        $ref: "#/definitions/Postadresse"
       autostellplaetze:
         type: array
         items:
-          $ref: '#/definitions/Autostellplatz'
+          $ref: "#/definitions/Autostellplatz"
       bestehendeDarlehen:
         type: array
         items:
-          $ref: '#/definitions/BestehendesDarlehenDesFinanzierungsObjekts'
+          $ref: "#/definitions/BestehendesDarlehenDesFinanzierungsObjekts"
       bewirtschaftungsKostenJaehrlich:
         type: number
       bodenRichtwert:
@@ -2912,15 +2867,15 @@ definitions:
           - SCHLESWIG_HOLSTEIN
           - THUERINGEN
       effektivZinsErhoehendeKosten:
-        $ref: '#/definitions/EffektivZinsErhoehendeKosten'
+        $ref: "#/definitions/EffektivZinsErhoehendeKosten"
       erbbaurecht:
-        $ref: '#/definitions/Erbbaurecht'
+        $ref: "#/definitions/Erbbaurecht"
       gebaeude:
-        $ref: '#/definitions/Gebaeude'
+        $ref: "#/definitions/Gebaeude"
       grundbuchAngabe:
-        $ref: '#/definitions/GrundbuchAngabe'
+        $ref: "#/definitions/GrundbuchAngabe"
       grundstueck:
-        $ref: '#/definitions/Grundstueck'
+        $ref: "#/definitions/Grundstueck"
       id:
         type: string
       keinBaulandFlaecheInQm:
@@ -2957,17 +2912,17 @@ definitions:
     type: object
     properties:
       _links:
-        $ref: '#/definitions/Links'
+        $ref: "#/definitions/Links"
       finanzierungsvorschlaege:
         type: array
         items:
-          $ref: '#/definitions/Finanzierungsvorschlag'
+          $ref: "#/definitions/Finanzierungsvorschlag"
     title: FinanzierungsvorschlaegeResource
   Finanzierungsvorschlag:
     type: object
     properties:
       _links:
-        $ref: '#/definitions/Links'
+        $ref: "#/definitions/Links"
       annahmeFrist:
         type: string
         format: date-time
@@ -2976,14 +2931,14 @@ definitions:
         type: array
         description: "Liste von allen Bausparverträgen, die Bestandteil dieses Finanzierungsvorschlags sind."
         items:
-          $ref: '#/definitions/EuropaceBausparAngebot'
+          $ref: "#/definitions/EuropaceBausparAngebot"
       beleihung:
-        $ref: '#/definitions/BeleihungsRechnung'
+        $ref: "#/definitions/BeleihungsRechnung"
       darlehen:
         type: array
         description: "Liste von allen Darlehen, die Bestandteil dieses Finanzierungsvorschlags sind."
         items:
-          $ref: '#/definitions/Darlehen0'
+          $ref: "#/definitions/Darlehen0"
       darlehensSumme:
         type: number
         example: 123.34
@@ -2996,7 +2951,7 @@ definitions:
         type: array
         description: "Historie, in der für jedes Aushändigen, ein Eintrag mit Datum und Akteur ausgegeben wird."
         items:
-          $ref: '#/definitions/FinanzierungsvorschlagHistorienEintrag'
+          $ref: "#/definitions/FinanzierungsvorschlagHistorienEintrag"
       id:
         type: string
         description: Id des Finanzierungsvorschlags
@@ -3037,11 +2992,11 @@ definitions:
       bausparWuensche:
         type: array
         items:
-          $ref: '#/definitions/BausparWunsch'
+          $ref: "#/definitions/BausparWunsch"
       darlehensWuensche:
         type: array
         items:
-          $ref: '#/definitions/DarlehensWunsch'
+          $ref: "#/definitions/DarlehensWunsch"
       id:
         type: string
     title: Finanzierungswunsch
@@ -3049,7 +3004,7 @@ definitions:
     type: object
     properties:
       anteil:
-        $ref: '#/definitions/MiteigentumsAnteil'
+        $ref: "#/definitions/MiteigentumsAnteil"
       flur:
         type: string
       flurstuecksNummer:
@@ -3077,7 +3032,7 @@ definitions:
       sondertilgungOptionalJaehrlich:
         type: number
       tilgungsWunsch:
-        $ref: '#/definitions/TilgungsWunsch'
+        $ref: "#/definitions/TilgungsWunsch"
       zinsBindungInJahren:
         type: integer
         format: int32
@@ -3126,10 +3081,12 @@ definitions:
           - NICHT_AUSGEBAUT
           - TEILWEISE_AUSGEBAUT
           - VOLL_AUSGEBAUT
+      denkmalschutz:
+        type: boolean
       einliegerwohnungVorhanden:
         type: boolean
       energieEffizienzAusweis:
-        $ref: '#/definitions/EnergieEffizienzAusweis'
+        $ref: "#/definitions/EnergieEffizienzAusweis"
       geschossLage:
         type: string
         enum:
@@ -3141,7 +3098,7 @@ definitions:
           - UNTERGESCHOSS
           - ZWEITES_OBERGESCHOSS
       gewerbeflaeche:
-        $ref: '#/definitions/GebaeudeFlaeche'
+        $ref: "#/definitions/GebaeudeFlaeche"
       hausAnordnung:
         type: string
         enum:
@@ -3167,9 +3124,9 @@ definitions:
       kubatur:
         type: number
       miteigentumsAnteil:
-        $ref: '#/definitions/MiteigentumsAnteil'
+        $ref: "#/definitions/MiteigentumsAnteil"
       modernisierungsAngaben:
-        $ref: '#/definitions/ModernisierungsAngaben'
+        $ref: "#/definitions/ModernisierungsAngaben"
       unterkellerung:
         type: string
         enum:
@@ -3177,7 +3134,7 @@ definitions:
           - TEILWEISE_UNTERKELLERT
           - UNTERKELLERT
       wohnflaeche:
-        $ref: '#/definitions/GebaeudeFlaeche'
+        $ref: "#/definitions/GebaeudeFlaeche"
       zustand:
         type: string
         enum:
@@ -3193,17 +3150,17 @@ definitions:
       gesamtGroesse:
         type: number
       vermietungsInformationen:
-        $ref: '#/definitions/VermietungsInformationen'
+        $ref: "#/definitions/VermietungsInformationen"
     title: GebaeudeFlaeche
   GemerkteAngeboteResource:
     type: object
     properties:
       _links:
-        $ref: '#/definitions/Links'
+        $ref: "#/definitions/Links"
       gemerkteAngeboteExperimentell:
         type: array
         items:
-          $ref: '#/definitions/Angebot'
+          $ref: "#/definitions/Angebot"
     title: GemerkteAngeboteResource
   GrundbuchAngabe:
     type: object
@@ -3219,13 +3176,13 @@ definitions:
       flurstuecke:
         type: array
         items:
-          $ref: '#/definitions/Flurstueck'
+          $ref: "#/definitions/Flurstueck"
       ort:
         type: string
         description: Ort des als Grundbuchamt zuständigen Amtsgerichts
       rechteInAbteilung2:
         description: "Belastungen und Beschränkungen in der Nutzbarkeit des Grundstücks. Leitungsrechte, Verzichte auf Abstandsflächen, Wegerechte, Insolvenzvermerke."
-        $ref: '#/definitions/RechteAbteilung2'
+        $ref: "#/definitions/RechteAbteilung2"
     title: GrundbuchAngabe
   Grundstueck:
     type: object
@@ -3247,7 +3204,7 @@ definitions:
       antragsteller:
         type: array
         items:
-          $ref: '#/definitions/Antragsteller'
+          $ref: "#/definitions/Antragsteller"
       anzahlErwachseneImHaushalt:
         type: integer
         format: int32
@@ -3257,7 +3214,7 @@ definitions:
       bestehendeImmobilien:
         type: array
         items:
-          $ref: '#/definitions/BestehendeImmobilie'
+          $ref: "#/definitions/BestehendeImmobilie"
       erfahrungImmobilienFinanzierung:
         type: boolean
       id:
@@ -3268,14 +3225,14 @@ definitions:
       kinder:
         type: array
         items:
-          $ref: '#/definitions/Kind'
+          $ref: "#/definitions/Kind"
       lebenshaltungsKostenMonatlich:
         type: number
       obligo:
         description: "Diese Angabe ist produktanbieterspezifisch, sie wird nicht von allen Produktanbietern bei der Angebotsermittlung berücksichtigt."
-        $ref: '#/definitions/VermoegenVerbindlichkeiten'
+        $ref: "#/definitions/VermoegenVerbindlichkeiten"
       positionen:
-        $ref: '#/definitions/HaushaltsPositionen'
+        $ref: "#/definitions/HaushaltsPositionen"
     title: Haushalt
   HaushaltsPositionen:
     type: object
@@ -3283,84 +3240,84 @@ definitions:
       bankUndSparguthaben:
         type: array
         items:
-          $ref: '#/definitions/BankUndSparguthaben'
+          $ref: "#/definitions/BankUndSparguthaben"
       bausparvertraege:
         type: array
         items:
-          $ref: '#/definitions/BestehenderBausparvertrag'
+          $ref: "#/definitions/BestehenderBausparvertrag"
       ehegattenUnterhalt:
         type: array
         items:
-          $ref: '#/definitions/EinnahmenMonatlich'
+          $ref: "#/definitions/EinnahmenMonatlich"
       einkuenfteAusNebentaetigkeit:
         type: array
         items:
-          $ref: '#/definitions/EinkuenfteAusNebentaetigkeit'
+          $ref: "#/definitions/EinkuenfteAusNebentaetigkeit"
       kindergeld:
         type: array
         description: Read-Only-Feld. Wird dynamisch aus den Angaben zu den Kindern berechnet. Pro kindergelderhaltendem Kind ein Listenelement.
         items:
-          $ref: '#/definitions/EinnahmenMonatlich'
+          $ref: "#/definitions/EinnahmenMonatlich"
       lebensUndRentenVersicherungen:
         type: array
         items:
-          $ref: '#/definitions/LebensOderRentenversicherungVermoegen'
+          $ref: "#/definitions/LebensOderRentenversicherungVermoegen"
       mietAusgaben:
         type: array
         items:
-          $ref: '#/definitions/MietAusgaben'
+          $ref: "#/definitions/MietAusgaben"
       privateDarlehen:
         type: array
         items:
-          $ref: '#/definitions/Verbindlichkeit'
+          $ref: "#/definitions/Verbindlichkeit"
       privateKrankenversicherung:
         type: array
         items:
-          $ref: '#/definitions/AusgabenMonatlich'
+          $ref: "#/definitions/AusgabenMonatlich"
       ratenkredite:
         type: array
         items:
-          $ref: '#/definitions/Verbindlichkeit'
+          $ref: "#/definitions/Verbindlichkeit"
       sonstigeAusgaben:
         type: array
         items:
-          $ref: '#/definitions/AusgabenMonatlich'
+          $ref: "#/definitions/AusgabenMonatlich"
       sonstigeEinnahmen:
         type: array
         items:
-          $ref: '#/definitions/EinnahmenMonatlich'
+          $ref: "#/definitions/EinnahmenMonatlich"
       sonstigeVerbindlichkeiten:
         type: array
         items:
-          $ref: '#/definitions/Verbindlichkeit'
+          $ref: "#/definitions/Verbindlichkeit"
       sonstigeVermoegen:
         type: array
         items:
-          $ref: '#/definitions/Vermoegen'
+          $ref: "#/definitions/Vermoegen"
       sparplaene:
         type: array
         items:
-          $ref: '#/definitions/Sparplaene'
+          $ref: "#/definitions/Sparplaene"
       unbefristeteZusatzRenten:
         type: array
         items:
-          $ref: '#/definitions/EinnahmenMonatlich'
+          $ref: "#/definitions/EinnahmenMonatlich"
       unterhaltsVerpflichtungen:
         type: array
         items:
-          $ref: '#/definitions/AusgabenMonatlich'
+          $ref: "#/definitions/AusgabenMonatlich"
       variableEinkuenfte:
         type: array
         items:
-          $ref: '#/definitions/EinnahmenMonatlich'
+          $ref: "#/definitions/EinnahmenMonatlich"
       versicherungsAusgaben:
         type: array
         items:
-          $ref: '#/definitions/AusgabenMonatlich'
+          $ref: "#/definitions/AusgabenMonatlich"
       wertpapiere:
         type: array
         items:
-          $ref: '#/definitions/Wertpapiere'
+          $ref: "#/definitions/Wertpapiere"
     title: HaushaltsPositionen
   ImmobilieVerknuepfung:
     type: object
@@ -3437,7 +3394,7 @@ definitions:
         type: number
       tilgungsWunsch:
         description: Für endfällige KfW-Darlehen wird ein Tilgungswunsch erfasst
-        $ref: '#/definitions/TilgungsWunsch'
+        $ref: "#/definitions/TilgungsWunsch"
       tilgungsfreieAnlaufjahre:
         type: integer
         format: int32
@@ -3560,7 +3517,7 @@ definitions:
     type: object
     properties:
       self:
-        $ref: '#/definitions/Link'
+        $ref: "#/definitions/Link"
     title: Links
   Meldung:
     type: object
@@ -3583,9 +3540,9 @@ definitions:
           - NICHT_MACHBAR
           - UNBERUECKSICHTIGTE_ANGABE
       kreditEntscheider:
-        $ref: '#/definitions/ProduktAnbieter'
+        $ref: "#/definitions/ProduktAnbieter"
       produktAnbieter:
-        $ref: '#/definitions/ProduktAnbieter'
+        $ref: "#/definitions/ProduktAnbieter"
       text:
         type: string
     title: Meldung
@@ -3595,7 +3552,7 @@ definitions:
       ausgabenMonatlich:
         type: number
       berechnungsHilfeVermoegen:
-        $ref: '#/definitions/BerechnungsHilfeBetrag'
+        $ref: "#/definitions/BerechnungsHilfeBetrag"
       entfallenMitFinanzierung:
         type: boolean
       zahlungsTyp:
@@ -3670,7 +3627,7 @@ definitions:
           - OEFFENTLICHES_DARLEHEN
           - RATENKREDIT
       zinsBindung:
-        $ref: '#/definitions/ZinsBindung'
+        $ref: "#/definitions/ZinsBindung"
     title: NachrangigesExternesDarlehen
   Nachricht:
     type: object
@@ -3687,24 +3644,24 @@ definitions:
     type: object
     properties:
       next:
-        $ref: '#/definitions/Link'
+        $ref: "#/definitions/Link"
       prev:
-        $ref: '#/definitions/Link'
+        $ref: "#/definitions/Link"
       self:
-        $ref: '#/definitions/Link'
+        $ref: "#/definitions/Link"
     title: PaginationLinks
   Partner:
     type: object
     properties:
       _links:
-        $ref: '#/definitions/Links'
+        $ref: "#/definitions/Links"
       anrede:
         type: string
         enum:
           - FRAU
           - HERR
       anschrift:
-        $ref: '#/definitions/Postadresse'
+        $ref: "#/definitions/Postadresse"
       email:
         type: string
       externePartnerId:
@@ -3733,7 +3690,7 @@ definitions:
       telefonnummer:
         type: string
       vertriebsOrganisation:
-        $ref: '#/definitions/VertriebsOrganisation'
+        $ref: "#/definitions/VertriebsOrganisation"
       vorname:
         type: string
       webseite:
@@ -3749,7 +3706,7 @@ definitions:
           - FRAU
           - HERR
       anschrift:
-        $ref: '#/definitions/Postadresse'
+        $ref: "#/definitions/Postadresse"
       email:
         type: string
       externePartnerId:
@@ -3778,7 +3735,7 @@ definitions:
       telefonnummer:
         type: string
       vertriebsOrganisation:
-        $ref: '#/definitions/VertriebsOrganisation'
+        $ref: "#/definitions/VertriebsOrganisation"
       vorname:
         type: string
       webseite:
@@ -3851,7 +3808,7 @@ definitions:
           - FRAU
           - HERR
       anschrift:
-        $ref: '#/definitions/Postadresse'
+        $ref: "#/definitions/Postadresse"
       email:
         type: string
       externePartnerId:
@@ -3882,7 +3839,7 @@ definitions:
       telefonnummer:
         type: string
       vertriebsOrganisation:
-        $ref: '#/definitions/VertriebsOrganisation'
+        $ref: "#/definitions/VertriebsOrganisation"
       vorname:
         type: string
       webseite:
@@ -4000,15 +3957,15 @@ definitions:
     type: object
     properties:
       antraege:
-        $ref: '#/definitions/Link'
+        $ref: "#/definitions/Link"
       ereignisse:
-        $ref: '#/definitions/Link'
+        $ref: "#/definitions/Link"
       finanzierungsvorschlaege:
-        $ref: '#/definitions/Link'
+        $ref: "#/definitions/Link"
       gemerkteAngebote:
-        $ref: '#/definitions/Link'
+        $ref: "#/definitions/Link"
       self:
-        $ref: '#/definitions/Link'
+        $ref: "#/definitions/Link"
     title: SelfRelAndEreignisse
   SituationNachRenteneintritt:
     type: object
@@ -4159,7 +4116,7 @@ definitions:
         description: nullable
       tilgungsErsatz:
         description: nicht bei PRIVAT_DARLEHEN
-        $ref: '#/definitions/TilgungsErsatz'
+        $ref: "#/definitions/TilgungsErsatz"
     title: Tilgung
   TilgungsErsatz:
     type: object
@@ -4197,7 +4154,7 @@ definitions:
         type: boolean
         description: "muss leer sein, wenn eines der anderen Attribute gefüllt ist"
       bausparWunsch:
-        $ref: '#/definitions/BausparWunsch'
+        $ref: "#/definitions/BausparWunsch"
       rate:
         type: number
         description: "muss leer sein, wenn eines der anderen Attribute gefüllt ist"
@@ -4218,7 +4175,7 @@ definitions:
       provision:
         type: number
       tilgungsWunsch:
-        $ref: '#/definitions/TilgungsWunsch'
+        $ref: "#/definitions/TilgungsWunsch"
     title: VariablesDarlehensWunsch
   Verbindlichkeit:
     type: object
@@ -4308,7 +4265,7 @@ definitions:
       vermoegenOderVerbindlichkeiten:
         type: array
         items:
-          $ref: '#/definitions/VermoegenVerbindlichkeit'
+          $ref: "#/definitions/VermoegenVerbindlichkeit"
     title: VermoegenVerbindlichkeiten
   VersicherungsWunsch:
     type: object
@@ -4332,7 +4289,7 @@ definitions:
       risikoAbsicherungsWuensche:
         type: array
         items:
-          $ref: '#/definitions/RisikoAbsicherungsWunsch'
+          $ref: "#/definitions/RisikoAbsicherungsWunsch"
       versichertePersonId:
         type: string
       versicherungsArt:
@@ -4373,17 +4330,17 @@ definitions:
     type: object
     properties:
       _links:
-        $ref: '#/definitions/PaginationLinks'
+        $ref: "#/definitions/PaginationLinks"
       vorgaenge:
         type: array
         items:
-          $ref: '#/definitions/VorgaengeResourceListItem'
+          $ref: "#/definitions/VorgaengeResourceListItem"
     title: Vorgaenge
   VorgaengeResourceListItem:
     type: object
     properties:
       _links:
-        $ref: '#/definitions/Links'
+        $ref: "#/definitions/Links"
       datenKontext:
         type: string
         enum:
@@ -4404,19 +4361,19 @@ definitions:
     type: object
     properties:
       _links:
-        $ref: '#/definitions/SelfRelAndEreignisse'
+        $ref: "#/definitions/SelfRelAndEreignisse"
       antraege:
         type: array
         items:
-          $ref: '#/definitions/Links'
+          $ref: "#/definitions/Links"
       archivierung:
-        $ref: '#/definitions/Archivierung'
+        $ref: "#/definitions/Archivierung"
       aufbewahrungBis:
         type: string
         format: date
         description: "Datum, bis wann dieser Vorgang nach DSGVO aufbewahrt werden muss. Nach diesem Datum wird der Vorgang automatisch gelöscht."
       bankverbindung:
-        $ref: '#/definitions/Bankverbindung'
+        $ref: "#/definitions/Bankverbindung"
       datenKontext:
         type: string
         enum:
@@ -4428,20 +4385,20 @@ definitions:
       externeVorgangsNummer:
         type: string
       finanzierungsObjekt:
-        $ref: '#/definitions/FinanzierungsObjekt'
+        $ref: "#/definitions/FinanzierungsObjekt"
       geschlossenAm:
         type: string
         format: date
       haushalte:
         type: array
         items:
-          $ref: '#/definitions/Haushalt'
+          $ref: "#/definitions/Haushalt"
       importQuelle:
         type: string
       kundenBetreuer:
-        $ref: '#/definitions/Partner'
+        $ref: "#/definitions/Partner"
       leadTracking:
-        $ref: '#/definitions/LeadTracking'
+        $ref: "#/definitions/LeadTracking"
       letztesEreignis:
         type: string
         format: date-time
@@ -4458,19 +4415,19 @@ definitions:
         type: string
         description: "Status des Vorgangs, Werte: [AKTIV,ARCHIVIERT]"
       tippGeber:
-        $ref: '#/definitions/Partner0'
+        $ref: "#/definitions/Partner0"
       vorgangsBearbeiter:
-        $ref: '#/definitions/Partner'
+        $ref: "#/definitions/Partner"
       vorgangsNummer:
         type: string
       vorhaben:
-        $ref: '#/definitions/Vorhaben'
+        $ref: "#/definitions/Vorhaben"
     title: Vorgang
   Vorhaben:
     type: object
     properties:
       absicherungswunsch:
-        $ref: '#/definitions/Absicherungswunsch'
+        $ref: "#/definitions/Absicherungswunsch"
       eigenleistungWennNeubauOderModernisierungsmassnahmen:
         type: number
       energieEffizienzklasse:
@@ -4488,11 +4445,11 @@ definitions:
       externeBausparAngebote:
         type: array
         items:
-          $ref: '#/definitions/BausparAngebot'
+          $ref: "#/definitions/BausparAngebot"
       finanzbedarf:
-        $ref: '#/definitions/Finanzbedarf'
+        $ref: "#/definitions/Finanzbedarf"
       finanzierungswunsch:
-        $ref: '#/definitions/Finanzierungswunsch'
+        $ref: "#/definitions/Finanzierungswunsch"
       geplanteEnergie:
         type: number
         format: double
@@ -4506,7 +4463,7 @@ definitions:
       nachrangigeExterneDarlehen:
         type: array
         items:
-          $ref: '#/definitions/NachrangigesExternesDarlehen'
+          $ref: "#/definitions/NachrangigesExternesDarlehen"
       verwendungszweck:
         type: string
         enum:
@@ -4553,24 +4510,24 @@ definitions:
     type: object
     properties:
       _links:
-        $ref: '#/definitions/Links'
+        $ref: "#/definitions/Links"
       zahlungsplaene:
         type: array
         items:
-          $ref: '#/definitions/Zahlungsplan'
+          $ref: "#/definitions/Zahlungsplan"
     title: Zahlungsplaene
     description: Diese Resource repräsentiert die Zahlungsplaene eines Angebots.
   Zahlungsplan:
     type: object
     properties:
       gesamtSumme:
-        $ref: '#/definitions/Eintrag'
+        $ref: "#/definitions/Eintrag"
       identifier:
         type: string
       zahlungen:
         type: array
         items:
-          $ref: '#/definitions/Eintrag'
+          $ref: "#/definitions/Eintrag"
     title: Zahlungsplan
     description: "Ein Zahlungsplan, welcher die Monatlichen Zahlungen zu einem Darlehen oder Bausparvertrag enthält."
   ZinsBindung:
@@ -4592,17 +4549,17 @@ definitions:
     type: object
     properties:
       _links:
-        $ref: '#/definitions/Links'
+        $ref: "#/definitions/Links"
       bankverbindung:
-        $ref: '#/definitions/Bankverbindung'
+        $ref: "#/definitions/Bankverbindung"
       finanzierungsObjekt:
-        $ref: '#/definitions/FinanzierungsObjekt'
+        $ref: "#/definitions/FinanzierungsObjekt"
       haushalte:
         type: array
         items:
-          $ref: '#/definitions/Haushalt'
+          $ref: "#/definitions/Haushalt"
       vorhaben:
-        $ref: '#/definitions/Vorhaben'
+        $ref: "#/definitions/Vorhaben"
     title: ZugrundeliegendeDatenZumAntrag
   ZwischenFinanzierungsWunsch:
     type: object
