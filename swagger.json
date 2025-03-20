@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "description": "Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen werden.",
-    "version": "2.43",
+    "version": "2.45",
     "title": "Vorgänge API",
     "contact": {
       "name": "Europace AG",
@@ -3773,6 +3773,10 @@
             "ENDENERGIEVERBRAUCH"
           ]
         },
+        "co2Emissionen": {
+          "type": "number",
+          "format": "double"
+        },
         "effizienzklasse": {
           "type": "string",
           "enum": [
@@ -4361,6 +4365,9 @@
             "TEILWEISE_AUSGEBAUT",
             "VOLL_AUSGEBAUT"
           ]
+        },
+        "denkmalschutz": {
+          "type": "boolean"
         },
         "einliegerwohnungVorhanden": {
           "type": "boolean"
@@ -6249,6 +6256,20 @@
         "eigenleistungWennNeubauOderModernisierungsmassnahmen": {
           "type": "number"
         },
+        "energieEffizienzklasse": {
+          "type": "string",
+          "enum": [
+            "A",
+            "A_PLUS",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H"
+          ]
+        },
         "externeBausparAngebote": {
           "type": "array",
           "items": {
@@ -6260,6 +6281,14 @@
         },
         "finanzierungswunsch": {
           "$ref": "#/definitions/Finanzierungswunsch"
+        },
+        "geplanteEnergie": {
+          "type": "number",
+          "format": "double"
+        },
+        "geplanterCo2Wert": {
+          "type": "number",
+          "format": "double"
         },
         "id": {
           "type": "string"
