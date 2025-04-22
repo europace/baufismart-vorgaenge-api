@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "description": "Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen werden.",
-    "version": "2.45",
+    "version": "2.46",
     "title": "Vorgänge API",
     "contact": {
       "name": "Europace AG",
@@ -5356,6 +5356,15 @@
       },
       "title": "Postadresse"
     },
+    "Praeferenzen": {
+      "type": "object",
+      "properties": {
+        "tilgungssatzwechselPraeferenz": {
+          "$ref": "#/definitions/TilgungssatzwechselPraeferenz"
+        }
+      },
+      "title": "Praeferenzen"
+    },
     "PrivatDarlehensWunsch": {
       "type": "object",
       "properties": {
@@ -5881,6 +5890,27 @@
       },
       "title": "TilgungsWunsch"
     },
+    "TilgungssatzwechselPraeferenz": {
+      "type": "object",
+      "properties": {
+        "mindestensBenoetigt": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "tilgungsSatzwechselPraeferenz": {
+          "type": "string",
+          "enum": [
+            "EGAL",
+            "MINDESTENS_BENOETIGT",
+            "NICHT_EINGEPLANT_ODER_ABSEHBAR"
+          ]
+        },
+        "zusaetzlicherKommentar": {
+          "type": "string"
+        }
+      },
+      "title": "TilgungssatzwechselPraeferenz"
+    },
     "VariablesDarlehensWunsch": {
       "type": "object",
       "properties": {
@@ -6218,6 +6248,9 @@
         },
         "phase": {
           "type": "string"
+        },
+        "praeferenzen": {
+          "$ref": "#/definitions/Praeferenzen"
         },
         "prioritaet": {
           "type": "string",
