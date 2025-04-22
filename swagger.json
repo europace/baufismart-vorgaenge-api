@@ -98,63 +98,110 @@
           "200": {
             "description": "OK",
             "schema": {
-              "originalRef": "Vorgaenge",
               "$ref": "#/definitions/Vorgaenge"
             }
           },
           "400": {
             "description": "Bad Request",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "401": {
             "description": "Unauthorized",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "403": {
             "description": "Forbidden",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "404": {
             "description": "Not Found",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "405": {
             "description": "Method Not Allowed",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "500": {
             "description": "Internal Server Error",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "502": {
             "description": "Bad Gateway",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "504": {
             "description": "Gateway Timeout",
             "schema": {
-              "originalRef": "Error",
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "responsesObject": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Vorgaenge"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "405": {
+            "description": "Method Not Allowed",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "502": {
+            "description": "Bad Gateway",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "504": {
+            "description": "Gateway Timeout",
+            "schema": {
               "$ref": "#/definitions/Error"
             }
           }
@@ -193,63 +240,110 @@
           "200": {
             "description": "OK",
             "schema": {
-              "originalRef": "Vorgang",
               "$ref": "#/definitions/Vorgang"
             }
           },
           "400": {
             "description": "Bad Request",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "401": {
             "description": "Unauthorized",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "403": {
             "description": "Forbidden",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "404": {
             "description": "Not Found",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "405": {
             "description": "Method Not Allowed",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "500": {
             "description": "Internal Server Error",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "502": {
             "description": "Bad Gateway",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "504": {
             "description": "Gateway Timeout",
             "schema": {
-              "originalRef": "Error",
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "responsesObject": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Vorgang"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "405": {
+            "description": "Method Not Allowed",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "502": {
+            "description": "Bad Gateway",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "504": {
+            "description": "Gateway Timeout",
+            "schema": {
               "$ref": "#/definitions/Error"
             }
           }
@@ -283,7 +377,6 @@
             "schema": {
               "type": "array",
               "items": {
-                "originalRef": "PatchOperation",
                 "$ref": "#/definitions/PatchOperation"
               },
               "example": "[{\"op\": \"replace\", \"path\": \"/kundenBetreuer/partnerId\",\"value\": \"OEJ16\"}]"
@@ -301,7 +394,23 @@
           "200": {
             "description": "OK",
             "schema": {
-              "originalRef": "Vorgang",
+              "$ref": "#/definitions/Vorgang"
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "responsesObject": {
+          "200": {
+            "description": "OK",
+            "schema": {
               "$ref": "#/definitions/Vorgang"
             }
           },
@@ -347,63 +456,110 @@
           "200": {
             "description": "OK",
             "schema": {
-              "originalRef": "Antraege",
               "$ref": "#/definitions/Antraege"
             }
           },
           "400": {
             "description": "Bad Request",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "401": {
             "description": "Unauthorized",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "403": {
             "description": "Forbidden",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "404": {
             "description": "Not Found",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "405": {
             "description": "Method Not Allowed",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "500": {
             "description": "Internal Server Error",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "502": {
             "description": "Bad Gateway",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "504": {
             "description": "Gateway Timeout",
             "schema": {
-              "originalRef": "Error",
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "responsesObject": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Antraege"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "405": {
+            "description": "Method Not Allowed",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "502": {
+            "description": "Bad Gateway",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "504": {
+            "description": "Gateway Timeout",
+            "schema": {
               "$ref": "#/definitions/Error"
             }
           }
@@ -448,63 +604,110 @@
           "200": {
             "description": "OK",
             "schema": {
-              "originalRef": "Antraege",
               "$ref": "#/definitions/Antraege"
             }
           },
           "400": {
             "description": "Bad Request",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "401": {
             "description": "Unauthorized",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "403": {
             "description": "Forbidden",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "404": {
             "description": "Not Found",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "405": {
             "description": "Method Not Allowed",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "500": {
             "description": "Internal Server Error",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "502": {
             "description": "Bad Gateway",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "504": {
             "description": "Gateway Timeout",
             "schema": {
-              "originalRef": "Error",
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "responsesObject": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Antraege"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "405": {
+            "description": "Method Not Allowed",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "502": {
+            "description": "Bad Gateway",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "504": {
+            "description": "Gateway Timeout",
+            "schema": {
               "$ref": "#/definitions/Error"
             }
           }
@@ -557,63 +760,110 @@
           "200": {
             "description": "OK",
             "schema": {
-              "originalRef": "Antrag",
               "$ref": "#/definitions/Antrag"
             }
           },
           "400": {
             "description": "Bad Request",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "401": {
             "description": "Unauthorized",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "403": {
             "description": "Forbidden",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "404": {
             "description": "Not Found",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "405": {
             "description": "Method Not Allowed",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "500": {
             "description": "Internal Server Error",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "502": {
             "description": "Bad Gateway",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "504": {
             "description": "Gateway Timeout",
             "schema": {
-              "originalRef": "Error",
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "responsesObject": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Antrag"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "405": {
+            "description": "Method Not Allowed",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "502": {
+            "description": "Bad Gateway",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "504": {
+            "description": "Gateway Timeout",
+            "schema": {
               "$ref": "#/definitions/Error"
             }
           }
@@ -653,7 +903,6 @@
             "description": "entscheidungsreife",
             "required": true,
             "schema": {
-              "originalRef": "Entscheidungsreife",
               "$ref": "#/definitions/Entscheidungsreife"
             }
           },
@@ -680,56 +929,101 @@
           "400": {
             "description": "Bad Request",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "401": {
             "description": "Unauthorized",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "403": {
             "description": "Forbidden",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "404": {
             "description": "Not Found",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "405": {
             "description": "Method Not Allowed",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "500": {
             "description": "Internal Server Error",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "502": {
             "description": "Bad Gateway",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "504": {
             "description": "Gateway Timeout",
             "schema": {
-              "originalRef": "Error",
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "responsesObject": {
+          "202": {
+            "description": "Accepted"
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "405": {
+            "description": "Method Not Allowed",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "502": {
+            "description": "Bad Gateway",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "504": {
+            "description": "Gateway Timeout",
+            "schema": {
               "$ref": "#/definitions/Error"
             }
           }
@@ -768,7 +1062,6 @@
             "description": "statusDTO",
             "required": true,
             "schema": {
-              "originalRef": "StatusDTO",
               "$ref": "#/definitions/StatusDTO"
             }
           },
@@ -795,56 +1088,101 @@
           "400": {
             "description": "Bad Request",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "401": {
             "description": "Unauthorized",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "403": {
             "description": "Forbidden",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "404": {
             "description": "Not Found",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "405": {
             "description": "Method Not Allowed",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "500": {
             "description": "Internal Server Error",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "502": {
             "description": "Bad Gateway",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "504": {
             "description": "Gateway Timeout",
             "schema": {
-              "originalRef": "Error",
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "responsesObject": {
+          "202": {
+            "description": "Accepted"
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "405": {
+            "description": "Method Not Allowed",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "502": {
+            "description": "Bad Gateway",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "504": {
+            "description": "Gateway Timeout",
+            "schema": {
               "$ref": "#/definitions/Error"
             }
           }
@@ -893,63 +1231,110 @@
           "200": {
             "description": "OK",
             "schema": {
-              "originalRef": "FinanzierungsvorschlaegeResource",
               "$ref": "#/definitions/FinanzierungsvorschlaegeResource"
             }
           },
           "400": {
             "description": "Bad Request",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "401": {
             "description": "Unauthorized",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "403": {
             "description": "Forbidden",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "404": {
             "description": "Not Found",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "405": {
             "description": "Method Not Allowed",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "500": {
             "description": "Internal Server Error",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "502": {
             "description": "Bad Gateway",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "504": {
             "description": "Gateway Timeout",
             "schema": {
-              "originalRef": "Error",
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "responsesObject": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/FinanzierungsvorschlaegeResource"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "405": {
+            "description": "Method Not Allowed",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "502": {
+            "description": "Bad Gateway",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "504": {
+            "description": "Gateway Timeout",
+            "schema": {
               "$ref": "#/definitions/Error"
             }
           }
@@ -994,63 +1379,110 @@
           "200": {
             "description": "OK",
             "schema": {
-              "originalRef": "Finanzierungsvorschlag",
               "$ref": "#/definitions/Finanzierungsvorschlag"
             }
           },
           "400": {
             "description": "Bad Request",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "401": {
             "description": "Unauthorized",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "403": {
             "description": "Forbidden",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "404": {
             "description": "Not Found",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "405": {
             "description": "Method Not Allowed",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "500": {
             "description": "Internal Server Error",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "502": {
             "description": "Bad Gateway",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "504": {
             "description": "Gateway Timeout",
             "schema": {
-              "originalRef": "Error",
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "responsesObject": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Finanzierungsvorschlag"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "405": {
+            "description": "Method Not Allowed",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "502": {
+            "description": "Bad Gateway",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "504": {
+            "description": "Gateway Timeout",
+            "schema": {
               "$ref": "#/definitions/Error"
             }
           }
@@ -1088,63 +1520,110 @@
           "200": {
             "description": "OK",
             "schema": {
-              "originalRef": "GemerkteAngeboteResource",
               "$ref": "#/definitions/GemerkteAngeboteResource"
             }
           },
           "400": {
             "description": "Bad Request",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "401": {
             "description": "Unauthorized",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "403": {
             "description": "Forbidden",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "404": {
             "description": "Not Found",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "405": {
             "description": "Method Not Allowed",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "500": {
             "description": "Internal Server Error",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "502": {
             "description": "Bad Gateway",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "504": {
             "description": "Gateway Timeout",
             "schema": {
-              "originalRef": "Error",
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "responsesObject": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GemerkteAngeboteResource"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "405": {
+            "description": "Method Not Allowed",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "502": {
+            "description": "Bad Gateway",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "504": {
+            "description": "Gateway Timeout",
+            "schema": {
               "$ref": "#/definitions/Error"
             }
           }
@@ -1201,63 +1680,110 @@
           "200": {
             "description": "OK",
             "schema": {
-              "originalRef": "GemerkteAngeboteResource",
               "$ref": "#/definitions/GemerkteAngeboteResource"
             }
           },
           "400": {
             "description": "Bad Request",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "401": {
             "description": "Unauthorized",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "403": {
             "description": "Forbidden",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "404": {
             "description": "Not Found",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "405": {
             "description": "Method Not Allowed",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "500": {
             "description": "Internal Server Error",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "502": {
             "description": "Bad Gateway",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "504": {
             "description": "Gateway Timeout",
             "schema": {
-              "originalRef": "Error",
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "responsesObject": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GemerkteAngeboteResource"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "405": {
+            "description": "Method Not Allowed",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "502": {
+            "description": "Bad Gateway",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "504": {
+            "description": "Gateway Timeout",
+            "schema": {
               "$ref": "#/definitions/Error"
             }
           }
@@ -1303,63 +1829,110 @@
           "200": {
             "description": "OK",
             "schema": {
-              "originalRef": "Zahlungsplaene",
               "$ref": "#/definitions/Zahlungsplaene"
             }
           },
           "400": {
             "description": "Bad Request",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "401": {
             "description": "Unauthorized",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "403": {
             "description": "Forbidden",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "404": {
             "description": "Not Found",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "405": {
             "description": "Method Not Allowed",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "500": {
             "description": "Internal Server Error",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "502": {
             "description": "Bad Gateway",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "504": {
             "description": "Gateway Timeout",
             "schema": {
-              "originalRef": "Error",
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "responsesObject": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Zahlungsplaene"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "405": {
+            "description": "Method Not Allowed",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "502": {
+            "description": "Bad Gateway",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "504": {
+            "description": "Gateway Timeout",
+            "schema": {
               "$ref": "#/definitions/Error"
             }
           }
@@ -1397,63 +1970,110 @@
           "200": {
             "description": "OK",
             "schema": {
-              "originalRef": "Partner",
               "$ref": "#/definitions/Partner"
             }
           },
           "400": {
             "description": "Bad Request",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "401": {
             "description": "Unauthorized",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "403": {
             "description": "Forbidden",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "404": {
             "description": "Not Found",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "405": {
             "description": "Method Not Allowed",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "500": {
             "description": "Internal Server Error",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "502": {
             "description": "Bad Gateway",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "504": {
             "description": "Gateway Timeout",
             "schema": {
-              "originalRef": "Error",
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "responsesObject": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Partner"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "405": {
+            "description": "Method Not Allowed",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "502": {
+            "description": "Bad Gateway",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "504": {
+            "description": "Gateway Timeout",
+            "schema": {
               "$ref": "#/definitions/Error"
             }
           }
@@ -1482,7 +2102,6 @@
             "description": "partnerDTO",
             "required": true,
             "schema": {
-              "originalRef": "PartnerDTO",
               "$ref": "#/definitions/PartnerDTO"
             }
           },
@@ -1495,6 +2114,23 @@
           }
         ],
         "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "responsesObject": {
           "201": {
             "description": "Created"
           },
@@ -1537,7 +2173,6 @@
             "description": "nachricht",
             "required": true,
             "schema": {
-              "originalRef": "Nachricht",
               "$ref": "#/definitions/Nachricht"
             }
           },
@@ -1556,56 +2191,101 @@
           "400": {
             "description": "Bad Request",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "401": {
             "description": "Unauthorized",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "403": {
             "description": "Forbidden",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "404": {
             "description": "Not Found",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "405": {
             "description": "Method Not Allowed",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "500": {
             "description": "Internal Server Error",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "502": {
             "description": "Bad Gateway",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "504": {
             "description": "Gateway Timeout",
             "schema": {
-              "originalRef": "Error",
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "responsesObject": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "405": {
+            "description": "Method Not Allowed",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "502": {
+            "description": "Bad Gateway",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "504": {
+            "description": "Gateway Timeout",
+            "schema": {
               "$ref": "#/definitions/Error"
             }
           }
@@ -1643,63 +2323,110 @@
           "200": {
             "description": "OK",
             "schema": {
-              "originalRef": "Partner",
               "$ref": "#/definitions/Partner"
             }
           },
           "400": {
             "description": "Bad Request",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "401": {
             "description": "Unauthorized",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "403": {
             "description": "Forbidden",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "404": {
             "description": "Not Found",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "405": {
             "description": "Method Not Allowed",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "500": {
             "description": "Internal Server Error",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "502": {
             "description": "Bad Gateway",
             "schema": {
-              "originalRef": "Error",
               "$ref": "#/definitions/Error"
             }
           },
           "504": {
             "description": "Gateway Timeout",
             "schema": {
-              "originalRef": "Error",
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "responsesObject": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Partner"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "405": {
+            "description": "Method Not Allowed",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "502": {
+            "description": "Bad Gateway",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "504": {
+            "description": "Gateway Timeout",
+            "schema": {
               "$ref": "#/definitions/Error"
             }
           }
@@ -1731,7 +2458,6 @@
             "description": "partnerDTO",
             "required": true,
             "schema": {
-              "originalRef": "PartnerDTO",
               "$ref": "#/definitions/PartnerDTO"
             }
           },
@@ -1744,6 +2470,23 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "responsesObject": {
           "200": {
             "description": "OK"
           },
@@ -1787,7 +2530,6 @@
         "abgesicherteRisiken": {
           "type": "array",
           "items": {
-            "originalRef": "RisikoAbsicherung",
             "$ref": "#/definitions/RisikoAbsicherung"
           }
         },
@@ -1820,7 +2562,6 @@
           "type": "string"
         },
         "versicherungsZeitraum": {
-          "originalRef": "VersicherungsZeitraum",
           "$ref": "#/definitions/VersicherungsZeitraum"
         }
       },
@@ -1835,7 +2576,6 @@
         "pruefungVorhandenerAbsicherungen": {
           "type": "array",
           "items": {
-            "originalRef": "PruefungVorhandenerAbsicherung",
             "$ref": "#/definitions/PruefungVorhandenerAbsicherung"
           }
         }
@@ -1851,7 +2591,6 @@
         "versicherungsWuensche": {
           "type": "array",
           "items": {
-            "originalRef": "VersicherungsWunsch",
             "$ref": "#/definitions/VersicherungsWunsch"
           }
         }
@@ -1862,25 +2601,21 @@
       "type": "object",
       "properties": {
         "_links": {
-          "originalRef": "Links",
           "$ref": "#/definitions/Links"
         },
         "absicherungen": {
           "type": "array",
           "items": {
-            "originalRef": "Absicherung",
             "$ref": "#/definitions/Absicherung"
           }
         },
         "bausparvertraege": {
           "type": "array",
           "items": {
-            "originalRef": "Bausparvertrag",
             "$ref": "#/definitions/Bausparvertrag"
           }
         },
         "beleihungsRechnung": {
-          "originalRef": "BeleihungsRechnung",
           "$ref": "#/definitions/BeleihungsRechnung"
         },
         "bewertungDesAngebots": {
@@ -1893,7 +2628,6 @@
         "darlehen": {
           "type": "array",
           "items": {
-            "originalRef": "Darlehen",
             "$ref": "#/definitions/Darlehen"
           }
         },
@@ -1916,7 +2650,6 @@
         "meldungen": {
           "type": "array",
           "items": {
-            "originalRef": "Meldung",
             "$ref": "#/definitions/Meldung"
           }
         },
@@ -1929,7 +2662,6 @@
         "pruefungsErgebnisse": {
           "type": "array",
           "items": {
-            "originalRef": "AngebotsPruefungsErgebnis",
             "$ref": "#/definitions/AngebotsPruefungsErgebnis"
           }
         },
@@ -1944,7 +2676,6 @@
       "type": "object",
       "properties": {
         "produktAnbieter": {
-          "originalRef": "ProduktAnbieter",
           "$ref": "#/definitions/ProduktAnbieter"
         },
         "weitereAngaben": {
@@ -1986,7 +2717,6 @@
           "type": "number"
         },
         "tilgungsWunsch": {
-          "originalRef": "TilgungsWunsch",
           "$ref": "#/definitions/TilgungsWunsch"
         },
         "zinsBindungInJahren": {
@@ -2000,13 +2730,11 @@
       "type": "object",
       "properties": {
         "_links": {
-          "originalRef": "PaginationLinks",
           "$ref": "#/definitions/PaginationLinks"
         },
         "antraege": {
           "type": "array",
           "items": {
-            "originalRef": "Antrag",
             "$ref": "#/definitions/Antrag"
           }
         }
@@ -2017,17 +2745,14 @@
       "type": "object",
       "properties": {
         "_links": {
-          "originalRef": "Links",
           "$ref": "#/definitions/Links"
         },
         "angebot": {
           "description": "Das angenommene Angebot, auf dem dieser Antrag basiert",
-          "originalRef": "Angebot",
           "$ref": "#/definitions/Angebot"
         },
         "ansprechpartner": {
           "description": "Für Rückfragen auf Seite des Vertriebs, kann mit dem Vermittler identisch sein",
-          "originalRef": "Partner",
           "$ref": "#/definitions/Partner"
         },
         "antragsNummer": {
@@ -2043,7 +2768,6 @@
         },
         "beratung": {
           "description": "Informationen zum Geschäftsabschluss",
-          "originalRef": "Beratung",
           "$ref": "#/definitions/Beratung"
         },
         "datenKontext": {
@@ -2058,27 +2782,22 @@
           "type": "array",
           "description": "Enthält alle Plattformdokumente, freigegebene Dokumente des Vertriebs, sowie die hochgeladenen Dokumente des Produktanbieters. **Aktuell sind nur Selbstauskunft und Kreditentscheidungsinformation enthalten.**",
           "items": {
-            "originalRef": "Dokument",
             "$ref": "#/definitions/Dokument"
           }
         },
         "kreditSachbearbeiter": {
           "description": "Gewählter Sachbearbeiter aus Seite des Kreditvertriebs",
-          "originalRef": "Partner",
           "$ref": "#/definitions/Partner"
         },
         "produktAnbieter": {
-          "originalRef": "ProduktAnbieter",
           "$ref": "#/definitions/ProduktAnbieter"
         },
         "status": {
           "description": "Bearbeitungsfortschritt des Antrags",
-          "originalRef": "AntragsStatus",
           "$ref": "#/definitions/AntragsStatus"
         },
         "vermittler": {
           "description": "Partner auf Seite des Vertriebs",
-          "originalRef": "Partner",
           "$ref": "#/definitions/Partner"
         },
         "zeitpunktDerAnnahme": {
@@ -2088,7 +2807,6 @@
         },
         "zugrundeliegendeDaten": {
           "description": "Basisdaten des Kunden, die für die Berechnung des Angebots relevant waren",
-          "originalRef": "ZugrundeliegendeDatenZumAntrag",
           "$ref": "#/definitions/ZugrundeliegendeDatenZumAntrag"
         }
       },
@@ -2164,7 +2882,6 @@
       "type": "object",
       "properties": {
         "absicherungsAngaben": {
-          "originalRef": "AbsicherungsAngaben",
           "$ref": "#/definitions/AbsicherungsAngaben"
         },
         "anrede": {
@@ -2175,7 +2892,6 @@
           ]
         },
         "anschrift": {
-          "originalRef": "Postadresse",
           "$ref": "#/definitions/Postadresse"
         },
         "arbeitserlaubnis": {
@@ -2204,7 +2920,6 @@
           "description": "wenn Aufenthaltstitel befristet"
         },
         "beschaeftigung": {
-          "originalRef": "Beschaeftigung",
           "$ref": "#/definitions/Beschaeftigung"
         },
         "bruttoJahresEinkommenErwartet": {
@@ -2214,7 +2929,6 @@
           "type": "number"
         },
         "dritteStaatsangehoerigkeit": {
-          "originalRef": "Staat",
           "$ref": "#/definitions/Staat"
         },
         "email": {
@@ -2241,7 +2955,6 @@
           "format": "date"
         },
         "geburtsland": {
-          "originalRef": "Staat",
           "$ref": "#/definitions/Staat"
         },
         "geburtsort": {
@@ -2260,21 +2973,18 @@
           "description": "wenn keine deutsche Staatsangehörigkeit"
         },
         "legitimationsDaten": {
-          "originalRef": "LegitimationsDaten",
           "$ref": "#/definitions/LegitimationsDaten"
         },
         "nachname": {
           "type": "string"
         },
         "schufaErgebnis": {
-          "originalRef": "SchufaErgebnis",
           "$ref": "#/definitions/SchufaErgebnis"
         },
         "sozialversicherungsnummer": {
           "type": "string"
         },
         "staatsangehoerigkeit": {
-          "originalRef": "Staat",
           "$ref": "#/definitions/Staat"
         },
         "steuerId": {
@@ -2303,7 +3013,6 @@
           "type": "boolean"
         },
         "vorAnschrift": {
-          "originalRef": "Postadresse",
           "$ref": "#/definitions/Postadresse"
         },
         "vorname": {
@@ -2317,7 +3026,6 @@
           "format": "date"
         },
         "zweiteStaatsangehoerigkeit": {
-          "originalRef": "Staat",
           "$ref": "#/definitions/Staat"
         }
       },
@@ -2351,7 +3059,6 @@
           "type": "number"
         },
         "berechnungsHilfeVermoegen": {
-          "originalRef": "BerechnungsHilfeBetrag",
           "$ref": "#/definitions/BerechnungsHilfeBetrag"
         },
         "zahlungsTyp": {
@@ -2481,13 +3188,11 @@
           "type": "string"
         },
         "produktAnbieter": {
-          "originalRef": "ProduktAnbieter",
           "$ref": "#/definitions/ProduktAnbieter"
         },
         "sonderZahlungen": {
           "type": "array",
           "items": {
-            "originalRef": "SonderZahlung",
             "$ref": "#/definitions/SonderZahlung"
           }
         },
@@ -2497,14 +3202,12 @@
           "description": "Der berechnete Beginn des Besparens des Bausparvertrags."
         },
         "sparPhase": {
-          "originalRef": "SparPhase",
           "$ref": "#/definitions/SparPhase"
         },
         "tarif": {
           "type": "string"
         },
         "tilgungsPhase": {
-          "originalRef": "TilgungsPhase",
           "$ref": "#/definitions/TilgungsPhase"
         },
         "typ": {
@@ -2540,7 +3243,6 @@
           "type": "array",
           "description": "siehe weitere Beschreibung unter Weitere Informationen -> Bezeichnung Bauspartarife",
           "items": {
-            "originalRef": "BausparTarif",
             "$ref": "#/definitions/BausparTarif"
           }
         },
@@ -2618,7 +3320,6 @@
           "type": "array",
           "description": "siehe weitere Beschreibung unter Weitere Informationen -> Bezeichnung Bauspartarife",
           "items": {
-            "originalRef": "BausparTarif",
             "$ref": "#/definitions/BausparTarif"
           }
         },
@@ -2642,7 +3343,6 @@
         "sonderZahlungen": {
           "type": "array",
           "items": {
-            "originalRef": "SonderZahlung",
             "$ref": "#/definitions/SonderZahlung"
           }
         },
@@ -2716,13 +3416,11 @@
           "type": "string"
         },
         "produktAnbieter": {
-          "originalRef": "ProduktAnbieter",
           "$ref": "#/definitions/ProduktAnbieter"
         },
         "sonderZahlungen": {
           "type": "array",
           "items": {
-            "originalRef": "SonderZahlung",
             "$ref": "#/definitions/SonderZahlung"
           }
         },
@@ -2732,7 +3430,6 @@
           "description": "Der berechnete Beginn des Besparens des Bausparvertrags."
         },
         "sparPhase": {
-          "originalRef": "SparPhase",
           "$ref": "#/definitions/SparPhase"
         },
         "tarif": {
@@ -2743,7 +3440,6 @@
           "description": "Produktanbieter-spezifische Tarif-ID des Bauspartarifs"
         },
         "tilgungsPhase": {
-          "originalRef": "TilgungsPhase",
           "$ref": "#/definitions/TilgungsPhase"
         },
         "typ": {
@@ -2777,7 +3473,6 @@
           "type": "array",
           "description": "Enthält die vom Produktanbieter anerkannten Beleihungswerte",
           "items": {
-            "originalRef": "BeleihungsWert",
             "$ref": "#/definitions/BeleihungsWert"
           }
         },
@@ -2786,7 +3481,6 @@
           "description": "Berechnungshilfe: Die Summe aller vom Produktanbieter anerkannten Beleihungswerte"
         },
         "produktAnbieter": {
-          "originalRef": "ProduktAnbieter",
           "$ref": "#/definitions/ProduktAnbieter"
         }
       },
@@ -2796,18 +3490,15 @@
       "type": "object",
       "properties": {
         "adresse": {
-          "originalRef": "Postadresse",
           "$ref": "#/definitions/Postadresse"
         },
         "beleihungsWert": {
           "type": "number"
         },
         "immobilie": {
-          "originalRef": "ImmobilieVerknuepfung",
           "$ref": "#/definitions/ImmobilieVerknuepfung"
         },
         "produktAnbieter": {
-          "originalRef": "ProduktAnbieter",
           "$ref": "#/definitions/ProduktAnbieter"
         }
       },
@@ -2877,7 +3568,6 @@
         },
         "arbeitgeberLand": {
           "description": "nur bei arbeitgeberInDeutschlandAnsaessig==false",
-          "originalRef": "Staat",
           "$ref": "#/definitions/Staat"
         },
         "art": {
@@ -2954,7 +3644,6 @@
         },
         "situationNachRenteneintritt": {
           "description": "nur bei art!=RENTNER",
-          "originalRef": "SituationNachRenteneintritt",
           "$ref": "#/definitions/SituationNachRenteneintritt"
         },
         "taetigkeit": {
@@ -3021,20 +3710,17 @@
       "type": "object",
       "properties": {
         "adresse": {
-          "originalRef": "Postadresse",
           "$ref": "#/definitions/Postadresse"
         },
         "autostellplaetze": {
           "type": "array",
           "items": {
-            "originalRef": "Autostellplatz",
             "$ref": "#/definitions/Autostellplatz"
           }
         },
         "bestehendeDarlehen": {
           "type": "array",
           "items": {
-            "originalRef": "BestehendesDarlehen",
             "$ref": "#/definitions/BestehendesDarlehen"
           }
         },
@@ -3069,23 +3755,18 @@
           ]
         },
         "effektivZinsErhoehendeKosten": {
-          "originalRef": "EffektivZinsErhoehendeKosten",
           "$ref": "#/definitions/EffektivZinsErhoehendeKosten"
         },
         "erbbaurecht": {
-          "originalRef": "Erbbaurecht",
           "$ref": "#/definitions/Erbbaurecht"
         },
         "gebaeude": {
-          "originalRef": "Gebaeude",
           "$ref": "#/definitions/Gebaeude"
         },
         "grundbuchAngabe": {
-          "originalRef": "GrundbuchAngabe",
           "$ref": "#/definitions/GrundbuchAngabe"
         },
         "grundstueck": {
-          "originalRef": "Grundstueck",
           "$ref": "#/definitions/Grundstueck"
         },
         "id": {
@@ -3177,13 +3858,11 @@
           "type": "number"
         },
         "produktAnbieter": {
-          "originalRef": "ProduktAnbieter",
           "$ref": "#/definitions/ProduktAnbieter"
         },
         "sonderZahlungen": {
           "type": "array",
           "items": {
-            "originalRef": "SonderZahlung",
             "$ref": "#/definitions/SonderZahlung"
           }
         },
@@ -3264,7 +3943,6 @@
           "type": "number"
         },
         "darlehensGeber": {
-          "originalRef": "ProduktAnbieter",
           "$ref": "#/definitions/ProduktAnbieter"
         },
         "darlehensKontonummer": {
@@ -3328,7 +4006,6 @@
           "type": "number"
         },
         "darlehensGeber": {
-          "originalRef": "ProduktAnbieter",
           "$ref": "#/definitions/ProduktAnbieter"
         },
         "darlehensKontonummer": {
@@ -3397,7 +4074,6 @@
         },
         "bereitstellung": {
           "description": "nicht bei darlehensTyp==PRIVAT_DARLEHEN",
-          "originalRef": "Bereitstellung",
           "$ref": "#/definitions/Bereitstellung"
         },
         "darlehensBetrag": {
@@ -3424,7 +4100,6 @@
           "type": "number"
         },
         "effektivZinsRelevanteKosten": {
-          "originalRef": "EffektivZinsKosten",
           "$ref": "#/definitions/EffektivZinsKosten"
         },
         "forwardPeriodeInMonaten": {
@@ -3518,7 +4193,6 @@
           "description": "nur bei darlehensTyp==ZWISCHEN_FINANZIERUNG. Deprecated. Aktuell ist die Information in gesamtlaufzeitInMonaten zu finden."
         },
         "produktAnbieter": {
-          "originalRef": "ProduktAnbieter",
           "$ref": "#/definitions/ProduktAnbieter"
         },
         "rateMonatlich": {
@@ -3552,7 +4226,6 @@
         },
         "tilgung": {
           "description": "nicht bei darlehensTyp==ZWISCHEN_FINANZIERUNG",
-          "originalRef": "Tilgung",
           "$ref": "#/definitions/Tilgung"
         },
         "tilgungsFreieAnlaufJahre": {
@@ -3578,7 +4251,6 @@
         },
         "zinsBindung": {
           "description": "nicht bei darlehensTyp IN [VARIABLES_DARLEHEN,ZWISCHEN_FINANZIERUNG]",
-          "originalRef": "ZinsBindung",
           "$ref": "#/definitions/ZinsBindung"
         },
         "zinsZahlungsBeginnAm": {
@@ -3608,7 +4280,6 @@
         },
         "bereitstellung": {
           "description": "nicht bei darlehensTyp==PRIVAT_DARLEHEN",
-          "originalRef": "Bereitstellung",
           "$ref": "#/definitions/Bereitstellung"
         },
         "darlehensBetrag": {
@@ -3635,7 +4306,6 @@
           "type": "number"
         },
         "effektivZinsRelevanteKosten": {
-          "originalRef": "EffektivZinsKosten",
           "$ref": "#/definitions/EffektivZinsKosten"
         },
         "forwardPeriodeInMonaten": {
@@ -3729,7 +4399,6 @@
           "description": "nur bei darlehensTyp==ZWISCHEN_FINANZIERUNG. Deprecated. Aktuell ist die Information in gesamtlaufzeitInMonaten zu finden."
         },
         "produktAnbieter": {
-          "originalRef": "ProduktAnbieter",
           "$ref": "#/definitions/ProduktAnbieter"
         },
         "rateMonatlich": {
@@ -3763,7 +4432,6 @@
         },
         "tilgung": {
           "description": "nicht bei darlehensTyp==ZWISCHEN_FINANZIERUNG",
-          "originalRef": "Tilgung",
           "$ref": "#/definitions/Tilgung"
         },
         "tilgungsFreieAnlaufJahre": {
@@ -3789,7 +4457,6 @@
         },
         "zinsBindung": {
           "description": "nicht bei darlehensTyp IN [VARIABLES_DARLEHEN,ZWISCHEN_FINANZIERUNG]",
-          "originalRef": "ZinsBindung",
           "$ref": "#/definitions/ZinsBindung"
         },
         "zinsZahlungsBeginnAm": {
@@ -3804,17 +4471,14 @@
       "properties": {
         "annuitaetenDarlehen": {
           "description": "muss leer sein, wenn eines der anderen Attribute gefüllt ist",
-          "originalRef": "AnnuitaetenDarlehensWunsch",
           "$ref": "#/definitions/AnnuitaetenDarlehensWunsch"
         },
         "bausparDarlehen": {
           "description": "muss leer sein, wenn eines der anderen Attribute gefüllt ist",
-          "originalRef": "BausparDarlehensWunsch",
           "$ref": "#/definitions/BausparDarlehensWunsch"
         },
         "forwardDarlehen": {
           "description": "muss leer sein, wenn eines der anderen Attribute gefüllt ist",
-          "originalRef": "ForwardDarlehensWunsch",
           "$ref": "#/definitions/ForwardDarlehensWunsch"
         },
         "id": {
@@ -3822,27 +4486,22 @@
         },
         "kfwDarlehen": {
           "description": "muss leer sein, wenn eines der anderen Attribute gefüllt ist",
-          "originalRef": "KfwDarlehensWunsch",
           "$ref": "#/definitions/KfwDarlehensWunsch"
         },
         "privatDarlehen": {
           "description": "muss leer sein, wenn eines der anderen Attribute gefüllt ist",
-          "originalRef": "PrivatDarlehensWunsch",
           "$ref": "#/definitions/PrivatDarlehensWunsch"
         },
         "regionalFoerderDarlehen": {
           "description": "muss leer sein, wenn eines der anderen Attribute gefüllt ist",
-          "originalRef": "RegionalFoerderDarlehensWunsch",
           "$ref": "#/definitions/RegionalFoerderDarlehensWunsch"
         },
         "variablesDarlehen": {
           "description": "muss leer sein, wenn eines der anderen Attribute gefüllt ist",
-          "originalRef": "VariablesDarlehensWunsch",
           "$ref": "#/definitions/VariablesDarlehensWunsch"
         },
         "zwischenFinanzierung": {
           "description": "muss leer sein, wenn eines der anderen Attribute gefüllt ist",
-          "originalRef": "ZwischenFinanzierungsWunsch",
           "$ref": "#/definitions/ZwischenFinanzierungsWunsch"
         }
       },
@@ -4122,13 +4781,11 @@
           "type": "string"
         },
         "produktAnbieter": {
-          "originalRef": "ProduktAnbieter",
           "$ref": "#/definitions/ProduktAnbieter"
         },
         "sonderZahlungen": {
           "type": "array",
           "items": {
-            "originalRef": "SonderZahlung",
             "$ref": "#/definitions/SonderZahlung"
           }
         },
@@ -4138,7 +4795,6 @@
           "description": "Der berechnete Beginn des Besparens des Bausparvertrags."
         },
         "sparPhase": {
-          "originalRef": "SparPhase",
           "$ref": "#/definitions/SparPhase"
         },
         "tarif": {
@@ -4149,7 +4805,6 @@
           "description": "Produktanbieter-spezifische Tarif-ID des Bauspartarifs"
         },
         "tilgungsPhase": {
-          "originalRef": "TilgungsPhase",
           "$ref": "#/definitions/TilgungsPhase"
         },
         "typ": {
@@ -4253,20 +4908,17 @@
       "type": "object",
       "properties": {
         "adresse": {
-          "originalRef": "Postadresse",
           "$ref": "#/definitions/Postadresse"
         },
         "autostellplaetze": {
           "type": "array",
           "items": {
-            "originalRef": "Autostellplatz",
             "$ref": "#/definitions/Autostellplatz"
           }
         },
         "bestehendeDarlehen": {
           "type": "array",
           "items": {
-            "originalRef": "BestehendesDarlehenDesFinanzierungsObjekts",
             "$ref": "#/definitions/BestehendesDarlehenDesFinanzierungsObjekts"
           }
         },
@@ -4298,23 +4950,18 @@
           ]
         },
         "effektivZinsErhoehendeKosten": {
-          "originalRef": "EffektivZinsErhoehendeKosten",
           "$ref": "#/definitions/EffektivZinsErhoehendeKosten"
         },
         "erbbaurecht": {
-          "originalRef": "Erbbaurecht",
           "$ref": "#/definitions/Erbbaurecht"
         },
         "gebaeude": {
-          "originalRef": "Gebaeude",
           "$ref": "#/definitions/Gebaeude"
         },
         "grundbuchAngabe": {
-          "originalRef": "GrundbuchAngabe",
           "$ref": "#/definitions/GrundbuchAngabe"
         },
         "grundstueck": {
-          "originalRef": "Grundstueck",
           "$ref": "#/definitions/Grundstueck"
         },
         "id": {
@@ -4367,13 +5014,11 @@
       "type": "object",
       "properties": {
         "_links": {
-          "originalRef": "Links",
           "$ref": "#/definitions/Links"
         },
         "finanzierungsvorschlaege": {
           "type": "array",
           "items": {
-            "originalRef": "Finanzierungsvorschlag",
             "$ref": "#/definitions/Finanzierungsvorschlag"
           }
         }
@@ -4384,7 +5029,6 @@
       "type": "object",
       "properties": {
         "_links": {
-          "originalRef": "Links",
           "$ref": "#/definitions/Links"
         },
         "annahmeFrist": {
@@ -4396,20 +5040,17 @@
           "type": "array",
           "description": "Liste von allen Bausparverträgen, die Bestandteil dieses Finanzierungsvorschlags sind.",
           "items": {
-            "originalRef": "EuropaceBausparAngebot",
             "$ref": "#/definitions/EuropaceBausparAngebot"
           }
         },
         "beleihung": {
           "example": "Die Beleihungsrechnung aller Immobilien, die Bestandteil dieses Finanzierungsvorschlags sind.",
-          "originalRef": "BeleihungsRechnung",
           "$ref": "#/definitions/BeleihungsRechnung"
         },
         "darlehen": {
           "type": "array",
           "description": "Liste von allen Darlehen, die Bestandteil dieses Finanzierungsvorschlags sind.",
           "items": {
-            "originalRef": "Darlehen0",
             "$ref": "#/definitions/Darlehen0"
           }
         },
@@ -4427,7 +5068,6 @@
           "type": "array",
           "description": "Historie, in der für jedes Aushändigen, ein Eintrag mit Datum und Akteur ausgegeben wird.",
           "items": {
-            "originalRef": "FinanzierungsvorschlagHistorienEintrag",
             "$ref": "#/definitions/FinanzierungsvorschlagHistorienEintrag"
           }
         },
@@ -4483,14 +5123,12 @@
         "bausparWuensche": {
           "type": "array",
           "items": {
-            "originalRef": "BausparWunsch",
             "$ref": "#/definitions/BausparWunsch"
           }
         },
         "darlehensWuensche": {
           "type": "array",
           "items": {
-            "originalRef": "DarlehensWunsch",
             "$ref": "#/definitions/DarlehensWunsch"
           }
         },
@@ -4504,7 +5142,6 @@
       "type": "object",
       "properties": {
         "anteil": {
-          "originalRef": "MiteigentumsAnteil",
           "$ref": "#/definitions/MiteigentumsAnteil"
         },
         "flur": {
@@ -4545,7 +5182,6 @@
           "type": "number"
         },
         "tilgungsWunsch": {
-          "originalRef": "TilgungsWunsch",
           "$ref": "#/definitions/TilgungsWunsch"
         },
         "zinsBindungInJahren": {
@@ -4619,7 +5255,6 @@
           "type": "boolean"
         },
         "energieEffizienzAusweis": {
-          "originalRef": "EnergieEffizienzAusweis",
           "$ref": "#/definitions/EnergieEffizienzAusweis"
         },
         "geschossLage": {
@@ -4635,7 +5270,6 @@
           ]
         },
         "gewerbeflaeche": {
-          "originalRef": "GebaeudeFlaeche",
           "$ref": "#/definitions/GebaeudeFlaeche"
         },
         "hausAnordnung": {
@@ -4671,11 +5305,9 @@
           "type": "number"
         },
         "miteigentumsAnteil": {
-          "originalRef": "MiteigentumsAnteil",
           "$ref": "#/definitions/MiteigentumsAnteil"
         },
         "modernisierungsAngaben": {
-          "originalRef": "ModernisierungsAngaben",
           "$ref": "#/definitions/ModernisierungsAngaben"
         },
         "unterkellerung": {
@@ -4687,7 +5319,6 @@
           ]
         },
         "wohnflaeche": {
-          "originalRef": "GebaeudeFlaeche",
           "$ref": "#/definitions/GebaeudeFlaeche"
         },
         "zustand": {
@@ -4710,7 +5341,6 @@
           "type": "number"
         },
         "vermietungsInformationen": {
-          "originalRef": "VermietungsInformationen",
           "$ref": "#/definitions/VermietungsInformationen"
         }
       },
@@ -4720,13 +5350,11 @@
       "type": "object",
       "properties": {
         "_links": {
-          "originalRef": "Links",
           "$ref": "#/definitions/Links"
         },
         "gemerkteAngeboteExperimentell": {
           "type": "array",
           "items": {
-            "originalRef": "Angebot",
             "$ref": "#/definitions/Angebot"
           }
         }
@@ -4750,7 +5378,6 @@
         "flurstuecke": {
           "type": "array",
           "items": {
-            "originalRef": "Flurstueck",
             "$ref": "#/definitions/Flurstueck"
           }
         },
@@ -4760,7 +5387,6 @@
         },
         "rechteInAbteilung2": {
           "description": "Belastungen und Beschränkungen in der Nutzbarkeit des Grundstücks. Leitungsrechte, Verzichte auf Abstandsflächen, Wegerechte, Insolvenzvermerke.",
-          "originalRef": "RechteAbteilung2",
           "$ref": "#/definitions/RechteAbteilung2"
         }
       },
@@ -4791,7 +5417,6 @@
         "antragsteller": {
           "type": "array",
           "items": {
-            "originalRef": "Antragsteller",
             "$ref": "#/definitions/Antragsteller"
           }
         },
@@ -4806,7 +5431,6 @@
         "bestehendeImmobilien": {
           "type": "array",
           "items": {
-            "originalRef": "BestehendeImmobilie",
             "$ref": "#/definitions/BestehendeImmobilie"
           }
         },
@@ -4823,7 +5447,6 @@
         "kinder": {
           "type": "array",
           "items": {
-            "originalRef": "Kind",
             "$ref": "#/definitions/Kind"
           }
         },
@@ -4832,11 +5455,9 @@
         },
         "obligo": {
           "description": "Diese Angabe ist produktanbieterspezifisch, sie wird nicht von allen Produktanbietern bei der Angebotsermittlung berücksichtigt.",
-          "originalRef": "VermoegenVerbindlichkeiten",
           "$ref": "#/definitions/VermoegenVerbindlichkeiten"
         },
         "positionen": {
-          "originalRef": "HaushaltsPositionen",
           "$ref": "#/definitions/HaushaltsPositionen"
         }
       },
@@ -4848,28 +5469,24 @@
         "bankUndSparguthaben": {
           "type": "array",
           "items": {
-            "originalRef": "BankUndSparguthaben",
             "$ref": "#/definitions/BankUndSparguthaben"
           }
         },
         "bausparvertraege": {
           "type": "array",
           "items": {
-            "originalRef": "BestehenderBausparvertrag",
             "$ref": "#/definitions/BestehenderBausparvertrag"
           }
         },
         "ehegattenUnterhalt": {
           "type": "array",
           "items": {
-            "originalRef": "EinnahmenMonatlich",
             "$ref": "#/definitions/EinnahmenMonatlich"
           }
         },
         "einkuenfteAusNebentaetigkeit": {
           "type": "array",
           "items": {
-            "originalRef": "EinkuenfteAusNebentaetigkeit",
             "$ref": "#/definitions/EinkuenfteAusNebentaetigkeit"
           }
         },
@@ -4877,112 +5494,96 @@
           "type": "array",
           "description": "Read-Only-Feld. Wird dynamisch aus den Angaben zu den Kindern berechnet. Pro kindergelderhaltendem Kind ein Listenelement.",
           "items": {
-            "originalRef": "EinnahmenMonatlich",
             "$ref": "#/definitions/EinnahmenMonatlich"
           }
         },
         "lebensUndRentenVersicherungen": {
           "type": "array",
           "items": {
-            "originalRef": "LebensOderRentenversicherungVermoegen",
             "$ref": "#/definitions/LebensOderRentenversicherungVermoegen"
           }
         },
         "mietAusgaben": {
           "type": "array",
           "items": {
-            "originalRef": "MietAusgaben",
             "$ref": "#/definitions/MietAusgaben"
           }
         },
         "privateDarlehen": {
           "type": "array",
           "items": {
-            "originalRef": "Verbindlichkeit",
             "$ref": "#/definitions/Verbindlichkeit"
           }
         },
         "privateKrankenversicherung": {
           "type": "array",
           "items": {
-            "originalRef": "AusgabenMonatlich",
             "$ref": "#/definitions/AusgabenMonatlich"
           }
         },
         "ratenkredite": {
           "type": "array",
           "items": {
-            "originalRef": "Verbindlichkeit",
             "$ref": "#/definitions/Verbindlichkeit"
           }
         },
         "sonstigeAusgaben": {
           "type": "array",
           "items": {
-            "originalRef": "AusgabenMonatlich",
             "$ref": "#/definitions/AusgabenMonatlich"
           }
         },
         "sonstigeEinnahmen": {
           "type": "array",
           "items": {
-            "originalRef": "EinnahmenMonatlich",
             "$ref": "#/definitions/EinnahmenMonatlich"
           }
         },
         "sonstigeVerbindlichkeiten": {
           "type": "array",
           "items": {
-            "originalRef": "Verbindlichkeit",
             "$ref": "#/definitions/Verbindlichkeit"
           }
         },
         "sonstigeVermoegen": {
           "type": "array",
           "items": {
-            "originalRef": "Vermoegen",
             "$ref": "#/definitions/Vermoegen"
           }
         },
         "sparplaene": {
           "type": "array",
           "items": {
-            "originalRef": "Sparplaene",
             "$ref": "#/definitions/Sparplaene"
           }
         },
         "unbefristeteZusatzRenten": {
           "type": "array",
           "items": {
-            "originalRef": "EinnahmenMonatlich",
             "$ref": "#/definitions/EinnahmenMonatlich"
           }
         },
         "unterhaltsVerpflichtungen": {
           "type": "array",
           "items": {
-            "originalRef": "AusgabenMonatlich",
             "$ref": "#/definitions/AusgabenMonatlich"
           }
         },
         "variableEinkuenfte": {
           "type": "array",
           "items": {
-            "originalRef": "EinnahmenMonatlich",
             "$ref": "#/definitions/EinnahmenMonatlich"
           }
         },
         "versicherungsAusgaben": {
           "type": "array",
           "items": {
-            "originalRef": "AusgabenMonatlich",
             "$ref": "#/definitions/AusgabenMonatlich"
           }
         },
         "wertpapiere": {
           "type": "array",
           "items": {
-            "originalRef": "Wertpapiere",
             "$ref": "#/definitions/Wertpapiere"
           }
         }
@@ -5079,7 +5680,6 @@
         },
         "tilgungsWunsch": {
           "description": "Für endfällige KfW-Darlehen wird ein Tilgungswunsch erfasst",
-          "originalRef": "TilgungsWunsch",
           "$ref": "#/definitions/TilgungsWunsch"
         },
         "tilgungsfreieAnlaufjahre": {
@@ -5254,7 +5854,6 @@
       "type": "object",
       "properties": {
         "self": {
-          "originalRef": "Link",
           "$ref": "#/definitions/Link"
         }
       },
@@ -5283,11 +5882,9 @@
           ]
         },
         "kreditEntscheider": {
-          "originalRef": "ProduktAnbieter",
           "$ref": "#/definitions/ProduktAnbieter"
         },
         "produktAnbieter": {
-          "originalRef": "ProduktAnbieter",
           "$ref": "#/definitions/ProduktAnbieter"
         },
         "text": {
@@ -5303,7 +5900,6 @@
           "type": "number"
         },
         "berechnungsHilfeVermoegen": {
-          "originalRef": "BerechnungsHilfeBetrag",
           "$ref": "#/definitions/BerechnungsHilfeBetrag"
         },
         "entfallenMitFinanzierung": {
@@ -5410,7 +6006,6 @@
           ]
         },
         "zinsBindung": {
-          "originalRef": "ZinsBindung",
           "$ref": "#/definitions/ZinsBindung"
         }
       },
@@ -5435,15 +6030,12 @@
       "type": "object",
       "properties": {
         "next": {
-          "originalRef": "Link",
           "$ref": "#/definitions/Link"
         },
         "prev": {
-          "originalRef": "Link",
           "$ref": "#/definitions/Link"
         },
         "self": {
-          "originalRef": "Link",
           "$ref": "#/definitions/Link"
         }
       },
@@ -5453,7 +6045,6 @@
       "type": "object",
       "properties": {
         "_links": {
-          "originalRef": "Links",
           "$ref": "#/definitions/Links"
         },
         "anrede": {
@@ -5464,7 +6055,6 @@
           ]
         },
         "anschrift": {
-          "originalRef": "Postadresse",
           "$ref": "#/definitions/Postadresse"
         },
         "email": {
@@ -5508,7 +6098,6 @@
           "type": "string"
         },
         "vertriebsOrganisation": {
-          "originalRef": "VertriebsOrganisation",
           "$ref": "#/definitions/VertriebsOrganisation"
         },
         "vorname": {
@@ -5532,7 +6121,6 @@
           ]
         },
         "anschrift": {
-          "originalRef": "Postadresse",
           "$ref": "#/definitions/Postadresse"
         },
         "email": {
@@ -5576,7 +6164,6 @@
           "type": "string"
         },
         "vertriebsOrganisation": {
-          "originalRef": "VertriebsOrganisation",
           "$ref": "#/definitions/VertriebsOrganisation"
         },
         "vorname": {
@@ -5655,7 +6242,6 @@
       "type": "object",
       "properties": {
         "tilgungssatzwechselPraeferenz": {
-          "originalRef": "TilgungssatzwechselPraeferenz",
           "$ref": "#/definitions/TilgungssatzwechselPraeferenz"
         }
       },
@@ -5688,7 +6274,6 @@
           ]
         },
         "anschrift": {
-          "originalRef": "Postadresse",
           "$ref": "#/definitions/Postadresse"
         },
         "email": {
@@ -5735,7 +6320,6 @@
           "type": "string"
         },
         "vertriebsOrganisation": {
-          "originalRef": "VertriebsOrganisation",
           "$ref": "#/definitions/VertriebsOrganisation"
         },
         "vorname": {
@@ -5898,23 +6482,18 @@
       "type": "object",
       "properties": {
         "antraege": {
-          "originalRef": "Link",
           "$ref": "#/definitions/Link"
         },
         "ereignisse": {
-          "originalRef": "Link",
           "$ref": "#/definitions/Link"
         },
         "finanzierungsvorschlaege": {
-          "originalRef": "Link",
           "$ref": "#/definitions/Link"
         },
         "gemerkteAngebote": {
-          "originalRef": "Link",
           "$ref": "#/definitions/Link"
         },
         "self": {
-          "originalRef": "Link",
           "$ref": "#/definitions/Link"
         }
       },
@@ -6119,7 +6698,6 @@
         },
         "tilgungsErsatz": {
           "description": "nicht bei PRIVAT_DARLEHEN",
-          "originalRef": "TilgungsErsatz",
           "$ref": "#/definitions/TilgungsErsatz"
         }
       },
@@ -6174,7 +6752,6 @@
           "description": "muss leer sein, wenn eines der anderen Attribute gefüllt ist"
         },
         "bausparWunsch": {
-          "originalRef": "BausparWunsch",
           "$ref": "#/definitions/BausparWunsch"
         },
         "rate": {
@@ -6226,7 +6803,6 @@
           "type": "number"
         },
         "tilgungsWunsch": {
-          "originalRef": "TilgungsWunsch",
           "$ref": "#/definitions/TilgungsWunsch"
         }
       },
@@ -6355,7 +6931,6 @@
         "vermoegenOderVerbindlichkeiten": {
           "type": "array",
           "items": {
-            "originalRef": "VermoegenVerbindlichkeit",
             "$ref": "#/definitions/VermoegenVerbindlichkeit"
           }
         }
@@ -6389,7 +6964,6 @@
         "risikoAbsicherungsWuensche": {
           "type": "array",
           "items": {
-            "originalRef": "RisikoAbsicherungsWunsch",
             "$ref": "#/definitions/RisikoAbsicherungsWunsch"
           }
         },
@@ -6450,13 +7024,11 @@
       "type": "object",
       "properties": {
         "_links": {
-          "originalRef": "PaginationLinks",
           "$ref": "#/definitions/PaginationLinks"
         },
         "vorgaenge": {
           "type": "array",
           "items": {
-            "originalRef": "VorgaengeResourceListItem",
             "$ref": "#/definitions/VorgaengeResourceListItem"
           }
         }
@@ -6467,7 +7039,6 @@
       "type": "object",
       "properties": {
         "_links": {
-          "originalRef": "Links",
           "$ref": "#/definitions/Links"
         },
         "datenKontext": {
@@ -6498,18 +7069,15 @@
       "type": "object",
       "properties": {
         "_links": {
-          "originalRef": "SelfRelAndEreignisse",
           "$ref": "#/definitions/SelfRelAndEreignisse"
         },
         "antraege": {
           "type": "array",
           "items": {
-            "originalRef": "Links",
             "$ref": "#/definitions/Links"
           }
         },
         "archivierung": {
-          "originalRef": "Archivierung",
           "$ref": "#/definitions/Archivierung"
         },
         "aufbewahrungBis": {
@@ -6518,7 +7086,6 @@
           "description": "Datum, bis wann dieser Vorgang nach DSGVO aufbewahrt werden muss. Nach diesem Datum wird der Vorgang automatisch gelöscht."
         },
         "bankverbindung": {
-          "originalRef": "Bankverbindung",
           "$ref": "#/definitions/Bankverbindung"
         },
         "datenKontext": {
@@ -6536,7 +7103,6 @@
           "type": "string"
         },
         "finanzierungsObjekt": {
-          "originalRef": "FinanzierungsObjekt",
           "$ref": "#/definitions/FinanzierungsObjekt"
         },
         "geschlossenAm": {
@@ -6546,7 +7112,6 @@
         "haushalte": {
           "type": "array",
           "items": {
-            "originalRef": "Haushalt",
             "$ref": "#/definitions/Haushalt"
           }
         },
@@ -6554,11 +7119,9 @@
           "type": "string"
         },
         "kundenBetreuer": {
-          "originalRef": "Partner",
           "$ref": "#/definitions/Partner"
         },
         "leadTracking": {
-          "originalRef": "LeadTracking",
           "$ref": "#/definitions/LeadTracking"
         },
         "letztesEreignis": {
@@ -6569,7 +7132,6 @@
           "type": "string"
         },
         "praeferenzen": {
-          "originalRef": "Praeferenzen",
           "$ref": "#/definitions/Praeferenzen"
         },
         "prioritaet": {
@@ -6586,18 +7148,15 @@
           "description": "Status des Vorgangs, Werte: [AKTIV,ARCHIVIERT]"
         },
         "tippGeber": {
-          "originalRef": "Partner0",
           "$ref": "#/definitions/Partner0"
         },
         "vorgangsBearbeiter": {
-          "originalRef": "Partner",
           "$ref": "#/definitions/Partner"
         },
         "vorgangsNummer": {
           "type": "string"
         },
         "vorhaben": {
-          "originalRef": "Vorhaben",
           "$ref": "#/definitions/Vorhaben"
         }
       },
@@ -6607,7 +7166,6 @@
       "type": "object",
       "properties": {
         "absicherungswunsch": {
-          "originalRef": "Absicherungswunsch",
           "$ref": "#/definitions/Absicherungswunsch"
         },
         "eigenleistungWennNeubauOderModernisierungsmassnahmen": {
@@ -6630,16 +7188,13 @@
         "externeBausparAngebote": {
           "type": "array",
           "items": {
-            "originalRef": "BausparAngebot",
             "$ref": "#/definitions/BausparAngebot"
           }
         },
         "finanzbedarf": {
-          "originalRef": "Finanzbedarf",
           "$ref": "#/definitions/Finanzbedarf"
         },
         "finanzierungswunsch": {
-          "originalRef": "Finanzierungswunsch",
           "$ref": "#/definitions/Finanzierungswunsch"
         },
         "geplanteEnergie": {
@@ -6659,7 +7214,6 @@
         "nachrangigeExterneDarlehen": {
           "type": "array",
           "items": {
-            "originalRef": "NachrangigesExternesDarlehen",
             "$ref": "#/definitions/NachrangigesExternesDarlehen"
           }
         },
@@ -6726,13 +7280,11 @@
       "type": "object",
       "properties": {
         "_links": {
-          "originalRef": "Links",
           "$ref": "#/definitions/Links"
         },
         "zahlungsplaene": {
           "type": "array",
           "items": {
-            "originalRef": "Zahlungsplan",
             "$ref": "#/definitions/Zahlungsplan"
           }
         }
@@ -6744,7 +7296,6 @@
       "type": "object",
       "properties": {
         "gesamtSumme": {
-          "originalRef": "Eintrag",
           "$ref": "#/definitions/Eintrag"
         },
         "identifier": {
@@ -6753,7 +7304,6 @@
         "zahlungen": {
           "type": "array",
           "items": {
-            "originalRef": "Eintrag",
             "$ref": "#/definitions/Eintrag"
           }
         }
@@ -6786,26 +7336,21 @@
       "type": "object",
       "properties": {
         "_links": {
-          "originalRef": "Links",
           "$ref": "#/definitions/Links"
         },
         "bankverbindung": {
-          "originalRef": "Bankverbindung",
           "$ref": "#/definitions/Bankverbindung"
         },
         "finanzierungsObjekt": {
-          "originalRef": "FinanzierungsObjekt",
           "$ref": "#/definitions/FinanzierungsObjekt"
         },
         "haushalte": {
           "type": "array",
           "items": {
-            "originalRef": "Haushalt",
             "$ref": "#/definitions/Haushalt"
           }
         },
         "vorhaben": {
-          "originalRef": "Vorhaben",
           "$ref": "#/definitions/Vorhaben"
         }
       },
