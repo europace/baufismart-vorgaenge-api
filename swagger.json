@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "description": "Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen werden.",
-    "version": "2.46",
+    "version": "2.47",
     "title": "Vorgänge API",
     "contact": {
       "name": "Europace AG",
@@ -2206,6 +2206,9 @@
             "STELLPLATZ",
             "TIEFGARAGEN_STELLPLATZ"
           ]
+        },
+        "vermietet": {
+          "type": "boolean"
         }
       },
       "title": "Autostellplatz"
