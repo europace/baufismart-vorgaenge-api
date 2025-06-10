@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "description": "Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen werden.",
-    "version": "2.47",
+    "version": "2.48",
     "title": "Vorgänge API",
     "contact": {
       "name": "Europace AG",
@@ -2877,6 +2877,9 @@
         },
         "effektivZinsErhoehendeKosten": {
           "$ref": "#/definitions/EffektivZinsErhoehendeKosten"
+        },
+        "einzusetzenderBetragBeiEinsatzAlsZusatzsicherheit": {
+          "type": "number"
         },
         "erbbaurecht": {
           "$ref": "#/definitions/Erbbaurecht"
