@@ -10,7 +10,7 @@ As an advisor, I can use Vorgaenge API to read all the data from my cases and ge
 [![Pattern](https://img.shields.io/badge/Pattern-Tolerant%20Reader-yellowgreen)](https://martinfowler.com/bliki/TolerantReader.html)
 
 ## Documentation
-[![YAML](https://img.shields.io/badge/OAS-HTML_Doc-lightblue)](https://europace.github.io/baufismart-vorgaenge-api/docs/index.html)
+[![YAML](https://img.shields.io/badge/OAS-HTML_Doc-lightblue)](https://europace.github.io/baufismart-vorgaenge-api/reference/index.html)
 [![YAML](https://img.shields.io/badge/OAS-YAML-lightgrey)](https://raw.githubusercontent.com/europace/baufismart-vorgaenge-api/master/swagger.yaml)
 [![YAML](https://img.shields.io/badge/OAS-JSON-lightgrey)](https://raw.githubusercontent.com/europace/baufismart-vorgaenge-api/master/swagger.json)
 
