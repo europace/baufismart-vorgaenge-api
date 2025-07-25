@@ -45,7 +45,7 @@ Requirements:
 
 example-request:
 ``` http
-GET /v2/vorgaenge/CH6407 HTTP/1.1
+GET /v3/vorgaenge/CH6407 HTTP/1.1
 Host: api.europace2.de
 Content-Type: application/json
 Authorization: Bearer {{access-token}} 
@@ -70,7 +70,7 @@ example-response:
   "vorgangsBearbeiter": { ... }
 }
 ```
-For the full model [see API-Specification](https://europace.github.io/baufismart-vorgaenge-api/docs/index.html#get-/v2/vorgaenge/-vorgangsNummer-)
+For the full model [see API-Specification](https://europace.github.io/baufismart-vorgaenge-api/docs/index.html#get-/v3/vorgaenge/-vorgangsNummer-)
 
 ### Get last changed cases
 
@@ -81,7 +81,7 @@ Requirements:
 
 example-request:
 ``` http 
-GET /v2/vorgaenge HTTP/1.1
+GET /v3/vorgaenge HTTP/1.1
 Host: api.europace2.de
 Content-Type: application/json
 Authorization: Bearer {{access-token}}
@@ -98,7 +98,7 @@ example-response:
             "letzteAenderung": "2020-12-30T09:53:16.126Z",
             "_links": {
                 "self": {
-                    "href": "https://baufismart.api.europace.de/v2/vorgaenge/A74QK3"
+                    "href": "https://baufismart.api.europace.de/v3/vorgaenge/A74QK3"
                 }
             }
         },
@@ -109,7 +109,7 @@ example-response:
             "letzteAenderung": "2020-12-30T09:53:15.331Z",
             "_links": {
                 "self": {
-                    "href": "https://baufismart.api.europace.de/v2/vorgaenge/ED7PIS"
+                    "href": "https://baufismart.api.europace.de/v3/vorgaenge/ED7PIS"
                 }
             }
         },
@@ -140,7 +140,7 @@ Patch operations are an array, so multiple patch commands can be sent with a _PA
 
 example-request:
 ```json
-PATCH /v2/vorgaenge/CH6407 HTTP/1.1
+PATCH /v3/vorgaenge/CH6407 HTTP/1.1
 Host: api.europace2.de
 Content-Type: application/json-patch+json
 Authorization: Bearer {{access-token}}
@@ -161,7 +161,7 @@ example-response:
 As advisor you can set the state, to archive outdated cases and hide them for the advisors.
 example-request:
 ``` json
-PATCH /v2/vorgaenge/CH6407 HTTP/1.1
+PATCH /v3/vorgaenge/CH6407 HTTP/1.1
 Host: api.europace2.de
 Content-Type: application/json-patch+json
 Authorization: Bearer {{access-token}}
@@ -185,7 +185,7 @@ As sales organsisation you can set the advisor to control the workload of the co
 
 example-request:
 ```json
-PUT /v2/vorgaenge/CH6407/kundenBetreuer HTTP/1.1
+PUT /v3/vorgaenge/CH6407/kundenBetreuer HTTP/1.1
 Host: api.europace2.de
 Authorization: Bearer {{access-token}}
 Content-Type: application/json
@@ -208,7 +208,7 @@ As advisor you can set the editor eg to a clerk, to check the case and applicati
 
 example-request:
 ```json
-PUT /v2/vorgaenge/CH6407/vorgangsBearbeiter HTTP/1.1
+PUT /v3/vorgaenge/CH6407/vorgangsBearbeiter HTTP/1.1
 Host: api.europace2.de
 Authorization: Bearer {{access-token}}
 Content-Type: application/json
