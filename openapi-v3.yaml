@@ -1,0 +1,4464 @@
+openapi: 3.1.0
+info:
+  contact:
+    email: helpdesk@europace2.de
+    name: Europace AG
+    url: www.europace2.de
+  description: Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen
+    werden.
+  title: Vorgänge API
+  version: "3.0"
+servers:
+- url: https://baufismart.api.europace.de
+security:
+- oauth2: []
+tags:
+- description: Dieser Endpunkt repräsentiert die Vertriebssicht.
+  name: Vorgaenge
+paths:
+  /v3/vorgaenge:
+    get:
+      operationId: getVorgaenge
+      parameters:
+      - description: Datenkontext
+        in: query
+        name: datenKontext
+        required: false
+        schema:
+          type: string
+          enum:
+          - ECHT_GESCHAEFT
+          - TEST_MODUS
+      - description: "Der 'aenderungSeit' Parameter hat das 'ISO 8601' Format. Beispiele:\
+          \ '2020-07-10', '2020-07-10T13:00Z'"
+        in: query
+        name: aenderungSeit
+        required: false
+        schema:
+          type: string
+          pattern: "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\\
+            d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\\
+            d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\\
+            :?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\\
+            d|2[0-3]):?([0-5]\\d)?)?)?)?$"
+      - description: "Der 'aenderungBis' Parameter hat das 'ISO 8601' Format. Beispiele:\
+          \ '2020-07-10', '2020-07-10T14:00Z'"
+        in: query
+        name: aenderungBis
+        required: false
+        schema:
+          type: string
+          pattern: "^([\\+-]?\\d{4}(?!\\d{2}\\b))((-?)((0[1-9]|1[0-2])(\\3([12]\\\
+            d|0[1-9]|3[01]))?|W([0-4]\\d|5[0-2])(-?[1-7])?|(00[1-9]|0[1-9]\\d|[12]\\\
+            d{2}|3([0-5]\\d|6[1-6])))([T\\s]((([01]\\d|2[0-3])((:?)[0-5]\\d)?|24\\\
+            :?00)([\\.,]\\d+(?!:))?)?(\\17[0-5]\\d([\\.,]\\d+)?)?([zZ]|([\\+-])([01]\\\
+            d|2[0-3]):?([0-5]\\d)?)?)?)?$"
+      - description: "Sortierung der Vorgänge, aufsteigend oder absteigend"
+        in: query
+        name: sort
+        required: false
+        schema:
+          type: string
+          default: absteigend
+      - in: query
+        name: page
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      - in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 10
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Vorgaenge"
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Method Not Allowed
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Internal Server Error
+        "502":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Bad Gateway
+        "504":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Gateway Timeout
+      summary: alle sichtbaren Vorgänge
+      tags:
+      - Vorgaenge
+  /v3/vorgaenge/{vorgangsNummer}:
+    get:
+      description: "Als Parameter wird die Vorgangsnummer verwendet, die aus BaufiSmart\
+        \ erzeugt wurde."
+      operationId: getVorgang
+      parameters:
+      - description: Nummer des Vorgangs
+        example: AB1234
+        in: path
+        name: vorgangsNummer
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Vorgang"
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Method Not Allowed
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Internal Server Error
+        "502":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Bad Gateway
+        "504":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Gateway Timeout
+      summary: einen Vorgang abrufen
+      tags:
+      - Vorgaenge
+    patch:
+      operationId: updateVorgang
+      parameters:
+      - in: path
+        name: vorgangsNummer
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              type: array
+              items:
+                $ref: "#/components/schemas/PatchOperation"
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Vorgang"
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Method Not Allowed
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Internal Server Error
+        "502":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Bad Gateway
+        "504":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Gateway Timeout
+      summary: Änderung von Metadaten an einem bestehenden Vorgang
+      tags:
+      - Vorgaenge
+  /v3/vorgaenge/{vorgangsNummer}/antraege:
+    get:
+      operationId: getAllVorgangsAntraege
+      parameters:
+      - in: path
+        name: vorgangsNummer
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Antraege"
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Method Not Allowed
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Internal Server Error
+        "502":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Bad Gateway
+        "504":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Gateway Timeout
+      summary: Alle Anträge zum Vorgang
+      tags:
+      - Vorgaenge
+  /v3/vorgaenge/{vorgangsNummer}/antraege/{antragsNummer}:
+    get:
+      operationId: getVorgangsAntraege
+      parameters:
+      - in: path
+        name: vorgangsNummer
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: antragsNummer
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Antraege"
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Method Not Allowed
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Internal Server Error
+        "502":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Bad Gateway
+        "504":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Gateway Timeout
+      summary: Anträge zum Vorgang
+      tags:
+      - Vorgaenge
+  /v3/vorgaenge/{vorgangsNummer}/antraege/{antragsNummer}/{teilantragsNummer}:
+    get:
+      operationId: getAntrag
+      parameters:
+      - in: path
+        name: vorgangsNummer
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: antragsNummer
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: path
+        name: teilantragsNummer
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Antrag"
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Method Not Allowed
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Internal Server Error
+        "502":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Bad Gateway
+        "504":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Gateway Timeout
+      summary: Ein spezifischer Antrag des Vorgangs
+      tags:
+      - Vorgaenge
+  /v3/vorgaenge/{vorgangsNummer}/antraege/{antragsNummer}/{teilantragsNummer}/entscheidungsreife:
+    post:
+      description: "Um das Entscheidungsreifesignal senden zu können bedarf es folgender\
+        \ Kriterien. 1. Der Aufrufer muss Vorgangsbearbeiter sein. 2. Der Antrag ist\
+        \ im Status: Antragsteller.BEANTRAGT, ProduktAnbieter.NICHT_BEARBEITET. 3.\
+        \ Das Signal kann nur einmal geschickt werden. "
+      operationId: setEntscheidungsreife
+      parameters:
+      - in: path
+        name: vorgangsNummer
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: antragsNummer
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: path
+        name: teilantragsNummer
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Entscheidungsreife"
+        required: true
+      responses:
+        "202":
+          description: Accepted
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Method Not Allowed
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Internal Server Error
+        "502":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Bad Gateway
+        "504":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Gateway Timeout
+      summary: "Zum Senden eines Signals an den Produktanbieter, dass er mit der Kreditentscheidung\
+        \ beginnen kann"
+      tags:
+      - Vorgaenge
+  /v3/vorgaenge/{vorgangsNummer}/antraege/{antragsNummer}/{teilantragsNummer}/status:
+    post:
+      operationId: setAntragsStatus
+      parameters:
+      - in: path
+        name: vorgangsNummer
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: antragsNummer
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - in: path
+        name: teilantragsNummer
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/StatusDTO"
+        required: true
+      responses:
+        "202":
+          description: Accepted
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Method Not Allowed
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Internal Server Error
+        "502":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Bad Gateway
+        "504":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Gateway Timeout
+      summary: Zum Setzen des Antragsstatus
+      tags:
+      - Vorgaenge
+  /v3/vorgaenge/{vorgangsNummer}/finanzierungsvorschlaege:
+    get:
+      operationId: getFinanzierungsvorschlaege
+      parameters:
+      - description: Die Nummer des Vorgangs zu dem die Finanzierungsvorschläge erzeugt
+          wurden.
+        in: path
+        name: vorgangsNummer
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FinanzierungsvorschlaegeResource"
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Method Not Allowed
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Internal Server Error
+        "502":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Bad Gateway
+        "504":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Gateway Timeout
+      summary: "Als Parameter wird die in BaufiSmart erzeugte Vorgangsnummer erwartet.\
+        \ Bei Finanzierungsvorschlägen handelt es sich um ausgehändigte Finanzierungsvorschlä\
+        ge in Baufsmart. Achtung: Bei den ausgegebenen Finanzierungsvorschlägen handelt\
+        \ es sich um Mockdaten."
+      tags:
+      - Vorgaenge
+      - Finanzierungsvorschlag
+  /v3/vorgaenge/{vorgangsNummer}/finanzierungsvorschlaege/{finanzierungsvorschlagId}:
+    get:
+      operationId: getFinanzierungsvorschlag
+      parameters:
+      - description: Die Nummer des Vorgangs zu dem die Finanzierungsvorschläge erzeugt
+          wurden.
+        in: path
+        name: vorgangsNummer
+        required: true
+        schema:
+          type: string
+      - description: Die Id des Finanzierungsvorschlags.
+        in: path
+        name: finanzierungsvorschlagId
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Finanzierungsvorschlag"
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Method Not Allowed
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Internal Server Error
+        "502":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Bad Gateway
+        "504":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Gateway Timeout
+      summary: "Als Parameter wird die in BaufiSmart erzeugte Vorgangsnummer und die\
+        \ Id des Finanzierungsvorschlags erwartet. Achtung: Bei dem ausgegebenen Finanzierungsvorschlag\
+        \ handelt es sich um Mockdaten."
+      tags:
+      - Vorgaenge
+      - Finanzierungsvorschlag
+  /v3/vorgaenge/{vorgangsNummer}/kundenBetreuer:
+    get:
+      description: "Als Parameter wird die Vorgangsnummer verwendet, die aus BaufiSmart\
+        \ erzeugt wurde."
+      operationId: getKundenbetreuer
+      parameters:
+      - in: path
+        name: vorgangsNummer
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Partner"
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Method Not Allowed
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Internal Server Error
+        "502":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Bad Gateway
+        "504":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Gateway Timeout
+      summary: Den Kundenbetreuer des Vorgangs abrufen
+      tags:
+      - Vorgaenge
+    put:
+      operationId: updateKundenBetreuer
+      parameters:
+      - in: path
+        name: vorgangsNummer
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PartnerDTO"
+        required: true
+      responses:
+        "204":
+          description: No Content
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Method Not Allowed
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Internal Server Error
+        "502":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Bad Gateway
+        "504":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Gateway Timeout
+      summary: Den Kundenbetreuer ändern
+      tags:
+      - Vorgaenge
+  /v3/vorgaenge/{vorgangsNummer}/nachricht:
+    post:
+      operationId: addNachricht
+      parameters:
+      - in: path
+        name: vorgangsNummer
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Nachricht"
+        required: true
+      responses:
+        "201":
+          description: CREATED
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Method Not Allowed
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Internal Server Error
+        "502":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Bad Gateway
+        "504":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Gateway Timeout
+      summary: Schreibt eine Nachricht an den Vorgang in BaufiSmart
+      tags:
+      - Vorgaenge
+  /v3/vorgaenge/{vorgangsNummer}/vorgangsBearbeiter:
+    get:
+      description: "Als Parameter wird die Vorgangsnummer verwendet, die aus BaufiSmart\
+        \ erzeugt wurde."
+      operationId: getVorgangsBearbeiter
+      parameters:
+      - in: path
+        name: vorgangsNummer
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Partner"
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Method Not Allowed
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Internal Server Error
+        "502":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Bad Gateway
+        "504":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Gateway Timeout
+      summary: Den Vorgangsbearbeiter des Vorgangs abrufen
+      tags:
+      - Vorgaenge
+    put:
+      operationId: putVorgangsBearbeiterId
+      parameters:
+      - in: path
+        name: vorgangsNummer
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PartnerDTO"
+        required: true
+      responses:
+        "200":
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Method Not Allowed
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Internal Server Error
+        "502":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Bad Gateway
+        "504":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+          description: Gateway Timeout
+      tags:
+      - Vorgaenge
+components:
+  headers:
+    Authorization:
+      description: Your authorization token. See https://docs.api.europace.de/common/authentifizierung/authorization-api/
+      schema:
+        type: string
+    X-Authentication:
+      description: Deprecated. Please use https://docs.api.europace.de/common/authentifizierung/authorization-api/
+      schema:
+        type: string
+    X-TraceId:
+      description: Your request ID. See https://docs.api.europace.de/common/tracing/
+      schema:
+        type: string
+  schemas:
+    Absicherung:
+      type: object
+      properties:
+        abgesicherteRisiken:
+          type: array
+          items:
+            $ref: "#/components/schemas/RisikoAbsicherung"
+        gesamtPraemie:
+          type: number
+        praemienZahlungsweise:
+          type: string
+          enum:
+          - EINMALIG
+          - MONATLICH
+          - VIERTELJAEHRLICH
+          - HALBJAEHRLICH
+          - JAEHRLICH
+        tarifBezeichnung:
+          type: string
+        tarifKennung:
+          type: string
+        versichertePersonId:
+          type: string
+        versicherungsArt:
+          type: string
+        versicherungsNummer:
+          type: string
+        versicherungsZeitraum:
+          $ref: "#/components/schemas/VersicherungsZeitraum"
+    AbsicherungsAngaben:
+      type: object
+      properties:
+        betraegtWoechentlicheArbeitsZeitMindestens15Stunden:
+          type: boolean
+        pruefungVorhandenerAbsicherungen:
+          type: array
+          items:
+            $ref: "#/components/schemas/PruefungVorhandenerAbsicherung"
+    Absicherungswunsch:
+      type: object
+      properties:
+        id:
+          type: string
+        versicherungsWuensche:
+          type: array
+          items:
+            $ref: "#/components/schemas/VersicherungsWunsch"
+    Angebot:
+      type: object
+      properties:
+        _links:
+          $ref: "#/components/schemas/Links"
+        absicherungen:
+          type: array
+          items:
+            $ref: "#/components/schemas/Absicherung"
+        bausparvertraege:
+          type: array
+          items:
+            $ref: "#/components/schemas/Bausparvertrag"
+        beleihungsRechnung:
+          $ref: "#/components/schemas/BeleihungsRechnung"
+        bewertungDesAngebots:
+          type: string
+          enum:
+          - ANGEBOT_ENTSPRICHT_DER_EMPFEHLUNG_DES_KUNDENBETREUERS
+          - ANGEBOT_ENTSPRICHT_DEM_WUNSCH_DES_KUNDEN
+        darlehen:
+          type: array
+          items:
+            $ref: "#/components/schemas/Darlehen"
+        erzeugtAm:
+          type: string
+          format: date-time
+          description: Erzeugungsdatum des Angebots
+        kennung:
+          type: string
+        machbarkeitsStatus:
+          type: string
+          enum:
+          - MACHBAR
+          - UNTER_VORBEHALT_PRODUZENT
+          - NICHT_MACHBAR
+        meldungen:
+          type: array
+          items:
+            $ref: "#/components/schemas/Meldung"
+        nummerAmVorgang:
+          type: integer
+          format: int32
+          description: Nummer des gemerkten Angebotes eines Vorgangs.
+          example: 1
+        pruefungsErgebnisse:
+          type: array
+          items:
+            $ref: "#/components/schemas/AngebotsPruefungsErgebnis"
+        zahlungsplaene:
+          type: string
+          format: uri
+          description: Link zu den Zahlungsplänen des Angebots.
+    AngebotsPruefungsErgebnis:
+      type: object
+      properties:
+        produktAnbieter:
+          $ref: "#/components/schemas/ProduktAnbieter"
+        weitereAngaben:
+          type: string
+          description: Vom Produktanbieter bei der Angebotsprüfung ergänzte Daten.
+            Das Format entspricht der Definition des Produktanbieters.
+    AnnuitaetenDarlehensWunsch:
+      type: object
+      properties:
+        auszahlungsDatum:
+          type: string
+          format: date
+          deprecated: true
+          description: Bitte 'auszahlungsZeitpunkt' verwenden
+        auszahlungsZeitpunkt:
+          type: string
+          format: date
+        bereitstellungsZinsFreieZeitInMonaten:
+          type: integer
+          format: int32
+        darlehensBetrag:
+          type: number
+        provision:
+          type: number
+        riesterFoerderung:
+          type: boolean
+        riesterGefoerdertePerson:
+          type: string
+        sondertilgungOptionalJaehrlich:
+          type: number
+        tilgungsWunsch:
+          $ref: "#/components/schemas/TilgungsWunsch"
+        zinsBindungInJahren:
+          type: integer
+          format: int32
+    Antraege:
+      type: object
+      properties:
+        _links:
+          $ref: "#/components/schemas/PaginationLinks"
+        antraege:
+          type: array
+          items:
+            $ref: "#/components/schemas/Antrag"
+    Antrag:
+      type: object
+      description: Diese Resource repräsentiert einen Antrag in Baufi Smart.
+      properties:
+        _links:
+          $ref: "#/components/schemas/Links"
+        angebot:
+          $ref: "#/components/schemas/Angebot"
+          description: "Das angenommene Angebot, auf dem dieser Antrag basiert"
+        ansprechpartner:
+          $ref: "#/components/schemas/Partner"
+        antragsNummer:
+          type: string
+          description: Nummer des Antrags auf der Europace Plattform
+        antragsReferenzen:
+          type: object
+          additionalProperties:
+            type: string
+          description: "Referenzen am Antrag, die durch den Produktanbieter gesetzt\
+            \ wurden"
+        beratung:
+          $ref: "#/components/schemas/Beratung"
+          description: Informationen zum Geschäftsabschluss
+        datenKontext:
+          type: string
+          description: "Gibt an, ob es sich um einen Antrag aus dem Testmodus oder\
+            \ Echtgeschäft handelt"
+          enum:
+          - TEST_MODUS
+          - ECHT_GESCHAEFT
+        dokumente:
+          type: array
+          description: "Enthält alle Plattformdokumente, freigegebene Dokumente des\
+            \ Vertriebs, sowie die hochgeladenen Dokumente des Produktanbieters. **Aktuell\
+            \ sind nur Selbstauskunft und Kreditentscheidungsinformation enthalten.**"
+          items:
+            $ref: "#/components/schemas/Dokument"
+        kreditSachbearbeiter:
+          $ref: "#/components/schemas/Partner"
+        produktAnbieter:
+          $ref: "#/components/schemas/ProduktAnbieter"
+        status:
+          $ref: "#/components/schemas/AntragsStatus"
+          description: Bearbeitungsfortschritt des Antrags
+        vermittler:
+          $ref: "#/components/schemas/Partner"
+          description: Partner auf Seite des Vertriebs
+        zeitpunktDerAnnahme:
+          type: string
+          format: date-time
+          description: "Zeitpunkt, zu dem der Antrag im System erstellt wurde."
+        zugrundeliegendeDaten:
+          $ref: "#/components/schemas/ZugrundeliegendeDatenZumAntrag"
+          description: "Basisdaten des Kunden, die für die Berechnung des Angebots\
+            \ relevant waren"
+    AntragsStatus:
+      type: object
+      properties:
+        antragsteller:
+          type: string
+          description: Willenserklärung des Antragstellers
+          enum:
+          - BEANTRAGT
+          - UNTERSCHRIEBEN
+          - NICHT_ANGENOMMEN
+          - WIDERRUFEN
+        antragstellerAblehnungsgrund:
+          type: string
+          description: Ablehnungsgrund des Antragstellers
+          enum:
+          - ANGEBOT_WETTBEWERBER
+          - KONDITIONEN_UNPASSEND
+          - KUNDE_NICHT_ERREICHBAR
+          - OBJEKT_NICHT_INTERESSANT
+          - OBJEKT_NICHT_VERFUEGBAR
+          - FINANZIERUNG_WIRD_ANGEPASST
+          - ANDERES_ANGEBOT_ANGENOMMEN
+          - ANDERER_GRUND
+          - BEARBEITUNGSZEIT
+        bearbeitungsFortschritt:
+          type: string
+          description: Bearbeitungsfortschritt des Antrags nach beidseitiger Unterzeichnung
+          enum:
+          - NICHT_VON_PRODUKTANBIETER_BESTAETIGT
+          - VON_PRODUKTANBIETER_BESTAETIGT
+          - FREIGEGEBEN_FUER_SAMMELFORDERUNG
+          - PROVISION_IN_BEARBEITUNG
+          - PROVISON_AN_KUNDENBETREUER_VOLLSTAENDIG_AUSGEZAHLT
+        produktAnbieter:
+          type: string
+          description: Willenserklärung des Produktanbieters
+          enum:
+          - NICHT_BEARBEITET
+          - UNTERSCHRIEBEN
+          - ABGELEHNT
+          - ZURUECKGESTELLT
+        produktanbieterAblehnungsgrund:
+          type: string
+          description: Ablehnungsgrund des Produktanbieters
+          enum:
+          - FINANZIELLE_SITUATION
+          - NEGATIV_MERKMAL
+          - WERTERMITTLUNG
+          - KRITERIEN
+          - UNTERLAGEN_UNVOLLSTAENDIG
+          - GEGENANGEBOT
+          - KEINE_ANGABE
+    Antragsteller:
+      type: object
+      properties:
+        absicherungsAngaben:
+          $ref: "#/components/schemas/AbsicherungsAngaben"
+        anrede:
+          type: string
+          enum:
+          - FRAU
+          - HERR
+        anschrift:
+          $ref: "#/components/schemas/Postadresse"
+        arbeitserlaubnis:
+          type: boolean
+          description: wenn keine deutsche Staatsangehörigkeit
+        arbeitserlaubnisBefristetBis:
+          type: string
+          format: date
+          description: wenn Arbeitserlaubnis befristet
+        aufenthaltsTitel:
+          type: string
+          description: wenn keine deutsche Staatsangehörigkeit
+          enum:
+          - VISUM
+          - AUFENTHALTS_ERLAUBNIS
+          - NIEDERLASSUNGS_ERLAUBNIS
+          - DAUERAUFENTHALT_EU
+          - BLAUE_KARTE_EU
+        aufenthaltsTitelBefristetBis:
+          type: string
+          format: date
+          description: wenn Aufenthaltstitel befristet
+        beschaeftigung:
+          $ref: "#/components/schemas/Beschaeftigung"
+        bruttoJahresEinkommenErwartet:
+          type: number
+        bruttoVorjahresEinkommen:
+          type: number
+        dritteStaatsangehoerigkeit:
+          $ref: "#/components/schemas/Staat"
+        email:
+          type: string
+          description: Eine valide Emailadresse
+          example: max.mustermann@test.de
+        externeAntragstellerId:
+          type: string
+        familienstand:
+          type: string
+          enum:
+          - GESCHIEDEN
+          - GETRENNT_LEBEND
+          - LEBENSPARTNERSCHAFT
+          - LEDIG
+          - VERHEIRATET
+          - VERWITWET
+        geburtsdatum:
+          type: string
+          format: date
+        geburtsland:
+          $ref: "#/components/schemas/Staat"
+        geburtsort:
+          type: string
+        guetertrennungVereinbartWennVerheiratet:
+          type: boolean
+          description: nur wenn verheiratet
+        id:
+          type: string
+        inDeutschlandSeit:
+          type: string
+          format: date
+          description: wenn keine deutsche Staatsangehörigkeit
+        legitimationsDaten:
+          $ref: "#/components/schemas/LegitimationsDaten"
+        nachname:
+          type: string
+        privateKrankenversicherungMonatlicheAusgaben:
+          type: number
+        schufaErgebnis:
+          $ref: "#/components/schemas/SchufaErgebnis"
+        sozialversicherungsnummer:
+          type: string
+        staatsangehoerigkeit:
+          $ref: "#/components/schemas/Staat"
+        steuerId:
+          type: string
+        telefonnummer:
+          type: string
+        telefonnummerVorwahl:
+          type: string
+        titel:
+          type: array
+          items:
+            type: string
+            enum:
+            - DOKTOR
+            - PROFESSOR
+        titelDoktor:
+          type: boolean
+          deprecated: true
+        titelProfessor:
+          type: boolean
+          deprecated: true
+        vorAnschrift:
+          $ref: "#/components/schemas/Postadresse"
+        vorname:
+          type: string
+        weitereKontaktMoeglichkeiten:
+          type: string
+        wohnhaftSeit:
+          type: string
+          format: date
+        zweiteStaatsangehoerigkeit:
+          $ref: "#/components/schemas/Staat"
+    Archivierung:
+      type: object
+      properties:
+        grund:
+          type: string
+          enum:
+          - VORGANG_ERFOLGREICH_ABGESCHLOSSEN
+          - KUNDE_IST_NICHT_MEHR_INTERESSIERT
+          - DAS_OBJEKT_IST_WEG
+          - OBJEKT_IST_NICHT_MEHR_VERFUEGBAR
+          - KUNDE_HAT_EIN_ANDERES_ANGEBOT
+          - SCHLECHTER_LEAD_NICHT_ZU_ERREICHEN
+          - FINANZIERUNG_IST_NICHT_MACHBAR
+        kommentar:
+          type: string
+    AusgabenMonatlich:
+      type: object
+      properties:
+        ausgabenMonatlich:
+          type: number
+        berechnungsHilfeVermoegen:
+          $ref: "#/components/schemas/BerechnungsHilfeBetrag"
+        zahlungsTyp:
+          type: string
+          description: Redundante Angabe des Zahlungstyps dient als zusätzliches Filterkriterium
+          enum:
+          - EINNAHME
+          - AUSGABE
+    Autostellplatz:
+      type: object
+      properties:
+        mieteinnahmenMonatlich:
+          type: number
+        typ:
+          type: string
+          enum:
+          - STELLPLATZ
+          - CARPORT
+          - GARAGE
+          - DOPPEL_GARAGE
+          - KELLER_GARAGE
+          - TIEFGARAGEN_STELLPLATZ
+        vermietet:
+          type: boolean
+    BankUndSparguthaben:
+      type: object
+      properties:
+        aktuellerWert:
+          type: number
+        ertrag:
+          type: number
+        maximalAufzuloesenderWert:
+          type: number
+        vermoegensEinsatz:
+          type: string
+          enum:
+          - KEIN_EINSATZ
+          - ABTRETEN
+          - AUFLOESEN
+        vermoegensTyp:
+          type: string
+          description: Redundante Angabe des Vermögenstyp dient als zusätzliches Filterkriterium
+          enum:
+          - VERMOEGEN
+          - VERBINDLICHKEIT
+        zahlungsTyp:
+          type: string
+          description: Redundante Angabe des Zahlungstyps dient als zusätzliches Filterkriterium
+          enum:
+          - EINNAHME
+          - AUSGABE
+        zinsertragJaehrlich:
+          type: number
+        zukuenftigeEinnahmen:
+          type: number
+    Bankverbindung:
+      type: object
+      properties:
+        bic:
+          type: string
+        iban:
+          type: string
+        id:
+          type: string
+        kontoinhaberIds:
+          type: array
+          items:
+            type: string
+        kontoinhaberName:
+          type: string
+        kreditinstitut:
+          type: string
+    BausparAngebot:
+      type: object
+      properties:
+        abschlussGebuehr:
+          type: number
+        angebotsHinweisFuerAntragsteller:
+          type: string
+          description: nur bei neuen extern berechneten Bausparverträgen und bei Gegenangeboten
+        bausparSumme:
+          type: number
+        einmalzahlung:
+          type: number
+          deprecated: true
+          description: Deprecated. Einmalzahlungen sind Teil der Sonderzahlungen.
+        guthabenZins:
+          type: number
+        id:
+          type: string
+        produktAnbieter:
+          $ref: "#/components/schemas/ProduktAnbieter"
+        sonderZahlungen:
+          type: array
+          items:
+            $ref: "#/components/schemas/SonderZahlung"
+        sparBeginn:
+          type: string
+          format: date
+          description: Der berechnete Beginn des Besparens des Bausparvertrags.
+        sparPhase:
+          $ref: "#/components/schemas/SparPhase"
+        tarif:
+          type: string
+        tilgungsPhase:
+          $ref: "#/components/schemas/TilgungsPhase"
+        typ:
+          type: string
+        vertragsBeginn:
+          type: string
+          format: date
+        vertragsNummer:
+          type: string
+        verwaltungsgebuehrenJaehrlich:
+          type: number
+        zuteilungsDatum:
+          type: string
+          format: date
+    BausparDarlehensWunsch:
+      type: object
+      properties:
+        bausparGuthaben:
+          type: number
+        bausparSumme:
+          type: number
+        bausparTarif:
+          type: array
+          items:
+            $ref: "#/components/schemas/BausparTarif"
+        darlehensBetrag:
+          type: number
+        provision:
+          type: number
+        tilgungsBeitragMonatlich:
+          type: number
+        vertragsNummer:
+          type: string
+        vertragsPartnerIds:
+          type: array
+          items:
+            type: string
+        zuteilungsAnnahme:
+          type: string
+          format: date
+    BausparTarif:
+      type: object
+      properties:
+        id:
+          type: string
+        kurzName:
+          type: string
+        langName:
+          type: string
+        produktAnbieter:
+          type: string
+        riesterFoerderung:
+          type: boolean
+        status:
+          type: string
+          enum:
+          - AKTIV
+          - IN_ENTWICKLUNG
+          - DEAKTIVIERT
+    BausparWunsch:
+      type: object
+      description: "Von den Feldern bausparSummeAbsolut, bausparSummeRelativ, sparBeitragMonatlichAbsolut,\
+        \ sparBeitragMonatlichRelativ, tilgungsBeitragMonatlich, zuteilungsDatum und\
+        \ sparBeginn können maximal drei befüllt sein."
+      properties:
+        abschlussGebuehrenVerrechnung:
+          type: string
+          enum:
+          - SOFORTZAHLUNG
+          - VERRECHNUNG
+        bausparSummeAbsolut:
+          type: number
+        bausparSummeRelativ:
+          type: number
+        bausparTarif:
+          type: array
+          items:
+            $ref: "#/components/schemas/BausparTarif"
+        bausparTarife:
+          type: array
+          deprecated: true
+          description: "Deprecated, Zukünftig sind die Informationen zum gewünschen\
+            \ Tarif unter bausparTarif zu finden."
+          items:
+            type: string
+            deprecated: true
+        id:
+          type: string
+        riesterFoerderung:
+          type: boolean
+        sonderZahlungEinmalig:
+          type: number
+          deprecated: true
+          description: Deprecated. Einmalzahlungen sind Teil der Sonderzahlungen.
+        sonderZahlungen:
+          type: array
+          items:
+            $ref: "#/components/schemas/SonderZahlung"
+        sparBeginn:
+          type: string
+          format: date
+          description: Der Beginn des Besparens des Bausparvertrags ist frei festlegbar.
+        sparBeitragMonatlichAbsolut:
+          type: number
+        sparBeitragMonatlichRelativ:
+          type: number
+        tilgungsBeitragMonatlich:
+          type: number
+        vertragsPartnerIds:
+          type: array
+          items:
+            type: string
+        verwendung:
+          type: string
+          enum:
+          - ZINS_ABSICHERUNG
+          - TILGUNGS_AUSGESETZT
+        verwendungZulagen:
+          type: string
+          enum:
+          - SONDERZAHLUNG
+          - VERRECHNUNG
+        zuteilungsDatum:
+          type: string
+          format: date
+    Bausparvertrag:
+      type: object
+      properties:
+        abschlussGebuehr:
+          type: number
+        angebotsHinweisFuerAntragsteller:
+          type: string
+          description: nur bei neuen extern berechneten Bausparverträgen und bei Gegenangeboten
+        bausparSumme:
+          type: number
+        einmalzahlung:
+          type: number
+          deprecated: true
+          description: Deprecated. Einmalzahlungen sind Teil der Sonderzahlungen.
+        gesamtLaufzeitInJahren:
+          type: integer
+          format: int32
+        guthabenZins:
+          type: number
+        id:
+          type: string
+        produktAnbieter:
+          $ref: "#/components/schemas/ProduktAnbieter"
+        sonderZahlungen:
+          type: array
+          items:
+            $ref: "#/components/schemas/SonderZahlung"
+        sparBeginn:
+          type: string
+          format: date
+          description: Der berechnete Beginn des Besparens des Bausparvertrags.
+        sparPhase:
+          $ref: "#/components/schemas/SparPhase"
+        tarif:
+          type: string
+        tarifId:
+          type: string
+          description: Produktanbieter-spezifische Tarif-ID des Bauspartarifs
+        tilgungsPhase:
+          $ref: "#/components/schemas/TilgungsPhase"
+        typ:
+          type: string
+        vertragsBeginn:
+          type: string
+          format: date
+        vertragsNummer:
+          type: string
+        verwaltungsgebuehrenJaehrlich:
+          type: number
+        zuteilungsDatum:
+          type: string
+          format: date
+    BeleihungsRechnung:
+      type: object
+      properties:
+        beleihungsAuslauf:
+          type: number
+          description: Der Beleihungsauslauf aus Sicht des Produktanbieters. Berechnet
+            sich aus dem Verhältnis anerkannter Darlehen zur Summe der anerkannten
+            Beleihungswerte.
+        beleihungsWerte:
+          type: array
+          description: Enthält die vom Produktanbieter anerkannten Beleihungswerte
+          items:
+            $ref: "#/components/schemas/BeleihungsWert"
+        beleihungsWerteSumme:
+          type: number
+          description: "Berechnungshilfe: Die Summe aller vom Produktanbieter anerkannten\
+            \ Beleihungswerte"
+        produktAnbieter:
+          $ref: "#/components/schemas/ProduktAnbieter"
+    BeleihungsWert:
+      type: object
+      properties:
+        adresse:
+          $ref: "#/components/schemas/Postadresse"
+        beleihungsWert:
+          type: number
+        immobilie:
+          $ref: "#/components/schemas/ImmobilieVerknuepfung"
+        produktAnbieter:
+          $ref: "#/components/schemas/ProduktAnbieter"
+    Beratung:
+      type: object
+      properties:
+        art:
+          type: string
+          enum:
+          - PRAESENZ_GESCHAEFT
+          - FERN_ABSATZ_GESCHAEFT
+          - AUSSER_GESCHAEFTSRAUM_VERTRAG
+        hinweisFuerProduktAnbieter:
+          type: string
+        istKundenBetreuerVerkaeuferOderMaklerDerImmobilie:
+          type: boolean
+          description: "Mit diesem Wert wird ausgedrückt, ob der Kundenbetreuer auch\
+            \ der Immobilienmakler ist."
+    BerechnungsHilfeBetrag:
+      type: object
+      properties:
+        betragNachFinanzierung:
+          type: number
+        betragVorFinanzierung:
+          type: number
+    Bereitstellung:
+      type: object
+      properties:
+        bereitstellungsZins:
+          type: number
+        bereitstellungsZinsFreieZeitInMonaten:
+          type: integer
+          format: int32
+    Beschaeftigung:
+      type: object
+      properties:
+        anzahlGehaelterProJahr:
+          type: number
+          format: double
+          description: "nur bei art==ANGESTELLTER,ARBEITER,BEAMTER"
+        arbeitgeber:
+          type: string
+          description: "nur bei art==ANGESTELLTER,ARBEITER,BEAMTER"
+        arbeitgeberInDeutschlandAnsaessig:
+          type: boolean
+          description: "nur bei art==ANGESTELLTER,ARBEITER,BEAMTER"
+        arbeitgeberLand:
+          $ref: "#/components/schemas/Staat"
+          description: nur bei arbeitgeberInDeutschlandAnsaessig==false
+        art:
+          type: string
+          enum:
+          - ANGESTELLTER
+          - ARBEITER
+          - BEAMTER
+          - FREIBERUFLER
+          - SELBSTAENDIGER
+          - RENTNER
+          - HAUSFRAU
+          - ARBEITSLOSER
+        befristungsStatus:
+          type: string
+          description: "nur bei art==ANGESTELLTER,ARBEITER"
+          enum:
+          - BEFRISTET
+          - UNBEFRISTET
+        beruf:
+          type: string
+          description: nur bei art!=RENTNER
+        beschaeftigtSeit:
+          type: string
+          format: date
+          description: "nur bei art==ANGESTELLTER,ARBEITER,BEAMTER,FREIBERUFLER,SELBSTAENDIGER"
+        branche:
+          type: string
+          description: Berufsgruppe des Antragstellers.
+          enum:
+          - LANDWIRTSCHAFT_FORSTWIRTSCHAFT_FISCHEREI
+          - BERGBAU_GEWINNUNG_VON_STEINEN_UND_ERDEN
+          - VERARBEITENDES_GEWERBE
+          - WASSERVERSORGUNG
+          - ENERGIEVERSORGUNG
+          - BAUGEWERBE
+          - HANDEL_INSTANDHALTUNG_VON_KRAFTFAHRZEUGEN
+          - VERKEHR_LOGISTIK
+          - GASTGEWERBE
+          - INFORMATION_KOMMUNIKATION
+          - FINANZ_UND_VERSICHERUNGSDIENSTLEISTUNGEN
+          - GRUNDSTÜCKS_UND_WOHNUNGSWESEN
+          - FREIBERUFLICHE_WISSENSCHAFTLICHE_UND_TECHNISCHE_DIENSTLEISTUNGEN
+          - SONSTIGE_WIRTSCHAFTLICHE_DIENSTLEISTUNGEN
+          - OEFFENTLICHE_VERWALTUNG_VERTEIDIGUNG_SOZIALVERSICHERUNG
+          - ERZIEHUNG_UNTERRICHT
+          - GESUNDHEIT_UND_SOZIALWESEN
+          - KUNST_UNTERHALTUNG_ERHOLUNG
+          - SONSTIGE_DIENSTLEISTUNGEN
+          - PRIVATE_HAUSHALTE
+        einkommenNettoJaehrlich:
+          type: number
+          description: "nur bei art==FREIBERUFLER,SELBSTAENDIGER"
+        einkommenNettoMonatlich:
+          type: number
+          description: "nur bei art!=FREIBERUFLER,SELBSTAENDIGER"
+        firma:
+          type: string
+          description: "nur bei art==FREIBERUFLER,SELBSTAENDIGER"
+        inProbezeit:
+          type: boolean
+          description: "nur bei art==ANGESTELLTER,ARBEITER,BEAMTER"
+        situationNachRenteneintritt:
+          $ref: "#/components/schemas/SituationNachRenteneintritt"
+          description: nur bei art!=RENTNER
+        taetigkeit:
+          type: string
+          description: "nur bei art==FREIBERUFLER,SELBSTAENDIGER"
+          enum:
+          - ALTENPFLEGER
+          - AMBULANTER_KRANKENPFLEGER
+          - ANWALT
+          - APOTHEKER
+          - ARCHITEKT
+          - ARZT
+          - BESTATTER
+          - DATENSCHUTZBEAUFTRAGTER
+          - DEKORATEUR
+          - DIAETASSISTENT
+          - DOLMETSCHER
+          - EDV_BERATER
+          - ERGOTHERAPEUT
+          - ERNAEHRUNGSBERATER
+          - FOTOGRAF
+          - GEOGRAF
+          - GRAFIKDESIGNER
+          - GRAFIKER
+          - HEBAMME
+          - HEILMASSEUR
+          - HEILPRAKTIKER
+          - HISTORIKER
+          - INFORMATIKER
+          - INGENIEUR
+          - INSOLVENZVERWALTER
+          - JOURNALIST
+          - KLASSISCHER_KONZERTMUSIKER
+          - KONSTRUKTEUR
+          - KRANKENGYMNAST
+          - KRANKENPFLEGER
+          - KRANKENSCHWESTER
+          - LOGOPAEDE
+          - MEDIZINISCH_TECHN_ASSISTENT
+          - NOTAR
+          - OPERNSAENGER
+          - PERSONALBERATER
+          - PHYSIOTHERAPEUT
+          - PSYCHOLOGE
+          - RAUMAUSSTATTER
+          - RUNDFUNKSPRECHER
+          - SACHVERSTAENDIGER
+          - STADTPLANER
+          - STATIKER
+          - STEUERBERATER
+          - TIERARZT
+          - UNTERNEHMENSBERATER
+          - VERMITTLER
+          - WIRTSCH_BUCHPRUEFER_REVISOR
+          - ZAHNARZT
+          - ZAHNTECHNIKER
+          - SONSTIGES
+    BestehendeImmobilie:
+      type: object
+      properties:
+        adresse:
+          $ref: "#/components/schemas/Postadresse"
+        autostellplaetze:
+          type: array
+          items:
+            $ref: "#/components/schemas/Autostellplatz"
+        bestehendeDarlehen:
+          type: array
+          items:
+            $ref: "#/components/schemas/BestehendesDarlehen"
+        bewirtschaftungsKostenJaehrlich:
+          type: number
+        bezeichnung:
+          type: string
+        bodenRichtwert:
+          type: number
+        bundesland:
+          type: string
+          enum:
+          - BADEN_WUERTTEMBERG
+          - BAYERN
+          - BERLIN
+          - BRANDENBURG
+          - BREMEN
+          - HAMBURG
+          - HESSEN
+          - MECKLENBURG_VORPOMMERN
+          - NIEDERSACHSEN
+          - NORDRHEIN_WESTFALEN
+          - RHEINLAND_PFALZ
+          - SAARLAND
+          - SACHSEN
+          - SACHSEN_ANHALT
+          - SCHLESWIG_HOLSTEIN
+          - THUERINGEN
+        effektivZinsErhoehendeKosten:
+          $ref: "#/components/schemas/EffektivZinsErhoehendeKosten"
+        einzusetzenderBetragBeiEinsatzAlsZusatzsicherheit:
+          type: number
+        erbbaurecht:
+          $ref: "#/components/schemas/Erbbaurecht"
+        gebaeude:
+          $ref: "#/components/schemas/Gebaeude"
+        grundbuchAngabe:
+          $ref: "#/components/schemas/GrundbuchAngabe"
+        grundstueck:
+          $ref: "#/components/schemas/Grundstueck"
+        id:
+          type: string
+        immobilienEinsatz:
+          type: string
+          enum:
+          - KEIN_EINSATZ
+          - VERKAUFEN
+          - ALS_ZUSATZSICHERHEIT
+        keinBaulandFlaecheInQm:
+          type: number
+        keineBestehendenDarlehenVorhanden:
+          type: boolean
+        marktueblicherKaufpreisProQm:
+          type: number
+        marktwert:
+          type: number
+          description: "Nur relevant bei Finanzbedarf AnschlussFinanzierung, Modernisierung\
+            \ und Kapitalbeschaffung."
+        maximalEinzusetzenderBetragWennVerkauf:
+          type: number
+        objektArt:
+          type: string
+          enum:
+          - GRUNDSTUECK
+          - EIGENTUMSWOHNUNG
+          - HAUS
+        vergleichsmieteFuerGewerbeflaecheProQm:
+          type: number
+        vergleichsmieteFuerWohnflaecheProQm:
+          type: number
+        verkehrswert:
+          type: number
+          description: Hat den selben Inhalt wie das Feld marktwert. (Wird in v3 nicht
+            mehr enthalten sein)
+        vorlaeufigerVerkehrswert:
+          type: number
+          description: "Diese Angabe ist produktanbieterspezifisch, sie wird nicht\
+            \ von allen Produktanbietern bei der Angebotsermittlung berücksichtigt."
+        wohnlage:
+          type: string
+          enum:
+          - GEHOBEN
+          - MITTEL
+          - EINFACH
+    BestehenderBausparvertrag:
+      type: object
+      properties:
+        abschlussGebuehr:
+          type: number
+        aktuellerWert:
+          type: number
+        bausparSumme:
+          type: number
+        einmalzahlung:
+          type: number
+          deprecated: true
+          description: Deprecated. Einmalzahlungen sind Teil der Sonderzahlungen.
+        ertrag:
+          type: number
+        guthabenZins:
+          type: number
+        id:
+          type: string
+        maximalAufzuloesenderBetrag:
+          type: number
+        produktAnbieter:
+          $ref: "#/components/schemas/ProduktAnbieter"
+        sonderZahlungen:
+          type: array
+          items:
+            $ref: "#/components/schemas/SonderZahlung"
+        sparBeitragMonatlich:
+          type: number
+        tarif:
+          type: string
+        typ:
+          type: string
+        vermoegensEinsatz:
+          type: string
+          enum:
+          - KEIN_EINSATZ
+          - ABTRETEN
+          - AUFLOESEN
+        vermoegensTyp:
+          type: string
+          description: Redundante Angabe des Vermögenstyp dient als zusätzliches Filterkriterium
+          enum:
+          - VERMOEGEN
+          - VERBINDLICHKEIT
+        vertragsBeginn:
+          type: string
+          format: date
+        vertragsNummer:
+          type: string
+        verwaltungsgebuehrenJaehrlich:
+          type: number
+        zahlungsTyp:
+          type: string
+          description: Redundante Angabe des Zahlungstyps dient als zusätzliches Filterkriterium
+          enum:
+          - EINNAHME
+          - AUSGABE
+        zukuenftigeEinnahmen:
+          type: number
+        zuteilungsDatum:
+          type: string
+          format: date
+    BestehendesDarlehen:
+      type: object
+      properties:
+        abzuloesendeRestschuld:
+          type: number
+        aktuelleRestschuldWennNichtAbzuloesen:
+          type: number
+        darlehensArt:
+          type: string
+          description: Neue Ausprägungen können kurzfristig hinzukommen. Der Client
+            muss daher mit unbekannten Werten umgehen können.
+          enum:
+          - BAUSPARDARLEHEN
+          - FOERDERDARLEHEN
+          - IMMOBILIENDARLEHEN
+          - PRIVATDARLEHEN
+          - SONSTIGES_DARLEHEN
+        darlehensBetrag:
+          type: number
+        darlehensGeber:
+          $ref: "#/components/schemas/ProduktAnbieter"
+        darlehensKontonummer:
+          type: string
+        eingetrageneGrundschuld:
+          type: number
+        grundschuldArt:
+          type: string
+          enum:
+          - BRIEF_GRUNDSCHULD
+          - BUCH_GRUNDSCHULD
+        id:
+          type: string
+        laufzeitEnde:
+          type: string
+          format: date
+        rateMonatlich:
+          type: number
+        sollZins:
+          type: number
+        sondertilgungZumZinsBindungsEnde:
+          type: number
+          description: "für Prolongation, d.h. technisch: Vorhaben verwendungszweck==ANSCHLUSSFINANZIERUNG"
+        zinsBindungEndetAm:
+          type: string
+          format: date
+    BestehendesDarlehenDesFinanzierungsObjekts:
+      type: object
+      properties:
+        abzuloesendeRestschuld:
+          type: number
+        aktuelleRestschuldWennNichtAbzuloesen:
+          type: number
+        darlehensArt:
+          type: string
+          description: Neue Ausprägungen können kurzfristig hinzukommen. Der Client
+            muss daher mit unbekannten Werten umgehen können.
+          enum:
+          - BAUSPARDARLEHEN
+          - FOERDERDARLEHEN
+          - IMMOBILIENDARLEHEN
+          - PRIVATDARLEHEN
+          - SONSTIGES_DARLEHEN
+        darlehensBetrag:
+          type: number
+        darlehensGeber:
+          $ref: "#/components/schemas/ProduktAnbieter"
+        darlehensKontonummer:
+          type: string
+        eingetrageneGrundschuld:
+          type: number
+        grundschuldArt:
+          type: string
+          enum:
+          - BRIEF_GRUNDSCHULD
+          - BUCH_GRUNDSCHULD
+        id:
+          type: string
+        laufzeitEnde:
+          type: string
+          format: date
+        rateMonatlich:
+          type: number
+        sollZins:
+          type: number
+        sondertilgungZumZinsBindungsEnde:
+          type: number
+          description: "für Prolongation, d.h. technisch: Vorhaben verwendungszweck==ANSCHLUSSFINANZIERUNG"
+        verwendenAls:
+          type: string
+          description: "Beschreibt wie das Darlehen im Zusammenhang mit dem Vorhaben,\
+            \ behandelt werden soll."
+          enum:
+          - ABLOESEN
+          - TRITT_IM_RANG_ZURUECK
+          - TRITT_NICHT_IM_RANG_ZURUECK
+        zinsBindungEndetAm:
+          type: string
+          format: date
+    CharSequence: {}
+    Darlehen:
+      type: object
+      properties:
+        auszahlungsBetrag:
+          type: number
+        auszahlungsDatum:
+          type: string
+          format: date
+          description: "nur bei darlehensTyp IN [FORWARD_DARLEHEN, ANNUITAETEN_DARLEHEN]"
+        auszahlungsKurs:
+          type: number
+        bausparTarif:
+          type: string
+          description: nur bei darlehensTyp==BAUSPAR_DARLEHEN
+        bereitstellung:
+          $ref: "#/components/schemas/Bereitstellung"
+          description: nicht bei darlehensTyp==PRIVAT_DARLEHEN
+        darlehensBetrag:
+          type: number
+        darlehensTyp:
+          type: string
+          enum:
+          - ANNUITAETEN_DARLEHEN
+          - BAUSPAR_DARLEHEN
+          - FORWARD_DARLEHEN
+          - KFW_DARLEHEN
+          - REGIONAL_FOERDER_DARLEHEN
+          - PRIVAT_DARLEHEN
+          - ZWISCHEN_FINANZIERUNG
+          - VARIABLES_DARLEHEN
+        detailsZurVerwendung:
+          type: string
+          description: nur bei darlehensTyp==ZWISCHEN_FINANZIERUNG
+        effektivZins:
+          type: number
+        effektivZinsRelevanteKosten:
+          $ref: "#/components/schemas/EffektivZinsKosten"
+        forwardPeriodeInMonaten:
+          type: integer
+          format: int32
+          description: nur bei darlehensTyp==FORWARD_DARLEHEN
+        gesamtlaufzeitInMonaten:
+          type: integer
+          format: int32
+        id:
+          type: string
+        kfwEnergieEffizienzGruppe:
+          type: string
+          description: nur bei darlehensTyp==KFW_DARLEHEN. Nur bei KfW-Programm 261
+            (SANIERUNG).Es können auch weitere Werte zulässig werden.
+          enum:
+          - STANDARD
+          - NEUBAU
+          - SANIERUNG
+        kfwEnergieEffizienzStandard:
+          type: string
+          description: "nur bei darlehensTyp==KFW_DARLEHEN. Nur bei KfW-Programm 261,\
+            \ 297, 298 und 300 relevant. Bei neuen Energieeffizienzstandards können\
+            \ auch weitere Werte zulässig werden."
+          enum:
+          - STANDARD_40_NH
+          - STANDARD_40_PLUS
+          - STANDARD_40
+          - STANDARD_40_EEK
+          - STANDARD_55
+          - STANDARD_55_EEK
+          - STANDARD_70
+          - STANDARD_70_EEK
+          - STANDARD_85
+          - STANDARD_85_EEK
+          - STANDARD_100
+          - STANDARD_100_EEK
+          - STANDARD_DENKMAL
+          - STANDARD_DENKMAL_EEK
+          - KLIMAFREUNDLICH_STANDARD
+          - KLIMAFREUNDLICH_QNG
+        kfwProgramm:
+          type: string
+          description: "nur bei darlehensTyp==KFW_DARLEHEN. Bei neu aufgelegten KfW-Programmen\
+            \ können auch weitere Werte zulässig werden. Folgende Programme sind aktiv:\
+            \ 124, 159, 261 (Sanierung), 297, 298 und 300"
+          enum:
+          - PROGRAMM_124
+          - PROGRAMM_141
+          - PROGRAMM_151
+          - PROGRAMM_152
+          - PROGRAMM_153
+          - PROGRAMM_155
+          - PROGRAMM_159
+          - PROGRAMM_167
+          - PROGRAMM_261
+          - PROGRAMM_262
+          - PROGRAMM_297
+          - PROGRAMM_298
+          - PROGRAMM_300
+          - PROGRAMM_308
+          - PROGRAMM_358
+          - PROGRAMM_359
+        kfwSanierungsFahrplanLiegtVor:
+          type: boolean
+          description: nur bei darlehensTyp==KFW_DARLEHEN. Nur bei KfW-Programm 261
+            relevant.
+        konditionWurdeManuellAngepasst:
+          type: boolean
+        konditionsAnpassungsBegruendung:
+          type: string
+          description: "Begründung, wenn die Kondition angepasst wurde"
+        laufZeitInJahren:
+          type: integer
+          format: int32
+        laufzeitInMonaten:
+          type: integer
+          format: int32
+          deprecated: true
+          description: nur bei darlehensTyp==PRIVAT_DARLEHEN. Deprecated. Aktuell
+            ist die Information in gesamtlaufzeitInMonaten zu finden.
+        maximaleLaufzeitInMonaten:
+          type: integer
+          format: int32
+          deprecated: true
+          description: nur bei darlehensTyp==ZWISCHEN_FINANZIERUNG. Deprecated. Aktuell
+            ist die Information in gesamtlaufzeitInMonaten zu finden.
+        produktAnbieter:
+          $ref: "#/components/schemas/ProduktAnbieter"
+        rateMonatlich:
+          type: number
+          description: Die monatliche Rate in Euro
+          example: 123.34
+        rateMonatlichInDerTilgungsfreienAnlaufzeit:
+          type: number
+          description: "nur bei darlehensTyp IN [KFW_DARLEHEN, REGIONAL_FOERDER_DARLEHEN]"
+        regionalFoerderbankProgramm:
+          type: string
+          description: nur bei darlehensTyp==REGIONAL_FOERDER_DARLEHEN. Bei neu aufgelegten
+            Regional-Förderbank-Programmen können auch weitere Werte zulässig werden.
+            Der Client muss daher mit unbekannten Werten umgehen können.
+          enum:
+          - L_BANK_KOMBI_DARLEHEN_WOHNEN
+          - L_BANK_WOHNEN_MIT_KIND
+          - L_BANK_WOHNEN_MIT_ZUKUNFT
+          - NRW_BANK_WOHNEIGENTUM
+          - NRW_BANK_GEBAEUDESANIERUNG
+          - NRW_BANK_NACHHALTIG_WOHNEN
+        riesterGefoerdert:
+          type: boolean
+        sollZins:
+          type: number
+          description: Der Sollzinssatz in Prozent
+          example: 2.05
+        tilgung:
+          $ref: "#/components/schemas/Tilgung"
+          description: nicht bei darlehensTyp==ZWISCHEN_FINANZIERUNG
+        tilgungsFreieAnlaufJahre:
+          type: integer
+          format: int32
+          description: "nur bei darlehensTyp IN [KFW_DARLEHEN, REGIONAL_FOERDER_DARLEHEN]"
+        vertragsPartnerIds:
+          type: array
+          description: nur bei darlehensTyp==BAUSPAR_DARLEHEN
+          items:
+            type: string
+        verwendungszweck:
+          type: string
+          description: nur bei darlehensTyp==ZWISCHEN_FINANZIERUNG
+          enum:
+          - VORFINANZIERUNG_OEFFENTLICHER_MITTEL
+          - VERKAUF_EINES_ANDEREN_OBJEKTS
+          - SONSTIGE_VERWENDUNG
+        zinsBindung:
+          $ref: "#/components/schemas/ZinsBindung"
+          description: "nicht bei darlehensTyp IN [VARIABLES_DARLEHEN,ZWISCHEN_FINANZIERUNG]"
+        zinsZahlungsBeginnAm:
+          type: string
+          format: date
+    DarlehensWunsch:
+      type: object
+      properties:
+        annuitaetenDarlehen:
+          $ref: "#/components/schemas/AnnuitaetenDarlehensWunsch"
+          description: "muss leer sein, wenn eines der anderen Attribute gefüllt ist"
+        bausparDarlehen:
+          $ref: "#/components/schemas/BausparDarlehensWunsch"
+          description: "muss leer sein, wenn eines der anderen Attribute gefüllt ist"
+        forwardDarlehen:
+          $ref: "#/components/schemas/ForwardDarlehensWunsch"
+          description: "muss leer sein, wenn eines der anderen Attribute gefüllt ist"
+        id:
+          type: string
+        kfwDarlehen:
+          $ref: "#/components/schemas/KfwDarlehensWunsch"
+          description: "muss leer sein, wenn eines der anderen Attribute gefüllt ist"
+        privatDarlehen:
+          $ref: "#/components/schemas/PrivatDarlehensWunsch"
+          description: "muss leer sein, wenn eines der anderen Attribute gefüllt ist"
+        regionalFoerderDarlehen:
+          $ref: "#/components/schemas/RegionalFoerderDarlehensWunsch"
+          description: "muss leer sein, wenn eines der anderen Attribute gefüllt ist"
+        variablesDarlehen:
+          $ref: "#/components/schemas/VariablesDarlehensWunsch"
+          description: "muss leer sein, wenn eines der anderen Attribute gefüllt ist"
+        zwischenFinanzierung:
+          $ref: "#/components/schemas/ZwischenFinanzierungsWunsch"
+          description: "muss leer sein, wenn eines der anderen Attribute gefüllt ist"
+    Dokument:
+      type: object
+      properties:
+        art:
+          type: string
+          description: ist nicht immer vorhanden
+        href:
+          type: string
+          format: uri
+        name:
+          type: string
+        titel:
+          type: string
+          description: Name des Dokuments
+        type:
+          $ref: "#/components/schemas/MediaType"
+    EffektivZinsErhoehendeKosten:
+      type: object
+      properties:
+        anpassen:
+          type: boolean
+        grundbuchEintragungsKostenEinmalig:
+          type: number
+        sonstigeKostenBezeichnung:
+          type: string
+        sonstigeKostenEinmalig:
+          type: number
+        wohnGebaeudeVersicherungsKostenJaehrlich:
+          type: number
+    EffektivZinsKosten:
+      type: object
+      properties:
+        beratungsHonorar:
+          type: number
+        grundbuchKosten:
+          type: number
+        sonstigeKosten:
+          type: number
+        tilgungsErsatzProduktKosten:
+          type: number
+        wohnGebaeudeVersicherungsKosten:
+          type: number
+        zinsabsicherungsKosten:
+          type: number
+        zusatzSicherheitsKosten:
+          type: number
+    EinkuenfteAusNebentaetigkeit:
+      type: object
+      properties:
+        beginnDerNebentaetigkeit:
+          type: string
+          format: date
+        einnahmenMonatlich:
+          type: number
+        zahlungsTyp:
+          type: string
+          description: Redundante Angabe des Zahlungstyps dient als zusätzliches Filterkriterium
+          enum:
+          - EINNAHME
+          - AUSGABE
+    EinnahmenMonatlich:
+      type: object
+      properties:
+        einnahmenMonatlich:
+          type: number
+        zahlungsTyp:
+          type: string
+          description: Redundante Angabe des Zahlungstyps dient als zusätzliches Filterkriterium
+          enum:
+          - EINNAHME
+          - AUSGABE
+    Email:
+      format: email
+    EnergieEffizienzAusweis:
+      type: object
+      properties:
+        ausweisTyp:
+          type: string
+          enum:
+          - ENDENERGIEBEDARF
+          - ENDENERGIEVERBRAUCH
+        co2Emissionen:
+          type: number
+          format: double
+        effizienzklasse:
+          type: string
+          description: class of energy efficiency
+          enum:
+          - A_PLUS
+          - A
+          - B
+          - C
+          - D
+          - E
+          - F
+          - G
+          - H
+        endEnergie:
+          type: number
+          format: double
+        primaerEnergieTraeger:
+          type: string
+          description: primary used energy carrier
+          enum:
+          - OEL_GAS
+          - PHOTOVOLTAIK_WINDKRAFT
+          - WAERME_KAELTE
+          - STEINKOHLE
+          - BRAUNKOHLE
+          - NETZSTROM
+          - VERDRAENGUNGSSTROM
+          - HOLZ
+          - ABFAELLE
+          - SONSTIGES
+    Entscheidungsreife:
+      type: object
+      properties:
+        entscheidungsreifeVomVertriebSignalisiert:
+          type: boolean
+          description: Es wird nur 'true' zugelassen. Die API berücksichtigt Weiterentwicklungen
+            ohne einen BreakingChange zu forcieren.
+          example: true
+      required:
+      - entscheidungsreifeVomVertriebSignalisiert
+    Erbbaurecht:
+      type: object
+      properties:
+        erbbaurecht:
+          type: boolean
+        erbbauzinsJaehrlich:
+          type: number
+        grundstuecksEigentuemer:
+          type: string
+          enum:
+          - ANDERE
+          - OEFFENTLICH_KIRCHLICH
+        laufzeitBisJahr:
+          type: integer
+          format: int32
+    Error:
+      description: Kommuniziert einen Fehler in der Antwort der API
+      example: |-
+        {
+          "message": "string",
+          "statusCode": 0,
+          "statusMessage": "string",
+          "timestamp": "string",
+          "traceId": "string"
+        }
+      properties:
+        message: {}
+        statusCode:
+          format: int32
+        statusMessage: {}
+        timestamp:
+          format: date-time
+        traceId: {}
+      title: Error
+    Euro:
+      format: bigdecimal
+    EuropaceBausparAngebot:
+      type: object
+      properties:
+        abschlussGebuehr:
+          type: number
+        angebotsHinweisFuerAntragsteller:
+          type: string
+          description: nur bei neuen extern berechneten Bausparverträgen und bei Gegenangeboten
+        bausparSumme:
+          type: number
+        einmalzahlung:
+          type: number
+          deprecated: true
+          description: Deprecated. Einmalzahlungen sind Teil der Sonderzahlungen.
+        gesamtLaufzeitInJahren:
+          type: integer
+          format: int32
+        guthabenZins:
+          type: number
+        id:
+          type: string
+        produktAnbieter:
+          $ref: "#/components/schemas/ProduktAnbieter"
+        sonderZahlungen:
+          type: array
+          items:
+            $ref: "#/components/schemas/SonderZahlung"
+        sparBeginn:
+          type: string
+          format: date
+          description: Der berechnete Beginn des Besparens des Bausparvertrags.
+        sparPhase:
+          $ref: "#/components/schemas/SparPhase"
+        tarif:
+          type: string
+        tarifId:
+          type: string
+          description: Produktanbieter-spezifische Tarif-ID des Bauspartarifs
+        tilgungsPhase:
+          $ref: "#/components/schemas/TilgungsPhase"
+        typ:
+          type: string
+        vertragsBeginn:
+          type: string
+          format: date
+        vertragsNummer:
+          type: string
+        verwaltungsgebuehrenJaehrlich:
+          type: number
+        zuteilungsDatum:
+          type: string
+          format: date
+    Finanzbedarf:
+      type: object
+      properties:
+        anzahlTeilzahlungen:
+          type: integer
+          format: int32
+          description: "Anzahl Teilzahlungen bei Neubau, Kauf vom Bauträger sowie\
+            \ Modernisierung"
+        aussenAnlagen:
+          type: number
+        bauNebenkosten:
+          type: number
+        beratungsHonorar:
+          type: number
+        bereitsBeglichen:
+          type: number
+        erschliessung:
+          type: number
+        grunderwerbsteuer:
+          type: number
+          description: Nebenkosten
+        grundstueckBereitsBezahlt:
+          type: boolean
+        grundstuecksKaufpreis:
+          type: number
+        herstellung:
+          type: number
+          description: inklusive Eigenleistungen
+        kapitalBeschaffung:
+          type: number
+        kapitalWirdBeschafft:
+          type: boolean
+        kaufpreis:
+          type: number
+          description: inklusive Eigenleistungen
+        maklergebuehr:
+          type: number
+          description: Nebenkosten
+        mobiliar:
+          type: number
+        modernisieren:
+          type: boolean
+        modernisierung:
+          type: number
+          description: inklusive Eigenleistungen
+        notargebuehr:
+          type: number
+          description: Nebenkosten
+        renovierung:
+          type: number
+        sonstigeKosten:
+          type: number
+        zusaetzlichesKapital:
+          type: number
+    FinanzierungsObjekt:
+      type: object
+      properties:
+        adresse:
+          $ref: "#/components/schemas/Postadresse"
+        autostellplaetze:
+          type: array
+          items:
+            $ref: "#/components/schemas/Autostellplatz"
+        bestehendeDarlehen:
+          type: array
+          items:
+            $ref: "#/components/schemas/BestehendesDarlehenDesFinanzierungsObjekts"
+        bewirtschaftungsKostenJaehrlich:
+          type: number
+        bodenRichtwert:
+          type: number
+        bundesland:
+          type: string
+          enum:
+          - BADEN_WUERTTEMBERG
+          - BAYERN
+          - BERLIN
+          - BRANDENBURG
+          - BREMEN
+          - HAMBURG
+          - HESSEN
+          - MECKLENBURG_VORPOMMERN
+          - NIEDERSACHSEN
+          - NORDRHEIN_WESTFALEN
+          - RHEINLAND_PFALZ
+          - SAARLAND
+          - SACHSEN
+          - SACHSEN_ANHALT
+          - SCHLESWIG_HOLSTEIN
+          - THUERINGEN
+        effektivZinsErhoehendeKosten:
+          $ref: "#/components/schemas/EffektivZinsErhoehendeKosten"
+        erbbaurecht:
+          $ref: "#/components/schemas/Erbbaurecht"
+        gebaeude:
+          $ref: "#/components/schemas/Gebaeude"
+        grundbuchAngabe:
+          $ref: "#/components/schemas/GrundbuchAngabe"
+        grundstueck:
+          $ref: "#/components/schemas/Grundstueck"
+        id:
+          type: string
+        keinBaulandFlaecheInQm:
+          type: number
+        marktueblicherKaufpreisProQm:
+          type: number
+        marktwert:
+          type: number
+          description: "Nur relevant bei Finanzbedarf AnschlussFinanzierung, Modernisierung\
+            \ und Kapitalbeschaffung."
+        objektArt:
+          type: string
+          enum:
+          - GRUNDSTUECK
+          - EIGENTUMSWOHNUNG
+          - HAUS
+        vergleichsmieteFuerGewerbeflaecheProQm:
+          type: number
+        vergleichsmieteFuerWohnflaecheProQm:
+          type: number
+        verkehrswert:
+          type: number
+          description: Hat den selben Inhalt wie das Feld marktwert. (Wird in v3 nicht
+            mehr enthalten sein)
+        vorlaeufigerVerkehrswert:
+          type: number
+          description: "Diese Angabe ist produktanbieterspezifisch, sie wird nicht\
+            \ von allen Produktanbietern bei der Angebotsermittlung berücksichtigt."
+        wohnlage:
+          type: string
+          enum:
+          - GEHOBEN
+          - MITTEL
+          - EINFACH
+    FinanzierungsvorschlaegeResource:
+      type: object
+      properties:
+        _links:
+          $ref: "#/components/schemas/Links"
+        finanzierungsvorschlaege:
+          type: array
+          items:
+            $ref: "#/components/schemas/Finanzierungsvorschlag"
+    Finanzierungsvorschlag:
+      type: object
+      description: Ein in BaufiSmart ausgehändigter Finanzierungsvorschlag.
+      properties:
+        _links:
+          $ref: "#/components/schemas/Links"
+        annahmeFrist:
+          type: string
+          format: date-time
+          description: Die Annahmefrist des Angebots.
+        bausparvertraege:
+          type: array
+          description: "Liste von allen Bausparverträgen, die Bestandteil dieses Finanzierungsvorschlags\
+            \ sind."
+          items:
+            $ref: "#/components/schemas/EuropaceBausparAngebot"
+        beleihung:
+          $ref: "#/components/schemas/BeleihungsRechnung"
+          example: "Die Beleihungsrechnung aller Immobilien, die Bestandteil dieses\
+            \ Finanzierungsvorschlags sind."
+        darlehen:
+          type: array
+          description: "Liste von allen Darlehen, die Bestandteil dieses Finanzierungsvorschlags\
+            \ sind."
+          items:
+            $ref: "#/components/schemas/Darlehen"
+        darlehensSumme:
+          type: number
+          description: Die gesamte Darlehenssumme in Euro für alle im Finanzierungsvorschlag
+            enthaltenen Darlehen.
+          example: 123.34
+        effektivZins:
+          type: number
+          description: Aus allen Darlehens Effektivzinssätzen wird ein aggregierter
+            Mischzins in Prozent ausgegeben.
+          example: 2.04
+        historie:
+          type: array
+          description: "Historie, in der für jedes Aushändigen, ein Eintrag mit Datum\
+            \ und Akteur ausgegeben wird."
+          items:
+            $ref: "#/components/schemas/FinanzierungsvorschlagHistorienEintrag"
+        id:
+          type: string
+          description: Id des Finanzierungsvorschlags
+        machbarkeitsStatus:
+          type: string
+          enum:
+          - MACHBAR
+          - UNTER_VORBEHALT_PRODUZENT
+          - NICHT_MACHBAR
+          example: MACHBAR
+        rateMonatlich:
+          type: number
+          description: Die gesamte monatliche Rate in Euro.
+          example: 123.34
+        sollZins:
+          type: number
+          description: Aus allen Darlehens Sollzinssätzen wird ein aggregierter Sollzins
+            in Prozent ausgegeben.
+          example: 2.05
+        zinsBindung:
+          type: string
+          description: Die Zinsbindung wird über alle Darlehen als Intervall in Jahren
+            angegeben.
+          example: 5
+    FinanzierungsvorschlagHistorienEintrag:
+      type: object
+      description: "Wird ein Angebot als Finanzierungsvorschlag ausgehändigt, wird\
+        \ ein Eintrag in die Historie geschrieben."
+      properties:
+        akteur:
+          type: string
+        erzeugtAm:
+          type: string
+          format: date-time
+    Finanzierungswunsch:
+      type: object
+      properties:
+        bausparWuensche:
+          type: array
+          items:
+            $ref: "#/components/schemas/BausparWunsch"
+        darlehensWuensche:
+          type: array
+          items:
+            $ref: "#/components/schemas/DarlehensWunsch"
+        id:
+          type: string
+    Flaeche:
+      format: bigdecimal
+    Flurstueck:
+      type: object
+      properties:
+        anteil:
+          $ref: "#/components/schemas/MiteigentumsAnteil"
+        flur:
+          type: string
+        flurstuecksNummer:
+          type: string
+        groesse:
+          type: number
+    ForwardDarlehensWunsch:
+      type: object
+      properties:
+        auszahlungsDatum:
+          type: string
+          format: date
+          deprecated: true
+          description: Bitte 'auszahlungsZeitpunkt' verwenden
+        auszahlungsZeitpunkt:
+          type: string
+          format: date
+        bereitstellungsZinsFreieZeitInMonaten:
+          type: integer
+          format: int32
+        darlehensBetrag:
+          type: number
+        provision:
+          type: number
+        sondertilgungOptionalJaehrlich:
+          type: number
+        tilgungsWunsch:
+          $ref: "#/components/schemas/TilgungsWunsch"
+        zinsBindungInJahren:
+          type: integer
+          format: int32
+    Gebaeude:
+      type: object
+      properties:
+        anzahlDerGewerbeeinheiten:
+          type: integer
+          format: int32
+        anzahlDerWohneinheitenImGebaeude:
+          type: integer
+          format: int32
+        anzahlVollgeschosse:
+          type: integer
+          format: int32
+        aufbauFinanzierung:
+          type: boolean
+        aufzugVorhanden:
+          type: boolean
+        ausstattung:
+          type: string
+          enum:
+          - EINFACH
+          - MITTEL
+          - GEHOBEN
+          - STARK_GEHOBEN
+        baujahr:
+          type: integer
+          format: int32
+          description: Baujahr des Gebäudes. Bei Verwendungszweck != NEUBAU 2016
+          example: 2016
+        bauweise:
+          type: string
+          enum:
+          - FACHWERK_MIT_STROH_LEHM
+          - FACHWERK_MIT_ZIEGELN
+          - GLAS_STAHL
+          - HOLZ
+          - MASSIV
+        bezeichnungWohneinheit:
+          type: string
+        dachgeschossAusbau:
+          type: string
+          enum:
+          - FLACHDACH
+          - NICHT_AUSGEBAUT
+          - TEILWEISE_AUSGEBAUT
+          - VOLL_AUSGEBAUT
+        denkmalschutz:
+          type: boolean
+        einliegerwohnungVorhanden:
+          type: boolean
+        energieEffizienzAusweis:
+          $ref: "#/components/schemas/EnergieEffizienzAusweis"
+        geschossLage:
+          type: string
+          enum:
+          - UNTERGESCHOSS
+          - ERDGESCHOSS
+          - ERSTES_OBERGESCHOSS
+          - ZWEITES_OBERGESCHOSS
+          - DRITTES_BIS_FUENFTES_OBERGESCHOSS
+          - AB_SECHSTES_OBERGESCHOSS
+          - UNBEKANNT
+        gewerbeflaeche:
+          $ref: "#/components/schemas/GebaeudeFlaeche"
+        hausAnordnung:
+          type: string
+          enum:
+          - FREISTEHEND
+          - KOPFHAUS
+          - MITTELHAUS
+        hausTyp:
+          type: string
+          enum:
+          - DOPPELHAUSHAELFTE
+          - EINFAMILIENHAUS
+          - MEHRFAMILIENHAUS
+          - REIHENHAUS
+          - ZWEIFAMILIENHAUS
+        istFertighaus:
+          type: boolean
+        kellerausbau:
+          type: string
+          enum:
+          - AUSGEBAUT
+          - TEILWEISE_AUSGEBAUT
+          - VORHANDEN
+        kubatur:
+          type: number
+        miteigentumsAnteil:
+          $ref: "#/components/schemas/MiteigentumsAnteil"
+        modernisierungsAngaben:
+          $ref: "#/components/schemas/ModernisierungsAngaben"
+        unterkellerung:
+          type: string
+          enum:
+          - NICHT_UNTERKELLERT
+          - TEILWEISE_UNTERKELLERT
+          - UNTERKELLERT
+        wohnflaeche:
+          $ref: "#/components/schemas/GebaeudeFlaeche"
+        zustand:
+          type: string
+          enum:
+          - SEHR_GUT
+          - GUT
+          - MITTEL
+          - MAESSIG
+          - SCHLECHT
+    GebaeudeFlaeche:
+      type: object
+      properties:
+        gesamtGroesse:
+          type: number
+        vermietungsInformationen:
+          $ref: "#/components/schemas/VermietungsInformationen"
+    GrundbuchAngabe:
+      type: object
+      properties:
+        amtsgericht:
+          type: string
+          description: Bezirk/Bezeichnung des zuständigen Amtsgerichts
+        anmerkungen:
+          type: string
+        bandUndBlatt:
+          type: string
+          description: Angabe von Band und Blatt
+        flurstuecke:
+          type: array
+          items:
+            $ref: "#/components/schemas/Flurstueck"
+        ort:
+          type: string
+          description: Ort des als Grundbuchamt zuständigen Amtsgerichts
+        rechteInAbteilung2:
+          $ref: "#/components/schemas/RechteAbteilung2"
+          description: "Belastungen und Beschränkungen in der Nutzbarkeit des Grundstü\
+            cks. Leitungsrechte, Verzichte auf Abstandsflächen, Wegerechte, Insolvenzvermerke."
+    Grundstueck:
+      type: object
+      properties:
+        groesse:
+          type: number
+        grundstuecksArt:
+          type: string
+          enum:
+          - UNBEBAUTES_WOHNGRUNDSTUECK
+          - UNBEBAUTES_MISCHGRUNDSTUECK
+          - UNBEBAUTES_GEWERBEGRUNDSTUECK
+          - LANDWIRTSCHAFTLICHES_GRUNDSTUECK
+          - SONSTIGES_GRUNDSTUECK
+    Haushalt:
+      type: object
+      properties:
+        antragsteller:
+          type: array
+          items:
+            $ref: "#/components/schemas/Antragsteller"
+        anzahlErwachseneImHaushalt:
+          type: integer
+          format: int32
+        anzahlKinderNichtImHaushalt:
+          type: integer
+          format: int32
+        bestehendeImmobilien:
+          type: array
+          items:
+            $ref: "#/components/schemas/BestehendeImmobilie"
+        erfahrungImmobilienFinanzierung:
+          type: boolean
+        id:
+          type: string
+        kfzAnzahl:
+          type: integer
+          format: int32
+        kinder:
+          type: array
+          items:
+            $ref: "#/components/schemas/Kind"
+        lebenshaltungsKostenMonatlich:
+          type: number
+        obligo:
+          $ref: "#/components/schemas/VermoegenVerbindlichkeiten"
+          description: "Diese Angabe ist produktanbieterspezifisch, sie wird nicht\
+            \ von allen Produktanbietern bei der Angebotsermittlung berücksichtigt."
+        positionen:
+          $ref: "#/components/schemas/HaushaltsPositionen"
+    HaushaltsPositionen:
+      type: object
+      properties:
+        bankUndSparguthaben:
+          type: array
+          items:
+            $ref: "#/components/schemas/BankUndSparguthaben"
+        bausparvertraege:
+          type: array
+          items:
+            $ref: "#/components/schemas/BestehenderBausparvertrag"
+        ehegattenUnterhalt:
+          type: array
+          items:
+            $ref: "#/components/schemas/EinnahmenMonatlich"
+        einkuenfteAusNebentaetigkeit:
+          type: array
+          items:
+            $ref: "#/components/schemas/EinkuenfteAusNebentaetigkeit"
+        kindergeld:
+          type: array
+          description: Read-Only-Feld. Wird dynamisch aus den Angaben zu den Kindern
+            berechnet. Pro kindergelderhaltendem Kind ein Listenelement.
+          items:
+            $ref: "#/components/schemas/EinnahmenMonatlich"
+        lebensUndRentenVersicherungen:
+          type: array
+          items:
+            $ref: "#/components/schemas/LebensOderRentenversicherungVermoegen"
+        mietAusgaben:
+          type: array
+          items:
+            $ref: "#/components/schemas/MietAusgaben"
+        privateDarlehen:
+          type: array
+          items:
+            $ref: "#/components/schemas/Verbindlichkeit"
+        privateKrankenversicherung:
+          type: array
+          items:
+            $ref: "#/components/schemas/AusgabenMonatlich"
+        ratenkredite:
+          type: array
+          items:
+            $ref: "#/components/schemas/Verbindlichkeit"
+        sonstigeAusgaben:
+          type: array
+          items:
+            $ref: "#/components/schemas/AusgabenMonatlich"
+        sonstigeEinnahmen:
+          type: array
+          items:
+            $ref: "#/components/schemas/EinnahmenMonatlich"
+        sonstigeVerbindlichkeiten:
+          type: array
+          items:
+            $ref: "#/components/schemas/Verbindlichkeit"
+        sonstigeVermoegen:
+          type: array
+          items:
+            $ref: "#/components/schemas/Vermoegen"
+        sparplaene:
+          type: array
+          items:
+            $ref: "#/components/schemas/Sparplaene"
+        unbefristeteZusatzRenten:
+          type: array
+          items:
+            $ref: "#/components/schemas/EinnahmenMonatlich"
+        unterhaltsVerpflichtungen:
+          type: array
+          items:
+            $ref: "#/components/schemas/AusgabenMonatlich"
+        variableEinkuenfte:
+          type: array
+          items:
+            $ref: "#/components/schemas/EinnahmenMonatlich"
+        versicherungsAusgaben:
+          type: array
+          items:
+            $ref: "#/components/schemas/AusgabenMonatlich"
+        wertpapiere:
+          type: array
+          items:
+            $ref: "#/components/schemas/Wertpapiere"
+    ImmobilieVerknuepfung:
+      type: object
+      properties:
+        id:
+          type: string
+    IsoCountryCode: {}
+    Jahreszahl: {}
+    KfwDarlehensWunsch:
+      type: object
+      properties:
+        darlehensBetrag:
+          type: number
+        kfwEndfaellig:
+          type: string
+          description: Für endfällige KfW-Darlehen wird die Quelle des Tilgungswunsches
+            erfasst
+          enum:
+          - NEIN
+          - ENDFAELLIG_BERECHNET
+          - ENDFAELLIG_EIGENES_ANGEBOT
+        kfwEnergieEffizienzGruppe:
+          type: string
+          description: "Nur bei Programm 153, 261. Der Client muss mit unbekannten\
+            \ Werten umgehen können."
+          enum:
+          - STANDARD
+          - NEUBAU
+          - SANIERUNG
+        kfwEnergieEffizienzStandard:
+          type: string
+          description: "Nur bei Programm 153, 261. Wenn die KfW-Bank neue Standards\
+            \ anerkennt, sind die entsprechenden neuen Ausprägungen zulässig. Der\
+            \ Client muss daher mit unbekannten Werten umgehen können."
+          enum:
+          - STANDARD_40_NH
+          - STANDARD_40_PLUS
+          - STANDARD_40
+          - STANDARD_40_EEK
+          - STANDARD_55
+          - STANDARD_55_EEK
+          - STANDARD_70
+          - STANDARD_70_EEK
+          - STANDARD_85
+          - STANDARD_85_EEK
+          - STANDARD_100
+          - STANDARD_100_EEK
+          - STANDARD_DENKMAL
+          - STANDARD_DENKMAL_EEK
+          - KLIMAFREUNDLICH_STANDARD
+          - KLIMAFREUNDLICH_QNG
+        kfwProgramm:
+          type: string
+          description: Bei neu aufgelegten KfW-Programmen können auch weitere Werte
+            zulässig werden. Der Client muss daher mit unbekannten Werten umgehen
+            können.
+          enum:
+          - PROGRAMM_124
+          - PROGRAMM_141
+          - PROGRAMM_151
+          - PROGRAMM_152
+          - PROGRAMM_153
+          - PROGRAMM_155
+          - PROGRAMM_159
+          - PROGRAMM_167
+          - PROGRAMM_261
+          - PROGRAMM_262
+          - PROGRAMM_297
+          - PROGRAMM_298
+          - PROGRAMM_300
+          - PROGRAMM_308
+          - PROGRAMM_358
+          - PROGRAMM_359
+        kfwSanierungsFahrplanLiegtVor:
+          type: boolean
+          description: Nur bei Programm 261.
+        laufzeitInJahren:
+          type: integer
+          format: int32
+        provision:
+          type: number
+        tilgungsWunsch:
+          $ref: "#/components/schemas/TilgungsWunsch"
+          description: Für endfällige KfW-Darlehen wird ein Tilgungswunsch erfasst
+        tilgungsfreieAnlaufjahre:
+          type: integer
+          format: int32
+          description: "Erlaubt ist 1, 2, 3, 4, 5. Maximalwert abhängig von der Laufzeit.\
+            \ Wenn der Tilgungswunsch ausgesetzt ist, dann ist auch 10 erlaubt."
+        zinsBindungInJahren:
+          type: integer
+          format: int32
+          description: "Programm 124: 5 oder 10, sonst: 10 oder 20"
+    Kind:
+      type: object
+      properties:
+        geburtsdatum:
+          type: string
+          format: date
+        id:
+          type: string
+        kindergeldWirdBezogen:
+          type: boolean
+        name:
+          type: string
+        unterhaltsEinnahmenBetragMonatlich:
+          type: number
+    LeadTracking:
+      type: object
+      properties:
+        kampagne:
+          type: string
+        keyword:
+          type: string
+        kundenBetreuerBenachrichtigen:
+          type: boolean
+        trackingId:
+          type: string
+    LebensOderRentenversicherungVermoegen:
+      type: object
+      properties:
+        id:
+          type: string
+        maximalAufzuloesenderBetrag:
+          type: number
+        praemieMonatlich:
+          type: number
+        rueckkaufsWertAktuell:
+          type: number
+        tarif:
+          type: string
+        typ:
+          type: string
+          enum:
+          - KAPITALBILDENDE_LEBENSVERSICHERUNG
+          - FONDSGEBUNDENE_LEBENSVERSICHERUNG
+          - KAPITALBILDENDE_RENTENVERSICHERUNG
+          - FONDSGEBUNDENE_RENTENVERSICHERUNG
+          - RISIKO_LEBENSVERSICHERUNG
+        vermoegensEinsatz:
+          type: string
+          enum:
+          - KEIN_EINSATZ
+          - ABTRETEN
+          - AUFLOESEN
+        vermoegensTyp:
+          type: string
+          description: Redundante Angabe des Vermögenstyp dient als zusätzliches Filterkriterium
+          enum:
+          - VERMOEGEN
+          - VERBINDLICHKEIT
+        versicherungsGesellschaft:
+          type: string
+        versicherungsSumme:
+          type: number
+        vertragsBeginn:
+          type: string
+          format: date
+        vertragsEnde:
+          type: string
+          format: date
+        vertragsNummer:
+          type: string
+        verwaltungsgebuehrenJaehrlich:
+          type: number
+        zahlungsTyp:
+          type: string
+          description: Redundante Angabe des Zahlungstyps dient als zusätzliches Filterkriterium
+          enum:
+          - EINNAHME
+          - AUSGABE
+    LegitimationsDaten:
+      type: object
+      properties:
+        ausstellendeBehoerde:
+          type: string
+        ausstellungsdatum:
+          type: string
+          format: date
+        ausweisArt:
+          type: string
+          enum:
+          - PERSONALAUSWEIS
+          - REISEPASS
+          - ANDERE
+        ausweisArtBeiAndererAusweis:
+          type: string
+          description: Nur wenn ausweisArt = ANDERE
+        ausweisNummer:
+          type: string
+    Link:
+      type: object
+      properties:
+        deprecation:
+          type: string
+        href:
+          type: string
+        hreflang:
+          type: string
+        name:
+          type: string
+        profile:
+          type: string
+        templated:
+          type: boolean
+        title:
+          type: string
+        type:
+          type: string
+    Links:
+      type: object
+      additionalProperties:
+        $ref: "#/components/schemas/Link"
+    LocalDate:
+      format: date
+    MediaType: {}
+    Meldung:
+      type: object
+      properties:
+        kategorie:
+          type: string
+          description: Neue Ausprägungen können kurzfristig hinzukommen. Der Client
+            muss daher mit unbekannten Werten umgehen können.
+          enum:
+          - AUSZAHLUNGS_VORAUSSETZUNG
+          - MACHBAR
+          - MACHBARKEITS_HINWEIS
+          - ANPASSUNG_KUNDENWUNSCH
+          - ANPASSUNG_VERTRIEBSWUNSCH
+          - UNBERUECKSICHTIGTE_ANGABE
+          - KONDITIONEN_UNTER_VORBEHALT_VOLLSTAENDIGER_DATEN
+          - KONDITIONEN_UNTER_VORBEHALT_EXTERNER_SCHNITTSTELLEN
+          - MACHBARKEIT_UNTER_VORBEHALT_VOLLSTAENDIGER_DATEN
+          - MACHBARKEIT_UNTER_VORBEHALT_EXTERNER_SCHNITTSTELLEN
+          - MACHBAR_UNTER_VORBEHALT_PRODUZENT
+          - NICHT_MACHBAR
+          - NICHT_ANBIETBAR
+        kreditEntscheider:
+          $ref: "#/components/schemas/ProduktAnbieter"
+        produktAnbieter:
+          $ref: "#/components/schemas/ProduktAnbieter"
+        text:
+          type: string
+    MietAusgaben:
+      type: object
+      properties:
+        ausgabenMonatlich:
+          type: number
+        berechnungsHilfeVermoegen:
+          $ref: "#/components/schemas/BerechnungsHilfeBetrag"
+        entfallenMitFinanzierung:
+          type: boolean
+        zahlungsTyp:
+          type: string
+          description: Redundante Angabe des Zahlungstyps dient als zusätzliches Filterkriterium
+          enum:
+          - EINNAHME
+          - AUSGABE
+    MiteigentumsAnteil:
+      type: object
+      properties:
+        anteil:
+          type: number
+          format: double
+        gesamt:
+          type: integer
+          format: int32
+    ModernisierungsAngaben:
+      type: object
+      properties:
+        badWc:
+          type: boolean
+        bodenWandTreppe:
+          type: boolean
+        dach:
+          type: boolean
+        fenster:
+          type: boolean
+        heizungZentral:
+          type: boolean
+        modernisierungsGrad:
+          type: string
+          enum:
+          - GERING
+          - MITTEL
+          - HOCH
+        modernisierungsJahr:
+          type: integer
+          format: int32
+        raumaufteilung:
+          type: boolean
+        stromAbwasserHeizkoerper:
+          type: boolean
+        waermedaemmung:
+          type: boolean
+        wurdeModernisiert:
+          type: boolean
+    NachrangigesExternesDarlehen:
+      type: object
+      properties:
+        darlehensBetrag:
+          type: number
+        darlehensGeber:
+          type: string
+          description: Der Name des externen Darlehensgebers (Firmierung). Es gibt
+            keine entsprechende Beziehung zu einem Partner auf der Europace-Plattform.
+        id:
+          type: string
+        laufzeitEnde:
+          type: string
+          format: date
+          description: "Wenn die Laufzeit bei einem externen Darlehen angegeben wurde,\
+            \ dann ist das Feld gesetzt."
+        rateMonatlich:
+          type: number
+        typ:
+          type: string
+          description: Neue Ausprägungen können kurzfristig hinzukommen. Der Client
+            muss daher mit unbekannten Werten umgehen können.
+          enum:
+          - ARBEITGEBERDARLEHEN
+          - BAUSPARDARLEHEN
+          - OEFFENTLICHES_DARLEHEN
+          - RATENKREDIT
+        zinsBindung:
+          $ref: "#/components/schemas/ZinsBindung"
+    Nachricht:
+      type: object
+      properties:
+        text:
+          type: string
+          description: Inhalt der Nachricht
+          maxLength: 500
+          minLength: 1
+      required:
+      - text
+    PaginationLinks:
+      type: object
+      properties:
+        next:
+          $ref: "#/components/schemas/Link"
+        prev:
+          $ref: "#/components/schemas/Link"
+        self:
+          $ref: "#/components/schemas/Link"
+    Partner:
+      type: object
+      properties:
+        anrede:
+          type: string
+          enum:
+          - FRAU
+          - HERR
+        anschrift:
+          $ref: "#/components/schemas/Postadresse"
+        email:
+          type: string
+        externePartnerId:
+          type: string
+        externerKreditSachbearbeiterId:
+          type: string
+        fax:
+          type: string
+        firmenNameZusatz:
+          type: string
+        firmierung:
+          type: string
+        geburtsdatum:
+          type: string
+          format: date
+        id:
+          type: string
+        kreditsachbearbeiter:
+          type: boolean
+        mobilTelefon:
+          type: string
+        nachname:
+          type: string
+        partnerId:
+          type: string
+        telefonnummer:
+          type: string
+        vertriebsOrganisation:
+          $ref: "#/components/schemas/VertriebsOrganisation"
+        vorname:
+          type: string
+        webseite:
+          type: string
+    PartnerDTO:
+      type: object
+      properties:
+        partnerId:
+          type: string
+    PartnerId: {}
+    PatchOperation:
+      type: object
+      description: "A JSONPatch document as defined by RFC 6902 (see http://jsonpatch.com/).\
+        \ Beispiel: { \"op\": \"replace\", \"path\": \"/antraege/ABC123/1/1/status\"\
+        , \"value\": {\"antragsteller\": \"BEANTRAGT\", \"produktAnbieter\":\"UNTERSCHRIEBEN\"\
+        }}"
+      properties:
+        from:
+          type: string
+        op:
+          type: string
+          description: executed operation
+          enum:
+          - add
+          - remove
+          - replace
+          - move
+          - copy
+          - test
+        path:
+          type: string
+          description: "JSON-Path in Antrag. Valid Paths: /status, /antraege/{vorgangsnummer}/{antragnummer}/{teilantragnummer}/status,\
+            \ /externeVorgangsNummer,/kundenBetreuer/partnerId, /vorgangsBearbeiter/partnerId"
+        value:
+          description: "Value to be set or replaced. Allows: string, number or JSON\
+            \ object"
+          example: ABC123
+      required:
+      - op
+      - path
+      - value
+    Postadresse:
+      type: object
+      properties:
+        hausnummer:
+          type: string
+        ort:
+          type: string
+        postleitzahl:
+          type: string
+        strasse:
+          type: string
+    Praeferenzen:
+      type: object
+      properties:
+        tilgungssatzwechselPraeferenz:
+          $ref: "#/components/schemas/TilgungssatzwechselPraeferenz"
+    PrivatDarlehensWunsch:
+      type: object
+      properties:
+        darlehensBetrag:
+          type: number
+        laufzeitInMonaten:
+          type: integer
+          format: int32
+        provision:
+          type: number
+    ProduktAnbieter:
+      type: object
+      properties:
+        anrede:
+          type: string
+          enum:
+          - FRAU
+          - HERR
+        anschrift:
+          $ref: "#/components/schemas/Postadresse"
+        email:
+          type: string
+        externePartnerId:
+          type: string
+        externerKreditSachbearbeiterId:
+          type: string
+        fax:
+          type: string
+        firmenNameZusatz:
+          type: string
+        firmierung:
+          type: string
+        geburtsdatum:
+          type: string
+          format: date
+        id:
+          type: string
+        kreditsachbearbeiter:
+          type: boolean
+        mobilTelefon:
+          type: string
+        nachname:
+          type: string
+        partnerId:
+          type: string
+        produktAnbieterId:
+          type: string
+        telefonnummer:
+          type: string
+        vertriebsOrganisation:
+          $ref: "#/components/schemas/VertriebsOrganisation"
+        vorname:
+          type: string
+        webseite:
+          type: string
+    Prozent:
+      format: bigdecimal
+    PruefungVorhandenerAbsicherung:
+      type: object
+      properties:
+        finanzierungsRisiko:
+          type: string
+          enum:
+          - TODESFALL
+          - ARBEITSUNFAEHIGKEIT
+          - ARBEITSLOSIGKEIT
+        istAusreichendeAbsicherungVorhanden:
+          type: boolean
+        zusaetzlicheKommentare:
+          type: string
+    RechteAbteilung2:
+      type: object
+      properties:
+        beschreibung:
+          type: string
+        betrag:
+          type: number
+        vorhanden:
+          type: boolean
+    RegionalFoerderDarlehensWunsch:
+      type: object
+      properties:
+        darlehensBetrag:
+          type: number
+        laufzeitInJahren:
+          type: integer
+          format: int32
+          description: "Erlaubt sind 10, 20, 25 oder 30 Jahre je nach Regional-Fö\
+            rderbank-Programm. Bei weiteren Förderbankprogrammen können auch andere\
+            \ Werte zulässig sein."
+        provision:
+          type: number
+        regionalFoerderbankProgramm:
+          type: string
+          description: Bei neu aufgelegten Regional-Förderbank-Programmen können auch
+            weitere Werte zulässig werden. Der Client muss daher mit unbekannten Werten
+            umgehen können.
+          enum:
+          - L_BANK_KOMBI_DARLEHEN_WOHNEN
+          - L_BANK_WOHNEN_MIT_KIND
+          - L_BANK_WOHNEN_MIT_ZUKUNFT
+          - NRW_BANK_WOHNEIGENTUM
+          - NRW_BANK_GEBAEUDESANIERUNG
+          - NRW_BANK_NACHHALTIG_WOHNEN
+        tilgungsfreieAnlaufjahre:
+          type: integer
+          format: int32
+          description: "Erlaubt sind 1, 2, 3, 4 oder 5 Jahre. Der Maximalwert ist\
+            \ abhängig von der Laufzeit."
+        zinsBindungInJahren:
+          type: integer
+          format: int32
+          description: "Erlaubt sind 10, 20, 25 oder 30 Jahre je nach Regional-Fö\
+            rderbank-Programm. Bei weiteren Förderbankprogrammen können auch andere\
+            \ Werte zulässig sein."
+    RisikoAbsicherung:
+      type: object
+      properties:
+        abgesichertesRisiko:
+          type: string
+          enum:
+          - TODESFALL
+          - ARBEITSLOSIGKEIT
+          - ARBEITSUNFAEHIGKEIT
+          - INVALIDITAET
+          - SCHWERE_KRANKHEIT
+          - ASSISTANCE_ARBEITSUNFAEHIGKEIT
+          - ASSISTANCE_ARBEITSLOSIGKEIT
+        auszahlungsBetrag:
+          type: number
+        auszahlungsTurnus:
+          type: string
+          enum:
+          - EINMALIG
+          - MONATLICH
+          - VIERTELJAEHRLICH
+          - HALBJAEHRLICH
+          - JAEHRLICH
+        praemienAnteil:
+          type: number
+    RisikoAbsicherungsWunsch:
+      type: object
+      properties:
+        abzusicherndesRisiko:
+          type: string
+          enum:
+          - TODESFALL
+          - ARBEITSUNFAEHIGKEIT
+          - ARBEITSLOSIGKEIT
+        versicherteRate:
+          type: number
+          description: "nur bei abzusicherndesRisiko==ARBEITSUNFAEHIGKEIT,ARBEITSLOSIGKEIT"
+        versicherungsSumme:
+          type: number
+          description: nur bei abzusicherndesRisiko==TODESFALL
+    SchufaErgebnis:
+      type: object
+      properties:
+        antragstellerUnbekannt:
+          type: boolean
+          description: Der Antragsteller ist bei der Schufa unbekannt.
+        inManuellerNachbehandlung:
+          type: boolean
+          description: "Die Ermittlung des Schufa-Scores verzögert sich, wenn sich\
+            \ die Anfrage bei der Schufa in manueller Nachbehandlung befindet."
+        score:
+          type: string
+    SelfRelAndEreignisse:
+      type: object
+      properties:
+        antraege:
+          $ref: "#/components/schemas/Link"
+        ereignisse:
+          $ref: "#/components/schemas/Link"
+        finanzierungsvorschlaege:
+          $ref: "#/components/schemas/Link"
+        gemerkteAngebote:
+          $ref: "#/components/schemas/Link"
+        self:
+          $ref: "#/components/schemas/Link"
+    SituationNachRenteneintritt:
+      type: object
+      properties:
+        gesetzlicheRenteMonatlich:
+          type: number
+        privateRenteMonatlich:
+          type: number
+        rentenBeginn:
+          type: string
+          format: date
+        sonstigesEinkommenMonatlich:
+          type: number
+    SonderZahlung:
+      type: object
+      properties:
+        anzahl:
+          type: integer
+          format: int32
+          description: Gesamtanzahl der Zahlungen
+        betrag:
+          type: number
+          description: Betrag in EUR über die Höhe der einzelnen Zahlung
+        termin:
+          type: string
+          format: date
+          description: Termin der Einmalzahlung (optional) oder Beginn der regelmäßigen
+            Zahlungen
+        zahlweise:
+          type: string
+          description: Festlegung von einmaligen oder regelmäßigen Zahlungen
+          enum:
+          - EINMALIG
+          - MONATLICH
+          - VIERTELJAEHRLICH
+          - HALBJAEHRLICH
+          - JAEHRLICH
+    SparPhase:
+      type: object
+      properties:
+        guthabenBeiZuteilung:
+          type: number
+        sparBeitragMonatlich:
+          type: number
+        sparPhaseInJahren:
+          type: integer
+          format: int32
+    Sparplaene:
+      type: object
+      properties:
+        aktuellerWert:
+          type: number
+        beitragMonatlich:
+          type: number
+        ertrag:
+          type: number
+        maximalAufzuloesenderWert:
+          type: number
+        vermoegensEinsatz:
+          type: string
+          enum:
+          - KEIN_EINSATZ
+          - ABTRETEN
+          - AUFLOESEN
+        vermoegensTyp:
+          type: string
+          description: Redundante Angabe des Vermögenstyp dient als zusätzliches Filterkriterium
+          enum:
+          - VERMOEGEN
+          - VERBINDLICHKEIT
+        zahlungsTyp:
+          type: string
+          description: Redundante Angabe des Zahlungstyps dient als zusätzliches Filterkriterium
+          enum:
+          - EINNAHME
+          - AUSGABE
+        zukuenftigeEinnahmen:
+          type: number
+    Staat:
+      type: object
+      properties:
+        isoCountryCode:
+          type: string
+          description: ISO 3166-1 alpha-2 code
+        name:
+          type: string
+    StatusDTO:
+      type: object
+      properties:
+        antragsteller:
+          type: string
+          enum:
+          - BEANTRAGT
+          - UNTERSCHRIEBEN
+          - NICHT_ANGENOMMEN
+          - WIDERRUFEN
+        antragstellerAblehnungsgrund:
+          type: string
+          enum:
+          - ANGEBOT_WETTBEWERBER
+          - KONDITIONEN_UNPASSEND
+          - KUNDE_NICHT_ERREICHBAR
+          - OBJEKT_NICHT_INTERESSANT
+          - OBJEKT_NICHT_VERFUEGBAR
+          - FINANZIERUNG_WIRD_ANGEPASST
+          - ANDERES_ANGEBOT_ANGENOMMEN
+          - ANDERER_GRUND
+          - BEARBEITUNGSZEIT
+        kommentar:
+          type: string
+        produktAnbieter:
+          type: string
+          enum:
+          - NICHT_BEARBEITET
+          - UNTERSCHRIEBEN
+          - ABGELEHNT
+          - ZURUECKGESTELLT
+        produktanbieterAblehnungsgrund:
+          type: string
+          enum:
+          - FINANZIELLE_SITUATION
+          - NEGATIV_MERKMAL
+          - WERTERMITTLUNG
+          - KRITERIEN
+          - UNTERLAGEN_UNVOLLSTAENDIG
+          - GEGENANGEBOT
+          - KEINE_ANGABE
+      required:
+      - antragsteller
+      - produktAnbieter
+    Tilgung:
+      type: object
+      properties:
+        anfaenglicheTilgung:
+          type: number
+          description: "wenn null oder 0: tilgungsausgesetzt"
+        sonderTilgungJaehrlich:
+          type: number
+          description: "nur wenn darlehensArt IN [ANNUITAETEN_DARLEHEN,FORWARD_DARLEHEN]\
+            \ und KEIN tilgungsErsatz"
+        tilgungsBeginnAm:
+          type: string
+          format: date
+          description: nullable
+        tilgungsErsatz:
+          $ref: "#/components/schemas/TilgungsErsatz"
+          description: nicht bei PRIVAT_DARLEHEN
+    TilgungsErsatz:
+      type: object
+      properties:
+        id:
+          type: string
+          description: "Id des Tilgungsersatzproduktes, das in den Vermögenswerten\
+            \ des Haushalts oder in den Bausparangeboten des Angebotes zu finden ist."
+        typ:
+          type: string
+          description: "Menschenlesbarer Hinweis auf den Typ, z.B. BAUSPARVERTRAG\
+            \ oder KAPITALBILDENDE_LEBENSVERSICHERUNG"
+    TilgungsPhase:
+      type: object
+      properties:
+        bausparDarlehenSumme:
+          type: number
+        sollZinsNachZuteilung:
+          type: number
+        tilgungsBeitragMonatlich:
+          type: number
+        tilgungsPhaseInJahren:
+          type: integer
+          format: int32
+    TilgungsWunsch:
+      type: object
+      properties:
+        anfaenglicheTilgung:
+          type: number
+          description: "muss leer sein, wenn eines der anderen Attribute gefüllt ist"
+        ausgesetztBerechnet:
+          type: boolean
+          description: "muss leer sein, wenn eines der anderen Attribute gefüllt ist"
+        ausgesetztEigenesAngebot:
+          type: boolean
+          description: "muss leer sein, wenn eines der anderen Attribute gefüllt ist"
+        bausparWunsch:
+          $ref: "#/components/schemas/BausparWunsch"
+        rate:
+          type: number
+          description: "muss leer sein, wenn eines der anderen Attribute gefüllt ist"
+        tilgungsBeginn:
+          type: string
+          format: date
+        tilgungsErsatzProduktId:
+          type: string
+        volltilgerWennAnnuitaetenOderForward:
+          type: boolean
+          description: "muss leer sein, wenn eines der anderen Attribute gefüllt ist"
+    TilgungssatzwechselPraeferenz:
+      type: object
+      properties:
+        mindestensBenoetigt:
+          type: integer
+          format: int32
+        tilgungsSatzwechselPraeferenz:
+          type: string
+          enum:
+          - MINDESTENS_BENOETIGT
+          - NICHT_EINGEPLANT_ODER_ABSEHBAR
+          - EGAL
+        zusaetzlicherKommentar:
+          type: string
+    URI:
+      format: uri
+    VariablesDarlehensWunsch:
+      type: object
+      properties:
+        darlehensBetrag:
+          type: number
+        provision:
+          type: number
+        tilgungsWunsch:
+          $ref: "#/components/schemas/TilgungsWunsch"
+    Verbindlichkeit:
+      type: object
+      properties:
+        glaeubiger:
+          type: string
+        laufzeitEnde:
+          type: string
+          format: date
+        rateMonatlich:
+          type: number
+        restschuld:
+          type: number
+        vermoegensTyp:
+          type: string
+          description: Redundante Angabe des Vermögenstyp dient als zusätzliches Filterkriterium
+          enum:
+          - VERMOEGEN
+          - VERBINDLICHKEIT
+        wirdAbgeloest:
+          type: boolean
+        zahlungsTyp:
+          type: string
+          description: Redundante Angabe des Zahlungstyps dient als zusätzliches Filterkriterium
+          enum:
+          - EINNAHME
+          - AUSGABE
+    VermietungsInformationen:
+      type: object
+      properties:
+        mieteinnahmenNettoKaltMonatlich:
+          type: number
+        nutzungsArt:
+          type: string
+          enum:
+          - EIGENGENUTZT
+          - TEIL_VERMIETET
+          - VERMIETET
+        vermieteteFlaeche:
+          type: number
+    Vermoegen:
+      type: object
+      properties:
+        aktuellerWert:
+          type: number
+        ertrag:
+          type: number
+        maximalAufzuloesenderWert:
+          type: number
+        vermoegensEinsatz:
+          type: string
+          enum:
+          - KEIN_EINSATZ
+          - ABTRETEN
+          - AUFLOESEN
+        vermoegensTyp:
+          type: string
+          description: Redundante Angabe des Vermögenstyp dient als zusätzliches Filterkriterium
+          enum:
+          - VERMOEGEN
+          - VERBINDLICHKEIT
+        zukuenftigeEinnahmen:
+          type: number
+    VermoegenVerbindlichkeit:
+      type: object
+      properties:
+        aktuellerWert:
+          type: number
+        anrechnungFuerBlankoAnteil:
+          type: number
+        bezeichner:
+          type: string
+        kontonummer:
+          type: string
+        vermoegensTyp:
+          type: string
+          enum:
+          - VERMOEGEN
+          - VERBINDLICHKEIT
+    VermoegenVerbindlichkeiten:
+      type: object
+      properties:
+        vermoegenOderVerbindlichkeiten:
+          type: array
+          items:
+            $ref: "#/components/schemas/VermoegenVerbindlichkeit"
+    VersicherungsWunsch:
+      type: object
+      properties:
+        finanzierungsWeise:
+          type: string
+          description: nur bei praemienZahlungsweise==EINMALIG
+          enum:
+          - DURCH_HAUPTDARLEHEN
+          - INDIVIDUELL
+        id:
+          type: string
+        praemienZahlungsweise:
+          type: string
+          enum:
+          - EINMALIG
+          - MONATLICH
+          - VIERTELJAEHRLICH
+          - HALBJAEHRLICH
+          - JAEHRLICH
+        risikoAbsicherungsWuensche:
+          type: array
+          items:
+            $ref: "#/components/schemas/RisikoAbsicherungsWunsch"
+        versichertePersonId:
+          type: string
+        versicherungsArt:
+          type: string
+          enum:
+          - RATENSCHUTZVERSICHERUNG
+        versicherungsBeginn:
+          type: string
+          format: date
+        versicherungsDauerInMonaten:
+          type: integer
+          format: int32
+    VersicherungsZeitraum:
+      type: object
+      properties:
+        beginn:
+          type: string
+          format: date
+        dauerInMonaten:
+          type: integer
+          format: int32
+        ende:
+          type: string
+          format: date
+    VertriebsOrganisation:
+      type: object
+      properties:
+        firma:
+          type: string
+        name:
+          type: string
+        vertriebsOrganisationsId:
+          type: string
+    Vorgaenge:
+      type: object
+      properties:
+        _links:
+          $ref: "#/components/schemas/PaginationLinks"
+        vorgaenge:
+          type: array
+          items:
+            $ref: "#/components/schemas/VorgaengeResourceListItem"
+    VorgaengeResourceListItem:
+      type: object
+      properties:
+        _links:
+          $ref: "#/components/schemas/Links"
+        datenKontext:
+          type: string
+          enum:
+          - TEST_MODUS
+          - ECHT_GESCHAEFT
+        externeVorgangsNummer:
+          type: string
+        letzteAenderung:
+          type: string
+          format: date-time
+        letztesEreignis:
+          type: string
+          format: date-time
+        vorgangsNummer:
+          type: string
+    Vorgang:
+      type: object
+      properties:
+        _links:
+          $ref: "#/components/schemas/SelfRelAndEreignisse"
+        antraege:
+          type: array
+          items:
+            $ref: "#/components/schemas/Antrag"
+        archivierung:
+          $ref: "#/components/schemas/Archivierung"
+        aufbewahrungBis:
+          type: string
+          format: date
+          description: "Datum, bis wann dieser Vorgang nach DSGVO aufbewahrt werden\
+            \ muss. Nach diesem Datum wird der Vorgang automatisch gelöscht."
+        bankverbindung:
+          $ref: "#/components/schemas/Bankverbindung"
+        datenKontext:
+          type: string
+          enum:
+          - TEST_MODUS
+          - ECHT_GESCHAEFT
+        erstelltAm:
+          type: string
+          format: date
+        externeVorgangsNummer:
+          type: string
+        finanzierungsObjekt:
+          $ref: "#/components/schemas/FinanzierungsObjekt"
+        geschlossenAm:
+          type: string
+          format: date
+        haushalte:
+          type: array
+          items:
+            $ref: "#/components/schemas/Haushalt"
+        importQuelle:
+          type: string
+        kundenBetreuer:
+          $ref: "#/components/schemas/Partner"
+        leadTracking:
+          $ref: "#/components/schemas/LeadTracking"
+        letztesEreignis:
+          type: string
+          format: date-time
+        phase:
+          type: string
+        praeferenzen:
+          $ref: "#/components/schemas/Praeferenzen"
+        prioritaet:
+          type: string
+          description: "Priorität des Vorgangs, Werte: [NIEDRIG,NEUTRAL,HOCH]"
+          enum:
+          - NIEDRIG
+          - NEUTRAL
+          - HOCH
+        status:
+          type: string
+          description: "Status des Vorgangs, Werte: [AKTIV,ARCHIVIERT]"
+        tippGeber:
+          $ref: "#/components/schemas/Partner"
+        vorgangsBearbeiter:
+          $ref: "#/components/schemas/Partner"
+        vorgangsNummer:
+          type: string
+        vorhaben:
+          $ref: "#/components/schemas/Vorhaben"
+    Vorhaben:
+      type: object
+      properties:
+        absicherungswunsch:
+          $ref: "#/components/schemas/Absicherungswunsch"
+        eigenleistungWennNeubauOderModernisierungsmassnahmen:
+          type: number
+        energieEffizienzklasse:
+          type: string
+          description: class of energy efficiency
+          enum:
+          - A_PLUS
+          - A
+          - B
+          - C
+          - D
+          - E
+          - F
+          - G
+          - H
+        externeBausparAngebote:
+          type: array
+          items:
+            $ref: "#/components/schemas/BausparAngebot"
+        finanzbedarf:
+          $ref: "#/components/schemas/Finanzbedarf"
+        finanzierungswunsch:
+          $ref: "#/components/schemas/Finanzierungswunsch"
+        geplanteEnergie:
+          type: number
+          format: double
+        geplanterCo2Wert:
+          type: number
+          format: double
+        id:
+          type: string
+        nachfinanzierung:
+          type: boolean
+        nachrangigeExterneDarlehen:
+          type: array
+          items:
+            $ref: "#/components/schemas/NachrangigesExternesDarlehen"
+        verwendungszweck:
+          type: string
+          enum:
+          - ANSCHLUSSFINANZIERUNG
+          - KAUF
+          - KAUF_NEUBAU_VOM_BAUTRAEGER
+          - MODERNISIERUNG_UMBAU_ANBAU
+          - NEUBAU
+          - KAPITALBESCHAFFUNG
+    Wertpapiere:
+      type: object
+      properties:
+        aktuellerWert:
+          type: number
+        dividendenJaehrlich:
+          type: number
+        ertrag:
+          type: number
+        maximalAufzuloesenderWert:
+          type: number
+        vermoegensEinsatz:
+          type: string
+          enum:
+          - KEIN_EINSATZ
+          - ABTRETEN
+          - AUFLOESEN
+        vermoegensTyp:
+          type: string
+          description: Redundante Angabe des Vermögenstyp dient als zusätzliches Filterkriterium
+          enum:
+          - VERMOEGEN
+          - VERBINDLICHKEIT
+        zahlungsTyp:
+          type: string
+          description: Redundante Angabe des Zahlungstyps dient als zusätzliches Filterkriterium
+          enum:
+          - EINNAHME
+          - AUSGABE
+        zukuenftigeEinnahmen:
+          type: number
+    ZinsBindung:
+      type: object
+      properties:
+        endetAm:
+          type: string
+          format: date
+        jahre:
+          type: integer
+          format: int32
+        monate:
+          type: integer
+          format: int32
+        restschuldNachZinsBindungsEnde:
+          type: number
+    ZonedDateTime:
+      format: date-time
+    ZugrundeliegendeDatenZumAntrag:
+      type: object
+      properties:
+        _links:
+          $ref: "#/components/schemas/Links"
+        bankverbindung:
+          $ref: "#/components/schemas/Bankverbindung"
+        finanzierungsObjekt:
+          $ref: "#/components/schemas/FinanzierungsObjekt"
+        haushalte:
+          type: array
+          items:
+            $ref: "#/components/schemas/Haushalt"
+        vorhaben:
+          $ref: "#/components/schemas/Vorhaben"
+    ZwischenFinanzierungsWunsch:
+      type: object
+      properties:
+        darlehensBetrag:
+          type: number
+        detailsZurVerwendung:
+          type: string
+        maximaleLaufzeitInMonaten:
+          type: integer
+          format: int32
+        provision:
+          type: number
+        verwendungszweck:
+          type: string
+          enum:
+          - VORFINANZIERUNG_OEFFENTLICHER_MITTEL
+          - VERKAUF_EINES_ANDEREN_OBJEKTS
+          - SONSTIGE_VERWENDUNG
+  securitySchemes:
+    oauth2:
+      flows:
+        clientCredentials:
+          scopes:
+            baufinanzierung:echtgeschaeft: Erlaubt das Anlegen von Vorgängen im Echtgeschäft
+            baufinanzierung:vorgang:lesen: Erlaubt das Lesen von Vorgängen
+            baufinanzierung:vorgang:schreiben: Erlaubt das Schreiben von Vorgängen
+          tokenUrl: https://api.europace.de/auth/access-token
+      type: oauth2
