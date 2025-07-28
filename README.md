@@ -233,3 +233,7 @@ The APIs are provided under the following [Terms of Use](https://docs.api.europa
 
 ## Support
 If you have any questions or problems, you can contact devsupport@europace2.de.
+
+## Changelog
+
+TBD 
