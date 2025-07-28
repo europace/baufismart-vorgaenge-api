@@ -1,0 +1,20 @@
+name: Pull Request on Branch Push
+on:
+  push:
+    branches:
+      - "publish/*"
+jobs:
+  pull-request:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Expose git commit data
+        uses: rlespinasse/git-commit-data-action@v1.x
+      - name: pull-request
+        uses: repo-sync/pull-request@v2
+        with:
+          source_branch: ""                                 # If blank, default: triggered branch
+          destination_branch: "master"                      # If blank, default: master
+          pr_template: ".github/pull_request_template.md"
+          pr_assignee: ${{ env.GIT_COMMIT_COMMITTER_NAME }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
