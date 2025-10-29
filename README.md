@@ -98,7 +98,7 @@ example-response:
             "letzteAenderung": "2020-12-30T09:53:16.126Z",
             "_links": {
                 "self": {
-                    "href": "https://baufismart.api.europace.de/v3/vorgaenge/A74QK3"
+                    "href": "https://baufinanzierung.api.europace.de/v3/vorgaenge/A74QK3"
                 }
             }
         },
@@ -109,7 +109,7 @@ example-response:
             "letzteAenderung": "2020-12-30T09:53:15.331Z",
             "_links": {
                 "self": {
-                    "href": "https://baufismart.api.europace.de/v3/vorgaenge/ED7PIS"
+                    "href": "https://baufinanzierung.api.europace.de/v3/vorgaenge/ED7PIS"
                 }
             }
         },
