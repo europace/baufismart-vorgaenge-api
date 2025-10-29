@@ -11,7 +11,7 @@
     "version" : "3.0"
   },
   "servers" : [ {
-    "url" : "https://baufismart.api.europace.de"
+    "url" : "https://baufinanzierung.api.europace.de"
   } ],
   "security" : [ {
     "oauth2" : [ ]
