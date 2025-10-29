@@ -11,7 +11,7 @@
     "version" : "3.0"
   },
   "servers" : [ {
-    "url" : "https://baufismart.api.europace.de"
+    "url" : "https://baufinanzierung.api.europace.de"
   } ],
   "security" : [ {
     "oauth2" : [ ]
@@ -186,7 +186,8 @@
           "name" : "vorgangsNummer",
           "required" : true,
           "schema" : {
-            "type" : "string"
+            "type" : "string",
+            "pattern" : "^[A-Z0-9]{6}"
           }
         } ],
         "responses" : {
@@ -291,7 +292,8 @@
           "name" : "vorgangsNummer",
           "required" : true,
           "schema" : {
-            "type" : "string"
+            "type" : "string",
+            "pattern" : "^[A-Z0-9]{6}"
           }
         } ],
         "requestBody" : {
@@ -411,7 +413,8 @@
           "name" : "vorgangsNummer",
           "required" : true,
           "schema" : {
-            "type" : "string"
+            "type" : "string",
+            "pattern" : "^[A-Z0-9]{6}"
           }
         } ],
         "responses" : {
@@ -518,7 +521,8 @@
           "name" : "vorgangsNummer",
           "required" : true,
           "schema" : {
-            "type" : "string"
+            "type" : "string",
+            "pattern" : "^[A-Z0-9]{6}"
           }
         }, {
           "in" : "path",
@@ -633,7 +637,8 @@
           "name" : "vorgangsNummer",
           "required" : true,
           "schema" : {
-            "type" : "string"
+            "type" : "string",
+            "pattern" : "^[A-Z0-9]{6}"
           }
         }, {
           "in" : "path",
@@ -757,7 +762,8 @@
           "name" : "vorgangsNummer",
           "required" : true,
           "schema" : {
-            "type" : "string"
+            "type" : "string",
+            "pattern" : "^[A-Z0-9]{6}"
           }
         }, {
           "in" : "path",
@@ -883,7 +889,8 @@
           "name" : "vorgangsNummer",
           "required" : true,
           "schema" : {
-            "type" : "string"
+            "type" : "string",
+            "pattern" : "^[A-Z0-9]{6}"
           }
         }, {
           "in" : "path",
@@ -1010,7 +1017,8 @@
           "name" : "vorgangsNummer",
           "required" : true,
           "schema" : {
-            "type" : "string"
+            "type" : "string",
+            "pattern" : "^[A-Z0-9]{6}"
           }
         } ],
         "responses" : {
@@ -1118,7 +1126,8 @@
           "name" : "vorgangsNummer",
           "required" : true,
           "schema" : {
-            "type" : "string"
+            "type" : "string",
+            "pattern" : "^[A-Z0-9]{6}"
           }
         }, {
           "description" : "Die Id des Finanzierungsvorschlags.",
@@ -1234,7 +1243,8 @@
           "name" : "vorgangsNummer",
           "required" : true,
           "schema" : {
-            "type" : "string"
+            "type" : "string",
+            "pattern" : "^[A-Z0-9]{6}"
           }
         } ],
         "responses" : {
@@ -1339,7 +1349,8 @@
           "name" : "vorgangsNummer",
           "required" : true,
           "schema" : {
-            "type" : "string"
+            "type" : "string",
+            "pattern" : "^[A-Z0-9]{6}"
           }
         } ],
         "requestBody" : {
@@ -1449,7 +1460,8 @@
           "name" : "vorgangsNummer",
           "required" : true,
           "schema" : {
-            "type" : "string"
+            "type" : "string",
+            "pattern" : "^[A-Z0-9]{6}"
           }
         } ],
         "requestBody" : {
@@ -1560,7 +1572,8 @@
           "name" : "vorgangsNummer",
           "required" : true,
           "schema" : {
-            "type" : "string"
+            "type" : "string",
+            "pattern" : "^[A-Z0-9]{6}"
           }
         } ],
         "responses" : {
@@ -1665,7 +1678,8 @@
           "name" : "vorgangsNummer",
           "required" : true,
           "schema" : {
-            "type" : "string"
+            "type" : "string",
+            "pattern" : "^[A-Z0-9]{6}"
           }
         } ],
         "requestBody" : {
@@ -3923,6 +3937,20 @@
           }
         }
       },
+      "GirokontoPraeferenz" : {
+        "type" : "object",
+        "properties" : {
+          "bestehendeKontoverbindungBei" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "kontowechselWirdBeabsichtigt" : {
+            "type" : "boolean"
+          }
+        }
+      },
       "GrundbuchAngabe" : {
         "type" : "object",
         "properties" : {
@@ -4576,7 +4604,8 @@
         "type" : "object",
         "properties" : {
           "partnerId" : {
-            "type" : "string"
+            "type" : "string",
+            "pattern" : "^[A-Z]{3}[0-9]{2}"
           }
         }
       },
@@ -4624,6 +4653,9 @@
       "Praeferenzen" : {
         "type" : "object",
         "properties" : {
+          "girokonto" : {
+            "$ref" : "#/components/schemas/GirokontoPraeferenz"
+          },
           "tilgungssatzwechselPraeferenz" : {
             "$ref" : "#/components/schemas/TilgungssatzwechselPraeferenz"
           }
