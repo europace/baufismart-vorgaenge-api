@@ -4426,6 +4426,9 @@
             "type" : "integer",
             "format" : "int32"
           },
+          "kfzKostenMonatlich" : {
+            "type" : "number"
+          },
           "kinder" : {
             "type" : "array",
             "items" : {
