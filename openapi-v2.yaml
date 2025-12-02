@@ -3,7 +3,7 @@ info:
   contact:
     email: helpdesk@europace2.de
     name: Europace AG
-    url: www.europace2.de
+    url: https://www.europace2.de
   description: Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen
     werden.
   title: Vorgänge API
@@ -3932,6 +3932,8 @@ components:
         partnerId:
           type: string
           pattern: "^[A-Z]{3}[0-9]{2}"
+      required:
+      - partnerId
     PartnerId: {}
     PatchOperation:
       type: object
