@@ -3,11 +3,11 @@ info:
   contact:
     email: helpdesk@europace2.de
     name: Europace AG
-    url: www.europace2.de
+    url: https://www.europace2.de
   description: Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen
     werden.
   title: Vorgänge API
-  version: "3.0"
+  version: 3.0.1
 servers:
 - url: https://baufinanzierung.api.europace.de
 security:
@@ -3870,7 +3870,7 @@ components:
         text:
           type: string
           description: Inhalt der Nachricht
-          maxLength: 500
+          maxLength: 2000
           minLength: 1
       required:
       - text
@@ -3932,6 +3932,8 @@ components:
         partnerId:
           type: string
           pattern: "^[A-Z]{3}[0-9]{2}"
+      required:
+      - partnerId
     PartnerId: {}
     PatchOperation:
       type: object
