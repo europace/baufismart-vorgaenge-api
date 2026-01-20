@@ -158,7 +158,8 @@ example-response:
 [see example-response of get case data](#get-case-data)
 
 ### Set state of case
-As advisor you can set the state, to archive outdated cases and hide them for the advisors.
+As advisor you can set the state of a case. This means you can decide whether the case is visible in the list of the last changed cases or not. You can archive the case and therefore it will not be visible anymore in the list of the last changed cases. Also you can activate archived cases to make them visible again. Please note: The state of a case is not to be confused with the state of an application. You can change the state of an application using the Anträge API. 
+
 example-request:
 ``` json
 PATCH /v3/vorgaenge/CH6407 HTTP/1.1
@@ -182,6 +183,8 @@ Allowed values are `AKTIV` and `ARCHIVIERT`.
 
 ### Set advisor
 As sales organsisation you can set the advisor to control the workload of the colleagues.
+You must have access/transfer-rights for the advisor you want to give the case to. 
+Changing the advisor of a case is a huge step: Be aware that all commissions generated in this case will go to the new advisor. Also the Europace-Reporting will move the case to the new advisor. 
 
 example-request:
 ```json
@@ -205,6 +208,7 @@ example-response:
 
 ### Set editor
 As advisor you can set the editor eg to a clerk, to check the case and application or to a teammate to enrich the data of the case.
+You must have access/transfer-rights for the editor you want to give the case to. 
 
 example-request:
 ```json
