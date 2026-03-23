@@ -14,6 +14,11 @@ As an advisor, I can use Vorgaenge API to read all the data from my cases and ge
 [![YAML](https://img.shields.io/badge/OAS-YAML-lightgrey)](https://raw.githubusercontent.com/europace/baufismart-vorgaenge-api/master/openapi-v3.yaml)
 [![YAML](https://img.shields.io/badge/OAS-JSON-lightgrey)](https://raw.githubusercontent.com/europace/baufismart-vorgaenge-api/master/openapi-v3.json)
 
+## End-of-Life Notice – Vorgänge API v1 & v2
+##### ⚠️ End of Life
+The Vorgaenge API versions v1 and v2 have reached end of life and are no longer supported.
+Please migrate to Vorgaenge API v3, which is the only actively supported version.
+
 ## Usecases
 - get data to:
   - create own financing proposals with individual structure and design
