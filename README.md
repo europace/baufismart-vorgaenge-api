@@ -17,7 +17,7 @@ As an advisor, I can use Vorgaenge API to read all the data from my cases and ge
 ## End-of-Life Notice – Vorgänge API v1 & v2
 ##### ⚠️ End of Life
 The Vorgaenge API versions v1 and v2 have reached end of life and are no longer supported.
-Please migrate to Vorgaenge API v3, which is the only actively supported version.
+Please migrate to Vorgaenge API v3, which is the only actively supported version. See the [Migration Guide](/baufinanzierung/migration-angebote-vorgaenge-v3/) for details.
 
 ## Usecases
 - get data to:
