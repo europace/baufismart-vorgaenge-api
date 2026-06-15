@@ -8,7 +8,7 @@
     },
     "description" : "Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen werden.",
     "title" : "Vorgänge API",
-    "version" : "3.0.1"
+    "version" : "3.0.2"
   },
   "servers" : [ {
     "url" : "https://baufinanzierung.api.europace.de"
@@ -31,6 +31,7 @@
           "required" : false,
           "schema" : {
             "type" : "string",
+            "default" : "ECHT_GESCHAEFT",
             "enum" : [ "ECHT_GESCHAEFT", "TEST_MODUS" ]
           }
         }, {

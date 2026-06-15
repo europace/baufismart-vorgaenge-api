@@ -8,7 +8,7 @@
     },
     "description" : "Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen werden.",
     "title" : "Vorgänge API",
-    "version" : "3.0.1"
+    "version" : "3.0.2"
   },
   "servers" : [ {
     "url" : "https://baufinanzierung.api.europace.de"
@@ -31,6 +31,7 @@
           "required" : false,
           "schema" : {
             "type" : "string",
+            "default" : "ECHT_GESCHAEFT",
             "enum" : [ "ECHT_GESCHAEFT", "TEST_MODUS" ]
           }
         }, {
@@ -3167,7 +3168,7 @@
           "regionalFoerderbankProgramm" : {
             "type" : "string",
             "description" : "nur bei darlehensTyp==REGIONAL_FOERDER_DARLEHEN. Bei neu aufgelegten Regional-Förderbank-Programmen können auch weitere Werte zulässig werden. Der Client muss daher mit unbekannten Werten umgehen können.",
-            "enum" : [ "L_BANK_KOMBI_DARLEHEN_WOHNEN", "L_BANK_WOHNEN_MIT_KIND", "L_BANK_WOHNEN_MIT_ZUKUNFT", "NRW_BANK_WOHNEIGENTUM", "NRW_BANK_GEBAEUDESANIERUNG", "NRW_BANK_NACHHALTIG_WOHNEN" ]
+            "enum" : [ "L_BANK_KOMBI_DARLEHEN_WOHNEN", "L_BANK_WOHNEN_MIT_KIND", "L_BANK_WOHNEN_MIT_ZUKUNFT", "NRW_BANK_WOHNEIGENTUM", "NRW_BANK_GEBAEUDESANIERUNG", "NRW_BANK_NACHHALTIG_WOHNEN", "IBSH_IMMOEIGENTUM", "IBSH_IMMOFIX", "IBSH_IMMOFLEX", "IBSH_IMMOKONSTANT" ]
           },
           "riesterGefoerdert" : {
             "type" : "boolean"
@@ -3739,7 +3740,7 @@
           "zinsBindung" : {
             "type" : "string",
             "description" : "Die Zinsbindung wird über alle Darlehen als Intervall in Jahren angegeben.",
-            "example" : 5
+            "example" : "5 - 10 Jahre"
           }
         }
       },
@@ -4196,12 +4197,12 @@
           },
           "kfwEnergieEffizienzGruppe" : {
             "type" : "string",
-            "description" : "Nur bei Programm 153, 261. Der Client muss mit unbekannten Werten umgehen können.",
+            "description" : "Nur bei Programm 261 (SANIERUNG), 297 (NEUBAU) und 298 (NEUBAU). Der Client muss mit unbekannten Werten umgehen können.",
             "enum" : [ "STANDARD", "NEUBAU", "SANIERUNG" ]
           },
           "kfwEnergieEffizienzStandard" : {
             "type" : "string",
-            "description" : "Nur bei Programm 153, 261. Wenn die KfW-Bank neue Standards anerkennt, sind die entsprechenden neuen Ausprägungen zulässig. Der Client muss daher mit unbekannten Werten umgehen können.",
+            "description" : "Nur bei Programm 261, 297 und 298. Wenn die KfW-Bank neue Standards anerkennt, sind die entsprechenden neuen Ausprägungen zulässig. Der Client muss daher mit unbekannten Werten umgehen können.",
             "enum" : [ "STANDARD_40_NH", "STANDARD_40_PLUS", "STANDARD_40", "STANDARD_40_EEK", "STANDARD_55", "STANDARD_55_EEK", "STANDARD_70", "STANDARD_70_EEK", "STANDARD_85", "STANDARD_85_EEK", "STANDARD_100", "STANDARD_100_EEK", "STANDARD_DENKMAL", "STANDARD_DENKMAL_EEK", "KLIMAFREUNDLICH_STANDARD", "KLIMAFREUNDLICH_QNG" ]
           },
           "kfwProgramm" : {
@@ -4232,7 +4233,7 @@
           "zinsBindungInJahren" : {
             "type" : "integer",
             "format" : "int32",
-            "description" : "Programm 124: 5 oder 10, sonst: 10 oder 20"
+            "description" : "Programm 124: 5 oder 10, Programme 300/308 nur 10, sonst: 10 oder 20"
           }
         }
       },
@@ -4359,28 +4360,28 @@
         "type" : "object",
         "properties" : {
           "deprecation" : {
-            "type" : "string"
+            "type" : [ "string", "null" ]
           },
           "href" : {
             "type" : "string"
           },
           "hreflang" : {
-            "type" : "string"
+            "type" : [ "string", "null" ]
           },
           "name" : {
-            "type" : "string"
+            "type" : [ "string", "null" ]
           },
           "profile" : {
-            "type" : "string"
+            "type" : [ "string", "null" ]
           },
           "templated" : {
             "type" : "boolean"
           },
           "title" : {
-            "type" : "string"
+            "type" : [ "string", "null" ]
           },
           "type" : {
-            "type" : "string"
+            "type" : [ "string", "null" ]
           }
         }
       },
@@ -4544,7 +4545,11 @@
       },
       "Partner" : {
         "type" : "object",
+        "description" : "Minimale Informationen zum Partner der EP2 Plattform, weitere Informationen können über die HAL-Relation abgerufen werden.",
         "properties" : {
+          "_links" : {
+            "$ref" : "#/components/schemas/Links"
+          },
           "anrede" : {
             "type" : "string",
             "enum" : [ "FRAU", "HERR" ]
@@ -4632,7 +4637,7 @@
           },
           "value" : {
             "description" : "Value to be set or replaced. Allows: string, number or JSON object",
-            "example" : "ABC123"
+            "example" : "\"ABC123\", 1234, {\"antragsteller\": \"BEANTRAGT\", \"produktAnbieter\":\"UNTERSCHRIEBEN\"}"
           }
         },
         "required" : [ "op", "path", "value" ]
@@ -4793,7 +4798,7 @@
           "regionalFoerderbankProgramm" : {
             "type" : "string",
             "description" : "Bei neu aufgelegten Regional-Förderbank-Programmen können auch weitere Werte zulässig werden. Der Client muss daher mit unbekannten Werten umgehen können.",
-            "enum" : [ "L_BANK_KOMBI_DARLEHEN_WOHNEN", "L_BANK_WOHNEN_MIT_KIND", "L_BANK_WOHNEN_MIT_ZUKUNFT", "NRW_BANK_WOHNEIGENTUM", "NRW_BANK_GEBAEUDESANIERUNG", "NRW_BANK_NACHHALTIG_WOHNEN" ]
+            "enum" : [ "L_BANK_KOMBI_DARLEHEN_WOHNEN", "L_BANK_WOHNEN_MIT_KIND", "L_BANK_WOHNEN_MIT_ZUKUNFT", "NRW_BANK_WOHNEIGENTUM", "NRW_BANK_GEBAEUDESANIERUNG", "NRW_BANK_NACHHALTIG_WOHNEN", "IBSH_IMMOEIGENTUM", "IBSH_IMMOFIX", "IBSH_IMMOFLEX", "IBSH_IMMOKONSTANT" ]
           },
           "tilgungsfreieAnlaufjahre" : {
             "type" : "integer",
@@ -5267,6 +5272,9 @@
           "versicherungsDauerInMonaten" : {
             "type" : "integer",
             "format" : "int32"
+          },
+          "versicherungsWunschSerialized" : {
+            "type" : "string"
           }
         }
       },
