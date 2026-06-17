@@ -4,16 +4,23 @@ on:
     branches:
       - "publish/*"
 jobs:
-  pull-request:
+  auto-pull-request:
+    name: PullRequestAction
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
     steps:
-      - uses: actions/checkout@v5
-      - name: Expose git commit data
-        uses: rlespinasse/git-commit-data-action@v1.x
-      - name: pull-request
-        uses: repo-sync/pull-request@v2
+      - uses: actions/checkout@v6
+      - name: Generate token
+        id: generate_token
+        uses: actions/create-github-app-token@v3
         with:
-          source_branch: ""                                 # If blank, default: triggered branch
-          destination_branch: "master"                      # If blank, default: master
-          pr_template: ".github/pull_request_template.md"
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          client-id: ${{ secrets.PROJEN_APP_ID }}
+          private-key: ${{ secrets.PROJEN_APP_PRIVATE_KEY }}
+      - name: Create Pull Request
+        env:
+          GH_TOKEN: ${{ steps.generate_token.outputs.token }}
+        run: gh pr create --base master --head "${{ github.ref_name }}" \
+                --title "Update from ${{ github.ref_name }}" \
+                --body "This is an automated pull request to update from branch \`${{ github.ref_name }}\`."
