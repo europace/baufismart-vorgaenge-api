@@ -51,7 +51,7 @@ Requirements:
 example-request:
 ``` http
 GET /v3/vorgaenge/CH6407 HTTP/1.1
-Host: api.europace2.de
+Host: baufinanzierung.api.europace.de
 Content-Type: application/json
 Authorization: Bearer {{access-token}} 
 ```
@@ -87,7 +87,7 @@ Requirements:
 example-request:
 ``` http 
 GET /v3/vorgaenge HTTP/1.1
-Host: api.europace2.de
+Host: baufinanzierung.api.europace.de
 Content-Type: application/json
 Authorization: Bearer {{access-token}}
 ```
@@ -146,7 +146,7 @@ Patch operations are an array, so multiple patch commands can be sent with a _PA
 example-request:
 ```json
 PATCH /v3/vorgaenge/CH6407 HTTP/1.1
-Host: api.europace2.de
+Host: baufinanzierung.api.europace.de
 Content-Type: application/json-patch+json
 Authorization: Bearer {{access-token}}
 Content-Length: 75
@@ -168,7 +168,7 @@ As advisor you can set the state of a case. This means you can decide whether th
 example-request:
 ``` json
 PATCH /v3/vorgaenge/CH6407 HTTP/1.1
-Host: api.europace2.de
+Host: baufinanzierung.api.europace.de
 Content-Type: application/json-patch+json
 Authorization: Bearer {{access-token}}
 Content-Length: 59
@@ -194,7 +194,7 @@ Changing the advisor of a case is a huge step: Be aware that all commissions gen
 example-request:
 ```json
 PUT /v3/vorgaenge/CH6407/kundenBetreuer HTTP/1.1
-Host: api.europace2.de
+Host: baufinanzierung.api.europace.de
 Authorization: Bearer {{access-token}}
 Content-Type: application/json
 Content-Length: 26
@@ -218,7 +218,7 @@ You must have access/transfer-rights for the editor you want to give the case to
 example-request:
 ```json
 PUT /v3/vorgaenge/CH6407/vorgangsBearbeiter HTTP/1.1
-Host: api.europace2.de
+Host: baufinanzierung.api.europace.de
 Authorization: Bearer {{access-token}}
 Content-Type: application/json
 Content-Length: 26
