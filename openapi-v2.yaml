@@ -7,7 +7,7 @@ info:
   description: Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen
     werden.
   title: Vorgänge API
-  version: 3.0.2
+  version: 3.0.3
 servers:
 - url: https://baufinanzierung.api.europace.de
 security:
@@ -4115,6 +4115,8 @@ components:
           - IBSH_IMMOFIX
           - IBSH_IMMOFLEX
           - IBSH_IMMOKONSTANT
+        tilgungsWunsch:
+          $ref: "#/components/schemas/TilgungsWunsch"
         tilgungsfreieAnlaufjahre:
           type: integer
           format: int32
