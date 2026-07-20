@@ -8,7 +8,7 @@
     },
     "description" : "Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen werden.",
     "title" : "Vorgänge API",
-    "version" : "3.0.3"
+    "version" : "3.0.4"
   },
   "servers" : [ {
     "url" : "https://baufinanzierung.api.europace.de"
@@ -3481,8 +3481,8 @@
           },
           "kfwProgramm" : {
             "type" : "string",
-            "description" : "nur bei darlehensTyp==KFW_DARLEHEN. Bei neu aufgelegten KfW-Programmen können auch weitere Werte zulässig werden. Folgende Programme sind aktiv: 124, 159, 261 (Sanierung), 297, 298 und 300",
-            "enum" : [ "PROGRAMM_124", "PROGRAMM_141", "PROGRAMM_151", "PROGRAMM_152", "PROGRAMM_153", "PROGRAMM_155", "PROGRAMM_159", "PROGRAMM_167", "PROGRAMM_261", "PROGRAMM_262", "PROGRAMM_297", "PROGRAMM_298", "PROGRAMM_300", "PROGRAMM_308", "PROGRAMM_358", "PROGRAMM_359" ]
+            "description" : "nur bei darlehensTyp==KFW_DARLEHEN. Bei neu aufgelegten KfW-Programmen können auch weitere Werte zulässig werden. Folgende Programme sind aktiv: 124, 159, 261 (Sanierung), 296, 297, 298, 300, 308, 358 und 359",
+            "enum" : [ "PROGRAMM_124", "PROGRAMM_141", "PROGRAMM_151", "PROGRAMM_152", "PROGRAMM_153", "PROGRAMM_155", "PROGRAMM_159", "PROGRAMM_167", "PROGRAMM_261", "PROGRAMM_262", "PROGRAMM_296", "PROGRAMM_297", "PROGRAMM_298", "PROGRAMM_300", "PROGRAMM_308", "PROGRAMM_358", "PROGRAMM_359" ]
           },
           "kfwSanierungsFahrplanLiegtVor" : {
             "type" : "boolean",
@@ -4608,7 +4608,7 @@
           "kfwProgramm" : {
             "type" : "string",
             "description" : "Bei neu aufgelegten KfW-Programmen können auch weitere Werte zulässig werden. Der Client muss daher mit unbekannten Werten umgehen können.",
-            "enum" : [ "PROGRAMM_124", "PROGRAMM_141", "PROGRAMM_151", "PROGRAMM_152", "PROGRAMM_153", "PROGRAMM_155", "PROGRAMM_159", "PROGRAMM_167", "PROGRAMM_261", "PROGRAMM_262", "PROGRAMM_297", "PROGRAMM_298", "PROGRAMM_300", "PROGRAMM_308", "PROGRAMM_358", "PROGRAMM_359" ]
+            "enum" : [ "PROGRAMM_124", "PROGRAMM_141", "PROGRAMM_151", "PROGRAMM_152", "PROGRAMM_153", "PROGRAMM_155", "PROGRAMM_159", "PROGRAMM_167", "PROGRAMM_261", "PROGRAMM_262", "PROGRAMM_296", "PROGRAMM_297", "PROGRAMM_298", "PROGRAMM_300", "PROGRAMM_308", "PROGRAMM_358", "PROGRAMM_359" ]
           },
           "kfwSanierungsFahrplanLiegtVor" : {
             "type" : "boolean",
