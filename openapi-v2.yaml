@@ -7,7 +7,7 @@ info:
   description: Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen
     werden.
   title: Vorgänge API
-  version: 3.0.3
+  version: 3.0.4
 servers:
 - url: https://baufinanzierung.api.europace.de
 security:
@@ -2626,7 +2626,7 @@ components:
           type: string
           description: "nur bei darlehensTyp==KFW_DARLEHEN. Bei neu aufgelegten KfW-Programmen\
             \ können auch weitere Werte zulässig werden. Folgende Programme sind aktiv:\
-            \ 124, 159, 261 (Sanierung), 297, 298 und 300"
+            \ 124, 159, 261 (Sanierung), 296, 297, 298, 300, 308, 358 und 359"
           enum:
           - PROGRAMM_124
           - PROGRAMM_141
@@ -2638,6 +2638,7 @@ components:
           - PROGRAMM_167
           - PROGRAMM_261
           - PROGRAMM_262
+          - PROGRAMM_296
           - PROGRAMM_297
           - PROGRAMM_298
           - PROGRAMM_300
@@ -3610,6 +3611,7 @@ components:
           - PROGRAMM_167
           - PROGRAMM_261
           - PROGRAMM_262
+          - PROGRAMM_296
           - PROGRAMM_297
           - PROGRAMM_298
           - PROGRAMM_300
