@@ -8,7 +8,7 @@
     },
     "description" : "Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen werden.",
     "title" : "Vorgänge API",
-    "version" : "3.0.4"
+    "version" : "3.0.5"
   },
   "servers" : [ {
     "url" : "https://baufinanzierung.api.europace.de"
@@ -4241,6 +4241,8 @@
           },
           "ausstattung" : {
             "type" : "string",
+            "deprecated" : true,
+            "description" : "Deprecated. Property belWertVAusstattung nutzen.",
             "enum" : [ "EINFACH", "MITTEL", "GEHOBEN", "STARK_GEHOBEN" ]
           },
           "baujahr" : {
@@ -4252,6 +4254,10 @@
           "bauweise" : {
             "type" : "string",
             "enum" : [ "FACHWERK_MIT_STROH_LEHM", "FACHWERK_MIT_ZIEGELN", "GLAS_STAHL", "HOLZ", "MASSIV" ]
+          },
+          "belWertVAusstattung" : {
+            "type" : "string",
+            "enum" : [ "SEHR_EINFACH", "EINFACH", "MITTEL", "GEHOBEN", "STARK_GEHOBEN" ]
           },
           "bezeichnungWohneinheit" : {
             "type" : "string"
@@ -4268,6 +4274,10 @@
           },
           "energieEffizienzAusweis" : {
             "$ref" : "#/components/schemas/EnergieEffizienzAusweis"
+          },
+          "geplanteModernisierungsAngaben" : {
+            "$ref" : "#/components/schemas/GeplanteModernisierungsAngaben",
+            "description" : "Angaben zu einer geplanten Modernisierung"
           },
           "geschossLage" : {
             "type" : "string",
@@ -4335,6 +4345,32 @@
             "items" : {
               "$ref" : "#/components/schemas/Angebot"
             }
+          }
+        }
+      },
+      "GeplanteModernisierungsAngaben" : {
+        "type" : "object",
+        "properties" : {
+          "belWertVAusstattung" : {
+            "type" : "string",
+            "description" : "Geplante Ausstattung nach BelWertV",
+            "enum" : [ "SEHR_EINFACH", "EINFACH", "MITTEL", "GEHOBEN", "STARK_GEHOBEN" ]
+          },
+          "belWertVModernisierungsGrad" : {
+            "type" : "string",
+            "description" : "Geplanter Modernisierungsgrad nach BelWertV",
+            "enum" : [ "KERNSANIERUNG", "UMFASSEND", "UEBERWIEGEND", "MITTEL", "GERING", "UNERHEBLICH" ]
+          },
+          "modernisierungsJahr" : {
+            "type" : "integer",
+            "format" : "int32",
+            "description" : "Jahr der geplanten Modernisierung",
+            "example" : 2028
+          },
+          "zustand" : {
+            "type" : "string",
+            "description" : "Geplanter Zustand",
+            "enum" : [ "SEHR_GUT", "GUT", "MITTEL", "MAESSIG", "SCHLECHT" ]
           }
         }
       },
@@ -4851,6 +4887,10 @@
         "properties" : {
           "badWc" : {
             "type" : "boolean"
+          },
+          "belWertVModernisierungsGrad" : {
+            "type" : "string",
+            "enum" : [ "KERNSANIERUNG", "UMFASSEND", "UEBERWIEGEND", "MITTEL", "GERING", "UNERHEBLICH" ]
           },
           "bodenWandTreppe" : {
             "type" : "boolean"
