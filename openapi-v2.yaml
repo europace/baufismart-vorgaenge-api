@@ -7,7 +7,7 @@ info:
   description: Mit dieser API können die Vorgänge aus der Europace Plattform ausgelesen
     werden.
   title: Vorgänge API
-  version: 3.0.6
+  version: 3.0.7
 servers:
 - url: https://baufinanzierung.api.europace.de
 security:
@@ -3413,6 +3413,43 @@ components:
           - MITTEL
           - GERING
           - UNERHEBLICH
+        energieEffizienzklasse:
+          type: string
+          description: Entsprechend der geplanteEnergie berechnete Effizienzklasse
+            nach der geplanten Modernisierung. Identisch zur energieEffizienzklasse
+            im Vorhaben.
+          enum:
+          - A_PLUS
+          - A
+          - B
+          - C
+          - D
+          - E
+          - F
+          - G
+          - H
+          example: A
+        geaenderteEnergiekennwerte:
+          type: boolean
+          description: "Gibt an, ob sich die Energiekennwerte durch die geplante Modernisierung\
+            \ ändern"
+        geaenderterZustandOderAusstattung:
+          type: boolean
+          description: "Gibt an, ob sich Zustand oder Ausstattung durch die geplante\
+            \ Modernisierung ändern"
+        geplanteEnergie:
+          type: number
+          format: double
+          description: Energiebedarf nach der geplanten Modernisierung in kWh/(m²*a).
+            Identisch zur geplanteEnergie im Vorhaben.
+          example: 120.0
+        geplanterCo2Wert:
+          type: number
+          format: double
+          description: Entsprechend der geplanteEnergie berechneter CO2-Wert nach
+            der geplanten Modernisierung in kg/(m²*a). Identisch zum geplanterCo2Wert
+            im Vorhaben.
+          example: 30.0
         modernisierungsJahr:
           type: integer
           format: int32
@@ -4724,7 +4761,10 @@ components:
           type: number
         energieEffizienzklasse:
           type: string
-          description: class of energy efficiency
+          deprecated: true
+          description: Entsprechend der geplanteEnergie berechnete Effizienzklasse
+            nach der geplanten Modernisierung. Der Wert wird auch bei GeplanteModernisierungsAngaben
+            ausgegeben.
           enum:
           - A_PLUS
           - A
@@ -4735,6 +4775,7 @@ components:
           - F
           - G
           - H
+          example: A
         externeBausparAngebote:
           type: array
           items:
@@ -4746,9 +4787,18 @@ components:
         geplanteEnergie:
           type: number
           format: double
+          deprecated: true
+          description: Energiebedarf nach der geplanten Modernisierung in kWh/(m²*a).
+            Der Wert wird auch bei GeplanteModernisierungsAngaben ausgegeben.
+          example: 120.0
         geplanterCo2Wert:
           type: number
           format: double
+          deprecated: true
+          description: Entsprechend der geplanteEnergie berechneter CO2-Wert nach
+            der geplanten Modernisierung in kg/(m²*a). Der Wert wird auch bei GeplanteModernisierungsAngaben
+            ausgegeben.
+          example: 30.0
         id:
           type: string
         nachfinanzierung:
